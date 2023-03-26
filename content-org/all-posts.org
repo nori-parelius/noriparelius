@@ -5,19 +5,19 @@
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
 :EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /assets/img/featured-image-1024x536.png
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-1200x628.jpg
 :END:
 This is my site
 
-* Blog
+* Post
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: blog
+:EXPORT_HUGO_SECTION: post
 :END:
 
 ** DONE Movement moves the brain - why dancing is better than sudoku                     
 :PROPERTIES:
 :EXPORT_FILE_NAME: movement-moves-the-brain
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image noriparelius/assets/img/movement-moves-the-brain_feat-1024x536.png
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-3000x2000.png
 :END:
 *** Can I drop my body off at the gym and pick it up when it's done?
 
@@ -249,7 +249,6 @@ And that's why I just can't keep it to myself.
 
 ** DONE I failed at starting an oline business and I'm happy with that
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: blog
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
 :END:
 
