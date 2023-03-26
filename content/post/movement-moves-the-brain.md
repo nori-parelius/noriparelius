@@ -1,8 +1,10 @@
 +++
 title = "Movement moves the brain - why dancing is better than sudoku"
 author = ["nori"]
+date = 2022-07-14
+tags = ["Movement"]
 draft = false
-featured_image = "/img/mountain-3000x2000.png"
+featured_image = "/img/featured_movement-moves-the-brain.jpg"
 +++
 
 ## Can I drop my body off at the gym and pick it up when it's done? {#can-i-drop-my-body-off-at-the-gym-and-pick-it-up-when-it-s-done}
@@ -18,11 +20,7 @@ When we talk about movement, we often think of musculoskeletal system - the musc
 
 If I want to drink my tea, I just reach my hand, pick up the cup, bring it to my mouth and drink. No real thinking required. But even such a seemingly simple movement requires an incredibly well coordinated effort from a large number of muscles. Everything needs to be just right. Just the right strength of a contraction at just the right time. And that's what the brain is there for.
 
-<div class="verse">
-
-Movement might actually be the reason why we have a brain at all!<br />
-
-</div>
+> Movement might actually be the reason why we have a brain at all!
 
 According to one theory, animals evolved a brain in order to be able to freely move through their environment. The complex interactions with one's surroundings simply required a brain. Plants manage without one, but they usually don't get very far. Even for us humans, a species that likes to use our brains for a bunch of stuff, movement still takes up a massive part of its capacity.
 
@@ -31,11 +29,7 @@ According to one theory, animals evolved a brain in order to be able to freely m
 
 I have nothing against sudoku, but if you would like to train your brain then movement can get you better results. There are [studies that look specifically at the effect of dancing on the cognitive abilities and dementia risk in elderly people](https://www.nejm.org/doi/full/10.1056/NEJMoa022252). The effects are overwhelmingly positive and the best out of the tested activities, followed by crossword puzzles and reading. Biking, swimming and golf however didn't make much of a difference.
 
-<div class="verse">
-
-What is it about dancing that was so beneficial for the brain? The most likely answer is that it was the need to learn new things and to constantly react and adjust to the music and the dancing partner.<br />
-
-</div>
+> What is it about dancing that was so beneficial for the brain? The most likely answer is that it was the need to learn new things and to constantly react and adjust to the music and the dancing partner.
 
 In dancing there is a tight feedback loop involved in dancing. The brain needs to carefully monitor the inputs - music, partner, space, own body, and decide how to react to it. There are many possibilities and often new moves. The environment is complex and our movement through it is complex. It is what the brain is so good at and also what is good for it.
 
@@ -60,11 +54,7 @@ The good news is,  that the focus is our key to improving the quality of our mov
 
 One of the foundations of good and safe movement is self-awareness.  We all have our limitations, but being aware of them is what allows us to use our full abilities and  reduce the risk of injuries.
 
-<div class="verse">
-
-How to build good movement? Play, practice, train. In that order. With self-awareness.<br />
-
-</div>
+> How to build good movement? Play, practice, train. In that order. With self-awareness.
 
 The ultimate way to develop self-awareness is play. Play is an exploration. An exploration of one's own abilities, of the environment and how they can play together. In play, we test our boundaries, we feel what feels right and we experiment with various ways of doing the same. It allows us to know ourselves and to find what works.
 
@@ -74,8 +64,4 @@ Training is the las step that only makes sense after we have been through play a
 
 For most people who aren't athletes, the play and practice stages are the most important. They train the brain the most, they help us develop self-awareness, correct movement patterns and despite what it might soud like, they do also train and strenghten the muscles. Plus, it's where most of the fun is.
 
-<div class="verse">
-
-Nobody would dream of leaving their brain behind when going to practice playing a  music instrument.  Practicing movement isn’t really that different.<br />
-
-</div>
+> Nobody would dream of leaving their brain behind when going to practice playing a  music instrument.  Practicing movement isn’t really that different.

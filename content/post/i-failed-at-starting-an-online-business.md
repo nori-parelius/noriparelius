@@ -1,7 +1,10 @@
 +++
-title = "I failed at starting an oline business and I'm happy with that"
+title = "I failed at starting an online business and I'm happy with that"
 author = ["nori"]
+date = 2023-03-17
+tags = ["Online"]
 draft = false
+featured_image = "/img/featured_failed-online-business.jpg"
 +++
 
 I really really tried to start an online business, but it was just an endless struggle. I just couldn't get myself to do the things and I couldn't get it right. And so I finally stopped. It was a relief and a disappointment at the same time. And it actually took me close to a year to figure out what went "wrong", and why it's for the best.
@@ -11,15 +14,19 @@ If you are looking for a guide on how to start making money online, this is not 
 
 ## A course that was supposed to save me {#a-course-that-was-supposed-to-save-me}
 
-It was at a time in my life when I was seriously struggling with balancing work and family. I had a small child that needed my presence more than the average toddler, but I just had to go back to work, there was no other choice. So I was drowning in guilt, fatigue and tears (both mine and hers). I wanted a way out.
+It was at a time in my life when I was seriously struggling with balancing work and family. I had a small child that needed my presence more than the average toddler, but I just had to go back to work, there was no other choice. So I was drowning in guilt, fatigue and tears (both mine and hers).
+
+> I wanted a way out.
 
 And that way out seemed to appear on Instagram, out of all places. Some of the people I was following mentioned having gone through a life-changing course about starting an online business. So I followed the account of the lovely lady who runs it. And at first I didn't think it was the right thing for me, but with each passing post and each passing month, I was getting more and more convinced to give it a try.
 
 I followed for about a year before I signed up. I already had a blog from before (which was just for fun), and I felt I had things to say. So why not?
 
-I gave it my all. I was posting on my blog, on Facebook, on Instagram, sending a newsletter, I had several "free" ebooks that I exchanged for people's email addresses and at the end of the course, I had my paid ebook. I was proud of it. It was good.
+> I gave it my all.
 
-**And then I hit a wall.**
+I was posting on my blog, on Facebook, on Instagram, sending a newsletter, I had several "free" ebooks that I exchanged for people's email addresses and at the end of the course, I had my paid ebook. I was proud of it. It was good.
+
+> And then I hit a wall.\*
 
 I couldn't get myself to promote my ebook. I couldn't get myself to mention it on social media. I kept lowering the price of my ebook every few weeks. I lost steam completely. I tried to pick up where I left again and again, thinking it was writer's block or imposter syndrome or whatever, but I just couldn't get myself to write and post with any regularity again. There were months between each addition and writing was a pain.
 
@@ -45,7 +52,7 @@ It's only recently that I started looking at it from the other side though. From
 
 Then I read about Tristan Harris - a technology ethicist, vocal critic of social media and founder of the [Center for Humane Technology](https://www.humanetech.com/). He compared social media to magicians. We all know magicians are using tricks and we are often trying to look for it, yet almost all of us get fooled over and over again. It has nothing to do with intelligence. They are simply using our inherent human "weaknesses", the way our brain works, to trick us. But while magicians do it for our delight, social media and ads do it for other reasons. Why would companies use as much money as they do for advertising, if it didn't work?
 
-Manipulation doesn't stop working just because we know we are being manipulated.
+> Manipulation doesn't stop working just because we know we are being manipulated.
 
 
 ### Social media work for marketers {#social-media-work-for-marketers}
@@ -61,7 +68,7 @@ Social media are full of people trying to sell. We are interacting with ads with
 
 ## Selling dreams {#selling-dreams}
 
-I started wondering how much I was influenced by these subtle and less subtle ads.
+> I started wondering how much I was influenced by these subtle and less subtle ads.
 
 What about the course I was so sad about not being able to buy, since it cost 2000 euros? If my brain wasn't massaged for more than a year, would I have even wanted it? What course is even worth 2000 euros? Would my life have been easier if I have never heard about it? Would it be so life-changinly (I know it's not a word) worth it, if I had bought it? I don't have answers. Just questions.
 
@@ -71,11 +78,7 @@ Now, I don't want to throw any shade on that particular course and its author. I
 
 And yet. And yet I wonder how many of us get seduced by the regular images of far-away places and vague promise of freedom.
 
-<div class="verse">
-
-Seduced by posts written by a skilled marketer, delivered to us several times a day by powerful algorithms behind social media.<br />
-
-</div>
+> Seduced by posts written by a skilled marketer, delivered to us several times a day by powerful algorithms behind social media.
 
 I'm not saying it's unethical. I'm just realizing how susceptible I am to the marketing magic. And I'm realizing it's not something I would be ok with doing, personally. I don't want to make people want things, I don't want to create desires that might not have been there, just to sell my stuff. Whether I deserve the reward or not. I think there is already too much wanting in this world.
 
@@ -88,11 +91,7 @@ Sometimes I wish though that the world would be a bit different. A bit kinder an
 
 I never thought I would be reminded of Braiding Sweetgrass while thinking of online marketing, but here we are. One of the ideas Robin introduces is gift economy.
 
-<div class="verse">
-
-Gift economy. A world where every living thing freely shares their gifts with the others, and in return receives gifts with gratitude and respect for the giver. A world of reciprocity. A world where one doesn't just ask: "what can I get?", but mostly: "what can I give?". A world where gifts are appreciated and treasured.<br />
-
-</div>
+> Gift economy. A world where every living thing freely shares their gifts with the others, and in return receives gifts with gratitude and respect for the giver. A world of reciprocity. A world where one doesn't just ask: "what can I get?", but mostly: "what can I give?". A world where gifts are appreciated and treasured.
 
 The plentiful bounty of Americas at the time when European colonizers arrived wasn't an accident. It was the result of careful stewardship of the land by the native peoples. It was gift economy between humans and nature in practice. It was the result of honorable harvest - never taking more than is given, never taking more than a half, giving back in return,…
 

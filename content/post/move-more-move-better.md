@@ -1,12 +1,13 @@
 +++
 title = "How I found out I had to move more and move better"
 author = ["nori"]
+date = 2022-08-06
+tags = ["Movement", "About me"]
 draft = false
+featured_image = "/img/featured_move-more-move-better.jpg"
 +++
 
 ## Disconnected and dysfunctional {#disconnected-and-dysfunctional}
-
-Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt.
 
 I used to be a nerdy little bookworm as a kid and as a teenager. And honestly a bit of a couch potato. If I could sit in a comfy armchair with a book, I would sit in a comfy armchair with a book.
 
@@ -19,6 +20,8 @@ I was just 12 when a doctor told me that my knee pain was due to worn cartilages
 And I don't think I even understood how much it affected me mentally...
 
 I wasn't happy with the way I looked and I ingored as best as I could the way I felt in my own body.
+
+{{< figure src="/ox-hugo/move_more_better_Nori_2013_576x1024.png" caption="<span class=\"figure-number\">Figure 1: </span>Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt." >}}
 
 
 ## It changed, thankfully {#it-changed-thankfully}
@@ -56,4 +59,4 @@ connected to my body and the world around me.
 
 I finally feel at home in my body. I finally feel like I belong. And it's a good feeling.
 
-Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good.
+{{< figure src="/ox-hugo/move-more-better_Nori2019_576x1024.jpg" caption="<span class=\"figure-number\">Figure 2: </span>Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good." >}}

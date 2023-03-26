@@ -1,24 +1,65 @@
 #+hugo_base_dir: ../
-#+hugo_section: 
+#+hugo_section:
 
-* Being Human
+
+* being human
 :PROPERTIES:
-:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_SECTION: 
 :EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-1200x628.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
 :END:
-This is my site
+
+If we shrank the lifetime of our species into one hour, we would still have been hunters and gatherers two minutes ago.
+
+We have the bodies and the minds of our ancient ancestors, while living in this exciting, wonderful, confusing, modern, human zoo. 
+
+I can't be the only one who finds it a bit tricky sometimes, I think.
+
+This personal blog is about the things I think about, learn about, try and test, in my attempts to get better at being human.
+
+** Hi, I'm Nori
+
+#+ATTR_HTML: :width 200px
+[[file:Nori_Parelius-500x500.png]]
+
+
+I am and always have been a scientist at heart. And a nerd with a touch of the ’tism.
+I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.
+
+I have a PhD in biophysics, although my current day job is in data analysis. I’m also a movement enthusiast and a corrective exercise specialist.
+
+I am an expat from Slovakia living in Norway with my Viking husband and two little wildlings.
+
+*** Don't look for me on social media
+I have more or less quit social media, so if you want to be notified next time I post something, feel free to sign up for the newsletter. [[https://dashboard.mailerlite.com/forms/370167/82934069710554625/share][Here]]
 
 * Post
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: post
 :END:
+           
+** TODO plan
+figure out how to refer to tags
+do i need a privacy policy?
+RSS feed?
+put on github
 
-** DONE Movement moves the brain - why dancing is better than sudoku                     
+
+** DONE Blog
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
+:END:
+
+
+** DONE Movement moves the brain - why dancing is better than sudoku                   
 :PROPERTIES:
 :EXPORT_FILE_NAME: movement-moves-the-brain
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-3000x2000.png
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_movement-moves-the-brain.jpg
+:EXPORT_DATE: 2022-07-14
+:EXPORT_HUGO_TAGS: Movement
 :END:
+
 *** Can I drop my body off at the gym and pick it up when it's done?
 
 
@@ -32,9 +73,9 @@ When we talk about movement, we often think of musculoskeletal system - the musc
 
 If I want to drink my tea, I just reach my hand, pick up the cup, bring it to my mouth and drink. No real thinking required. But even such a seemingly simple movement requires an incredibly well coordinated effort from a large number of muscles. Everything needs to be just right. Just the right strength of a contraction at just the right time. And that's what the brain is there for.
 
-#+begin_verse
+#+begin_quote
 Movement might actually be the reason why we have a brain at all! 
-#+end_verse
+#+end_quote
 
 
 According to one theory, animals evolved a brain in order to be able to freely move through their environment. The complex interactions with one's surroundings simply required a brain. Plants manage without one, but they usually don't get very far. Even for us humans, a species that likes to use our brains for a bunch of stuff, movement still takes up a massive part of its capacity. 
@@ -43,9 +84,9 @@ According to one theory, animals evolved a brain in order to be able to freely m
 
 I have nothing against sudoku, but if you would like to train your brain then movement can get you better results. There are [[https://www.nejm.org/doi/full/10.1056/NEJMoa022252][studies that look specifically at the effect of dancing on the cognitive abilities and dementia risk in elderly people]]. The effects are overwhelmingly positive and the best out of the tested activities, followed by crossword puzzles and reading. Biking, swimming and golf however didn't make much of a difference. 
 
-#+begin_verse
+#+begin_quote
 What is it about dancing that was so beneficial for the brain? The most likely answer is that it was the need to learn new things and to constantly react and adjust to the music and the dancing partner. 
-#+end_verse
+#+end_quote
 
 In dancing there is a tight feedback loop involved in dancing. The brain needs to carefully monitor the inputs - music, partner, space, own body, and decide how to react to it. There are many possibilities and often new moves. The environment is complex and our movement through it is complex. It is what the brain is so good at and also what is good for it. 
 
@@ -69,9 +110,9 @@ The good news is,  that the focus is our key to improving the quality of our mov
 One of the foundations of good and safe movement is self-awareness.  We all have our limitations, but being aware of them is what allows us to use our full abilities and  reduce the risk of injuries. 
 
 
-#+begin_verse
+#+begin_quote
 How to build good movement? Play, practice, train. In that order. With self-awareness.
-#+end_verse
+#+end_quote
 
 The ultimate way to develop self-awareness is play. Play is an exploration. An exploration of one's own abilities, of the environment and how they can play together. In play, we test our boundaries, we feel what feels right and we experiment with various ways of doing the same. It allows us to know ourselves and to find what works. 
 
@@ -81,18 +122,19 @@ Training is the las step that only makes sense after we have been through play a
 
 For most people who aren't athletes, the play and practice stages are the most important. They train the brain the most, they help us develop self-awareness, correct movement patterns and despite what it might soud like, they do also train and strenghten the muscles. Plus, it's where most of the fun is.
 
-#+begin_verse
+#+begin_quote
 Nobody would dream of leaving their brain behind when going to practice playing a  music instrument.  Practicing movement isn’t really that different.
-#+end_verse
+#+end_quote
 
-** DONE How I found out I had to move more and move better                    
+** DONE How I found out I had to move more and move better                   
 :PROPERTIES:
 :EXPORT_FILE_NAME: move-more-move-better
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_move-more-move-better.jpg
+:EXPORT_DATE: 2022-08-06
+:EXPORT_HUGO_TAGS: Movement "About me"
 :END:
 
 *** Disconnected and dysfunctional
-
-Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt. 
 
 I used to be a nerdy little bookworm as a kid and as a teenager. And honestly a bit of a couch potato. If I could sit in a comfy armchair with a book, I would sit in a comfy armchair with a book.
 
@@ -105,6 +147,9 @@ I was just 12 when a doctor told me that my knee pain was due to worn cartilages
 And I don't think I even understood how much it affected me mentally...
 
 I wasn't happy with the way I looked and I ingored as best as I could the way I felt in my own body.
+
+#+caption: Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt. 
+[[file:move_more_better_Nori_2013_576x1024.png]]
 
 *** It changed, thankfully
 
@@ -140,11 +185,15 @@ connected to my body and the world around me.
 
 I finally feel at home in my body. I finally feel like I belong. And it's a good feeling. 
 
-Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good.
+#+caption: Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good.
+[[file:move-more-better_Nori2019_576x1024.jpg]]
 
 ** DONE How I became a carnivore 
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-i-became-carnivore
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_carnivore.jpg
+:EXPORT_DATE: 2022-08-18
+:EXPORT_HUGO_TAGS: Food "About me"
 :END:
 
 I don’t eat a “varied and balanced diet” anymore. I don’t do five a day. There is no rainbow on my plate. And no holy (whole)  grains.  Zero fibre,  actually. On the other hand, I eat lots of saturated fat, cholesterol and salt. 
@@ -170,8 +219,9 @@ But that wasn't enough. She kept reacting to random things I ate. And when she s
 She was actually doing very well for a child with allergies - most likely thanks to the breastmilk - but I on the other hand... not so much. 
 
 **** I started falling apart
+#+caption: That is oatmeal in my bowl. January 2018, 8 months post partum. Tired.
+[[file:carnivore_Nori2018_411x637.jpg]]
 
-That is oatmeal in my bowl. January 2018, 8 months post partum. Tired.
 
 It slowly crept up on me, but by the time she was a year, I was hardly recognising myself. I was skinny, weak, perpetually tired and always sick.  Any virus passing by would get me and keep me miserable for many weeks. I even managed to break two of my ribs in a coughing fit.  Really.  
 
@@ -183,33 +233,33 @@ According to my doctor, everything looked fine.
 
 It continued for way too long without much improvement. Until one day in May 2019, when I was 30 years old and the little one has just turned two. 
 
-And here I have to give credit to my husband who showed me a picture of married couple he found online and asked me how old I though they were. I guessed maybe late thirties, at most early fourties. I was super wrong. She was 46 and he was 61. 
+And here I have to give credit to my husband who showed me a [[https://imgur.com/gallery/mkzQ6Kk][picture of married couple]] he found online and asked me how old I though they were. I guessed maybe late thirties, at most early fourties. I was super wrong. She was 46 and he was 61. 
 
 And they attributed their youthfull looks and good health to only having eaten beef for the last 20 years. 
 
 **** Carnivore
 
-The people in the picture were Joe and Charlene Andersen and as we quickly found out, they are far from the only ones following some version of the so-called carnivore diet, and reporting incredible health benefits. 
+The people in the picture were [[https://www.allthingscarnivore.com/joe-and-charlene-andersons-carnivore-diet-experience/][Joe and Charlene Andersen]] and as we quickly found out, they are far from the only ones following some version of the so-called carnivore diet, and reporting incredible health benefits. 
 
-#+begin_verse
+#+begin_quote
 Carnivore... as in no plant foods at all. I was flabbergasted. It can't be!
-#+end_verse
+#+end_quote
 
 
 I mean, everyone knows, that vegetables are nutrition, right? You can't live without vegetables!
 
-#+begin_verse
+#+begin_quote
 Or?
-#+end_verse
+#+end_quote
 
 
 Turns out you can. And more than that. You can thrive. We discovered a big community of carnivores online, quite a few of them doctors, researchers and dieticians. And so many stories from all sorts of people. They often sounded like miracles. People who went into remission from their "uncurable" chronic diseases, from eczemas, depression, anxiety, through Crohn's, type 2 diabetes, psoriasis, juvenile arthritis, to epilepsy, Ehlers-Danlos syndrome and tooth cavities...
 
 Some even had their grey hair grow dark again. 
 
-#+begin_verse
+#+begin_quote
 I usually follow the rule that if something sound too good to be true, then it probably isn't true. 
-#+end_verse
+#+end_quote
 
 *** But there wasn't much to lose this time. 
 
@@ -219,9 +269,12 @@ My personal little miracle
 
 We were going to try it for a month. It has now been over 3 years. It really felt like experiencing my own little miracle. 
 
-#+begin_verse
+#+caption: 7 months carnivore and things are good. Definitely less dark circles under the eyes.
+[[file:carnivore_Nori2019_341x767.jpg]]
+
+#+begin_quote
 I do indeed thrive.
-#+end_verse
+#+end_quote
 
 
 - *Digestion* - better than ever. And it used to be really bad. Now I don't think about 99% of the time. Have you ever experienced zero bloat? It's glorious.
@@ -234,22 +287,24 @@ I do indeed thrive.
 
 - *Resistance to getting sick* - definitely better. I still get sick, seeing that I live with two small people that will gladly sneeze in your eyeball and that visit a breeding gourn for pathogens daily (a.k.a. kindergarten). But the illnesses are milder and pass much faster. 
 
-7 months carnivore and things are good. Definitely less dark circles under the eyes.
 
 Over the last three years I have been experimenting with adding other foods to my diet and every time I end up going back to a pure carnivore of meat, fish, eggs, salt and water. Because many of the benefits I mentioned here disappear for me, once I add some plant foods. Some people don't feel a difference from adding some coffee or avocado or spices or other plants, but I really do. 
 
 And for as long as this will make me feel the best, I will continue. 
 
-#+begin_verse
+#+begin_quote
 The carnivore diet and how and why it works has remained a source of fascination for me. I have never before experienced such a profound change. I wouldn't hesitate to say that carnivore saved my life. And it all makes sense. 
 
 And that's why I just can't keep it to myself.
-#+end_verse
+#+end_quote
 
 
-** DONE I failed at starting an oline business and I'm happy with that
+** DONE I failed at starting an online business and I'm happy with that
 :PROPERTIES:
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_failed-online-business.jpg
+:EXPORT_DATE: 2023-03-17
+:EXPORT_HUGO_TAGS: Online
 :END:
 
 I really really tried to start an online business, but it was just an endless struggle. I just couldn't get myself to do the things and I couldn't get it right. And so I finally stopped. It was a relief and a disappointment at the same time. And it actually took me close to a year to figure out what went "wrong", and why it's for the best. 
@@ -258,15 +313,26 @@ If you are looking for a guide on how to start making money online, this is not 
 
 *** A course that was supposed to save me
 
-It was at a time in my life when I was seriously struggling with balancing work and family. I had a small child that needed my presence more than the average toddler, but I just had to go back to work, there was no other choice. So I was drowning in guilt, fatigue and tears (both mine and hers). I wanted a way out.
+It was at a time in my life when I was seriously struggling with balancing work and family. I had a small child that needed my presence more than the average toddler, but I just had to go back to work, there was no other choice. So I was drowning in guilt, fatigue and tears (both mine and hers).
+
+#+begin_quote
+I wanted a way out.
+#+end_quote
+
 
 And that way out seemed to appear on Instagram, out of all places. Some of the people I was following mentioned having gone through a life-changing course about starting an online business. So I followed the account of the lovely lady who runs it. And at first I didn't think it was the right thing for me, but with each passing post and each passing month, I was getting more and more convinced to give it a try.
 
 I followed for about a year before I signed up. I already had a blog from before (which was just for fun), and I felt I had things to say. So why not?
 
-I gave it my all. I was posting on my blog, on Facebook, on Instagram, sending a newsletter, I had several "free" ebooks that I exchanged for people's email addresses and at the end of the course, I had my paid ebook. I was proud of it. It was good.
+#+begin_quote
+I gave it my all.
+#+end_quote
 
-*And then I hit a wall.*
+I was posting on my blog, on Facebook, on Instagram, sending a newsletter, I had several "free" ebooks that I exchanged for people's email addresses and at the end of the course, I had my paid ebook. I was proud of it. It was good.
+
+#+begin_quote
+And then I hit a wall.*
+#+end_quote
 
 I couldn't get myself to promote my ebook. I couldn't get myself to mention it on social media. I kept lowering the price of my ebook every few weeks. I lost steam completely. I tried to pick up where I left again and again, thinking it was writer's block or imposter syndrome or whatever, but I just couldn't get myself to write and post with any regularity again. There were months between each addition and writing was a pain.
 
@@ -290,7 +356,9 @@ It's only recently that I started looking at it from the other side though. From
 
 Then I read about Tristan Harris - a technology ethicist, vocal critic of social media and founder of the [[https://www.humanetech.com/][Center for Humane Technology]]. He compared social media to magicians. We all know magicians are using tricks and we are often trying to look for it, yet almost all of us get fooled over and over again. It has nothing to do with intelligence. They are simply using our inherent human "weaknesses", the way our brain works, to trick us. But while magicians do it for our delight, social media and ads do it for other reasons. Why would companies use as much money as they do for advertising, if it didn't work?
 
+#+begin_quote
 Manipulation doesn't stop working just because we know we are being manipulated.
+#+end_quote
 
 **** Social media work for marketers
 
@@ -304,7 +372,9 @@ Social media are full of people trying to sell. We are interacting with ads with
 
 *** Selling dreams
 
+#+begin_quote
 I started wondering how much I was influenced by these subtle and less subtle ads.
+#+end_quote
 
 What about the course I was so sad about not being able to buy, since it cost 2000 euros? If my brain wasn't massaged for more than a year, would I have even wanted it? What course is even worth 2000 euros? Would my life have been easier if I have never heard about it? Would it be so life-changinly (I know it's not a word) worth it, if I had bought it? I don't have answers. Just questions.
 
@@ -314,9 +384,9 @@ Now, I don't want to throw any shade on that particular course and its author. I
 
 And yet. And yet I wonder how many of us get seduced by the regular images of far-away places and vague promise of freedom. 
 
-#+begin_verse
+#+begin_quote
 Seduced by posts written by a skilled marketer, delivered to us several times a day by powerful algorithms behind social media.
-#+end_verse
+#+end_quote
 
 
 I'm not saying it's unethical. I'm just realizing how susceptible I am to the marketing magic. And I'm realizing it's not something I would be ok with doing, personally. I don't want to make people want things, I don't want to create desires that might not have been there, just to sell my stuff. Whether I deserve the reward or not. I think there is already too much wanting in this world.
@@ -329,9 +399,9 @@ Sometimes I wish though that the world would be a bit different. A bit kinder an
 
 I never thought I would be reminded of Braiding Sweetgrass while thinking of online marketing, but here we are. One of the ideas Robin introduces is gift economy. 
 
-#+begin_verse
+#+begin_quote
 Gift economy. A world where every living thing freely shares their gifts with the others, and in return receives gifts with gratitude and respect for the giver. A world of reciprocity. A world where one doesn't just ask: "what can I get?", but mostly: "what can I give?". A world where gifts are appreciated and treasured.
-#+end_verse
+#+end_quote
 
 The plentiful bounty of Americas at the time when European colonizers arrived wasn't an accident. It was the result of careful stewardship of the land by the native peoples. It was gift economy between humans and nature in practice. It was the result of honorable harvest - never taking more than is given, never taking more than a half, giving back in return,…
 

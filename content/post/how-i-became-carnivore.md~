@@ -1,7 +1,10 @@
 +++
 title = "How I became a carnivore"
 author = ["nori"]
+date = 2022-08-18
+tags = ["Food", "About me"]
 draft = false
+featured_image = "/img/featured_carnivore.jpg"
 +++
 
 I don’t eat a “varied and balanced diet” anymore. I don’t do five a day. There is no rainbow on my plate. And no holy (whole)  grains.  Zero fibre,  actually. On the other hand, I eat lots of saturated fat, cholesterol and salt.
@@ -31,7 +34,7 @@ She was actually doing very well for a child with allergies - most likely thanks
 
 ### I started falling apart {#i-started-falling-apart}
 
-That is oatmeal in my bowl. January 2018, 8 months post partum. Tired.
+{{< figure src="/ox-hugo/carnivore_Nori2018_411x637.jpg" caption="<span class=\"figure-number\">Figure 1: </span>That is oatmeal in my bowl. January 2018, 8 months post partum. Tired." >}}
 
 It slowly crept up on me, but by the time she was a year, I was hardly recognising myself. I was skinny, weak, perpetually tired and always sick.  Any virus passing by would get me and keep me miserable for many weeks. I even managed to break two of my ribs in a coughing fit.  Really.
 
@@ -44,38 +47,26 @@ According to my doctor, everything looked fine.
 
 It continued for way too long without much improvement. Until one day in May 2019, when I was 30 years old and the little one has just turned two.
 
-And here I have to give credit to my husband who showed me a picture of married couple he found online and asked me how old I though they were. I guessed maybe late thirties, at most early fourties. I was super wrong. She was 46 and he was 61.
+And here I have to give credit to my husband who showed me a [picture of married couple](https://imgur.com/gallery/mkzQ6Kk) he found online and asked me how old I though they were. I guessed maybe late thirties, at most early fourties. I was super wrong. She was 46 and he was 61.
 
 And they attributed their youthfull looks and good health to only having eaten beef for the last 20 years.
 
 
 ### Carnivore {#carnivore}
 
-The people in the picture were Joe and Charlene Andersen and as we quickly found out, they are far from the only ones following some version of the so-called carnivore diet, and reporting incredible health benefits.
+The people in the picture were [Joe and Charlene Andersen](https://www.allthingscarnivore.com/joe-and-charlene-andersons-carnivore-diet-experience/) and as we quickly found out, they are far from the only ones following some version of the so-called carnivore diet, and reporting incredible health benefits.
 
-<div class="verse">
-
-Carnivore... as in no plant foods at all. I was flabbergasted. It can't be!<br />
-
-</div>
+> Carnivore... as in no plant foods at all. I was flabbergasted. It can't be!
 
 I mean, everyone knows, that vegetables are nutrition, right? You can't live without vegetables!
 
-<div class="verse">
-
-Or?<br />
-
-</div>
+> Or?
 
 Turns out you can. And more than that. You can thrive. We discovered a big community of carnivores online, quite a few of them doctors, researchers and dieticians. And so many stories from all sorts of people. They often sounded like miracles. People who went into remission from their "uncurable" chronic diseases, from eczemas, depression, anxiety, through Crohn's, type 2 diabetes, psoriasis, juvenile arthritis, to epilepsy, Ehlers-Danlos syndrome and tooth cavities...
 
 Some even had their grey hair grow dark again.
 
-<div class="verse">
-
-I usually follow the rule that if something sound too good to be true, then it probably isn't true.<br />
-
-</div>
+> I usually follow the rule that if something sound too good to be true, then it probably isn't true.
 
 
 ## But there wasn't much to lose this time. {#but-there-wasn-t-much-to-lose-this-time-dot}
@@ -86,11 +77,9 @@ My personal little miracle
 
 We were going to try it for a month. It has now been over 3 years. It really felt like experiencing my own little miracle.
 
-<div class="verse">
+{{< figure src="/ox-hugo/carnivore_Nori2019_341x767.jpg" caption="<span class=\"figure-number\">Figure 2: </span>7 months carnivore and things are good. Definitely less dark circles under the eyes." >}}
 
-I do indeed thrive.<br />
-
-</div>
+> I do indeed thrive.
 
 -   **Digestion** - better than ever. And it used to be really bad. Now I don't think about 99% of the time. Have you ever experienced zero bloat? It's glorious.
 
@@ -102,16 +91,10 @@ I do indeed thrive.<br />
 
 -   **Resistance to getting sick** - definitely better. I still get sick, seeing that I live with two small people that will gladly sneeze in your eyeball and that visit a breeding gourn for pathogens daily (a.k.a. kindergarten). But the illnesses are milder and pass much faster.
 
-7 months carnivore and things are good. Definitely less dark circles under the eyes.
-
 Over the last three years I have been experimenting with adding other foods to my diet and every time I end up going back to a pure carnivore of meat, fish, eggs, salt and water. Because many of the benefits I mentioned here disappear for me, once I add some plant foods. Some people don't feel a difference from adding some coffee or avocado or spices or other plants, but I really do.
 
 And for as long as this will make me feel the best, I will continue.
 
-<div class="verse">
-
-The carnivore diet and how and why it works has remained a source of fascination for me. I have never before experienced such a profound change. I wouldn't hesitate to say that carnivore saved my life. And it all makes sense.<br />
-<br />
-And that's why I just can't keep it to myself.<br />
-
-</div>
+> The carnivore diet and how and why it works has remained a source of fascination for me. I have never before experienced such a profound change. I wouldn't hesitate to say that carnivore saved my life. And it all makes sense.
+>
+> And that's why I just can't keep it to myself.
