@@ -2,7 +2,7 @@
 #+hugo_section:
 
 
-* Being Human
+* being human
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: 
 :EXPORT_FILE_NAME: _index
@@ -17,13 +17,20 @@ I can't be the only one who finds it a bit tricky sometimes, I think.
 
 This personal blog is about the things I think about, learn about, try and test, in my attempts to get better at being human.
 
-** Hi, I'm Nori 
+** Hi, I'm Nori
+
+#+ATTR_HTML: :width 200px
+[[file:Nori_Parelius-500x500.png]]
+
+
 I am and always have been a scientist at heart. And a nerd with a touch of the ’tism.
-I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.  
+I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.
+
 I have a PhD in biophysics, although my current day job is in data analysis. I’m also a movement enthusiast and a corrective exercise specialist.
+
 I am an expat from Slovakia living in Norway with my Viking husband and two little wildlings.
 
-** Don't look for me on social media
+*** Don't look for me on social media
 I have more or less quit social media, so if you want to be notified next time I post something, feel free to sign up for the newsletter. [[https://dashboard.mailerlite.com/forms/370167/82934069710554625/share][Here]]
 
 * Post
@@ -33,8 +40,10 @@ I have more or less quit social media, so if you want to be notified next time I
            
 ** TODO plan
 figure out how to refer to tags
-fix the footer
-Fix homepage
+do i need a privacy policy?
+RSS feed?
+put on github
+
 
 ** DONE Blog
 :PROPERTIES:
@@ -290,7 +299,7 @@ And that's why I just can't keep it to myself.
 #+end_quote
 
 
-** DONE I failed at starting an oline business and I'm happy with that
+** DONE I failed at starting an online business and I'm happy with that
 :PROPERTIES:
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_failed-online-business.jpg

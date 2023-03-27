@@ -42,7 +42,7 @@ pluralizelisttitles = true
   show_reading_time = true
 
   # footer items, these are from here https://github.com/LukeSmithxyz/lugo/blob/master/config.toml
-#  nextprev = true
+  nextprev = true
   showrss = true
 
 
