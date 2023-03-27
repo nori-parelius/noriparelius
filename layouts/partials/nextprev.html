@@ -1,23 +1,19 @@
 {{ if or .Next .Prev -}}
 <div id="nextprev">
   
-  {{- with .Prev }}
+  
   <div class="flex justify-between w-100 pa3">
-    <div class="w-100 pa  db pv4 ph3 ph0-l no-underline dark-gray">
-      <a class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1" href="{{ .RelPermalink}}">
-	<div id="prevart">Previous:<br>{{.Title}}</div>
-      </a>
-      {{ end -}}
-    </div>
+    {{- with .Prev }}
+    <a class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1" href="{{ .RelPermalink}}">
+      <div id="prevart">Previous:<br>{{.Title}}</div>
+    </a>
+    {{ end -}}
 
-
-   {{- with .Next -}}
-   <div class="flex justify-between w-100 pa3">
-     <a class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1 text-align:right" href="{{ .RelPermalink}}">
-       <div  id="nextart">Next:<br>{{.Title}}</div>
-     </a>
-     {{ end -}}
-   </div>
+    {{- with .Next -}}
+    <a class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1" href="{{ .RelPermalink}}">
+      <div  id="nextart">Next:<br>{{.Title}}</div>
+    </a>
+    {{ end -}}
   </div>
 </div>
 {{ end -}}
