@@ -1,5 +1,5 @@
 +++
-title = "I failed at starting an online business and I'm happy with that"
+title = "I failed at starting an oline business and I'm happy with that"
 author = ["nori"]
 date = 2023-03-17
 tags = ["Online"]

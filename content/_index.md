@@ -1,5 +1,5 @@
 +++
-title = "being human"
+title = "Being Human"
 author = ["nori"]
 draft = false
 featured_image = "/img/mountain-2400x1000.jpg"
@@ -16,16 +16,12 @@ This personal blog is about the things I think about, learn about, try and test,
 
 ## Hi, I'm Nori {#hi-i-m-nori}
 
-{{< figure src="/ox-hugo/Nori_Parelius-500x500.png" width="200px" >}}
-
 I am and always have been a scientist at heart. And a nerd with a touch of the ’tism.
 I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.
-
 I have a PhD in biophysics, although my current day job is in data analysis. I’m also a movement enthusiast and a corrective exercise specialist.
-
 I am an expat from Slovakia living in Norway with my Viking husband and two little wildlings.
 
 
-### Don't look for me on social media {#don-t-look-for-me-on-social-media}
+## Don't look for me on social media {#don-t-look-for-me-on-social-media}
 
 I have more or less quit social media, so if you want to be notified next time I post something, feel free to sign up for the newsletter. [Here](https://dashboard.mailerlite.com/forms/370167/82934069710554625/share)

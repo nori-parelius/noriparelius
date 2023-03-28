@@ -11,6 +11,7 @@ Paginate = 10 # this is set low for demonstrating with dummy content. Set to a h
 googleAnalytics = ""
 enableRobotsTXT = true
 pluralizelisttitles = true
+#posts: /posts/:title/
 
 [[menu.main]]
   name = "Home"
