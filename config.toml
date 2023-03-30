@@ -1,4 +1,4 @@
-baseURL = 'https://noriparelius.com/'
+baseURL = 'https://noriparelius.netlify.app/'
 languageCode = 'en-us'
 title = 'Being Human'
 theme = 'ananke'
