@@ -30,6 +30,9 @@ pluralizelisttitles = true
   priority = 0.5
   filename = "sitemap.xml"
 
+[outputs]
+  home = ["HTML", "RSS"]
+
 [params]
   text_color = "dark-gray"
   author = "Nori"
