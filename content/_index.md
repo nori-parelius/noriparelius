@@ -29,4 +29,4 @@ I am an expat from Slovakia living in Norway with my Viking husband and two litt
 
 ## Don't look for me on social media {#don-t-look-for-me-on-social-media}
 
-I have more or less quit social media, so if you want to be notified next time I post something, feel free to sign up for the newsletter. [Here](https://dashboard.mailerlite.com/forms/370167/82934069710554625/share)
+I have more or less quit social media, so if you want to be notified next time I post something, feel free to  [sign up for the newsletter](https://dashboard.mailerlite.com/forms/370167/82934069710554625/share). There is also an RSS feed link in the website footer, if that is more your thing.

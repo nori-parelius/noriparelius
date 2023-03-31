@@ -31,7 +31,7 @@ I have a PhD in biophysics, although my current day job is in data analysis. Iâ€
 I am an expat from Slovakia living in Norway with my Viking husband and two little wildlings.
 
 ** Don't look for me on social media
-I have more or less quit social media, so if you want to be notified next time I post something, feel free to sign up for the newsletter. [[https://dashboard.mailerlite.com/forms/370167/82934069710554625/share][Here]]
+I have more or less quit social media, so if you want to be notified next time I post something, feel free to  [[https://dashboard.mailerlite.com/forms/370167/82934069710554625/share][sign up for the newsletter]]. There is also an RSS feed link in the website footer, if that is more your thing. 
 
 
 * Privacy policy
