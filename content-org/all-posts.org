@@ -36,7 +36,7 @@ I have more or less quit social media, so if you want to be notified next time I
 
 * Privacy policy
 :PROPERTIES:
-:EXPORT_FILE_NAME: privacy
+:EXPORT_FILE_NAME: privacy-policy
 :END:
 
 ** Who I am
