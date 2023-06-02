@@ -1,6 +1,5 @@
 +++
 title = "being human"
-author = ["nori"]
 draft = false
 featured_image = "/img/mountain-2400x1000.jpg"
 +++
@@ -18,7 +17,7 @@ This personal blog is about the things I think about, learn about, try and test,
 
 ## Hi, I'm Nori {#hi-i-m-nori}
 
-I am and always have been a scientist at heart. And a nerd with a touch of the ’tism.
+I am and always have been a scientist at heart. And a nerd with a hint of neurodivergence.
 
 I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.
 

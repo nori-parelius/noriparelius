@@ -21,7 +21,7 @@ This personal blog is about the things I think about, learn about, try and test,
 [[file:Nori_Parelius-500x500.png]]
 
 ** Hi, I'm Nori
-I am and always have been a scientist at heart. And a nerd with a touch of the ’tism.
+I am and always have been a scientist at heart. And a nerd with a hint of neurodivergence.
 
 
 I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.
@@ -458,7 +458,7 @@ The cholesterol hypothesis:
 
 (By the way, if you know a slightly different version of this, such as switching out LDL for apoB, or saturated fat for cholesterol or for lack of unsaturated fat, well, yes, they keep changing the hypothesis to stay ahead of all the facts that contradict it. But it's still the same thing.)
 
-The poor guy has already written several scientific papers and two books for the general public trying to debunk the cholesterol hypothesis (/The Great Cholesterol Con/ is one of them) and not much has changed. So he also wrote a book trying not as much to debunk the cholesterol hypothesis, but rather offer a better one. One that makes more sense. And that's what /The Clot Thickens/ is about
+The poor guy has already written several scientific papers and two books for the general public trying to debunk the cholesterol hypothesis (/The Great Cholesterol Con/ is one of them) and not much has changed. So he also wrote a book trying not as much to debunk the cholesterol hypothesis, but rather offer a better one. One that makes more sense. And that's what /The Clot Thickens/ is about.
 
 **** The blood clot hypothesis
 What, if not cholesterol/saturated fat/LDL causes atherosclerosis? As Malcolm Kendrick points out, that is not actually a good question to ask. A better question is "How?". Or to put it another way: "What is the process leading to atherosclerosis?". And the hypothesis he puts forward is that the atherosclerotic plaques are remnants of old blood clots. And there are many, many things that can cause these blood clots and so there are many, many "causes" to atherosclerosis.
@@ -495,17 +495,17 @@ There was a lot of detail (and little that would tie it to actual outcomes in pe
 It seems like the "proper" science is not supposed to ask why. Only concern itself with the how. 
 #+end_quote
 
-Don't get me wrong. The /how/ is bloody important. And I have written a few papers in my life and know how science and modern publishing works, I have no illusions there. It's tricky enough to defend the tiny /hows/ one manages to disentangle from the complexity of life, venturing into guessing about the /why/ is thin ice, and almost feels a bit... unscientific?
+Don't get me wrong. The /how/ is bloody important. And I have written a few papers in my life and know how science and modern publishing work, I have no illusions there. It's tricky enough to defend the tiny /hows/ one manages to disentangle from the complexity of life, venturing into guessing about the /why/ is thin ice, and almost feels a bit... unscientific?
 
 But the /why/ matters a lot. Let me explain on an example:
 
 **** Why do LDL particles cross the endothelium?
 Initially, when the cholesterol hypothesis came to be, it was thought that LDL particles just passively diffused through the endothelial cells and got stuck inside the arterial wall underneath them. If you know anything about cells, you might know that they are not very fond of just letting things diffuse through them (thank gods), and they are very picky about what they let through and what they don't. And that is actually the case here as well.
 
-We do have enough evidence now to know that LDLs don't /just/ float through the cells. No, the cells manufacture a receptor, catch themselves and LDL particle, pull it in, move it through and spit it out on the other side. Well, we are quite sure of the catching and pulling-in part, slightly less sure of the spitting out part, but it seems like it does happen. Anyway, even the mainstream view has now admitted that this process is an active one and not passive as it was assumed before.
+We do have enough evidence now to know that LDLs don't /just/ float through the cells. No, the cells manufacture a receptor, catch themselves an LDL particle, pull it in, move it through and spit it out on the other side. Well, we are quite sure of the catching and pulling-in part, slightly less sure of the spitting out part, but it seems like it does happen. Anyway, even the mainstream view has now admitted that this process is an active one and not passive, as it was assumed before.
 
 #+begin_quote
-The endothelial cells actively pulls in an LDL particle and moves it through itself to the other side.
+The endothelial cell actively pulls in an LDL particle and moves it through itself to the other side.
 #+end_quote
 
 Why is this a big deal? Well, if the process had been passive, one could imagine that having too much LDL in the blood would make too much of it go through the wall. But if the cells decide themselves and if they have to use energy and actually work to get it through, it's not an accident.
