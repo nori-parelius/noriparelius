@@ -320,7 +320,7 @@ The carnivore diet and how and why it works has remained a source of fascination
 And that's why I just can't keep it to myself.
 #+end_quote
 
-** DONE I failed at starting an oline business and I'm happy with that
+** DONE I failed at starting an online business and I'm happy with that
 :PROPERTIES:
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_failed-online-business.jpg

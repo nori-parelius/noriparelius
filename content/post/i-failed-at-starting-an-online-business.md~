@@ -1,6 +1,5 @@
 +++
 title = "I failed at starting an oline business and I'm happy with that"
-author = ["nori"]
 date = 2023-03-17
 tags = ["Online"]
 draft = false
