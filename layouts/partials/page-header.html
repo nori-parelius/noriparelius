@@ -15,8 +15,6 @@
         {{ end }}
       </div>
     </div>
-    {{/*Me adding this to fix the link preview*/}}
-    <meta property="og:image" content="{{ $featured_image }}" />
   </header>
 {{ else }}
   <header>
@@ -24,4 +22,8 @@
       {{ partial "site-navigation.html" . }}
     </div>
   </header>
+  <header>
+    {{/*Me adding this to fix the link preview*/}}
+    <meta property="og:image" content="{{ $featured_image }}" />
+    {{ template "_internal/opengraph.html" . }}
 {{ end }}
