@@ -3,7 +3,7 @@ title = "We have a blind spot"
 author = ["nori"]
 date = 2023-07-11
 tags = ["Food"]
-draft = false
+draft = true
 featured_image = "/img/featured_blind-spot.jpg"
 +++
 

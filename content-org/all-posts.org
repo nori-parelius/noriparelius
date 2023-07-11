@@ -584,7 +584,7 @@ Yet maintaining a healthy body weight is so difficult for us humans. And for a l
 Did you know that statistically speaking, someone trying to lose weight has chance of succeeding?
 
 
-** TODO We have a blind spot
+** DONE We have a blind spot
 :PROPERTIES:
 :EXPORT_FILE_NAME: blind-spot
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_blind-spot.jpg
