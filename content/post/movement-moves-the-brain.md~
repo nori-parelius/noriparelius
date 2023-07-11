@@ -60,7 +60,7 @@ The ultimate way to develop self-awareness is play. Play is an exploration. An e
 
 Only then can we move onto practice. Practice is deliberate and focused. Now that we have explored the possibilities through play, we know better where we want to get. We can then start practicing the movements. Focusing on the feedback from our bodies and our environment and using it to refine the movement.
 
-Training is the las step that only makes sense after we have been through play and practice stages. Now that we have a correct movement pattern blueprint in the brain, we can start adding intensity to it, whether through higher loads, speeds or number of repetitions.
+Training is the last step that only makes sense after we have been through play and practice stages. Now that we have a correct movement pattern blueprint in the brain, we can start adding intensity to it, whether through higher loads, speeds or number of repetitions.
 
 For most people who aren't athletes, the play and practice stages are the most important. They train the brain the most, they help us develop self-awareness, correct movement patterns and despite what it might soud like, they do also train and strenghten the muscles. Plus, it's where most of the fun is.
 
