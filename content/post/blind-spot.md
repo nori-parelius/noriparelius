@@ -9,20 +9,20 @@ featured_image = "/img/featured_blind-spot.jpg"
 
 ## Hello, my name is Nori, and I am an addict. {#hello-my-name-is-nori-and-i-am-an-addict-dot}
 
-For the longest time, I didn't want to admit it to myself. I thought I was in control. I thought I was "moderating", whatever that might mean. But in truth I was moderating myself to a serving of my drug of choice dozens of times every day. Simply because I wouldn't feel good without it. Simply because I _wanted_ it.
+For the longest time, I didn't want to admit it to myself. I thought I was in control. I thought I was "moderating", whatever that might mean. But in truth I was moderating myself to a serving of my drug of choice dozens of times every day. Simply because I wouldn't feel good without it. Simply because I _wanted_ it. A lot.
 
 There were times when I would have so much I would make myself feel completely sick. Heart beating uncomfortably fast, body breaking out in cold sweat, headaches, nausea, dry mouth and unquenchable thirst. When I would wake up the next morning, after what was always a bad night of sleep, most of the unpleasantness would still be there (and more).
 
-One time I spent the whole night throwing up, until I finally fell asleep on the bathroom floor. When I woke up some two hours later, utterly miserable, my first thoughts went to wondering about whether I had any more left.
+One time I spent the whole night throwing up, until I finally fell asleep on the bathroom floor. When I woke up some two hours later, utterly miserable, my first thoughts went to whether I had any more left.
 
-You might think that all that yuckiness would deter me from having more. I would have thought so at least. But it didn't. Not one bit. I wanted more. I _needed_ more.
+You might think that all that yuckiness would have detered me from having more. I would have thought so at least. But it didn't. Not one bit. I wanted more. I _needed_ more.
 
 
 ## White powder {#white-powder}
 
 Are you wondering what my drug of choice is? You are not going to like the answer. Just how I didn't like it.
 
-It is a substance extracted from certain plants that, when ingested, stimulates the same regions in the brain as cocaine and amphetamines, giving you a dopamine high. Unfortunately, eating bigger amounts of this substance makes the brain more and more used to it. And getting too much of it damages the blood vessels over time, increasing massively the risk of cardiovascular, kidney and Alzheimer's diseases. It also leads to insulin resistance, causing type 2 diabetes, increasing risk of cancer, fertility problems, gastrointestinal issues, fatty liver disease... just to mention a few. It affects the _whole_ body.
+It is a substance extracted from certain plants, that, when ingested, stimulates the same regions in the brain as cocaine and amphetamines, giving you a dopamine high. Unfortunately, eating bigger amounts of this substance makes the brain more and more used to it. And getting too much of it damages the blood vessels over time, increasing massively the risk of cardiovascular, kidney and Alzheimer's diseases. It also leads to insulin resistance, causing type 2 diabetes, increasing risk of cancer, fertility problems, gastrointestinal issues, fatty liver disease... just to mention a few. It affects the _whole_ body.
 
 It sounds nasty, doesn't it?
 Yet we eat it daily. Heck, we feed it to our kids even more than ourselves.
@@ -30,6 +30,12 @@ Yet we eat it daily. Heck, we feed it to our kids even more than ourselves.
 Did you guess?
 
 It's sugar.
+
+And yes, it really does work similarly to a drug in the brain. [Researchers found that rats would even prefer sugar, and surprisingly also artificial sweetener, over cocaine](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1931610/). [Others have found the same - rats addicted to sugar with typical addict behavious of bingeing, withdrawal and craving, and the related changes in the chemistry of brain.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2235907/) [Dr. Robert Lustig who has spent a big chunk of his career researching fructose compares it to alcohol](https://www.sciencedirect.com/science/article/pii/S0002822310006449) because of how the metabolism of the two is similar and how they both affect our behaviour. (Did you know, that both alcohol and fructose consumption lead to fatty liver and in worst case liver cirrhosis?) Several others ([Nicole Avena et. al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2235907/), [James DiNicolantonio et. al](https://pubmed.ncbi.nlm.nih.gov/28835408/), [Serge Ahmed et. al](https://pubmed.ncbi.nlm.nih.gov/23719144/)) have written about the addictive potential of sugar.
+
+We know that [sugar is one of the main factors behind our insulin resistance and type 2 diabetes epidemic](https://www.sciencedirect.com/science/article/pii/S1499267115300721). There is also evidence that [insulin resistance is a bit of a prerequisite for cardiovascular disease](https://www.ahajournals.org/doi/10.1161/01.CIR.98.5.398). [Alzheimer's disease has been called type 3 diabetes](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7246646/) and it seems it [could be caused by an insulin resistant brain not being able to get the nutrition it needs](https://insulinresistance.org/index.php/jir/article/view/15). Insulin resistance (from too much sugar consumption) also increases the risk and deadlines of several cancers, like [breast cancer](https://pubmed.ncbi.nlm.nih.gov/32530506/), [prostate cancer](https://pubmed.ncbi.nlm.nih.gov/12509402/) and [colorectal cancer](https://pubmed.ncbi.nlm.nih.gov/11535544/).
+
+So yes, sugar is a drug, and a dangerous one at that.
 
 
 ## Natural this - natural that, moderation, and other fairy tales {#natural-this-natural-that-moderation-and-other-fairy-tales}
@@ -124,7 +130,7 @@ The carnivore diet is a wonderful tool in this fight, because it keeps me health
 
 Addiction isn't just a chemical thing in the brain, it's not just about dopamine and neurotransmitters. It's about people, happiness, belonging, despair, coping,...
 
-We know that even rats won't get addicted if they live in a "rat paradise", like they did in this study. And we know that most of the soldiers who did drugs in Vietnam simply stopped when they returned home. There simply wasn't need for it anymore.
+We know that even [rats won't get addicted if they live in a "rat paradise"](https://onlinelibrary.wiley.com/doi/10.1111/add.14481), like they did in this study. And we know that [most of the soldiers who did drugs in Vietnam simply stopped when they returned home](https://doi.org/10.3109/00952997609014295). There simply wasn't need for it anymore.
 
 So I am slowly learning and discovering how I used sugar to deal with negative emotions and how I still want it when I feel down. I feel like I lost my crutch now and have to learn to walk on my own. It has been a long journey, and it's far from over, but I am getting better. I no longer binge after a small slip-up, I have learned to simply stop again, to not let myself fall all the way down into the well.
 
