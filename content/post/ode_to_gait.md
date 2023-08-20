@@ -7,7 +7,7 @@ draft = false
 featured_image = "/img/featured_ode-to-gait.jpg"
 +++
 
-There are probably several magical ingredients in the soup of humanity that make us who we are; like big brains, opposable thumbs and tendency to cooperate. And among these, we can definitely list our gait too.
+There are probably several magical ingredients in the soup of humanity that make us who we are; like big brains, opposable thumbs and a tendency to cooperate. And among these, we can definitely list our gait too.
 
 The way we humans walk is unique in the natural world. Moving around on two legs freed up those opposable thumbs for other purposes, allowed us to throw things, carry things and use tools. It placed our heads higher up, allowing us to see further. It was an extremely successful adaptation that opened up an ocean of possibilities.
 
