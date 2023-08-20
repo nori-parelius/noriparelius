@@ -2,15 +2,15 @@
 <div id="nextprev">
   
   
-  <div class="flex justify-between w-100 pa3">
+  <div class="flex justify-between w-100 pa0">
     {{- with .Prev }}
-    <a class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1" href="{{ .RelPermalink}}">
+    <a class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib dark-gray sans-serif" href="{{ .RelPermalink}}">
       <div id="prevart">Previous:<br>{{.Title}}</div>
     </a>
     {{ end -}}
 
     {{- with .Next -}}
-    <a class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1" href="{{ .RelPermalink}}">
+    <a class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib dark-gray sans-serif" href="{{ .RelPermalink}}">
       <div  id="nextart">Next:<br>{{.Title}}</div>
     </a>
     {{ end -}}

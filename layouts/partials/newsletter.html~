@@ -1,0 +1,10 @@
+** Don't look for me on social media
+I have more or less quit social media, so if you want to be notified next time I post something, feel free to  [[https://dashboard.mailerlite.com/forms/370167/82934069710554625/share][sign up for the newsletter]]. There is also an RSS feed link in the website footer, if that is more your thing.
+<ul class="pa0">
+   <li class="list di">
+     <a href="{{ .RelPermalink }}" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">
+       {{- .LinkTitle -}}
+     </a>
+   </li>
+  {{ end }}
+</ul>
