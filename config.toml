@@ -49,4 +49,7 @@ pluralizelisttitles = true
   nextprev = true
   showrss = true
 
-
+# socials
+[[params.ananke_socials]]
+name = "medium"
+url = "https://medium.com/@nori.parelius"
