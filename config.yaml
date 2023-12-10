@@ -1,0 +1,9 @@
+params:
+  ananke_socials:
+  - name: medium
+    url: https://medium.com/@nori.parelius
+  - name: tumblr
+    url: https://www.tumblr.com/blog/norisbeinghuman
+    label: Tumblr
+  - name: github
+    url: https://github.com/nori-parelius
