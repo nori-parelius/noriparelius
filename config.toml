@@ -51,5 +51,20 @@ pluralizelisttitles = true
 
 # socials
 [[params.ananke_socials]]
+name = "rss"
+url = "https://noriparelius.com/index.xml"
+
+[[params.ananke_socials]]
 name = "medium"
 url = "https://medium.com/@nori.parelius"
+
+
+[[params.ananke_socials]]
+name = "github"
+url = "https://github.com/nori-parelius"
+
+[[params.ananke_socials]]
+name = "tumblr"
+url = "https://www.tumblr.com/blog/norisbeinghuman"
+color = "#34525f"
+label = "Tumblr"
