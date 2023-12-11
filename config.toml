@@ -12,6 +12,8 @@ googleAnalytics = ""
 enableRobotsTXT = true
 pluralizelisttitles = true
 #posts: /posts/:title/
+# This next thing is because I set an output for taxonomy
+ignoreErrors = ["error-output-taxonomy"]
 
 [[menu.main]]
   name = "Home"
@@ -31,7 +33,10 @@ pluralizelisttitles = true
   filename = "sitemap.xml"
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["html"]
+  section = ["html", "rss"]
+  taxonomy = ["html"]
+
 
 [params]
   text_color = "dark-gray"
@@ -52,7 +57,7 @@ pluralizelisttitles = true
 # socials
 [[params.ananke_socials]]
 name = "rss"
-url = "https://noriparelius.com/index.xml"
+url = "/post/index.xml"
 
 [[params.ananke_socials]]
 name = "medium"
@@ -68,3 +73,8 @@ name = "tumblr"
 url = "https://www.tumblr.com/blog/norisbeinghuman"
 color = "#34525f"
 label = "Tumblr"
+
+# taxonomies
+[taxonomies]
+category = 'categories'
+tag = 'tags'
