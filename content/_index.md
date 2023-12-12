@@ -1,6 +1,5 @@
 +++
 title = "being human"
-author = ["nori"]
 draft = false
 featured_image = "/img/mountain-2400x1000.jpg"
 +++
@@ -22,7 +21,7 @@ I am and always have been a scientist at heart. And a nerd with a hint of neurod
 
 I like to dive into various topics, dig in the research, test things and learn. And rant. Oh, ranting is probably my favourite hobby. And I lowkey want to save the world.
 
-I have a PhD in biophysics, although my current day job is in data analysis. I’m also a movement enthusiast and a corrective exercise specialist.
+I have a PhD in biophysics, although my current day job is in data analysis.
 
 I am an expat from Slovakia living in Norway with my Viking husband and two little wildlings.
 

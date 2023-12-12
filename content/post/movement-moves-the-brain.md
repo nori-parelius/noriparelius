@@ -1,6 +1,5 @@
 +++
 title = "Movement moves the brain - why dancing is better than sudoku"
-author = ["nori"]
 date = 2022-07-14
 tags = ["Movement"]
 draft = false

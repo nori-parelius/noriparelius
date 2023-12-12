@@ -1,6 +1,5 @@
 +++
 title = "An ode to human gait"
-author = ["nori"]
 date = 2023-08-19
 tags = ["Movement"]
 draft = false

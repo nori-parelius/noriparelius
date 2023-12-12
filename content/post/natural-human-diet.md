@@ -1,6 +1,5 @@
 +++
 title = "What is the natural human diet?"
-author = ["nori"]
 date = 2022-05-16
 tags = ["Food"]
 draft = true
