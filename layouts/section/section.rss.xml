@@ -65,7 +65,7 @@
     {{- range $pages }}
     <item>
       <title>{{ .Title }}</title>
-      {{- $images := Page.Resources.ByType "image" -}}
+      {{- $images := .Resources.ByType "image" -}}
       <-- {{ $images }} -->
       {{- $featured := $images.GetMatch "*feature*" -}}
       {{- with $featured -}}
