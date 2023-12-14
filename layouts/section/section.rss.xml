@@ -76,10 +76,12 @@
         {{ end }}
         {{ .Content | transform.XMLEscape | safeHTML }}
       </description>
+      {{- with .Params.images -}}
       {{- $images := .Resources.ByType "image" -}}
       {{- $featured := $images.GetMatch "*feature*" -}}
       {{- with $featured -}}
       <enclosure url="{{ $featured.Permalink }}" type="image/jpg"></enclosure>
+      {{- end -}}
       {{- end -}}
     </item>
     {{- end -}}
