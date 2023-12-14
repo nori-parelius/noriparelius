@@ -70,7 +70,7 @@
       {{- $img := index . 0 -}}
       <enclosure url="{{ printf "%s%s" $pagePermalink $img }}" type="image/jpg"></enclosure>
       {{ else -}}
-      {{- $images := .Resources.ByType "image" -}}
+      {{- $images := .Resources.ByType "img" -}}
       {{- $featured := $images.GetMatch "*feature*" -}}
       {{- if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
       {{- with $featured -}}
