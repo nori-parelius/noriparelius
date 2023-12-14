@@ -67,7 +67,7 @@
       <title>{{ .Title }}</title>
       {{- $featured := .Params.featured_image -}}
       {{- with $featured -}}
-      <enclosure url="{{ $featured.Permalink }}" type="image/jpg"></enclosure>
+      <enclosure url="{{ .Permalink }}{{ $featured }}" type="image/jpg"></enclosure>
       {{- else -}}
       {{- with .Site.Params.images -}}
       <enclosure url="{{ index . 0 | absURL }}" type="image/jpg"></enclosure>
