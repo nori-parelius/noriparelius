@@ -77,6 +77,10 @@ url = "https://www.tumblr.com/blog/norisbeinghuman"
 color = "#34525f"
 label = "Tumblr"
 
+[[params.ananke_socials]]
+name = "instagram"
+url = "https://www.instagram.com/nori.parelius/"
+
 # taxonomies
 [taxonomies]
 category = 'categories'
