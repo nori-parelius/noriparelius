@@ -80,8 +80,8 @@
       {{- $featured := $images.GetMatch "*feature*" -}}
       {{- with $featured -}}
       <enclosure url="{{ $featured.Permalink }}" type="image/jpg"></enclosure>
-      {{ - end -}}
+      {{- end -}}
     </item>
-    {{- end }}
+    {{- end -}}
   </channel>
 </rss>
