@@ -65,9 +65,8 @@
     {{- range $pages }}
     <item>
       <title>{{ .Title }}</title>
-      {{- $featured := .Params.featured_image -}}
-      {{- with $featured -}}
-      <enclosure url="{{ .Permalink }}{{ $featured }}" type="image/jpg"></enclosure>
+      {{- with .Params.featured_image -}}
+      {{ printf "<enclosure url=\"%s\" type="image/jpg"></enclosure> (. | absURL) | safeHTML }}
       {{- else -}}
       {{- with .Site.Params.images -}}
       <enclosure url="{{ index . 0 | absURL }}" type="image/jpg"></enclosure>
