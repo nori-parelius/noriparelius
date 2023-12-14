@@ -1126,6 +1126,8 @@ CLOSED: [2023-12-14 Thu 18:39]
 :EXPORT_HUGO_CATEGORIES: "Knowledge work" Blogging Learning Writing
 :END:
 
+/(The image above is AI generated, the rest is not.)/
+
 I believe this is my fifth(?!) attempt at blogging in the last 12 years. Some of those blogs were very short-lived, some survived for longer. None of the previous four are out there anymore. I had my reasons for starting each of the blogs, but it wasn't something I thought about much, not something that was clear in my mind. As I was starting yet another blog (this one), I decided to be a bit more mindful and conscious of what my goals actually are. Because if you don't know where you want to go, every step you take is in the wrong direction.
 
 So here are my 5 reasons for blogging!
