@@ -1116,7 +1116,6 @@ Modern hunters and gatherers have no chance to live the way they could have a mi
 How much plant matter we were eating was changing over the millenia. Eating meat, however, was what allowed us to develop our big brains and differentiate ourselves from our closest ape relatives. For a human to become a human, we had to be carnivores.
 
 Plants started to take a bigger and bigger part in our diet about 15 000 years ago, so after about 2 million years of almost pure carnivory. This change was happening at a time when big mammals began to go extinct and this forced us to change our diets. Scientists can follow this change by looking at stable isotope analyses, appearance of tools made to process plants and more and more dental caries in the teeth of our ancestors at that time. Apart from cavities, this change also brought on a [[https://www.sciencedaily.com/releases/2011/06/110615094514.htm][decrease in our average height and in the size of our brains]], and that is where we still are today. (I mean, we are shorter and with smaller heads than our genetically pretty much identical ancestors from 15 000 years ago. Crazy, isn't it?)
-
 ** DONE My 5 reasons for blogging
 CLOSED: [2023-12-14 Thu 18:39]
 :PROPERTIES:
@@ -1139,7 +1138,7 @@ David McCullough said "Writing is thinking," and I very much agree with that sen
 While thinking itself can be passive, writing, on the other hand, is active. It gives the thoughts a concrete form, turns them from possibilities into /things/. Even if it's "only" words, those words are an act of creation. 
 
 *** 2. Learning by explaining
-Related to the previous point, explaining things, whether in writting or by talking through them, is one of the best ways to make sure that you understand things. Trying to put your knowledge into a digestable format that can be understood by others is one of the best ways to see where the gaps are, and it creates an incentive to fill them.
+Related to the previous point, explaining things, whether in writing or by talking through them, is one of the best ways to make sure that you understand things. Trying to put your knowledge into a digestible format that can be understood by others is one of the best ways to see where the gaps are, and it creates an incentive to fill them.
 
 Richard Feynman was a big proponent of learning by trying to explain things to others It helped him finding out where he lacked knowledge, then he looked up what was missing, learned more and then did it all again. And again, and again. The Feynman technique (that is really what it is called) is just one of many within the "learning by teaching" framework. Even explaining things to an inanimate object improves learning, hence the existence of the "plastic platypus learning" technique (yes, that is its real name). (Now I kind of want a plastic platypus.)
 
@@ -1176,6 +1175,6 @@ An attentive reader might notice that I didn't talk about some things that many 
 
 Let's not sand-paper our eyes, who wouldn't want some extra money, right? (Btw, sand-papering your eyes is a great Slovak expression for denying the obvious. I am trying to introduce it to English. Is it working?) Anyway, yes, money.
 
-Truth is, the last blog before this one was my attempt to start an online business. And I hated it. It was fun at first, then it wasn't. I wrote a whole [[{{< ref "/post/i-failed-at-starting-an-online-business.md" >}}][blog post about how I failed at starting an online business, and why I'm happy with that]. I still think it's super neat that people can make money online, and I definitely believe that creators should be paid for what they do and provide. But the way I was trying to go about it just didn't feel right for me.
+Truth is, the last blog before this one was my attempt to start an online business. And I hated it. It was fun at first, then it wasn't. I wrote a whole [[https://noriparelius.com/post/i-failed-at-starting-an-online-business/][blog post about how I failed at starting an online business, and why I'm happy with that]]. I still think it's super neat that people can make money online, and I definitely believe that creators should be paid for what they do and provide. But the way I was trying to go about it just didn't feel right for me.
 
 Thankfully, I don't need to make money from blogging, and I have a bunch of other wonderful reason for pursuing it. I am very happy to just blog for fun, as a hobby, about whatever I want. Simply to enrich my life, and maybe, if I am lucky, someone else's too. 

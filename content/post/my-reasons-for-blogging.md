@@ -24,7 +24,7 @@ While thinking itself can be passive, writing, on the other hand, is active. It 
 
 ## 2. Learning by explaining {#2-dot-learning-by-explaining}
 
-Related to the previous point, explaining things, whether in writting or by talking through them, is one of the best ways to make sure that you understand things. Trying to put your knowledge into a digestable format that can be understood by others is one of the best ways to see where the gaps are, and it creates an incentive to fill them.
+Related to the previous point, explaining things, whether in writing or by talking through them, is one of the best ways to make sure that you understand things. Trying to put your knowledge into a digestible format that can be understood by others is one of the best ways to see where the gaps are, and it creates an incentive to fill them.
 
 Richard Feynman was a big proponent of learning by trying to explain things to others It helped him finding out where he lacked knowledge, then he looked up what was missing, learned more and then did it all again. And again, and again. The Feynman technique (that is really what it is called) is just one of many within the "learning by teaching" framework. Even explaining things to an inanimate object improves learning, hence the existence of the "plastic platypus learning" technique (yes, that is its real name). (Now I kind of want a plastic platypus.)
 
@@ -71,6 +71,6 @@ An attentive reader might notice that I didn't talk about some things that many 
 
 Let's not sand-paper our eyes, who wouldn't want some extra money, right? (Btw, sand-papering your eyes is a great Slovak expression for denying the obvious. I am trying to introduce it to English. Is it working?) Anyway, yes, money.
 
-Truth is, the last blog before this one was my attempt to start an online business. And I hated it. It was fun at first, then it wasn't. I wrote a whole [[{{&lt; ref "/post/i-failed-at-starting-an-online-business.md" &gt;}}][blog post about how I failed at starting an online business, and why I'm happy with that]. I still think it's super neat that people can make money online, and I definitely believe that creators should be paid for what they do and provide. But the way I was trying to go about it just didn't feel right for me.
+Truth is, the last blog before this one was my attempt to start an online business. And I hated it. It was fun at first, then it wasn't. I wrote a whole [blog post about how I failed at starting an online business, and why I'm happy with that](https://noriparelius.com/post/i-failed-at-starting-an-online-business/). I still think it's super neat that people can make money online, and I definitely believe that creators should be paid for what they do and provide. But the way I was trying to go about it just didn't feel right for me.
 
 Thankfully, I don't need to make money from blogging, and I have a bunch of other wonderful reason for pursuing it. I am very happy to just blog for fun, as a hobby, about whatever I want. Simply to enrich my life, and maybe, if I am lucky, someone else's too.
