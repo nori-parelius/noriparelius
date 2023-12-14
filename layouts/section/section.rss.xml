@@ -65,10 +65,8 @@
     {{- range $pages }}
     <item>
       <title>{{ .Title }}</title>
-      {{- $images := .Resources.ByType "image" -}}
-      <-- {{ $images }} -->
-      {{- $featured := $images.GetMatch "*feature*" -}}
-      {{- with $featured -}}
+      {{- $featured := .Params.featured_image -}}
+      {{- with featured -}}
       <enclosure url="{{ $featured.Permalink }}" type="image/jpg"></enclosure>
       {{- else -}}
       {{- with .Site.Params.images -}}
