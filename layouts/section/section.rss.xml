@@ -66,7 +66,7 @@
     <item>
       <title>{{ .Title }}</title>
       {{ with .Params.featured_image -}}
-      {{- printf "<enclosure url=\"%s\" type="image/jpg"></enclosure>" (. | absURL) | safeHTML -}}
+      {{- printf "<enclosure url=\"%s\" type=\"image/jpg\"></enclosure>" (. | absURL) | safeHTML -}}
       {{- else -}}
       {{- with .Site.Params.images -}}
       <enclosure url="{{ index . 0 | absURL }}" type="image/jpg"></enclosure>
