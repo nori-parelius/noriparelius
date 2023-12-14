@@ -54,6 +54,9 @@ ignoreErrors = ["error-output-taxonomy"]
   nextprev = true
   showrss = true
 
+  # default image to show in RSS feed if no featured
+  images = ["img/being-human.jpg"]
+
 # socials
 [[params.ananke_socials]]
 name = "rss"
@@ -78,3 +81,6 @@ label = "Tumblr"
 [taxonomies]
 category = 'categories'
 tag = 'tags'
+
+
+
