@@ -1,0 +1,11 @@
+<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 h-auto pa3" role="contentinfo">
+  <p class="tl"><a class="f4 fw4 hover-white no-underline white-70 dib-ns pv1 ph3" href="{{ "privacy-policy" | absURL }}">Privacy Policy</a></p>
+  <p class="tc"><a class="f4 fw5 hover-white no-underline white-70 dn dib-ns pv1 ph3 tc" href="{{ .Site.Home.Permalink }}" >
+    &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }} 2023-{{ now.Format "06"}} {{ end }}
+  </a></p>
+  {{- if .Param "showrss" }}<p class="tc"><a href="/post/index.xml"><img src="/img/rss1.svg" style="max-height:1.5em" alt="RSS Feed" title="Subscribe via RSS for updates."></a></p>{{ end }}
+  <!-- <div class="flex justify-between">
+    <div>{{ partial "social-follow.html" . }}</div>
+  </div> -->
+</footer>
+
