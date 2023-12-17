@@ -41,7 +41,7 @@ ignoreErrors = ["error-output-taxonomy"]
 [params]
   text_color = "dark-gray"
   author = "Nori"
-  favicon = "/img/favicon.ico"
+  favicon = "/img/logo.svg"
   site_logo = "/img/logo.svg"
   description = "Nori's blog"
   # choose a background color from any on this page: https://tachyons.io/docs/themes/skins/ and preface it with "bg-"
