@@ -28,4 +28,4 @@ I am an expat from Slovakia living in Norway with my Viking husband and two litt
 
 ## I'm not much about social media {#i-m-not-much-about-social-media}
 
-Whatever I post here goes also on some social media, but if you want to be reliably notified the next time I post something, and prefer reading without ads or anyone tracking you, I recommend to [sign up for the newsletter](https://dashboard.mailerlite.com/forms/370167/82934069710554625/share). No spam, just letting you know when I write, at most once a week, but most likely much (much) less often than that. There is also an RSS feed, if that is more your thing.
+Whatever I post here goes also on some social media, but if you want to be reliably notified the next time I post something, and prefer reading without ads or anyone tracking you, I recommend to sign up for the newsletter. No spam, just letting you know when I write, at most once a week, but most likely much (much) less often than that. There is also an RSS feed, if that is more your thing.
