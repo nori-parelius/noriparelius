@@ -22,8 +22,8 @@ ignoreErrors = ["error-output-taxonomy"]
   weight = 1
 
 [[menu.main]]
-  name = "Blog"
-  identifier = "menu.blog"
+  name = "Posts"
+  identifier = "menu.posts"
   url = "/post"
   weight = 2
 

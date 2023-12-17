@@ -1,6 +1,5 @@
 +++
 title = "How I found out I had to move more and move better"
-author = ["nori"]
 date = 2022-08-06
 tags = ["Movement", "About me"]
 draft = false

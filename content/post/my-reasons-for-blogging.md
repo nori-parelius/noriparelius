@@ -1,6 +1,5 @@
 +++
 title = "My 5 reasons for blogging"
-author = ["nori"]
 date = 2023-12-14T18:39:00+01:00
 tags = ["Online", "About me", "Knowledge work"]
 categories = ["Knowledge work", "Blogging", "Learning", "Writing"]

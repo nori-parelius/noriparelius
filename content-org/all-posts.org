@@ -86,10 +86,7 @@ nori@noriparelius.com
 :EXPORT_HUGO_SECTION: post
 :END:
 
-** TODO plan
-nicer newsletter?
-
-** DONE Blog
+** DONE Posts
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
