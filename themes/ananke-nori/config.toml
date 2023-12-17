@@ -51,10 +51,11 @@ ignoreErrors = ["error-output-taxonomy"]
   recent_posts_number = 3
   date_format = "2. January 2006"
   show_reading_time = true
+  Copyright = "Nori Parelius"
 
   # footer items, these are from here https://github.com/LukeSmithxyz/lugo/blob/master/config.toml
   nextprev = true
-  showrss = true
+  showrss = false
 
   # default image to show in RSS feed if no featured
   images = ["img/being-human.jpg"]
