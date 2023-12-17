@@ -19,3 +19,7 @@
 .nested-links a{
   overflow-wrap: break-word;
 }
+
+.show-60 {
+    min-height: 60vh;
+}
