@@ -5,6 +5,7 @@ tags = ["Online", "About me", "Knowledge work"]
 categories = ["Knowledge work", "Blogging", "Learning", "Writing"]
 draft = false
 featured_image = "/img/featured_my-reasons-for-blogging.jpg"
+f_alt = "An AI generated watercolor image of a platypus in front of a laptop."
 +++
 
 _(The image above is AI generated, the rest is not.)_

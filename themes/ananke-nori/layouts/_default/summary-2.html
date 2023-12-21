@@ -5,7 +5,7 @@
           {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
         <div class="mt4 w-70 center contain">
           <a href="{{.RelPermalink}}" class="db grow">
-            <img src="{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
+            <img src="{{ $featured_image }}" class="img" alt="{{ .Params.f_alt }}">
           </a>
         </div>
       {{ end }}

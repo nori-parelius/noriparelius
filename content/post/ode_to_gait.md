@@ -4,6 +4,7 @@ date = 2023-08-19
 tags = ["Movement"]
 draft = false
 featured_image = "/img/featured_ode-to-gait.jpg"
+f_alt = "A photograph of a toddler in blue rain gear walking away from the camera."
 +++
 
 There are probably several magical ingredients in the soup of humanity that make us who we are; like big brains, opposable thumbs and a tendency to cooperate. And among these, we can definitely list our gait too.

@@ -349,7 +349,7 @@ So how is your relationship with kegels? You can let me know if you feel like it
 ** DONE Movement moves the brain - why dancing is better than sudoku                   
 :PROPERTIES:
 :EXPORT_FILE_NAME: movement-moves-the-brain
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_movement-moves-the-brain.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_movement-moves-the-brain.jpg :f_alt "A watercolor of a brain"
 :EXPORT_DATE: 2022-07-14
 :EXPORT_HUGO_TAGS: Movement
 :END:
@@ -423,7 +423,7 @@ Nobody would dream of leaving their brain behind when going to practice playing 
 ** DONE How I found out I had to move more and move better                   
 :PROPERTIES:
 :EXPORT_FILE_NAME: move-more-move-better
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_move-more-move-better.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_move-more-move-better.jpg :f_alt "A photograph of a wooden bridge over a stream with trees around."
 :EXPORT_DATE: 2022-08-06
 :EXPORT_HUGO_TAGS: Movement "About me"
 :END:
@@ -487,7 +487,7 @@ I finally feel at home in my body. I finally feel like I belong. And it's a good
 ** DONE How I became a carnivore 
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-i-became-carnivore
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_carnivore.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_carnivore.jpg :f_alt "A close up of a raw steak"
 :EXPORT_DATE: 2022-08-18
 :EXPORT_HUGO_TAGS: Food "About me"
 :END:
@@ -599,7 +599,7 @@ And that's why I just can't keep it to myself.
 ** DONE I failed at starting an online business and I'm happy with that
 :PROPERTIES:
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_failed-online-business.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_failed-online-business.jpg :f_alt "An image with a computer screen in the middle and two hands exchanging a credit card and a shopping bag in front of it."
 :EXPORT_DATE: 2023-03-17
 :EXPORT_HUGO_TAGS: Online
 :END:
@@ -715,7 +715,7 @@ I never thought I would be reminded of Braiding Sweetgrass while thinking of onl
 ** DONE Are our bodies trying to kill us?                   
 :PROPERTIES:
 :EXPORT_FILE_NAME: bodies-trying-kill-us
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_bodies-trying-kill-us.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_bodies-trying-kill-us.jpg :f_alt "An image of a big stick of butter."
 :EXPORT_DATE: 2023-06-02
 :EXPORT_HUGO_TAGS: Food
 :END:
@@ -817,7 +817,7 @@ And if I'm wrong, so be it. I will rather live in a world where my body is on my
 ** DONE We have a blind spot
 :PROPERTIES:
 :EXPORT_FILE_NAME: blind-spot
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_blind-spot.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_blind-spot.jpg :f_alt "A close-up of a pile of white crystalline substance."
 :EXPORT_DATE: 2023-07-11
 :EXPORT_HUGO_TAGS: Food
 :END:
@@ -954,7 +954,7 @@ Did you know that statistically speaking, someone trying to lose weight has chan
 ** DONE An ode to human gait
 :PROPERTIES:
 :EXPORT_FILE_NAME: ode_to_gait
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_ode-to-gait.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_ode-to-gait.jpg :f_alt "A photograph of a toddler in blue rain gear walking away from the camera."
 :EXPORT_DATE: 2023-08-19
 :EXPORT_HUGO_TAGS: Movement
 :END:
@@ -1011,7 +1011,7 @@ Walking is a wonderful form of movement; it's healthy, practical, pleasant and a
 CLOSED: [2023-12-10 Sun 14:36]
 :PROPERTIES:
 :EXPORT_FILE_NAME: brain-hacking
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_brain-hacking.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_brain-hacking.jpg :f_alt "Image of a blue and white network as an artistic depiction of brain connections."
 :EXPORT_DATE: 2023-12-10
 :EXPORT_HUGO_TAGS: Mind
 :EXPORT_HUGO_CATEGORIES: Hypnosis Sugar Addiction
@@ -1067,7 +1067,7 @@ If you find any of this intriguing, and you are wondering how hypnosis actually 
 ** DONE What is the natural human diet?
 :PROPERTIES:
 :EXPORT_FILE_NAME: natural-human-diet
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_natural-human-diet.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_natural-human-diet.jpg :f_alt "A photograph of a plastic mammoth on a wooden bench in front of a lake."
 :EXPORT_DATE: 2023-12-12
 :EXPORT_HUGO_TAGS: Food
 :END:
@@ -1131,7 +1131,7 @@ Plants started to take a bigger and bigger part in our diet about 15 000 years a
 CLOSED: [2023-12-14 Thu 18:39]
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-reasons-for-blogging
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-reasons-for-blogging.jpg
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-reasons-for-blogging.jpg :f_alt "An AI generated watercolor image of a platypus in front of a laptop."
 :EXPORT_DATE: 2023-12-14
 :EXPORT_HUGO_TAGS: Online "About me" "Knowledge work"
 :EXPORT_HUGO_CATEGORIES: "Knowledge work" Blogging Learning Writing

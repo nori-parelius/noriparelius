@@ -4,6 +4,7 @@ date = 2023-03-17
 tags = ["Online"]
 draft = false
 featured_image = "/img/featured_failed-online-business.jpg"
+f_alt = "An image with a computer screen in the middle and two hands exchanging a credit card and a shopping bag in front of it."
 +++
 
 I really really tried to start an online business, but it was just an endless struggle. I just couldn't get myself to do the things and I couldn't get it right. And so I finally stopped. It was a relief and a disappointment at the same time. And it actually took me close to a year to figure out what went "wrong", and why it's for the best.

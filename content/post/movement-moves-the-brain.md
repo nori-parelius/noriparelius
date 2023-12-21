@@ -4,6 +4,7 @@ date = 2022-07-14
 tags = ["Movement"]
 draft = false
 featured_image = "/img/featured_movement-moves-the-brain.jpg"
+f_alt = "A watercolor of a brain"
 +++
 
 ## Can I drop my body off at the gym and pick it up when it's done? {#can-i-drop-my-body-off-at-the-gym-and-pick-it-up-when-it-s-done}

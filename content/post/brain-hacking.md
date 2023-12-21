@@ -5,6 +5,7 @@ tags = ["Mind"]
 categories = ["Hypnosis", "Sugar", "Addiction"]
 draft = false
 featured_image = "/img/featured_brain-hacking.jpg"
+f_alt = "Image of a blue and white network as an artistic depiction of brain connections."
 +++
 
 I have been struggling with sugar addiction for years. It took its toll on both my physical and mental health long before I even knew I had it and I have been fighting it ever since I recognized its ugly face. And just like it tends to be with addictions, it was a very tough battle, and I wasn't always winning. I was ready to fight for the rest of my life, but now I think I might not have to. I think, carefully and hopefully, that I maybe, just maybe, might have won. How? Believe it or not, it was hypnosis.

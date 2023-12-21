@@ -4,6 +4,7 @@ date = 2022-08-18
 tags = ["Food", "About me"]
 draft = false
 featured_image = "/img/featured_carnivore.jpg"
+f_alt = "A close up of a raw steak"
 +++
 
 I don’t eat a “varied and balanced diet” anymore. I don’t do five a day. There is no rainbow on my plate. And no holy (whole)  grains.  Zero fibre,  actually. On the other hand, I eat lots of saturated fat, cholesterol and salt.

@@ -4,6 +4,7 @@ date = 2023-07-11
 tags = ["Food"]
 draft = false
 featured_image = "/img/featured_blind-spot.jpg"
+f_alt = "A close-up of a pile of white crystalline substance."
 +++
 
 ## Hello, my name is Nori, and I am an addict. {#hello-my-name-is-nori-and-i-am-an-addict-dot}

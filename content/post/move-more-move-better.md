@@ -4,6 +4,7 @@ date = 2022-08-06
 tags = ["Movement", "About me"]
 draft = false
 featured_image = "/img/featured_move-more-move-better.jpg"
+f_alt = "A photograph of a wooden bridge over a stream with trees around."
 +++
 
 ## Disconnected and dysfunctional {#disconnected-and-dysfunctional}

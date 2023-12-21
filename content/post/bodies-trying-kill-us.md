@@ -4,6 +4,7 @@ date = 2023-06-02
 tags = ["Food"]
 draft = false
 featured_image = "/img/featured_bodies-trying-kill-us.jpg"
+f_alt = "An image of a big stick of butter."
 +++
 
 I have recently finished reading Malcolm Kendrick's books _The Great Cholesterol Con_ and _The Clot Thickens_ and it was a treat. It was insightful, captivating and so very funny, just dripping with dry, British humour. And with frustration. A LOT of frustration.

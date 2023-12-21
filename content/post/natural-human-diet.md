@@ -4,6 +4,7 @@ date = 2023-12-12
 tags = ["Food"]
 draft = false
 featured_image = "/img/featured_natural-human-diet.jpg"
+f_alt = "A photograph of a plastic mammoth on a wooden bench in front of a lake."
 +++
 
 Humans are probably the only creatures in the world that are confused about what they should be eating.
