@@ -17,7 +17,7 @@ I can't be the only one who finds it a bit tricky sometimes, I think.
 
 This personal blog is about the things I think about, learn about, try and test, in my attempts to get better at being human.
 
-#+attr_html: :width 200px
+#+attr_html: :width 200px :alt A close up picture of Nori Parelius.
 [[file:Nori_Parelius-500x500.png]]
 
 ** Hi, I'm Nori
@@ -222,21 +222,25 @@ With this image in mind, the idea of kegels does seem pretty reasonable. But onl
 
 Imagine a piece of fabric with a long slit in the middle. This will be our pelvic floor: it has a narrow opening that extends front to back, but isn't particularly wide.
 
+#+attr_html: :alt A picture of a tissue with a long narrow slit in it.
 #+caption: A tissue pelvic floor with a hole for all the tubes. 
 [[file:kegel_tissue-floor.jpeg]]
 
+#+attr_html: :alt A drawint of the pelvic floor seen from the inside, which shows all the openings being in one line from the pubic bone to the tailbone.  
 #+caption: A drawing of the pelvic floor seen from the inside. All the openings are in a line from the pubic bone to the tailbone.
 [[file:kegel_pelvic-floor-drawing.jpeg]]
 
 If we forget that the fabric is actually attached to something, the only way to keep the hole closed is to pull the edges of it together, a bit like a drawstring bag. And then hope to gods that the string holds with all its might. And that, dear reader, is a kegel.
 
-#+caption: The opening is closed by pulling in the fabric edges, like a drawstring back or a sphincter.
+#+attr_html: :alt A picture of the tissue with a slit and fingers trying to close the opening by pulling the edges of it together. 
+#+caption: The opening is closed by pulling in the fabric edges, like a drawstring bag or a sphincter.
 [[file:kegel_tissue-kegel.jpeg]]
 
 Now let's make our idea of the pelvic floor a bit more accurate. Let's imagine that the fabric is attached to a frame on all sides and that this frame can expand and contract a little in the front-back direction. Because, yes, there is surprisingly much movement in our pelvises and the sacrum can tilt slightly in and out.
 
 In this case, we can close the hole by simply pulling the fabric in the front-back direction. And there you have it!
 
+#+attr_html: :alt A picture of the same tissue with a slit. This time, hands are pulling at the edges of a tissue, stretching it in the same direction as the slit. This shows the opening being closed. 
 #+caption: Here you go, it's enough to pull instead of scrunching and the hole is closed.
 [[file:kegel_tissue-lenghten.jpeg]]
 
@@ -249,6 +253,7 @@ If all of this confusion weren't enough, the pelvic floor is not actually a floo
 
 But if you try to search the web for "pelvic floor", you will find countless drawings just like this one, with the pelvic floor being horizontal and all of the organs sitting above it, magically propped up by their respective soft tubes.
 
+#+attr_html: :alt A drawing of a side view of the pelvic area. The organs -- bladder, uterus and rectum, with their respective tubes (urethra and vagina) are perpendicular to the pelvic floor, positioned right above it. 
 #+caption: This is how people usually draw the pelvic floor -- like a holy trampoline with all the organs jumping on it.
 [[file:kegel_pelvis-drawing-wrong-eng.jpg]]
 
@@ -256,14 +261,17 @@ In reality, it doesn't look like that at all.
 
 The pelvic floor attaches to the pubic bone in the front and to the tailbone and the sacrum in the back. Try to find your tailbone and your pubic bone and get them in the same horizontal plane. This is what it looks like for me. And this is not how anyone should walk around.
 
+#+attr_html: :alt A photograph of a woman's torso from the side. Hands are pointing at the pubic bone and the tailbone, which are level. The pelvis is angled like that of a pooping dog. 
 #+caption: This is what it looks like when I try to get the pubic bone and the tip of the tailbone into one horizontal level. All wrong.
 [[file:kegel_pelvis-wrong.png]]
 
 When you look at a pelvis oriented correctly, the pelvic floor isn't a "floor" at all. (But I will continue calling it a floor anyway, because I doubt that "pelvic wall" would catch on. Or what do you think?)
 
+#+attr_html: :alt A drawing of the pelvis from the side. The organs (bladder, uterus, colon) seem to be lying on top of each other above the pubic bone, while the pelvic floor isn't horizontal, but rather diagonal. 
 #+caption: The pelvic "floor" is more of a pelvic "wall" -- the organs are lying on top of each other above the pubic bone rather than above the pelvic floor itself. They don't need to be propped up by soft tubes.
 [[file:kegel_pelvis-drawint-right-eng.jpg]]
 
+#+attr_html :alt A photo of a woman's torso from the side, hands pointing at the pubic bone and tailbone, where the pubic bone is lower than the tailbone. The silhouette looks natural.
 #+caption: Here you can see where my pubic bone and tailbone are when my pelvis is in neutral.
 [[file:kegel_pelvis-right.png]]
 
@@ -434,6 +442,7 @@ And I don't think I even understood how much it affected me mentally...
 
 I wasn't happy with the way I looked and I ingored as best as I could the way I felt in my own body.
 
+#+attr_html: :alt A picture of a young woman with a long skirt and a tank top standing on a hill outside. Her feet are pointing out and the pelvis is in a posterior tilt. 
 #+caption: Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt. 
 [[file:move_more_better_Nori_2013_576x1024.png]]
 
@@ -471,6 +480,7 @@ connected to my body and the world around me.
 
 I finally feel at home in my body. I finally feel like I belong. And it's a good feeling. 
 
+#+attr_html: :alt A picture of a woman with short hair and a black dress holding a child on her hip.
 #+caption: Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good.
 [[file:move-more-better_Nori2019_576x1024.jpg]]
 
@@ -505,6 +515,7 @@ But that wasn't enough. She kept reacting to random things I ate. And when she s
 She was actually doing very well for a child with allergies - most likely thanks to the breastmilk - but I on the other hand... not so much. 
 
 **** I started falling apart
+#+attr_html: :alt A picture of a woman with long hair, in a tank top, sitting by a dining table, smiling at the camera with a bowl of oatmeal in front of her. Her arms are somewhat thin and there are slight bags under her eyes. 
 #+caption: That is oatmeal in my bowl. January 2018, 8 months post partum. Tired.
 [[file:carnivore_Nori2018_411x637.jpg]]
 
@@ -555,6 +566,7 @@ My personal little miracle
 
 We were going to try it for a month. It has now been over 3 years. It really felt like experiencing my own little miracle. 
 
+#+attr_html: :alt A picture of a woman in a black dress holding a child on her hip, standing by a Christmas tree. 
 #+caption: 7 months carnivore and things are good. Definitely less dark circles under the eyes.
 [[file:carnivore_Nori2019_341x767.jpg]]
 
@@ -976,6 +988,7 @@ We are not towers, and we are not pendulums. We are dynamic, living tensegrity s
 
 Tensegrity (tensional integrity) is a term from architecture that describes structures built from two types of elements: hard rods that aren't directly connected to each other, and ropes that are holding them together. It's easier to understand from a picture.
 
+#+attr_html: :alt A picture of a colorful toy made of sticks that are not touching each other, but are connected by a bunch of rubber bands.
 #+caption: A kids' tensegrity toy. You know, start them early. 
 [[file:ode_to_gait-tensegrity_toy.png]]
 

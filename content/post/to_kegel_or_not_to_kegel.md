@@ -19,19 +19,19 @@ With this image in mind, the idea of kegels does seem pretty reasonable. But onl
 
 Imagine a piece of fabric with a long slit in the middle. This will be our pelvic floor: it has a narrow opening that extends front to back, but isn't particularly wide.
 
-{{< figure src="/ox-hugo/kegel_tissue-floor.jpeg" caption="<span class=\"figure-number\">Figure 1: </span>A tissue pelvic floor with a hole for all the tubes." >}}
+{{< figure src="/ox-hugo/kegel_tissue-floor.jpeg" alt="A picture of a tissue with a long narrow slit in it." caption="<span class=\"figure-number\">Figure 1: </span>A tissue pelvic floor with a hole for all the tubes." >}}
 
-{{< figure src="kegel_pelvic-floor-drawing.jpeg" caption="<span class=\"figure-number\">Figure 2: </span>A drawing of the pelvic floor seen from the inside. All the openings are in a line from the pubic bone to the tailbone." >}}
+{{< figure src="kegel_pelvic-floor-drawing.jpeg" alt="A drawint of the pelvic floor seen from the inside, which shows all the openings being in one line from the pubic bone to the tailbone." caption="<span class=\"figure-number\">Figure 2: </span>A drawing of the pelvic floor seen from the inside. All the openings are in a line from the pubic bone to the tailbone." >}}
 
 If we forget that the fabric is actually attached to something, the only way to keep the hole closed is to pull the edges of it together, a bit like a drawstring bag. And then hope to gods that the string holds with all its might. And that, dear reader, is a kegel.
 
-{{< figure src="/ox-hugo/kegel_tissue-kegel.jpeg" caption="<span class=\"figure-number\">Figure 3: </span>The opening is closed by pulling in the fabric edges, like a drawstring back or a sphincter." >}}
+{{< figure src="/ox-hugo/kegel_tissue-kegel.jpeg" alt="A picture of the tissue with a slit and fingers trying to close the opening by pulling the edges of it together." caption="<span class=\"figure-number\">Figure 3: </span>The opening is closed by pulling in the fabric edges, like a drawstring bag or a sphincter." >}}
 
 Now let's make our idea of the pelvic floor a bit more accurate. Let's imagine that the fabric is attached to a frame on all sides and that this frame can expand and contract a little in the front-back direction. Because, yes, there is surprisingly much movement in our pelvises and the sacrum can tilt slightly in and out.
 
 In this case, we can close the hole by simply pulling the fabric in the front-back direction. And there you have it!
 
-{{< figure src="/ox-hugo/kegel_tissue-lenghten.jpeg" caption="<span class=\"figure-number\">Figure 4: </span>Here you go, it's enough to pull instead of scrunching and the hole is closed." >}}
+{{< figure src="/ox-hugo/kegel_tissue-lenghten.jpeg" alt="A picture of the same tissue with a slit. This time, hands are pulling at the edges of a tissue, stretching it in the same direction as the slit. This shows the opening being closed." caption="<span class=\"figure-number\">Figure 4: </span>Here you go, it's enough to pull instead of scrunching and the hole is closed." >}}
 
 You might be asking now how to pull the "fabric" of your pelvic floor in real life. Well, it's the gluteus maximus that does that -- the biggest of the glutes, the butt. It attaches to the tailbone and the sacrum from the outside, while the pelvic floor attaches from the inside. When the glutes are activated, they are pulling the tailbone outwards.
 
@@ -44,17 +44,19 @@ If all of this confusion weren't enough, the pelvic floor is not actually a floo
 
 But if you try to search the web for "pelvic floor", you will find countless drawings just like this one, with the pelvic floor being horizontal and all of the organs sitting above it, magically propped up by their respective soft tubes.
 
-{{< figure src="kegel_pelvis-drawing-wrong-eng.jpg" caption="<span class=\"figure-number\">Figure 5: </span>This is how people usually draw the pelvic floor -- like a holy trampoline with all the organs jumping on it." >}}
+{{< figure src="kegel_pelvis-drawing-wrong-eng.jpg" alt="A drawing of a side view of the pelvic area. The organs -- bladder, uterus and rectum, with their respective tubes (urethra and vagina) are perpendicular to the pelvic floor, positioned right above it." caption="<span class=\"figure-number\">Figure 5: </span>This is how people usually draw the pelvic floor -- like a holy trampoline with all the organs jumping on it." >}}
 
 In reality, it doesn't look like that at all.
 
 The pelvic floor attaches to the pubic bone in the front and to the tailbone and the sacrum in the back. Try to find your tailbone and your pubic bone and get them in the same horizontal plane. This is what it looks like for me. And this is not how anyone should walk around.
 
-{{< figure src="kegel_pelvis-wrong.png" caption="<span class=\"figure-number\">Figure 6: </span>This is what it looks like when I try to get the pubic bone and the tip of the tailbone into one horizontal level. All wrong." >}}
+{{< figure src="kegel_pelvis-wrong.png" alt="A photograph of a woman's torso from the side. Hands are pointing at the pubic bone and the tailbone, which are level. The pelvis is angled like that of a pooping dog." caption="<span class=\"figure-number\">Figure 6: </span>This is what it looks like when I try to get the pubic bone and the tip of the tailbone into one horizontal level. All wrong." >}}
 
 When you look at a pelvis oriented correctly, the pelvic floor isn't a "floor" at all. (But I will continue calling it a floor anyway, because I doubt that "pelvic wall" would catch on. Or what do you think?)
 
-{{< figure src="kegel_pelvis-drawint-right-eng.jpg" caption="<span class=\"figure-number\">Figure 7: </span>The pelvic \"floor\" is more of a pelvic \"wall\" -- the organs are lying on top of each other above the pubic bone rather than above the pelvic floor itself. They don't need to be propped up by soft tubes." >}}
+{{< figure src="kegel_pelvis-drawint-right-eng.jpg" alt="A drawing of the pelvis from the side. The organs (bladder, uterus, colon) seem to be lying on top of each other above the pubic bone, while the pelvic floor isn't horizontal, but rather diagonal." caption="<span class=\"figure-number\">Figure 7: </span>The pelvic \"floor\" is more of a pelvic \"wall\" -- the organs are lying on top of each other above the pubic bone rather than above the pelvic floor itself. They don't need to be propped up by soft tubes." >}}
+
+\#+attr_html :alt A photo of a woman's torso from the side, hands pointing at the pubic bone and tailbone, where the pubic bone is lower than the tailbone. The silhouette looks natural.
 
 {{< figure src="/ox-hugo/kegel_pelvis-right.png" caption="<span class=\"figure-number\">Figure 8: </span>Here you can see where my pubic bone and tailbone are when my pelvis is in neutral." >}}
 
