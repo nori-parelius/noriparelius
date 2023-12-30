@@ -1192,11 +1192,46 @@ Truth is, the last blog before this one was my attempt to start an online busine
 
 Thankfully, I don't need to make money from blogging, and I have a bunch of other wonderful reason for pursuing it. I am very happy to just blog for fun, as a hobby, about whatever I want. Simply to enrich my life, and maybe, if I am lucky, someone else's too. 
 
-** TODO 
+** TODO My year with a Zettelkasten
 :PROPERTIES:
-:EXPORT_FILE_NAME: my-r
+:EXPORT_FILE_NAME: my-year-with-zettelkasten
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-reasons-for-blogging.jpg :f_alt "An AI generated watercolor image of a platypus in front of a laptop."
 :EXPORT_DATE: 2023-12-14
-:EXPORT_HUGO_TAGS: Online "About me" "Knowledge work"
-:EXPORT_HUGO_CATEGORIES: "Knowledge work" Blogging Learning Writing
+:EXPORT_HUGO_TAGS: "Knowledge work"
+:EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
 :END:
+
+It is almost a tradition for people who get hooked on Zettelkasten to write a blog post about it. After using it for a year, I think it is about time I followed this tradition and added my experiences.
+
+I have always been a note-taker. I feel a strong urge to capture thoughts, events and ideas that are important to me. Over the years, I have been using a bunch of apps, paper notebooks, different kinds of files and folder systems to try to keep some order in my notes. However hard I tried though, it always ended up being a mess, sooner or later. I think I sort of accepted that at some point as an inevitable part of life. That notes were temporary -- only good for helping me acquire the knowledge, but useless for long term storage. Now all of that changed with Zettelkasten.
+
+*** What is a Zettelkasten
+If you know what a Zettelkasten is, then by gods, just skip this part, because you have read it a million times.
+
+The word Zettelkasten comes from German and means "slip box". Initially, that is exactly what it was, a filing cabinet full of paper slips for storing information, and it wasn't a particularly unusual thing to have before the time of computers. It was simply a way of storing notes written on small cards.
+
+Zettelkasten as most people talk about it today has been popularised thanks to the work of Niklas Luhmann, a 20th century German sociologist who built a Zettelkasten of about 90,000 cards and used it to help him write over 50 books and 550 articles. He also wrote a book about his practice, called Communication with Zettelkästen (that is plural for Zettelkasten).
+
+Sonke Ahrens brought new attention to the Zettelkasten method in his [[https://www.soenkeahrens.de/en/takesmartnotes#zettelkasten-en][book How to Take Smart Notes]], where he explaines what a Zettelkasten is and how to use it.
+
+*** The basic principles of a Zettelkasten
+Thankfully, an actual filing cabinet is not necessary for making a Zettelkasten anymore. Instead, it can be completely digital. What makes a bunch of files into a Zettelkasten, is 3 basic principles.
+
+1. Atomic notes
+   Each note should contain one piece of knowledge only. Now, personally, I find this principle to be the most difficult to follow, because I am often not sure what counts as "one piece of knowledge", although I am getting better at it with practice. There is usually a sweet spot for how granular the notes can be and thanks to the flexibility of digital tools, it's not that difficult to split up notes that have grown a bit too much.
+   The note atomicity is important to facilitate the second priniciple, which is:
+2. Links between notes
+   This is were the magic happens. You make links between notes by referencing them. It's sort of like a wiki, but with atomic notes. This way, it is possible to link to one note from many other notes, making connections between loads of different ideas.
+3. Writing with own words
+   The last principle is about writing the notes with your own words rather than copying straight from the source. This forces you to process the thoughts, and to make them your own. It is also important to write the notes "properly", so they can work on their own. You need to have the audience in mind, which in this case is your future self that has forgotten everything about this idea.
+
+*** Implementation
+To make a Zettelkasten work, you need a unique adress/identifier for each note. These can be alphanumeric sequences in the style of Luhmann, or simple datetime identifiers. With a lot of modern software solutions, it is even enough with the titles of the notes, as long as they are unique. (There are reasons for and against the use of plain titles only and the debate is heated and I will not go into it.)
+
+No more folder trees
+More than a sum of its parts
+Embrace the chaos
+Bottom up thinking
+Flow into stock
+
+
