@@ -1246,10 +1246,32 @@ A Zettelkasten, on the other hand, only gets /better/ with more and more notes. 
 A Zettelkasten grows organically, bottom up.
 
 *** A place to think
+As I already talked about in [[https://noriparelius.com/my-reasons-for-blogging/][a blog post about my reasons for blogging]], David McCullough said "Writing is thinking," and I very much agree. Putting words to paper (or even just saying them) forces us to give the thoughts and ideas actual form, taking them from the level of abstract possibilities into reality. Sometimes I feel like I need to write to even find out what exactly I am thinking.
 
+A Zettelkasten is a perfect companion where a lot of this writing/thinking can happen. It demands that I formulate my thoughts clearly, trying to extract the atomic ideas from whatever I am thinking and express them fully in my own words.
+
+The magic of Zettelkasten is in the links though. Making sure that a new note gets integrated into the network means I have to think about it in context, look at related ideas, write about the connections between them and revisit old notes. It allows my present me to interact with what my old me has been thinking and writing.
+
+A lot of the thinking happens in the so-called structure notes (or map-of-content notes) where we can bring together a number of ideas and connect them into something new, linking to the individual notes. These notes allow us to take a step back, look at the bigger picture and integrate ideas rather than breaking them down.
+
+*** Zettelkasten is a real Memex
+Memex -- short for memory expander -- is a fictional machine from a 1945-book "As we may think" by Vannevar Bush. Memex organizes a user's thoughts and semi-automatically brings related ideas together. A number of bloggers were inspired by memex, among them one of my favourites -- Cory Doctorow ([[https://pluralistic.net/2021/05/09/the-memex-method/][his blog post about The Memex Method]]). 
+Memex might be fictional, but Zettelkasten does what memex sets out to do. It is a way to organize one's thougths and provide a framwork for connecting them. 
+
+The godfather of Zettelkasten, Niklas Luhmann, talked about his Zettelkasten more as a writing partner than a mere tool. One would almost get the impression that his Zettelkasten was alive.
+
+At this point, my Zettelkasten has almost 500 notes, and I have been using it almost daily for a year. Despite that, I am definitely still just a beginner Zettelnaut (a wonderful word that, as far as I know, comes from Will at the zettelkasten.de forum). My Zettelkasten is very much not alive, but I can imagine that when it grows to several tens of thousands of notes, it would hold more than my brain is capable of, and then it would surely have some surprises for me. I am already looking forward to that. 
+
+*** Who is it for
+I do enjoy working with my Zettelkasten and find it useful and enriching. But I don't think everyone needs one. Zettelkasten requires a fair amount of work, and it is not a magic pill that will output great new ideas on its own. In the end, it really is just a way of taking and organising notes.
+
+I think it can be a great tool/companion for anyone doing research, be it scientists, non-fiction writers, journalists, students or bloggers.
+
+For me, reading books has become so much more intentional. That is where the majority of my Zettelkasten inputs come from. 
+I find it especially useful when I know what output I want from my thinking. In my case, it's often blogging. (Although truth be told, most of what I want to blog about is still in my Zettelkasten/head.) Reading books has become so much more intentional
 
 *** My journey with a Zettelkasten
-I ran into Zettelkasten last January by accident and have been using it ever since. At this point, I have almost 500 notes, but I am still definitely just a beginner Zettelnaut (a wonderful word that, as far as I know, comes from Will at the zettelkasten.de forum).
+
 
 It took me a few months to set things up in a way I like them from the technical point of view, but how I am taking notes, what I write and what I leave out, how I link them and how I structure them is still a work in progress. And probably always will be. 
 
