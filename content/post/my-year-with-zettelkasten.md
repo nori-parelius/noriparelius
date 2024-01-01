@@ -32,11 +32,14 @@ Sönke Ahrens brought new attention to the Zettelkasten method in his [book How 
 What makes a bunch of notes into a Zettelkasten, is 3 basic principles.
 
 1.  **Atomic notes**.
+
     Each note should contain one piece of knowledge only. Now, personally, I find this principle to be the most difficult to follow, because I am often not sure what counts as "one piece of knowledge", although I am getting better at it with practice. There is usually a sweet spot for how granular the notes can be and thanks to the flexibility of digital tools, it's not that difficult to split up notes that have grown a bit too much.
     The note atomicity is important to facilitate the second priniciple, which is:
 2.  **Links between notes**.
+
     You make links between notes by referencing them. It's sort of like a wiki, but with atomic notes. This way, it is possible to link to one note from many other notes, making connections between loads of different ideas.
 3.  **Writing with own words**.
+
     The last principle is about writing the notes with your own words rather than copying straight from the source. This forces you to process the thoughts, and to make them your own. It is also important to write the notes "properly", so they can work on their own. You need to have the audience in mind, which in this case is your future self that has forgotten everything about this idea.
 
 
