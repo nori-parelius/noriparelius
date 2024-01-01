@@ -1,11 +1,12 @@
 +++
 title = "My year with a Zettelkasten"
+author = ["nori"]
 date = 2023-12-31
 tags = ["Knowledge work"]
 categories = ["Knowledge work", "Zettelkasten", "Learning", "Writing"]
-draft = true
-featured_image = "/img/featured_my-reasons-for-blogging.jpg"
-f_alt = ""
+draft = false
+featured_image = "/img/featured_my-year-with-zettelkasten.jpg"
+f_alt = "An image of a graph of a few hundred nodes of different colours connected with lines."
 +++
 
 It is almost a tradition for people who get hooked on Zettelkasten to write a blog post about it. After using it for a year, I think it is about time I followed this tradition and added my experiences.

@@ -1192,10 +1192,10 @@ Truth is, the last blog before this one was my attempt to start an online busine
 
 Thankfully, I don't need to make money from blogging, and I have a bunch of other wonderful reason for pursuing it. I am very happy to just blog for fun, as a hobby, about whatever I want. Simply to enrich my life, and maybe, if I am lucky, someone else's too. 
 
-** TODO My year with a Zettelkasten
+** DONE My year with a Zettelkasten
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-year-with-zettelkasten
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-reasons-for-blogging.jpg :f_alt ""
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
 :EXPORT_DATE: 2023-12-31
 :EXPORT_HUGO_TAGS: "Knowledge work"
 :EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
