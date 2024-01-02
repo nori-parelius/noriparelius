@@ -64,7 +64,7 @@ A Zettelkasten grows organically, bottom up.
 
 ## A place to think {#a-place-to-think}
 
-As I already talked about in [a blog post about my reasons for blogging](https://noriparelius.com/my-reasons-for-blogging/), David McCullough said "Writing is thinking," and I very much agree. Putting words to paper (or even just saying them) forces us to give the thoughts and ideas actual form, taking them from the level of abstract possibilities into reality. Sometimes I feel like I need to write to even find out what exactly I am thinking.
+As I already talked about in [a blog post about my reasons for blogging](https://noriparelius.com/post/my-reasons-for-blogging/), David McCullough said "Writing is thinking," and I very much agree. Putting words to paper (or even just saying them) forces us to give the thoughts and ideas actual form, taking them from the level of abstract possibilities into reality. Sometimes I feel like I need to write to even find out what exactly I am thinking.
 
 A Zettelkasten is a perfect companion where a lot of this writing/thinking can happen. It demands that I formulate my thoughts clearly, trying to extract the atomic ideas from whatever I am thinking and express them fully in my own words.
 
