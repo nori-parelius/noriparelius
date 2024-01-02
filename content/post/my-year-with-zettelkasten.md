@@ -18,13 +18,13 @@ I have always been a note-taker. I feel a strong urge to capture thoughts, event
 
 There are much better explanations of what a Zettelkasten is and how it works than I could put together here. One of the very best ones is [Introduction to the Zettelkasten Method on zettelkasten.de](https://zettelkasten.de/introduction/), so if you want a proper in depth introduction, head over there. ([zettelkasten.de](https://zettelkasten.de) is hands-down the best resource about all thinks Zettelkasten and they have a great forum too.)
 
-In short, a Zettelkasten is a way of note-taking based on creating a network of interconnect thoughts/notes. It can be done both physically, the old-school way with a filing cabinet full of paper slips (Zettelkasten is German for "slip box"), or digitally with the many note-taking apps and software solutions available. The only things necessary are a way of uniquely identifing and finding each note and a way to implement bidirectional links.
+In short, a Zettelkasten is a way of note-taking based on creating a network of interconnect thoughts/notes. It can be done both physically, the old-school way with a filing cabinet full of paper slips (Zettelkasten is German for "slip box"), or digitally with the many note-taking apps and software solutions available. The only things necessary are a way of uniquely identifying and finding each note and a way to implement bidirectional links.
 
 Using index cards for note-taking used to be a pretty common thing. However, what most people mean when they talk about a Zettelkasten nowadays is a bit more specific.
 
 Modern Zettelkästen (that is plural for Zettelkasten), are inspired by the work of Niklas Luhmann, a 20th century German sociologist who built a Zettelkasten of about 90,000 cards and used it to help him write over 50 books and 550 articles. He also wrote a book about his practice, called Communicating with Slip Boxes.
 
-Sönke Ahrens brought new attention to the Zettelkasten method in his [book How to Take Smart Notes](https://www.soenkeahrens.de/en/takesmartnotes#zettelkasten-en), where he explaines what a Zettelkasten is and how to use it.
+Sönke Ahrens brought new attention to the Zettelkasten method in his [book How to Take Smart Notes](https://www.soenkeahrens.de/en/takesmartnotes#zettelkasten-en), where he explains what a Zettelkasten is and how to use it.
 
 
 ## The basic principles of a Zettelkasten {#the-basic-principles-of-a-zettelkasten}
@@ -34,7 +34,7 @@ What makes a bunch of notes into a Zettelkasten, is 3 basic principles.
 1.  **Atomic notes**.
 
     Each note should contain one piece of knowledge only. Now, personally, I find this principle to be the most difficult to follow, because I am often not sure what counts as "one piece of knowledge", although I am getting better at it with practice. There is usually a sweet spot for how granular the notes can be and thanks to the flexibility of digital tools, it's not that difficult to split up notes that have grown a bit too much.
-    The note atomicity is important to facilitate the second priniciple, which is:
+    The note atomicity is important to facilitate the second principle, which is:
 2.  **Links between notes**.
 
     You make links between notes by referencing them. It's sort of like a wiki, but with atomic notes. This way, it is possible to link to one note from many other notes, making connections between loads of different ideas.
@@ -57,7 +57,7 @@ It is easy to make a new note, because I don't have to immediately think about w
 
 My previous methods to organise notes were rigid, top-down approaches trying to fit things into a predetermined structure. The moment something unexpected showed up, the structure had nowhere to grow, the only thing I could do was tear it down, redesign the structure, and start again.
 
-A Zettelkasten, on the other hand, only gets _better_ with more and more notes. There is no predetermined structure, no hierarchy, all the notes are on an equal footing, as are all the ideas and topics. The structure emerges on its own from the notes themselves. If we really are learning, what we learn is bound to surprise us. Trying to define a structure for our note collection beforehand is like trying to come up with a conclusion before we did the research. That is at best incovenient and at worst deeply unscientific. A Zettelkasten allows us to capture all that is relevant to a topic, not only what fits the predetermined narrative.
+A Zettelkasten, on the other hand, only gets _better_ with more and more notes. There is no predetermined structure, no hierarchy, all the notes are on an equal footing, as are all the ideas and topics. The structure emerges on its own from the notes themselves. If we really are learning, what we learn is bound to surprise us. Trying to define a structure for our note collection beforehand is like trying to come up with a conclusion before we did the research. That is at best inconvenient and at worst deeply unscientific. A Zettelkasten allows us to capture all that is relevant to a topic, not only what fits the predetermined narrative.
 
 A Zettelkasten grows organically, bottom up.
 
@@ -75,8 +75,8 @@ A lot of the thinking happens in the so-called structure notes (or map-of-conten
 
 ## Zettelkasten is a real Memex {#zettelkasten-is-a-real-memex}
 
-Memex -- short for memory expander -- is a fictional machine from a 1945-book "As we may think" by Vannevar Bush (which I haven't read, actually, just heard about).. Memex organises a user's thoughts and semi-automatically brings related ideas together. A number of bloggers were inspired by memex, among them one of my favourites -- Cory Doctorow ([his blog post about The Memex Method](https://pluralistic.net/2021/05/09/the-memex-method/)).
-Memex might be fictional, but Zettelkasten does what memex sets out to do. It is a way to organise one's thougths and provide a framework for connecting them.
+Memex -- short for memory expander -- is a fictional machine from a 1945-book "As we may think" by Vannevar Bush (which I haven't read, actually, just heard about). Memex organises a user's thoughts and semi-automatically brings related ideas together. A number of bloggers were inspired by memex, among them one of my favourites -- Cory Doctorow ([his blog post about The Memex Method](https://pluralistic.net/2021/05/09/the-memex-method/)).
+Memex might be fictional, but Zettelkasten does what memex sets out to do. It is a way to organise one's thoughts and provide a framework for connecting them.
 
 The godfather of Zettelkasten, Niklas Luhmann, talked about his Zettelkasten more as a writing partner than a mere tool. One would almost get the impression that his Zettelkasten was alive.
 
