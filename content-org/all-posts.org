@@ -1400,3 +1400,17 @@ Citar org roam allows me to use my roam capture template to make a note from a r
   )
 #+end_src
 
+** TODO Constant growth is destroying the world
+:PROPERTIES:
+:EXPORT_FILE_NAME: my-
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
+:EXPORT_DATE: 2023-12-31
+:EXPORT_HUGO_TAGS: "Knowledge work"
+:EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
+:END:
+
+You know that feeling when you are thirteen and you read a book, or see a movie and feel like it changes everything? Like it shakes your whole world down to its core and makes it settle down completely new? Like you emerge on the other side a different person, and you just want to tell everyone about it?
+
+These experiences become more and more rare as we get older, but I had one recently. It was brought on by a trilogy of books by Daniel Quinn, /Ishmael/, /The Story of B/ and /My Ishmael/.
+
+
