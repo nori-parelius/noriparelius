@@ -1,6 +1,5 @@
 +++
 title = "being human"
-author = ["nori"]
 draft = false
 featured_image = "/img/mountain-2400x1000.jpg"
 +++
@@ -24,7 +23,7 @@ I like to dive into various topics, dig in the research, test things and learn. 
 
 I have a PhD in biophysics, although my current day job is in data analysis.
 
-I am an expat from Slovakia living in Norway with my Viking husband and two little wildlings.
+I am from Slovakia, now living in Norway with my Viking husband and two little wildlings.
 
 
 ## I'm not much about social media {#i-m-not-much-about-social-media}
