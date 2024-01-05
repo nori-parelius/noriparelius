@@ -1413,4 +1413,26 @@ You know that feeling when you are thirteen and you read a book, or see a movie 
 
 These experiences become more and more rare as we get older, but I had one recently. It was brought on by a trilogy of books by Daniel Quinn, /Ishmael/, /The Story of B/ and /My Ishmael/.
 
+** TODO Happiness isn't found on social media
+:PROPERTIES:
+:EXPORT_FILE_NAME: happiness-not-on-social-media
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
+:EXPORT_DATE: 2023-12-31
+:EXPORT_HUGO_TAGS: "Knowledge work"
+:EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
+:END:
+
+We live in the age of social media. So much of our interactions, information sharing, news acquiring and entertainment happens there. Yet many of us have a somewhat (or very) mixed relationship with them. And rightly so. When you think about it, it is the strangest thing. We go there to see things we (mostly) didn't choose ourselves, that we didn't ask for, served to us in small bite-sized bits. An interesting fact! A sad story :(  An update from a "friend" you haven't talked to in 12 years. A funny video! A scary thing you should look out for!!! Before you get the time to digest one, you move onto the next. Over and over again. Scroll, scroll, scroll. There are so many good things social media have given us, and I love them for that. But today, I am once again choosing to take a break from them, because of all the bad things they do to my brain.
+
+*** All the world's woes
+Admittedly, I am not very good at knowing myself. It often takes me 24+ hours to figure out how I feel about things. Today, I had a bad day. I have been feeling exhausted, fragile, weepy, upset by the smallest things. Every little disruption to my day would leave me feeling off balance for way longer than it warranted. Why? Well, that's the most annoying thing. I had no idea. No idea whatsover. I knew something was wrong, but didn't know what. (In such cases I usually assume it's me that is wrong, which, understandably, doesn't help much.) It took the better part of the day, but eventually, I figured it out (with ample help from people who love me). As usual, it's not just one thing, but today, the biggest one was oversaturation of difficult things I have been watching and reading.
+
+Never in the history of humanity did people have the ability to know so much, to such detail, about events happening on the other side of the world. And, sadly, it's so much more common to hear about the terrible events happeing on the other side of the world, rather than the happy ones. I understand that. These things are important. Raising awareness is important. But let's be honest, what can /I/ do about these events that are so much bigger than me? What can /I/ do about wars and genocides, about discrimanation, about corporate greed, about large-scale pollution, about species loss, about babies dying, about suffering, about scientific fraud, about famines, about about about? 
+
+Don't get me wrong, there are always things that can be done, and there are a lot of people doing them, but no one person could take on themselves all of it. So the thing I end up doing about these terrible things most of the time is, simply, feel bad and helpless. And that doesn't help anyone at all.
+
+*** When do I get the time to process this?
+In a true Nori-fashion, I haven't been quite aware how much these things were affecting me. So many times, I would get a few minutes of time when nothing was happening, or I felt like I needed a distraction, and I would reach for the little box and scroll and scroll and scroll. And at some point I would realize that in the background, I had a thought. Or maybe a feeling. I would be thinking: /oh, that was interesting, should learn more about that/; but I didn't remember what /that/ was. Or I would feel a bit sad or upset, sort of in the back of my mind; but I didn't remember what about. And more often than not, I would think and feel several of things at the same times. Sometimes I would even scroll back, trying to identify what it was that stayed with me. There was rarely only one thing.
+
+There is so much good content on social media, with so many people putting in a lot of effort to deliver a message
 
