@@ -1416,7 +1416,7 @@ These experiences become more and more rare as we get older, but I had one recen
 ** DONE Happiness isn't found on social media
 :PROPERTIES:
 :EXPORT_FILE_NAME: happiness-not-on-social-media
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_happiness-not-on-social-media.jpg :f_alt "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle surrounded by a network of a few social media logos.."
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_happiness-not-on-social-media.jpg :f_alt "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle."
 :EXPORT_DATE: 2024-01-06
 :EXPORT_HUGO_TAGS: Online Happiness
 :EXPORT_HUGO_CATEGORIES: Happiness "Social media" Enshittification Content

@@ -5,7 +5,7 @@ tags = ["Online", "Happiness"]
 categories = ["Happiness", "Social media", "Enshittification", "Content"]
 draft = false
 featured_image = "/img/featured_happiness-not-on-social-media.jpg"
-f_alt = "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle surrounded by a network of a few social media logos.."
+f_alt = "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle."
 +++
 
 We live in the age of social media. So much of our interactions, information sharing, news acquiring and entertainment happens there. Yet many of us have a somewhat (or very) mixed relationship with them. And rightly so. When you think about it, it is the strangest thing. We go there to see things we (mostly) didn't choose ourselves, served to us in small bite-sized bits: _-- an interesting fact! -- a sad story :( -- an update from a "friend" you haven't talked to in 12 years -- a funny video! -- a scary thing you should look out for!!! --_ Before you get the time to digest one, you move onto the next. Over and over again. Scroll, scroll, scroll. There are so many good things social media have given us, and I love them for that. But today, I am once again choosing to take a break from them, because of all the bad things they do to my brain.
