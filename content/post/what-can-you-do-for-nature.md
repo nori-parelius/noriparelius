@@ -51,7 +51,7 @@ How can we know what they might have been thinking? Well, fortunately, there are
 The truth is that Indigenous peoples have been modifying and managing the nature around them for millennia. Many of the areas that we would classify as wilderness were shaped by human activity, including places such as the Amazon rain-forest, or the Australian aridlands. While this is still far from the mainstream perception, scientist are actually starting to point to how the whole concept of "wilderness" is inappropriate and how certain biomes rely on human input for their preservation (great article on this is [Indigenous knowledge and the shackles of wilderness](https://www.pnas.org/doi/full/10.1073/pnas.2022218118)).
 
 
-## Picking the sweetgrass {#picking-the-sweetgrass}
+## Picking sweetgrass {#picking-sweetgrass}
 
 In her beautiful, gentle book _Braiding Sweetgrass_, Robin Wall Kimmerer -- a Native American botanist -- reveals a lot about how her culture approached the natural world. She talks about the sense of belonging and feelings of community with all the life around them. She talks about the Honorable Harvest, which is a set of rules to make sure that people don't take more than their fair share, and that enough is left to keep the cycles of nature going. (Rules like: Never take more than a half. Never take the first, nor the last. Take only what you need. Always give back in return.)
 
@@ -79,7 +79,7 @@ While there is nothing wrong with forests, grasslands are a different ecosystem,
 In the end, everyone eats and is eaten. Microbes, fungi and plants feed on death just as much as herbivores and carnivores do. Being lower on the food chain does not make one more virtuous. And being higher up on it does not prevent one from contributing to the community of life. Every ecosystem is a network where everything is attached to everything and each creature is needed, however cute or yucky or weird.
 
 
-## You find what you look for {#you-find-what-you-look-for}
+## You find what you are ready to look for {#you-find-what-you-are-ready-to-look-for}
 
 I have been reading (and thinking) a lot about agriculture lately. It is our closest and most important point of contact with the cycles of life and of nature. It definitely seems like we got a lot of it wrong, and we need to make some changes.
 
