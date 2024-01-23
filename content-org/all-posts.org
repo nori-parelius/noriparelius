@@ -1517,16 +1517,7 @@ Our culture grew at the expense of the others, because of a perfect storm of our
 
 What do I want to say.
 I want to say that we were not always destroying things. That our culture is what is strange here and that it started with the agriculture. but not any agriculture, but totalitarian agriculture. That we believe we know better and we can do what we want, but we also believe that we are alone in it, and have to constantly fight. I want to talk about how Will Harris saw it too, how he talked about killing everything
-I want to talk about how resilience can't be optimized, and how we need to save farming. 
-
-** TODO Humans are not a virus destined to devour the planet
-:PROPERTIES:
-:EXPORT_FILE_NAME: my-
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
-:EXPORT_DATE: 2023-12-31
-:EXPORT_HUGO_TAGS: "Knowledge work"
-:EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
-:END:
+I want to talk about how resilience can't be optimized, and how we need to save farming.
 
 In the first Matrix movie, agent Smith calls humanity a virus that multiplies until every natural resource is consumed. He calls us a disease, a cancer of the planet, a plague. Agent Smith is also a psychopathic villain, so such opinions very much suit him. But I see the same sentiment reflected all around me. We seem to collectively feel like there is something inherently wrong with humanity, something that makes us mess up no matter how hard we try. We have accepted it as some sort of a curse; having to watch our good intentions turn into sour results. We think that the best we can do for the world, for nature, is to stay away. But what if we got that wrong?
 
@@ -1545,3 +1536,23 @@ We -- you and me and every other member of our culture -- are definitely human, 
 For a long time, we thought humans came into this world as us -- city-builders and agriculturalists -- and it wasn't until about the 18th century that we have started learning about our long hunter-gatherer past. While this might be old news for people nowadays, we seem to be underappreciating what this actually means.
 
 Whether you look for the beginnings of our genus Homo, which was 3 million years ago, or for the beginnings of the modern humans, which was 300 000 years ago, humans have been here for a very, very long time, before our culture appeared. 
+
+** TODO What can you do for nature?
+:PROPERTIES:
+:EXPORT_FILE_NAME: what-can-you-do-for-nature
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
+:EXPORT_DATE: 2023-12-31
+:EXPORT_HUGO_TAGS: "Knowledge work"
+:EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
+:END:
+
+As a civilisation, we seem to be painfully aware of all the shortcomings in our contact with nature. Recountings of all we have destroyed, and where we have failed, permeate our culture. Truth is, we don't even believe anymore that we could do any good. Most of us feel like the best thing we could do for nature is to leave it alone. But that kind of thinking is wrong. And dangerous.
+
+*** How can we do good, if we can't even imagine it?
+If I asked you how humans are affecting the nature, I suspect you would tell me about all the bad things we are doing. About the pollution, the deforestation, about the insecticides and herbicides, about microplastics, and mining, and species loss. And you would, of course, be right.
+
+But is that all of it? Is destruction all we are capable of?
+
+Most of us actually do think so. Growing up in our culture, we absorb the image of pristine nature and of the horrible effect we, the humanity, have on it. We think wilderness is 
+
+*** What is even nature?
