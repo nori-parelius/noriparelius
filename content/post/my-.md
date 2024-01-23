@@ -1,5 +1,6 @@
 +++
 title = "We are nature, and that actually means a lot"
+author = ["nori"]
 date = 2023-12-31
 tags = ["Knowledge work"]
 categories = ["Knowledge work", "Zettelkasten", "Learning", "Writing"]

@@ -1540,7 +1540,7 @@ Whether you look for the beginnings of our genus Homo, which was 3 million years
 :PROPERTIES:
 :EXPORT_FILE_NAME: what-can-you-do-for-nature
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_what-can-you-do-for-nature.jpg :f_alt "A blurry image of a meadow with a few plants in focus in the forground."
-:EXPORT_DATE: 2023-12-31
+:EXPORT_DATE: 2024-01-23
 :EXPORT_HUGO_TAGS: Agriculture
 :EXPORT_HUGO_CATEGORIES: Agriculture Nature Grasslands Rewilding "Indigenous Knowledge"
 :END:

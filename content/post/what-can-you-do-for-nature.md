@@ -1,6 +1,7 @@
 +++
 title = "What can you do for nature?"
-date = 2023-12-31
+author = ["nori"]
+date = 2024-01-23
 tags = ["Agriculture"]
 categories = ["Agriculture", "Nature", "Grasslands", "Rewilding", "Indigenous Knowledge"]
 draft = false
