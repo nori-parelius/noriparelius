@@ -104,5 +104,3 @@ Now I know the world is headed in the opposite way nowadays, but that doesn't me
 And since I have the luxury of "failing" at selling, I can do this instead. Go back to having a blog, just for fun. Freely sharing my gifts with anyone who might benefit, doing my part in the gift economy.<br />
 
 </div>
-
-I never thought I would be reminded of Braiding Sweetgrass while thinking of online marketing, but here we are. One of the ideas Robin introduces is gift economy. A world where every living thing freely shares their gifts with the others, and in return receives gifts with gratitude and respect for the giver. A world of reciprocity. A world where one doesn't just ask: "what can I get?", but mostly: "what can I give?". A world where gifts are appreciated and treasured.
