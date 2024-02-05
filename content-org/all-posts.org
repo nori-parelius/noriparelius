@@ -1467,81 +1467,12 @@ And I have recently even rediscovered RSS feeds! They still exist! I have one to
 
 I think it's time we started to protect our attention and our mental energy, whether it is getting drained by social media or anything else. 
 
-** TODO We are nature, and that actually means a lot
-:PROPERTIES:
-:EXPORT_FILE_NAME: my-
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
-:EXPORT_DATE: 2023-12-31
-:EXPORT_HUGO_TAGS: "Knowledge work"
-:EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
-:END:
-
-When I was young, I used to think of farming as boring. Totally uninteresting, kinda dumb, even. Oh, how I cringe, embarrased, when I think about that old and dumb me. Now I know better. Because when you really, really think about it, farming is one of the most important things anyone could ever do. And it seems we got it pretty wrong.
-
-*** One of those books that change your life
-Thanks to the book club I am participating in (video about our book club), I have been reading a lot about agriculture lately. The question of how we can feed the world without overwhelming our plantet's resources is a big and important one. And definitely not simple.
-
-I can see a red thread going through the books I have read so far, one I keep coming back to. One that also has its origins in a book. You know that feeling when you are thirteen and you read a book, or see a movie and feel like it changes everything? Like it shakes your whole world down to its core and makes it settle down completely new? Like you emerge on the other side a different person, and you just want to tell everyone about it?
-
-These experiences become more and more rare as we get older, but I had one recently. It was brought on by a trilogy of books by Daniel Quinn, /Ishmael/, /The Story of B/ and /My Ishmael/.
-
-The Ishmael trilogy are novels, but they are more philosophy than story (although they do all tell a good story). They were written in mid to late nineties and they are only becoming more relevant with time. 
-
-What are they about? Well, to put it shortly, they are about what is wrong with the world.
-
-*** Is humanity inherently flawed?
-I don't know about you, but I often feel like there is something wrong with our world. That it should work somehow differently, that we lost something somewhere, or lost ourselves on the way. And especially in the last few decades, there are probably more and more people who feel that way. Sometimes it feels like too much to think about: loss of species at an incredible rate, harmful forever chemicals in everthing and everyone, pollution, climate change, crime, wars, mental health crisis, poverty, ...
-
-As Quinn points out, if you asked schoolchildren about what is wrong with the world, they would probably give you roughly the same answers as the Unabomber. Something along the line of out-of-control technological advancement, out-of-control corporate and industrial greed, and out-of-control governmet expansion etc.
-
-We feel like there is something inherently wrong with humanity, something that makes us mess up no matter how hard we try. We have accepted it as some sort of a curse, having to watch our good intentions turn sour results, but Quinn in his trilogy points out one fact that we all seem to forget.
-
-#+begin_quote
-Humans have lived on this planet for 3 million years in perfect harmony with the rest of the world.
-#+end_quote
-
-Just think about that for a bit. 3 million years. That is a hell of a long time. Our civilisation started just some 12 000 years ago. At best. Which means it has been around only for 0.4% of the human history. I know what you are thinking. They weren't /quite/ people, were they? Well, fair enough, 3 million years ago we started out as Homo habilis. They were similar enough to us that they got the name Homo, but they weren't quite us yet. But Homo sapiens -- people genetically, anatomically and physiologically identical to us -- have been around for 300 000 years. Our civilisation accounts only for the last 4% of that time.
-
-We like to think about the time before the birth of our culture as the "prehistory". As if it were a long run-up, when people weren't yet people, like they were not finished. To us it seems like they weren't doing much, because they weren't trying to conquer the world. And while they didn't have opera houses, central heating or quantum physics, most of modern humans don't have those luxuries either. They had something else though. From what we know, they had healthy and happy lives. 
-
-*** Takers and Leavers
-Humans are clearly capable of living peacefully in and with the world. Where is the problem then? Why does it seem so difficult for us? The answer lies in who we believe ourselves to be -- in our culture. And when I say /our culture/, I mean basically almost all of us. There are a few people left in the world that are not of our culture, but there aren't many. They live on the fringes of what we like to call "civilisation". Our culture has spread across the whole world and devoured all the others.
-
-We have no good name for our culture, because we never needed it. To us, it's just... /us/. So I will gladly use the name that Ishmael gave our culture in Quinn's books: we are the Takers. And all the other cultures are Leaver cultures.
-
-Our culture grew at the expense of the others, because of a perfect storm of our believes, of our mythology. The truth is, we believe that the world was made for us, and that it is our place to rule it. We rarely say it out loud, but we think of ourselves as the pinnacle of evolution, of what it all was meant to lead to. We believe our destiny is to take this world that was given to us and conquer it. To make it what /we/ want it to be. 
-
-*** Totalitarian agriculture
-
-
-What do I want to say.
-I want to say that we were not always destroying things. That our culture is what is strange here and that it started with the agriculture. but not any agriculture, but totalitarian agriculture. That we believe we know better and we can do what we want, but we also believe that we are alone in it, and have to constantly fight. I want to talk about how Will Harris saw it too, how he talked about killing everything
-I want to talk about how resilience can't be optimized, and how we need to save farming.
-
-In the first Matrix movie, agent Smith calls humanity a virus that multiplies until every natural resource is consumed. He calls us a disease, a cancer of the planet, a plague. Agent Smith is also a psychopathic villain, so such opinions very much suit him. But I see the same sentiment reflected all around me. We seem to collectively feel like there is something inherently wrong with humanity, something that makes us mess up no matter how hard we try. We have accepted it as some sort of a curse; having to watch our good intentions turn into sour results. We think that the best we can do for the world, for nature, is to stay away. But what if we got that wrong?
-
-*** One of those books that change your life
-You know that feeling when you are thirteen and you read a book, or see a movie and feel like it changes everything? Like it shakes your whole world down to its core and makes it settle down completely new? Like you emerge on the other side a different person, and you just want to tell everyone about it?
-
-These experiences become more and more rare as we get older, but I had one recently. It was brought on by a trilogy of books by Daniel Quinn, /Ishmael/, /The Story of B/ and /My Ishmael/. The Ishmael trilogy are novels, but they are more philosophy than story (although they do all tell a good story). They were written in mid to late nineties and they are only becoming more relevant with time. 
-
-I have noticed ideas from Ishmael in many of the non-fiction books I have been reading lately. Common themes shining through like a red thread, connecting the real-world challenges and experiences to the philosophy of Ishmael, hinting at roots and at solutions.
-
-One of the biggest themes of Ishmael is that /we/ are not humanity, and that is a good thing.
-
-*** The culture of the agricultural revolution
-We -- you and me and every other member of our culture -- are definitely human, but we are not the only ones. When I say "our culture" in this case, I mean all of us that live in "civilisation", be it East or West, developped or developping. There are only a handful of peoples left that do not belong to our culture.
-
-For a long time, we thought humans came into this world as us -- city-builders and agriculturalists -- and it wasn't until about the 18th century that we have started learning about our long hunter-gatherer past. While this might be old news for people nowadays, we seem to be underappreciating what this actually means.
-
-Whether you look for the beginnings of our genus Homo, which was 3 million years ago, or for the beginnings of the modern humans, which was 300 000 years ago, humans have been here for a very, very long time, before our culture appeared. 
-
 ** DONE What can you do for nature?
 :PROPERTIES:
 :EXPORT_FILE_NAME: what-can-you-do-for-nature
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_what-can-you-do-for-nature.jpg :f_alt "A blurry image of a meadow with a few plants in focus in the forground."
 :EXPORT_DATE: 2024-01-23
-:EXPORT_HUGO_TAGS: Agriculture
+:EXPORT_HUGO_TAGS: Nature
 :EXPORT_HUGO_CATEGORIES: Agriculture Nature Grasslands Rewilding "Indigenous Knowledge"
 :END:
 
@@ -1610,5 +1541,68 @@ I have been reading (and thinking) a lot about agriculture lately. It is our clo
 I think it is important that we look for solutions with the right mindset. It is difficult to notice things that you aren't looking for, let alone ones you can't even fathom. I think it's time we started looking at ourselves as creatures that /do/ belong in this world, and that /can/ work with it, care for it, and protect it, while receiving what we need to live. We have to believe it is possible first, before we can even start finding out how to do it. Thankfully, we humans are fast learners, and we still have someone to learn from. And while there is no going back to the Stone Age (not that I want to), we can surely find a way to practice some Honorable Harvest in our world.
 
 The change, if it happens, will come from the bottom. From people with a new vision. From people like you and me. 
+
+
+** TODO Why I think we should start growing life instead of the economy
+:PROPERTIES:
+:EXPORT_FILE_NAME: grow-life-not-economy
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_grow-life-not-economy.jpg :f_alt ""
+:EXPORT_DATE: 2023-12-31
+:EXPORT_HUGO_TAGS: Nature
+:EXPORT_HUGO_CATEGORIES: Agriculture Farming "Economic growth" Happiness
+:END:
+
+When I was young, I used to think farming was boring. Totally uninteresting, kinda dumb, even. Oh, how I cringe, embarrased, when I think about that old and dumb me. Now I know better. Because when you really, really think about it, farming is one of the most important things anyone could ever do. And it seems we got it pretty wrong.
+
+*** The agriculture is not working
+Thanks to the book club I am participating in (video about our book club), I have been reading a lot about agriculture lately. The question of how we can feed the world without overwhelming our plantet's resources is a big and important one. And definitely not simple.
+
+Agriculture definitely plays a big part in the harms we as a society are causing to the planet and ourselves. The use of pesticides, herbicides, synthetic fertilisers and heavy machinery to till and harvest is destroying the soils, polluting our waters and poisoning, killing and displacing wildlife. Farm animals often live in terrible conditions in large-scale feeding operations, where their manure is piling up becoming an environmental hazard, instead of what should have been a life-giving fertiliser. The people who produce our food  are often among the poorest people in the society, often exposed to chemicals that have devastating health effects. As if that wasn't enough, certain markets (like chocolate) are directly built on slavery. 
+
+*** It's the how, not the what
+There are a lot of people who will argue that we should get rid of farm animals to save the climate and the environment. On closer inspection, this idea holds no water whatsoever.
+
+Animals, cows especially, are accused of releasing greenhouse gases, especially the methane from the infamous cow burps, using too much water, taking too much land and causing deforestation etc etc. Diana Rogers and Robb Wolf in their book /Sacred Cow/ thoroughly debunk these.
+
+To give just a few pointers, over 90% of the water that cattle need is rainfall. It would have fallen anyway. This is unlike some crops like rice, avocados, walnuts and sugar that require /more/ water per kilo of food produced than beef and most of the water they need is fresh surface and groundwater. They also cause more water pollution than cattle.
+
+Many of the landscapes that are used as pastures are not suitable for growing crops. They might be too hilly, the soil might be too rocky and brittle and the only thing that really grows there is grass. The ruminant animals like cows, sheep, goats and buffalo eating that grass are in no way competing with humans. Rather, they are turning something we can't eat, grown in an area where we can't grow our food, into something that provides valuable nutrition.
+
+While it is true that farm animals are often fed using crops we grow, this is often not the parts of the plants that humans could eat. This is especially true for ruminants, that only get about 10-13% of their diet from grains and the rest comes from crop residues, such as cornstalks, soybean hulls, cottonseed meal, almond husks etc. These are all leftover from the production of human food, alcohol, biofuel etc. There are no cows eating edamame beans, but they are fed the leftovers after the soy plants are processed.
+
+Pigs and chickens are fed a lot more grains, but even those are usually indedible for humans. 
+
+When it comes to the greenhouse gases, the methane released from the cow's digestion is the same that would be released if the grass it ate had been left to rot. This carbon is a part of the cycle. The grass took it from the air, used it to build it's own body, the cow ate it, released some of it back into the air during digestion, incorporated the rest into its own body. The carbon that is in all living things is a part of this cycle. This is now even reflected in the newer, more accurate, methods of calculating the greenhouse warming potential -- and according to this, ruminants only add greenhouse gases to the atmosphere if their numbers increase.
+
+But really, when you think about it, carbon is the molecule of life and we are all exchanging it between each other and the air. Cows are not the only ones adding it to the atmosphere. We all are. Even plants are breathing out carbon dioxide as a result of the cellular respiration. But unlike animals, plants are also taking it in and using in the process of photosynthesis. And so when they are growing, they are taking in more CO2 than releasing, but when they're grow slows down, they become closer to carbon-neutral.
+
+Greenhouse gases are released by termites (a lot, actually), rice fields, wetlands, other herbivores, like horses, reindeer and zebras, as well as by some shellfish. These are all a part of the carbon cycle in nature. How much of nature do we want to get rid of to reduce greenhouse gases? Maybe we should instead focus on things that are not a part of the cycle, like the fossil fuels we dig out of the ground and burn in order to power our society.
+
+There are many issues with how most animals are reared nowadays, but this problem is not inherent to the animal agriculture as such. 
+
+As is the tagline of /Sacred Cow/: It's not the cow, it's the how.
+
+I would take it even further, and say this applies to all of our food production, be it plants or animals. Huge monocultures of grains that require a lot of chemical inputs, decimate the wildlife, and leave the soil depeleted, are not really better for anyone and anything than feedlots are.
+
+For all of agriculture, it's the how. 
+
+*** Totalitarian agriculture of What should I kill today?
+In his book /A bold return to giving a damn/, Will Harris describes how he turned his farm from a typical industrial cattle operation, into a thriving regenerative farm that supports several farm animals, creates space for wildlife, regenerates the soil, all without artificial pesticides, fertlisers and antibiotics. There are even studies showing his farm White Oak Pastures is a carbon sink.
+
+Will Harris talks about how, before, he would wake up in the morning, walk out, and look for things he needed to kill. While what he is looking for now, is more life, and ways for him to support it. Working with nature, not against it.
+
+As Daniel Quinn points out in /Ishmael/, killing is a staple in the type of agriculture that our civilisation practices. He calls it a totalitarian agriculture. What we are seeking is total control and maximum return. If there are other beings competing with us for our food, we get rid of them (like wolves and other predators). If there are other beings that compete with our food for their food, we get rid of them (like other grass eating herbivores or insects, or anything). And if there are other beings competing with our foods food, we get rid of them (like weeds).
+
+The holy work of modern farming is killing.
+
+What we aren't (or weren't) paying attention to, is that killing all of these wild, "unnecessary" organisms has consequences that we cannot foresee. The nature favours diversity, and it's how it creates abundance. It works in circles. Everything comes out of, and then returns to the soil. We have been doing our best to destroy the diversity and to turn the circles into straight lines going from the soil into the economy.
+
+Agriculture existed long before the agricultural revolution. Humans have been nudging nature to give them more of what they want for ages. The agricultural revolution was the dawn of the totalitarian agriculture -- the thinking that everything on the Earth is for us to do with as we please. That we take precedens over all the other organisms and are here to conquer and rule. 
+
+*** A robust system
+
+*** We need more farmers
+
+*** I think I smell a homestead in my future
 
 
