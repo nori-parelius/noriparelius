@@ -70,9 +70,9 @@ name = "medium"
 url = "https://medium.com/@nori.parelius"
 
 
-[[params.ananke_socials]]
-name = "github"
-url = "https://github.com/nori-parelius"
+#[[params.ananke_socials]]
+#name = "github"
+#url = "https://github.com/nori-parelius"
 
 [[params.ananke_socials]]
 name = "tumblr"
