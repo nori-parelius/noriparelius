@@ -84,6 +84,12 @@ label = "Tumblr"
 name = "instagram"
 url = "https://www.instagram.com/nori.parelius/"
 
+[[params.ananke_socials]]
+name = "ko-fi"
+url = "https://ko-fi.com/noriparelius"
+color = "#ff5e5b"
+label = "Support me on Ko-fi"
+
 # taxonomies
 [taxonomies]
 category = 'categories'
