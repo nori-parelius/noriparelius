@@ -1,8 +1,7 @@
 +++
 title = "What can you do for nature?"
-author = ["nori"]
 date = 2024-01-23
-tags = ["Agriculture"]
+tags = ["Nature"]
 categories = ["Agriculture", "Nature", "Grasslands", "Rewilding", "Indigenous Knowledge"]
 draft = false
 featured_image = "/img/featured_what-can-you-do-for-nature.jpg"
@@ -86,3 +85,7 @@ I have been reading (and thinking) a lot about agriculture lately. It is our clo
 I think it is important that we look for solutions with the right mindset. It is difficult to notice things that you aren't looking for, let alone ones you can't even fathom. I think it's time we started looking at ourselves as creatures that _do_ belong in this world, and that _can_ work with it, care for it, and protect it, while receiving what we need to live. We have to believe it is possible first, before we can even start finding out how to do it. Thankfully, we humans are fast learners, and we still have someone to learn from. And while there is no going back to the Stone Age (not that I want to), we can surely find a way to practice some Honorable Harvest in our world.
 
 The change, if it happens, will come from the bottom. From people with a new vision. From people like you and me.
+
+{{< pinterest_shortcode >}}
+"<https://assets.pinterest.com/ext/embed.html?id=917115911607944575>"
+{{< /pinterest_shortcode >}}
