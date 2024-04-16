@@ -1,5 +1,6 @@
 +++
 title = "My 5 reasons for blogging"
+author = ["nori"]
 date = 2023-12-14T18:39:00+01:00
 tags = ["Online", "About me", "Knowledge work"]
 categories = ["Knowledge work", "Blogging", "Learning", "Writing"]
@@ -7,8 +8,6 @@ draft = false
 featured_image = "/img/featured_my-reasons-for-blogging.jpg"
 f_alt = "An AI generated watercolor image of a platypus in front of a laptop."
 +++
-
-_(The image above is AI generated, the rest is not.)_
 
 I believe this is my fifth(?!) attempt at blogging in the last 12 years. Some of those blogs were very short-lived, some survived for longer. None of the previous four are out there anymore. I had my reasons for starting each of the blogs, but it wasn't something I thought about much, not something that was clear in my mind. As I was starting yet another blog (this one), I decided to be a bit more mindful and conscious of what my goals actually are. Because if you don't know where you want to go, every step you take is in the wrong direction.
 
