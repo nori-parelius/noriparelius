@@ -1,5 +1,6 @@
 +++
 title = "What can you do for nature?"
+author = ["nori"]
 date = 2024-01-23
 tags = ["Nature"]
 categories = ["Agriculture", "Nature", "Grasslands", "Rewilding", "Indigenous Knowledge"]
@@ -28,6 +29,8 @@ I was thinking about all this as I was reading George Monbiot's book _Regenesis_
 I think George Monbiot got it wrong from the premise. For him, the number one problem of agriculture is land use. And so his solution is to use as little land as possible. Everything he suggests is considered from this point of view, arriving at dubious solutions such as using factory-grown bacteria as the chief source of fat and protein for people around the world.
 
 It is clear that George Monbiot can't imagine that humans could actually be useful to the rest of the natural world. And he definitely can't see us as a part of it. He takes it even further, and as many of his fellow vegans, he even sees domestic animals as inherently damaging to nature and something that should be removed. It's as if cows and sheep and other domestic animals have lost their status as part of nature in his eyes. It's as if they were tainted by their contact with us.
+
+{{< figure src="/ox-hugo/what_can_you_do_for_nature_1.jpg" alt="If we can't even imagine that our interactions with the rest of the natural world could be beneficial for it, how can we hope to actually do anything positive?" title="Why is it that we seem unable to not destroy the nature?" >}}
 
 
 ## Humans are nature too {#humans-are-nature-too}
