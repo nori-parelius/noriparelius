@@ -1178,7 +1178,12 @@ I often doubt whether my writing makes any sense, whether anyone wants to read i
 
 Truth is, I want people to read what I write. I want to know what they think. I want to test my ideas by showing them to others. I want to share the things I discovered, that make my life better or bring me join. I hope I might help someone, or inspire them, even if I only inspire them to prove me wrong on something.
 
-Now that I am thinking about it, my blogging already turned a distant acquaintance into one of my now best friends. (Shoutout to Mariš!) I don't see where and how we would have gotten to know each other if I didn't step out of my comfort zone and started writing. So I guess it is working. 
+Now that I am thinking about it, my blogging already turned a distant acquaintance into one of my now best friends. (Shoutout to Mariš!) I don't see where and how we would have gotten to know each other if I didn't step out of my comfort zone and started writing. So I guess it is working.
+
+#+attr_html: :alt My 5 reasons for blogging not related to money: 1. Sorting out my thoughts, 2. Learning by explaining, 3. Getting better at writing, 4. Capturing memories, 5. Connecting with others.
+#+attr_html: :width 300 :height 450
+#+caption: 
+[[file:pin_my_reasons_for_blogging_1.jpg]]
 
 *** What I didn't mention
 An attentive reader might notice that I didn't talk about some things that many people nowadays aim for when starting a blog. There are no mentions of traffic, marketing, or growth. In short, no money.
@@ -1497,7 +1502,7 @@ It is clear that George Monbiot can't imagine that humans could actually be usef
 #+attr_html: :alt If we can't even imagine that our interactions with the rest of the natural world could be beneficial for it, how can we hope to actually do anything positive?
 #+attr_html: :width 300 :height 450
 #+caption: 
-[[file:what_can_you_do_for_nature_1.jpg]]
+[[file:pin_what_can_you_do_for_nature_1.jpg]]
 
 *** Humans are nature too
 We have been thinking of ourselves as separate from nature for a while now. The concept of nature came to be after the Middle Ages, during the period of Enlightenment. It is even more recent to think of ourselves as only being capable of natural destruction. But thankfully, our culture does not represent all the people in existence and definitely not all the people in history. We might have forgotten about it, but the truth is that humans /can/ live in peace with nature. And not only that, we can even help it prosper.
