@@ -1623,7 +1623,7 @@ Agriculture existed long before the agricultural revolution. Humans have been nu
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/way-out-of-burnout.jpg :f_alt ""
 :EXPORT_DATE: 2024-04-28
 :EXPORT_HUGO_TAGS: "Mental Health" "Knowledge work"
-:EXPORT_HUGO_CATEGORIES: 
+:EXPORT_HUGO_CATEGORIES: Burnout Diet Sleep "Insuline resistance" Autism "Mental illness"
 :END:
 
 I haven't been feeling like myself for the last 5 months. Actually, that is a bit of an understatement. I have been so absolutely, utterly exhausted that it affected everything. I had to slow down considerably in all areas of my life. Work, hobbies, house chores, everything. There was no chance in hell I could attempt something like exercise. Just getting through a normal day would leave me so exhausted I had to sleep for most of the next day. I have been frustrated, scatter-brained, unmotivated and unfocused. Often irritable, often feeling down.
