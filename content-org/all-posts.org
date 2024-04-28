@@ -1701,4 +1701,37 @@ Thinking about it, I might have even gotten a little more productive, especially
 The other practice I find immenselly useful for mental clarity is journaling and especially morning pages. The morning pages were popularized by Julia Cameron in her book /The Artist's Way/ (which I haven't read). Morning pages simply mean writing down 3 pages by hand, first thing in the morning, of whatever comes to mind. It's pure stream of consciousness. I find it to be incredibly useful to find any "tabs" that have been left open in my mind, to figure out what I think and feel about different things and what is lurking in the back of my mind. I often write little note in the margins of my morning-pages book that I then transfer into a GTD inbox. 
 
 *** 4. Taking off pressure
+I have to admit that this forced slowing down was not something that I adjusted to easily or happily. I didn't think I was doing particularly much before, so I was not keen on doing less. Plus, as I said earlier, I half-thought I just needed to pull it together.
 
+I was terribly tired and refusing to act like it, and so, unsurprisingly, I was not performing my best in my job, all the while pushing myself as hard as I could. As a result, I felt guilty and mad at myself. I started feeling like I was bad at what I was doing. My imposter syndrome was blooming. I lost all interest in my work. I felt unfocused and unmotivated. I considered changing jobs many times in the last months, but I couldn't really see how I could find anything better. I felt trapped.
+
+Finally, I admitted to myself that I am not in top form and that that will quite naturally affect how much I can do at work and how I will feel about it. And so I stopped pushing so hard.
+
+I decided to stop forcing myself to do work that I felt completely uninspired to do. 
+
+Now, I am very lucky in that I can afford to do this at my job. The projects I am working on are very long-term ones and I have a lot of freedom in how and when I work. This will definitely not work for many others. 
+
+I know though that waiting for when I will "feel like it" is not a viable option either. Feeling the way I did, I would probably never "feel like it".
+
+So I started doing two things: working on my motivation for my work, and using a visit-based work system.
+
+**** Sharpening the axe of motivation
+This is an idea I heard from Elizabeth Filips. When you lack motivation, tasks, especially ones that require creativity, learning and synthetizing knowledge, will take much longer than they would otherwise, and the result will likely be much worse.
+
+You wouldn't see time spent sharpening your axe as wasted, just because your main goal is to chop down a tree. It makes just as much sense to spend some time building up motivation for a task, when we know it will make it much easier and faster to get it done.
+
+And so I started doing that. I brainstorm all the things I like about my job, all the skills related to it that I would like to learn, all the side projects I would like to try. When I really don't feel like working on my main task, rather than feeling guilty and forcing myself to stare at it, uninspired, I work on something else.
+
+All this might sound quite obvious to some, and it won't be applicable for others at all. For me it was a game-changer that restored my enthusiasm for my work.
+
+**** Visit-based instead of force-based planning
+While I was going down the GTD rabbit hole, I ran into the work of Kourosh Dini. As a pianist, he is very familiar with tasks that require regularity and motivation at the same time. One of the main things I adopted from his approach to organising work is the idea of a Visit.
+
+Most of us are used to leaving orders for our future selves. Inevitably, there are times when the future isn't the way we imagined it and our future self has to skip or modify the job we left for her, often leading to feelings of guilt and failure. This is the force-based system.
+
+One the other hand, you have the Visit-based planning. A Visit means sitting down with your work and considering it. Kourosh Dini says to remain with it at least for the length of a single breath. It gives you the space to consider the task, to start it, if that feels right, and to do as much of it as is right under the circumstances.
+
+The only thing you plan for your future self is to visit the work and you trust her to make the right decision in that moment.
+It is about creating space, rather than obligations.
+
+Obviously, this is not something that is suitable for all types of tasks, but I found it invaluable for those that if fits. I use it a lot for my creative writing at home and for big coding projects at work. I plan a daily recurring Visit, which more often than not turns into a nice flow-filled work session. But if it doesn't, that is ok too. 
