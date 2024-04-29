@@ -1674,7 +1674,7 @@ And I remind myself of the wisdom that was hanging on the wall of my classroom i
 
 #+attr_html: :alt A cute drawing of a child and his plushies sleeping. Text in French says "Dormir, c'est vivre aussi...", meaning "Sleeping is living too...".
 #+caption: I actually found the poster we had hanging in my high school classroom. It seems like it came straight from France from some 90s campaign for better sleep. I remember how its message: "Sleeping is living too" felt meaningful in those days when we were staying up late with homework. 
-[[file:move_more_better_Nori_2013_576x1024.png]]
+[[file:burnout_dormir-c-est-vivre-aussi.jpg]]
 
 
 *** 2. Diet
