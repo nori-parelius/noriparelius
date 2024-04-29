@@ -1,6 +1,5 @@
 +++
 title = "How I became a carnivore"
-author = ["nori"]
 date = 2022-08-18
 tags = ["Food", "About me"]
 draft = false

@@ -1,6 +1,5 @@
 +++
 title = "We have a blind spot"
-author = ["nori"]
 date = 2023-07-11
 tags = ["Food"]
 draft = false
