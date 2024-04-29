@@ -3,9 +3,9 @@ title = "Finding my way out of burnout – 4 changes I made to my lifestyle and 
 date = 2024-04-28
 tags = ["Mental Health", "Knowledge work"]
 categories = ["Burnout", "Diet", "Sleep", "Insuline resistance", "Autism", "Mental illness"]
-draft = true
-featured_image = "/img/way-out-of-burnout.jpg"
-f_alt = ""
+draft = false
+featured_image = "/img/featured_way-out-of-burnout.jpg"
+f_alt = "An image of standing matchsticks with one in the middle being burnt and black."
 +++
 
 I haven't been feeling like myself for the last 5 months. Actually, that is a bit of an understatement. I have been so absolutely, utterly exhausted that it affected everything. I had to slow down considerably in all areas of my life. Work, hobbies, house chores, everything. There was no chance in hell I could attempt something like exercise. Just getting through a normal day would leave me so exhausted I had to sleep for most of the next day. I have been frustrated, scatter-brained, unmotivated and unfocused. Often irritable, often feeling down.
@@ -65,7 +65,7 @@ There is now a whole new field -- nutritional psychiatry -- that focuses on diet
 
 She uses the physiology of the brain as a starting point to figure out what the brain needs in terms of food and how to keep it happy. Thankfully (and logically), the brain requires the same kind of nutrition to thrive as the rest of the body. The book is engaging, accessible and actionable. It offers different dietary approaches that one can tailor to their needs. I really enjoyed it.
 
-Some of the biggest take-aways are the need to be careful with carbohydrates and plant toxins. Humans are quite prone to becoming insulin-resistant when exposed to larger amounts of carbohydrates over time. In fact, [in the US, 88% of people are already insulin-resistant](https://www.sciencedaily.com/releases/2018/11/181128115045.htm). Insulin resistance means that the various organs in the body stop responding to insulin. While one of the biggest roles of insulin is to trigger cells to take up glucose from the blood, it does much more than that and so insulin resistance can lead not only to type 2 diabetes, but also to [cardiovascular disease](https://www.ahajournals.org/doi/10.1161/01.CIR.98.5.398), [polycystic ovarian syndrome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3277302/) and more.
+Some of the biggest take-aways are the need to be careful with carbohydrates and plant toxins. Humans are quite prone to becoming insulin-resistant when exposed to larger amounts of carbohydrates over time. In fact, [in the US, 88% of people are already insulin-resistant](https://www.sciencedaily.com/releases/2018/11/181128115045.htm). Insulin resistance means that the various organs in the body stop responding to insulin. While one of the biggest roles of insulin is to trigger cells to take up glucose from the blood, it does much more than that and so insulin resistance can lead not only to type 2 diabetes, but also to [cardiovascular disease](https://www.ahajournals.org/doi/10.1161/01.CIR.98.5.398), [[[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3277302/][[[[[polycystic ovarian syndrome](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3277302/) and more.
 
 What does insulin resistance do in the brain? It actually prevents glucose from getting to the brain cells at all, as it gets stopped by the insulin resistant blood-vessel cells at the blood-brain barrier. It means the brain isn't getting the fuel it needs and is basically starving. It's not surprising this can give a range of symptoms, and in worst case [lead to Alzheimer's disease](https://journalofmetabolichealth.org/index.php/jmh/article/view/15).
 
