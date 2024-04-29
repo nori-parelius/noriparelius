@@ -58,7 +58,7 @@ Since then, I am finding sleep to be the number one factor that decides how I ex
 
 And I remind myself of the wisdom that was hanging on the wall of my classroom in high school: "Sleeping is living too."
 
-{{< figure src="/ox-hugo/burnout_dormir-c-est-vivre-aussi.jpg" alt="A cute drawing of a child and his plushies sleeping. Text in French says "Dormir, c'est vivre aussi...", meaning "Sleeping is living too..."." caption="<span class=\"figure-number\">Figure 1: </span>I actually found the poster we had hanging in my high school classroom. It seems like it came straight from France from some 90s campaign for better sleep. I remember how its message: \"Sleeping is living too\" felt meaningful in those days when we were staying up late with homework." >}}
+{{< figure src="/ox-hugo/burnout_dormir-c-est-vivre-aussi.jpg" alt="A cute drawing of a child and his plushies sleeping. Text in French says /Dormir, c'est vivre aussi.../, meaning /Sleeping is living too.../." caption="<span class=\"figure-number\">Figure 1: </span>I actually found the poster we had hanging in my high school classroom. It seems like it came straight from France from some 90s campaign for better sleep. I remember how its message: \"Sleeping is living too\" felt meaningful in those days when we were staying up late with homework." >}}
 
 
 ## 2. Diet {#2-dot-diet}
