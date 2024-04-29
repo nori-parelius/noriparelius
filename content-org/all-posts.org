@@ -1670,7 +1670,12 @@ In the first weeks of my acute burnout, I was not really left much choice. I was
 
 Since then, I am finding sleep to be the number one factor that decides how I experience my day. Now, by most people's standards, I was never sleeping that little. Even before all this, I would average 7 or 7.5 hours a night. It's hard to know whether it was enough back then, but I can clearly see it is not enough now. There are a number of things that will increase our need for sleep, like inflammation or stress. So while I don't like "losing" even more hours to sleep than before, I know that it will make the waking ones much better.
 
-And I remind myself of the wisdom that was hanging in our class room when I was a high schooler: "Sleeping is living too."
+And I remind myself of the wisdom that was hanging on the wall of my classroom in high school: "Sleeping is living too."
+
+#+attr_html: :alt A cute drawing of a child and his plushies sleeping. Text in French says "Dormir, c'est vivre aussi...", meaning "Sleeping is living too...".
+#+caption: I actually found the poster we had hanging in my high school classroom. It seems like it came straight from France from some 90s campaign for better sleep. I remember how its message: "Sleeping is living too" felt meaningful in those days when we were staying up late with homework. 
+[[file:move_more_better_Nori_2013_576x1024.png]]
+
 
 *** 2. Diet
 Nutrition has everything to do with everything and is probably the number one thing to fix when dealing with, well, anything.
