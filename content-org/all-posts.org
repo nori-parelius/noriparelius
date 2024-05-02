@@ -1754,4 +1754,67 @@ The strategies I outlined here are just some of the things I have tried. I have 
 /Image by Nataliya Vaitkevich via Canva.com/
 
 
+** TODO Why I stopped using habit trackers and what I do instead
+:PROPERTIES:
+:EXPORT_FILE_NAME: habit-trackers
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_habit-trackers.jpg :f_alt ""
+:EXPORT_DATE: 2024-05-02
+:EXPORT_HUGO_TAGS: "Bullet Journal" Habits
+:EXPORT_HUGO_CATEGORIES: BuJo "Idenity shift"
+:END:
 
+One of the staples of bullet journalling are habit trackers. There is just something so satisfying about ticking off a box at the end of the day and looking at that unbroken streak of your new (or old) habit. And as they say, you can't improve what you don't measure. Habit trackers seem like the perfect solution for when you want to build or maintain a habit. Yet, they stopped working for me (if they have ever really worked) and so I have finally stopped using them. Thankfully, I figured out better ways of making my new habits stick.
+
+*** Over five years of habit trackers
+I have started bullet journaling in 2018 and have never looked back. When I got my first dot-grid notebook and gave the method a proper try, something clicked. A planner, journal, commonplace book and whatever else you need in one place? Yes, please!
+
+My bullet journaling has been evolving with me over the years and changing according to my needs, but one thing was repeating itself year after year: habit trackers. It's one of the Bullet Journal staples. When you search for BuJo habit trackers, you will find thousands of beautiful, artistic habit trackers that people make. Mine were not of that kind. I would simply make a grid with days of the month on the vertical and all the habits I wanted to stick to on the horizontal. Nothing fancy. And then I would just go on crossing them off. For the most part.
+
+I tracked all kinds of things over the years. Eating according to my plan, going to bed before 10, exercising, taking supplements, writing, avoiding social media, meditating, even journalling itself.
+
+*** What habit trackers are supposed to do
+I can't back this up by any data, but I think habit trackers are one of those things virtually every bullet journaler uses. We all want to stick to our good habits, get rid of the bad ones and create new ones. Habit trackers are made to help with that.
+
+1. *Reminders* They serve as a reminder of what you have set out to do, so that you do not forget about it.
+2. *Motivation* They are meant to work as motivation. "You will not want to break your streak!" I have heard/read so many times. (Spoiler alert: that one didn't work for me.)
+3. *Overview* They give you an overview of how well you did sticking to your habit, so that you can fix and tweak things, if it is not going the way you want it to.
+
+It all sounds so good on paper and yet.
+
+*** Habit trackers didn't work for me
+Looking at my habit trackers over the years, there are just so, so very many blank spots. I am not sure if I even managed to make a single routine become a real habit, they way brushing my teeth is. You know, where you don't have to track it or force it. Heck, you don't even have to think about it all! It's just a habit.
+
+I would say that while habit trackers still worked as reminders and to provide overview, they failed at the most important bit. They failed to motivate me to actually do the thing.
+
+I realized that maybe I was on the wrong path when I saw a video of Tony Robbins talking about quitting smoking. "Why would you count the days since you last smoked? Is it just to know how long you lasted this time?" (I'm paraphrasing hard here.) That one really hit home for me. Here was, starting and restarting my count of how many days I have managed without sugar. Over and over again, hundreds of times over several years. Pages and pages of habit trackers, were I would put a red square for a day when I managed and a black one for one when I didn't. There were way too many black ones, staring back at me like little dark wells of misery.
+
+After this call out, I sat down and thought and journalled about it. Why was I even tracking my no-sugar days? I don't track the /brushed-my-teeth/ days. I wanted my way of eating to be a part of me, and it really already was in many ways. Except for the moments I would give in and eat candy that I knew would make me sick. And so I decided that was it. I decided then and there that I simply wasn't someone who eats that stuff anymore. Not now, not ever. No need to track. And somehow, miraculously, it worked. (Now, while this mindset shift was an important part of it, my sugar addiction took more than that to overcome. I previously wrote a blog post about sugar and another blog post about how hypnosis turned out super helpful in my fight.)
+
+Diet was the first thing I stopped tracking, but I didn't really extend that to my other habits at first. I thought those were somehow different and so I continued to dutifully track them. But the seed of doubt had been sowed.
+
+I started to realise, that just like with sugar, I wasn't really sticking to my other habits either. I believe there were three main reasons.
+
+1. *Habit trackers leave too much space for failure.* Deep in my mind, somehow, quite stupidly, the fact that I /can/ leave that little square blank, opened up for the possibility to do so. After all, nothing much happened if I did. It's as if the whole process just reminded me that there was a real possibility that I wouldn't do what I set out to do. It's a bit hard to explain, but I feel like you probably know what I mean, and if you don't, then lucky you. In addition to that general possibility of failure, it also made one day the smallest time frame that mattered. This isn't a problem for habits you are trying to establish, but for the ones you are trying to get /rid off/... Oh boy! For me this meant that if I had a cookie in the morning, well, then the whole day was "ruined". The little blank square was to turn black anyway and I might as well eat all the other things I didn't intend to eat! Not good.
+2. *Habit trackers create pressure.* The moment I start "messing up" and breaking my streaks, the two purposes that habit trackers still do, namely reminders and overview, turn sour. The gaps in the previous days bring up feelings of guilt and the daily reminder just feels like pressure. Things that I /want/ to do, even the ones that I do for my own enjoyment, suddenly seem like chores. There is pressure. Some people react positively to pressure. Some people will be motivated by challenges, by pushing themselves, by turning things around. Some other people are more rebelious and being told what to do doesn't sit so well with them. Even if the person commanding is their past self. After years of thinking I was the first kind, I am coming to terms with my very present and very real rebelious streak. Being pressured definitely makes me want to do the thing /less/, not to mention it creates (often unnecessary) stress.
+3. *Habit trackers don't address the source of our habits.* As much as we would like to think that creating a new habit is as easy as just sticking to the activity (or sticking to /not/ doing something), there are usually reasons for why we do (or don't) do something. More often than not, we aren't even aware of what these reasons are. They usually have something to do with fullfilling our needs: for feelings of safety, connection, rest, attention, stimulation, ... Even the worst habits are fullfilling a need somewhere, somehow, albeit in a far from ideal way. Habit trackers on their own do nothing to help us address this need. And until we do, it will feel like a wall between us and the desired habit. One that we will keep running into until we acknowledge the need and fullfill it in some other way. 
+
+*** What I do instead   
+I was figuring out all that wasn't working as I was watching one of my other desired habits falling by the wayside day after day. I was trying to establish a daily writing habit. I started writing a novel last November (NaNoWriMo anyone?) and I am still at it. I greatly enjoy it, but it has been difficult to actually /do/ it. I never quite feel like it until I get into flow, and I need a bit of peace and quiet, which is hard to get with small kids around. Anyway, I really, really, really wanted to establish a daily writing habit. At first I even had word-count goals, that I kept reducing (1000 words, then 400, 200, then anything). I just wasn't writing most days. At all.
+
+When I realized my habit trackers weren't working, I decided to ditch them. But I knew I had to replace them with something. This is what I came up with. And what got me writing every day ever since (it's just been a few weeks, but that's longer than every before).
+
+**** Identity shift
+Our habits are a reflection of who we are, but at the same time, we become what we do habitually. It's a two way process. Our identity shapes our habits and our habits shape our identity. 
+Identity <=> Habits
+
+Habit trackers help us go in the direction from habits to identity: do -> be. The only thing you need to do to establish a habit is just to stick to the activity enought times. 21 days, some say. More, say others. I don't know. I have stuck to some things for 2 or more months, just to then abandon them and watch my little habit tracker boxes remain empty.
+
+Our identity is like a thermostat. It works to bring us back to who we believe we are, because it is uncomfortable to stray away from it. Establishing a new habit that challenges that identity is difficult. You have to fight it until you prove to yourself that you aren't who you thought you were and your identity changes. This is the difficult direction. It's much easier to go the other way, from identity to habits. If you manage to change your identity, the new habits feel so much more natural and easy.
+
+Beating my sugar addiction definitely took an identity shift. It wa
+
+**** Make a Visit
+keep reminders
+**** Journal about goals and process
+
+We think that  I think a much better way of thinking about our habits is as an expression of who we are. The relationship goes both ways: We become what we do, and also we do who we are. Habit trackers only go in one direction: do -> be. The truth is, the 
