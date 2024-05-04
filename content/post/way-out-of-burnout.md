@@ -1,5 +1,6 @@
 +++
 title = "Finding my way out of burnout – 4 changes I made to my lifestyle and mindset"
+author = ["nori"]
 date = 2024-04-28
 tags = ["Mental Health", "Knowledge work"]
 categories = ["Burnout", "Diet", "Sleep", "Insuline resistance", "Autism", "Mental illness"]
@@ -92,7 +93,7 @@ I have been very much enjoying implementing GTD in my life. I am finding myself 
 
 Thinking about it, I might have even gotten a little more productive, especially given my limited energy these days. And I have even tackled some tasks that I have been putting off for more than a year. (For real. I was planning to get frames for some of our pictures and hang them up, but I just kept rewriting the task from one to-do list to the next for over a year. Until GTD.)
 
-The other practice I find immensely useful for mental clarity is journaling and especially morning pages. The morning pages were popularised by Julia Cameron in her book _The Artist's Way_ (which I haven't read). Morning pages simply mean writing down 3 pages by hand, first thing in the morning, of whatever comes to mind. It's pure stream of consciousness. I find it to be incredibly useful to find any "tabs" that have been left open in my mind, to figure out what I think and feel about different things and what is lurking in the back of my mind. I often write little note in the margins of my morning-pages book that I then transfer into a GTD inbox.
+The other practice I find immensely useful for mental clarity is journalling and especially morning pages. The morning pages were popularised by Julia Cameron in her book _The Artist's Way_ (which I haven't read). Morning pages simply mean writing down 3 pages by hand, first thing in the morning, of whatever comes to mind. It's pure stream of consciousness. I find it to be incredibly useful to find any "tabs" that have been left open in my mind, to figure out what I think and feel about different things and what is lurking in the back of my mind. I often write little note in the margins of my morning-pages book that I then transfer into a GTD inbox.
 
 
 ## 4. Taking off pressure {#4-dot-taking-off-pressure}
