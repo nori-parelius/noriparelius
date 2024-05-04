@@ -60,6 +60,10 @@ ignoreErrors = ["error-output-taxonomy"]
   # default image to show in RSS feed if no featured
   images = ["img/being-human.jpg"]
 
+  # toc
+  showtoc = true
+  tocopen = false
+
 # socials
 [[params.ananke_socials]]
 name = "rss"
