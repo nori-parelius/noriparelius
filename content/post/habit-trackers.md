@@ -27,12 +27,20 @@ I tracked all kinds of things over the years. Eating according to my plan, going
 
 I can't back this up by any data, but I think habit trackers are one of those things virtually every bullet journaler uses. We all want to stick to our good habits, get rid of the bad ones and create new ones. Habit trackers are meant to help with that. I believe the idea is for them to work serving these 3 main purposes:
 
-1.  **Reminders**
-    They serve as a reminder of what you have set out to do, so that you do not forget about it.
-2.  **Motivation**
-    They are meant to work as motivation. "You will not want to break your streak!" I have heard/read so many times. (Spoiler alert: that one didn't work for me.)
-3.  **Overview**
-    They give you an overview of how well you did sticking to your habit, so that you can fix and tweak things if it isn't going the way you want it to.
+
+### 1. Reminders {#1-dot-reminders}
+
+They serve as a reminder of what you have set out to do, so that you do not forget about it.
+
+
+### 2. Motivation {#2-dot-motivation}
+
+They are meant to work as motivation. "You will not want to break your streak!" I have heard/read so many times. (Spoiler alert: that one didn't work for me.)
+
+
+### 3. Overview {#3-dot-overview}
+
+They give you an overview of how well you did sticking to your habit, so that you can fix and tweak things if it isn't going the way you want it to.
 
 It all sounds so good on paper, and yet.
 
@@ -49,13 +57,22 @@ After this call out, I sat down and thought and journalled about it. Why was I e
 
 Diet was the first thing I stopped tracking, but I didn't really extend that to my other habits at first. I thought those were somehow different and so I continued to dutifully track them. But the seed of doubt had been sowed. I started to realise, that just like with sugar, I wasn't really sticking to my other habits either. I believe there were three main reasons.
 
-1.  **Habit trackers leave too much space for failure.**
-    Deep in my mind, somehow, quite stupidly, the fact that I _can_ leave that little square blank, opened up for the possibility to do so. After all, nothing much happened if I did. It's as if the whole process just reminded me that there was a real possibility that I wouldn't do what I set out to do. It's a bit hard to explain, but I feel like you probably know what I mean, and if you don't, then lucky you.
-    In addition to that general possibility of failure, it also made one day the smallest time frame that mattered. This isn't a problem for habits you are trying to establish, but for the ones you are trying to get _rid off_... Oh boy! For me this meant that if I had a cookie in the morning, well, then the whole day was "ruined". The little blank square was to turn black anyway and I might as well eat all the other things I didn't intend to eat! Not good.
-2.  **Habit trackers create pressure.**
-    The moment I start "messing up" and breaking my streaks, the two purposes that habit trackers still do, namely reminders and overview, turn sour. The gaps in the previous days bring up feelings of guilt and the daily reminder just feels like pressure. Things that I _want_ to do, even the ones that I do for my own enjoyment, suddenly seem like chores. There is pressure. Some people react positively to pressure. Some people will be motivated by challenges, by pushing themselves, by turning things around. Some other people are more rebellious, and being told what to do doesn't sit so well with them. Even if the person commanding is their past self. After years of thinking I was the first kind, I am coming to terms with my very present and very real rebellious streak. Being pressured definitely makes me want to do the thing _less_, not to mention it creates (often unnecessary) stress.
-3.  **Habit trackers don't address the source of our habits.**
-    As much as we would like to think that creating a new habit is as easy as just sticking to the activity (or sticking to _not_ doing something), there are usually reasons for why we do (or don't) do something. More often than not, we aren't even aware of what these reasons are. They usually have something to do with fulfilling our needs: needs for feelings of safety, connection, rest, attention, stimulation, ... Even the worst habits are fulfilling a need somewhere, somehow, albeit in a far-from-ideal way. Habit trackers on their own do nothing to help us address this need. And until we do, it will feel like a wall between us and the desired habit. One that we will keep running into until we acknowledge the need and fulfil it in some other way.
+
+### 1. Habit trackers leave too much space for failure. {#1-dot-habit-trackers-leave-too-much-space-for-failure-dot}
+
+Deep in my mind, somehow, quite stupidly, the fact that I _can_ leave that little square blank, opened up for the possibility to do so. After all, nothing much happened if I did. It's as if the whole process just reminded me that there was a real possibility that I wouldn't do what I set out to do. It's a bit hard to explain, but I feel like you probably know what I mean, and if you don't, then lucky you.
+
+In addition to that general possibility of failure, it also made one day the smallest time frame that mattered. This isn't a problem for habits you are trying to establish, but for the ones you are trying to get _rid off_... Oh boy! For me this meant that if I had a cookie in the morning, well, then the whole day was "ruined". The little blank square was to turn black anyway and I might as well eat all the other things I didn't intend to eat! Not good.
+
+
+### 2. Habit trackers create pressure. {#2-dot-habit-trackers-create-pressure-dot}
+
+The moment I start "messing up" and breaking my streaks, the two purposes that habit trackers still do, namely reminders and overview, turn sour. The gaps in the previous days bring up feelings of guilt and the daily reminder just feels like pressure. Things that I _want_ to do, even the ones that I do for my own enjoyment, suddenly seem like chores. There is pressure. Some people react positively to pressure. Some people will be motivated by challenges, by pushing themselves, by turning things around. Some other people are more rebellious, and being told what to do doesn't sit so well with them. Even if the person commanding is their past self. After years of thinking I was the first kind, I am coming to terms with my very present and very real rebellious streak. Being pressured definitely makes me want to do the thing _less_, not to mention it creates (often unnecessary) stress.
+
+
+### 3. Habit trackers don't address the source of our habits. {#3-dot-habit-trackers-don-t-address-the-source-of-our-habits-dot}
+
+As much as we would like to think that creating a new habit is as easy as just sticking to the activity (or sticking to _not_ doing something), there are usually reasons for why we do (or don't) do something. More often than not, we aren't even aware of what these reasons are. They usually have something to do with fulfilling our needs: needs for feelings of safety, connection, rest, attention, stimulation, ... Even the worst habits are fulfilling a need somewhere, somehow, albeit in a far-from-ideal way. Habit trackers on their own do nothing to help us address this need. And until we do, it will feel like a wall between us and the desired habit. One that we will keep running into until we acknowledge the need and fulfil it in some other way.
 
 
 ## What I do instead {#what-i-do-instead}
