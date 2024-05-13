@@ -18,7 +18,7 @@ I love The Beatles. Every time I hear the opening chord of the _Hard Day's Night
 
 Once they get into a flow, the four of them seem to be having so much fun. They break out into random songs, add silly lyrics, banter and laugh. While they are undoubtedly working and creating gems such as _Let It Be_, the process is so very clearly play. And not only in the sense that they are playing music, which they obviously are, but they are also playing with the music, with each other and with their ideas.
 
-I was surprised to realise how many of these spontaneous little moments made it onto the finished album, just like the quote that introduced this blog post. It's something John Lennon says out of nowhere, making everyone laugh. It has nothing to do with any of the songs. But it is there, the first thing on the album. Ir's far from the only example. There are many bits and pieces that were clearly improvised, created from a moment of sudden inspiration, of play. Most of them are just funny, silly, little things. But as a listener, I find them to be oh, so delightful.
+I was surprised to realise how many of these spontaneous little moments made it onto the finished album, just like the quote that introduced this blog post. It's something John Lennon says out of nowhere, making everyone laugh. It has nothing to do with any of the songs. But it is there, the first thing on the album. Ir's far from the only example. There are many bits and pieces that were clearly improvised, created from a moment of sudden inspiration, a moment of play. Most of them are just funny, silly, little things. But as a listener, I find them to be oh, so delightful.
 
 
 ## The times of "perfect" {#the-times-of-perfect}
