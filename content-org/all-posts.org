@@ -601,7 +601,7 @@ And that's why I just can't keep it to myself.
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_failed-online-business.jpg :f_alt "An image with a computer screen in the middle and two hands exchanging a credit card and a shopping bag in front of it."
 :EXPORT_DATE: 2023-03-17
-:EXPORT_HUGO_TAGS: Online
+:EXPORT_HUGO_TAGS: Sharing
 :END:
 
 I really really tried to start an online business, but it was just an endless struggle. I just couldn't get myself to do the things and I couldn't get it right. And so I finally stopped. It was a relief and a disappointment at the same time. And it actually took me close to a year to figure out what went "wrong", and why it's for the best. 
@@ -710,7 +710,6 @@ Now I know the world is headed in the opposite way nowadays, but that doesn't me
 And since I have the luxury of "failing" at selling, I can do this instead. Go back to having a blog, just for fun. Freely sharing my gifts with anyone who might benefit, doing my part in the gift economy.
 #+end_verse
 
-
 ** DONE Are our bodies trying to kill us?                   
 :PROPERTIES:
 :EXPORT_FILE_NAME: bodies-trying-kill-us
@@ -818,7 +817,7 @@ And if I'm wrong, so be it. I will rather live in a world where my body is on my
 :EXPORT_FILE_NAME: blind-spot
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_blind-spot.jpg :f_alt "A close-up of a pile of white crystalline substance."
 :EXPORT_DATE: 2023-07-11
-:EXPORT_HUGO_TAGS: Food
+:EXPORT_HUGO_TAGS: Food "Sugar addiction"
 :END:
 *** Hello, my name is Nori, and I am an addict.
 
@@ -1012,7 +1011,7 @@ CLOSED: [2023-12-10 Sun 14:36]
 :EXPORT_FILE_NAME: brain-hacking
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_brain-hacking.jpg :f_alt "Image of a blue and white network as an artistic depiction of brain connections."
 :EXPORT_DATE: 2023-12-10
-:EXPORT_HUGO_TAGS: Mind
+:EXPORT_HUGO_TAGS: "Sugar addiction" "Personal development" "Mental health"
 :EXPORT_HUGO_CATEGORIES: Hypnosis Sugar Addiction
 :END:
 
@@ -1132,7 +1131,7 @@ CLOSED: [2023-12-14 Thu 18:39]
 :EXPORT_FILE_NAME: my-reasons-for-blogging
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-reasons-for-blogging.jpg :f_alt "An AI generated watercolor image of a platypus in front of a laptop."
 :EXPORT_DATE: 2023-12-14
-:EXPORT_HUGO_TAGS: Online "About me" "Knowledge work"
+:EXPORT_HUGO_TAGS: Sharing "About me" "Knowledge work" "Personal development" Creativity Writing
 :EXPORT_HUGO_CATEGORIES: "Knowledge work" Blogging Learning Writing
 :END:
 
@@ -1199,7 +1198,7 @@ Thankfully, I don't need to make money from blogging, and I have a bunch of othe
 :EXPORT_FILE_NAME: my-year-with-zettelkasten
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_my-year-with-zettelkasten.jpg :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines."
 :EXPORT_DATE: 2023-12-31
-:EXPORT_HUGO_TAGS: "Knowledge work"
+:EXPORT_HUGO_TAGS: "Knowledge work" Writing
 :EXPORT_HUGO_CATEGORIES: "Knowledge work" Zettelkasten Learning Writing
 :END:
 
@@ -1407,7 +1406,7 @@ Citar org roam allows me to use my roam capture template to make a note from a r
 :EXPORT_FILE_NAME: happiness-not-on-social-media
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_happiness-not-on-social-media.jpg :f_alt "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle."
 :EXPORT_DATE: 2024-01-06
-:EXPORT_HUGO_TAGS: Online Happiness
+:EXPORT_HUGO_TAGS: "Mental health" "Personal development"
 :EXPORT_HUGO_CATEGORIES: Happiness "Social media" Enshittification Content
 :END:
 
@@ -1553,7 +1552,6 @@ The change, if it happens, will come from the bottom. From people with a new vis
 
 
 
-
 ** TODO Why I think we should start growing life instead of the economy
 :PROPERTIES:
 :EXPORT_FILE_NAME: grow-life-not-economy
@@ -1615,7 +1613,6 @@ Agriculture existed long before the agricultural revolution. Humans have been nu
 *** We need more farmers
 
 *** I think I smell a homestead in my future
-
 
 ** DONE Finding my way out of burnout -- 4 changes I made to my lifestyle and mindset
 :PROPERTIES:
@@ -1753,14 +1750,13 @@ The strategies I outlined here are just some of the things I have tried. I have 
 
 /Image by Nataliya Vaitkevich via Canva.com/
 
-
 ** DONE Why I stopped using habit trackers and what I do instead
 :PROPERTIES:
 :EXPORT_FILE_NAME: habit-trackers
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_habit-trackers.jpg :f_alt "A graphics of a checkbox with a big X drawn inside."
 :EXPORT_DATE: 2024-05-04
-:EXPORT_HUGO_TAGS: "Bullet Journal" Habits "Personal development"
-:EXPORT_HUGO_CATEGORIES: BuJo "Idenity shift"
+:EXPORT_HUGO_TAGS: Writing "Personal development" "Mental health"
+:EXPORT_HUGO_CATEGORIES: BuJo Habits "Idenity shift" "Bullet Journal"
 :END:
 
 One of the staples of bullet journalling are habit trackers. There is just something so satisfying about ticking off a box at the end of the day and looking at that unbroken streak of your new (or old) habit. And as they say, you can't improve what you don't measure. Habit trackers seem like the perfect solution for when you want to build or maintain a habit. Yet, they stopped working for me (if they ever really worked at all) and so I have finally stopped using them. Thankfully, I figured out better ways of making my new habits stick.
@@ -1854,10 +1850,10 @@ Habit trackers are super popular in the journalling community and I am sure they
 ** TODO Creativity in the age of Photoshop
 :PROPERTIES:
 :EXPORT_FILE_NAME: creativity
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_creativity.jpg :f_alt ""
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_creativity.jpg :f_alt "A graphics of four colorful beetles seen from above walking over a black and white striped surface that looks like a pedestrian crossing."
 :EXPORT_DATE: 2024-05-13
-:EXPORT_HUGO_TAGS: Creativity
-:EXPORT_HUGO_CATEGORIES: 
+:EXPORT_HUGO_TAGS: Creativity "Personal development" Sharing
+:EXPORT_HUGO_CATEGORIES: Perfectionism Play AI Authenticity 
 :END:
 
 #+begin_quote
