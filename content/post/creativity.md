@@ -3,7 +3,7 @@ title = "Creativity in the age of Photoshop"
 date = 2024-05-13
 tags = ["Creativity", "Personal development", "Sharing"]
 categories = ["Perfectionism", "Play", "AI", "Authenticity"]
-draft = true
+draft = false
 featured_image = "/img/featured_creativity.jpg"
 f_alt = "A graphics of four colorful beetles seen from above walking over a black and white striped surface that looks like a pedestrian crossing."
 +++

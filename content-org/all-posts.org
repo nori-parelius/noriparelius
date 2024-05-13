@@ -1847,7 +1847,7 @@ There is a saying that you can't improve what you do not track, and I definitely
 *** You do you
 Habit trackers are super popular in the journalling community and I am sure they work perfectly for many people. If they do for you, that's amazing, and there is no need to change a winning formula. Or if you don't feel the need to use habit trackers, or work on creating habits at all, that's great too! (In that case, I am surprised you have read this far in a post about habit trackers, but you are of course welcome to :) ) But if you do use habit trackers and struggle with establishing habits, I hope you found some interesting bits here, or at least realised that there are other options you can experiment with.
 
-** TODO Creativity in the age of Photoshop
+** DONE Creativity in the age of Photoshop
 :PROPERTIES:
 :EXPORT_FILE_NAME: creativity
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_creativity.jpg :f_alt "A graphics of four colorful beetles seen from above walking over a black and white striped surface that looks like a pedestrian crossing."
