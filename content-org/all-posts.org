@@ -1927,9 +1927,28 @@ I think the tide of our times will turn. Just like the 50s were followed by the 
 :EXPORT_HUGO_CATEGORIES: Science "Scientific method" Academia Publishing Research 
 :END:
 
-Science is broken. I guess this statement might make me sound like a crazy consiparotirist that will try to convince you that the Earth is flat. Don't worry, I won't. Maybe I should mention at this point that I am an actual (slightly crazy) scientist, if I am to believe the job title on my work contract. And while I whole-heartedly believe that the scientific method of inquiry is hands-down the best way to learn about the reality we live in, what we call "science" is, sadly, broken.
+Science is broken. I guess this statement might make me sound like a crazy consipationalist that will try to convince you that the Earth is flat. Don't worry, I won't. Maybe I should mention at this point that I am an actual (slightly crazy) scientist, if I am to believe the job title on my work badge. And while I whole-heartedly believe that the scientific method of inquiry is hands-down the best way to learn about the reality we live in, what we call "science" is, indeed, broken.
 
-Scientific method vs science
+*** Scientific method vs science
+Scientific method is a way of acquiring knowledge, based on observation, scepticism and experimental testing of ideas. The process, in its most simple form, consists of
+1. gathering all the knowledge available to the scientist (observations, results of experiments, theories) ,
+2. forming a hypothesis that aims to explain the known facts,
+3. coming up with  a testable prediction of how the hypothesis will manifest in the world
+4. performing experiments to test the hypotesis.
+5. And rinse and repeat.
+
+These steps are more just general principles, capturing the spirit of the process, rather than a strict how-to. Even though they might not be applicable to every single situation, they are still good guidelines to keep in mind.
+
+Just like with everything else, experts are debating the appliation and details of the scientific method as we speak, but the truth remains that it is the best way we have to learn about the world around us
+
+The scientific method requires scepticism, not jumping to conclusions, not letting one's biases get in the way, and being able and willing to change and refine one's ideas and views in face of new evidence.
+
+Science, by definition, is simply the discipline that organises our knowledge of the world. Science is basically a method. However, that is not what we mean when say "science" nowadays and that is not what I meant when I said that science is broken. We tend to refer to any piece of research as science. We tend to point to a scientific paper and say "Look at the science." Or even worse, we point to an article in a magazine reporting on a scientific paper with a clickbaity title and call /that/ science. There is this assumption that everything that makes its way into published science is true, especially if the majority agrees on it. We conflate published research with truth and immutable facts.
+
+Even in an ideal world, this would not be the case. Science, the method -- is a process. It's findings are under constant refinement. Many scientific theories we have are very solid, but even those can be expanded, like the theory of relativity added to Newtonian mechanics. It would be a mistake to look to "science" as the source of the one unchangeable truth even under the best circumstances. Even worse though, the circumstances are far from the best.
+
+*** Life of a scientist
+Sometimes I think about Tolkien and his position as a 
 
 Reproducibility crisis, underpaid researchers, funding issues, paid for research, one-death-at-a-time/ego, citation system and money, publishing, predatory publishers, peer-review process, language getting difficult, published papers instead of a PhD thesis, bad papers being published - no theory behind
 
@@ -1945,6 +1964,11 @@ Statistics is not  intuitive, not common sense
 :EXPORT_HUGO_CATEGORIES: "Follow joy" "Hustle culture" 
 :END:
 
-Grind, hustle, "eating the frog", pushing ourselves, discipline
+Grind, hustle, "eating the frog", pushing ourselves, discipline, productivity, willpower, consistency, crushing our goals. I don't know about you, but I am tired. Tired of pushing, of crushing, of powering through, of hustling and of grinding. And so I am looking for a softer, slower and gentler way of going through life.
 
-I was in a group call with a bunch of friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course you hate them. That's why you should do them -- to build toughness and to show yourself that you are strong and capable and, simply put, that you /can/. 
+I was in a group call with a bunch of friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course you hate them. That's why you should do them -- to build toughness and to show yourself that you are strong and capable and, simply put, that you /can/. It makes sense, of course. But as I listened to the conversation, I strongly felt that it doesn't make sense for everyone everytime. And that it doesn't make sense for me now.
+
+I am thinking that not all processes get better when you try harder, some things simply need time and trust and consistency. This pressure on productivity and goals creates pressure on perfection too. Some of us respond to pressure with resistence, it's stressful. How do you know your goals are in accord with you if you don't slow down. Leaning into the body to know how you feel. Devotion instead of discipline. Limited amount of energy
+
+*** No such thing as laziness
+The longer I have been a human, the more I am realising that there is no such thing as laziness. Laziness, this mythical sin, is supposed to grip us and make us do nothing, or just things that are not /useful/. And all that for no reason other than being lazy. In reality, I don't think I ever met an actually lazy person in real
