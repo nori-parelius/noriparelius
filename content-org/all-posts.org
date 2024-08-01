@@ -94,7 +94,7 @@ nori@noriparelius.com
 :END:
 
 ** TODO Tags list
-About me, Movement, Food, Sharing, Sugar addiction, Personal Developmnet, Knowledge work, Creativity, Writing, Nature, Mental health
+About me, Movement, Food, Sharing, Sugar addiction, Personal Developmnet, Knowledge work, Creativity, Writing, Nature, Mental health, Productivity
 ** TODO Don't walk like a duck -- walk like Aragorn
 :PROPERTIES:
 :EXPORT_FILE_NAME: do-not-walk-like-a-duck-walk-like-aragorn
@@ -1935,3 +1935,16 @@ Reproducibility crisis, underpaid researchers, funding issues, paid for research
 
 ** TODO How to critically read scientific articles
 Statistics is not  intuitive, not common sense
+
+** TODO The case for joy over grind
+:PROPERTIES:
+:EXPORT_FILE_NAME: case_for_joy
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_case-for-joy.jpg :f_alt ""
+:EXPORT_DATE: 2024-08-01
+:EXPORT_HUGO_TAGS: Productivity "Mental health" "Personal development"
+:EXPORT_HUGO_CATEGORIES: "Follow joy" "Hustle culture" 
+:END:
+
+Grind, hustle, "eating the frog", pushing ourselves, discipline
+
+I was in a group call with a bunch of friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course you hate them. That's why you should do them -- to build toughness and to show yourself that you are strong and capable and, simply put, that you /can/. 
