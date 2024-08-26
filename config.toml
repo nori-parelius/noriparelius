@@ -1,7 +1,7 @@
 baseURL = 'https://noriparelius.netlify.app/'
 languageCode = 'en-us'
 title = 'Being Human'
-theme = 'ananke-nori'
+theme = 'ananke'
 
 #resourceDir = "/resources"
 
@@ -26,6 +26,12 @@ ignoreErrors = ["error-output-taxonomy"]
   identifier = "menu.posts"
   url = "/post"
   weight = 2
+
+[[menu.main]]
+  name = "Fiction"
+  identifier = "menu.fiction"	
+  url = "/fiction"
+  weight = 3
 
 [sitemap]
   changefreq = "daily"

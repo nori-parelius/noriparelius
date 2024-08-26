@@ -2009,3 +2009,13 @@ Grind, hustle, pushing ourselves, discipline, productivity, willpower, consisten
 I am thinking that not all processes get better when you try harder, some things simply need time and trust and consistency. This pressure on productivity and goals creates pressure on perfection too. Some of us respond to pressure with resistence, it's stressful. How do you know your goals are in accord with you if you don't slow down. Leaning into the body to know how you feel. Devotion instead of discipline. Limited amount of energy
 
 
+* Fiction
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: fiction
+:END:
+
+** DONE Stories
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
+:END:
