@@ -2,7 +2,7 @@
 title = "I failed at starting an online business and I'm happy with that"
 author = ["nori"]
 date = 2023-03-17
-tags = ["Online"]
+tags = ["Sharing"]
 draft = false
 featured_image = "/img/featured_failed-online-business.jpg"
 f_alt = "An image with a computer screen in the middle and two hands exchanging a credit card and a shopping bag in front of it."

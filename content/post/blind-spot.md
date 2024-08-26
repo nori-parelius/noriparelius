@@ -2,7 +2,7 @@
 title = "We have a blind spot"
 author = ["nori"]
 date = 2023-07-11
-tags = ["Food"]
+tags = ["Food", "Sugar addiction"]
 draft = false
 featured_image = "/img/featured_blind-spot.jpg"
 f_alt = "A close-up of a pile of white crystalline substance."

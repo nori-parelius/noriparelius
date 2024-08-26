@@ -2014,8 +2014,18 @@ I am thinking that not all processes get better when you try harder, some things
 :EXPORT_HUGO_SECTION: fiction
 :END:
 
-** DONE Stories
+** DONE Fiction
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
 :END:
+
+** DONE A is for Aurora
+:PROPERTIES:
+:EXPORT_FILE_NAME: a_for_aurora
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_A.jpg :f_alt "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance."
+:EXPORT_DATE: 2024-09A-03
+:EXPORT_HUGO_TAGS: "Alphabet Superset"
+:EXPORT_HUGO_CATEGORIES: A
+:END:
+Aurora was the prettiest girl at school. 

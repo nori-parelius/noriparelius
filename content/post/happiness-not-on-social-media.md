@@ -2,7 +2,7 @@
 title = "Happiness isn't found on social media"
 author = ["nori"]
 date = 2024-01-06
-tags = ["Online", "Happiness"]
+tags = ["Mental health", "Personal development"]
 categories = ["Happiness", "Social media", "Enshittification", "Content"]
 draft = false
 featured_image = "/img/featured_happiness-not-on-social-media.jpg"

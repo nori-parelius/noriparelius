@@ -2,7 +2,7 @@
 title = "My year with a Zettelkasten"
 author = ["nori"]
 date = 2023-12-31
-tags = ["Knowledge work"]
+tags = ["Knowledge work", "Writing"]
 categories = ["Knowledge work", "Zettelkasten", "Learning", "Writing"]
 draft = false
 featured_image = "/img/featured_my-year-with-zettelkasten.jpg"
@@ -143,49 +143,49 @@ I use capture templates for zettel, input, output and reference notes. A referen
 ```elisp
 ;; ORG-ROAM
 (use-package org-roam
-           :ensure t
-           :custom
-           ;; setting up the directory
-           (org-roam-directory "~/Documents/TheNotes/")
-           (org-roam-completion-everywhere t)
-           ;; org roam capture templates
-           (org-roam-capture-templates
-            '(("d" "default" plain
-               "%?"
-               :target
-               (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
-              :unnarrowed t)
-              ("z" "zettel" plain
-              "%?"
-              :target
-              (file+head "zettel/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
-              :unnarrowed t)
-              ("o" "output" plain
-              "%?"
-              :target
-              (file+head "output/%<%Y%m%d%H%M%S>-O-${slug}.org" "#+title: O-${title}\n#+filetags: :output")
-              :unnarrowed t)
-              ("i" "input" plain
-              "%?"
-              :target
-              (file+head "input/%<%Y%m%d%H%M%S>-I-${slug}.org" "#+title: I-${title}\n#+filetags: :input")
-              :unnarrowed t)
-              ("r" "reference" plain
-              "%?"
-              :target
-              (file+head "%(expand-file-name \"input\" org-roam-directory)/%<%Y%m%d%H%M%S>-I-${citekey}.org" "#+title: I-${citekey}\n#+filetags: :input")
-              :unnarrowed t)
-              )
-            )
-           :bind (("C-c n l" . org-roam-buffer-toggle)
-                  ("C-c n f" . org-roam-node-find)
-                  ("C-c n i" . org-roam-node-insert)
-                  ("C-M-i" . completion-at-point))
-           :config
-           (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:20}" 'face 'org-tag)))
-           (org-roam-db-autosync-mode t)
+	     :ensure t
+	     :custom
+	     ;; setting up the directory
+	     (org-roam-directory "~/Documents/TheNotes/")
+	     (org-roam-completion-everywhere t)
+	     ;; org roam capture templates
+	     (org-roam-capture-templates
+	      '(("d" "default" plain
+		 "%?"
+		 :target
+		 (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
+		:unnarrowed t)
+		("z" "zettel" plain
+		"%?"
+		:target
+		(file+head "zettel/%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}")
+		:unnarrowed t)
+	       	("o" "output" plain
+		"%?"
+		:target
+		(file+head "output/%<%Y%m%d%H%M%S>-O-${slug}.org" "#+title: O-${title}\n#+filetags: :output")
+		:unnarrowed t)
+  	        ("i" "input" plain
+		"%?"
+		:target
+		(file+head "input/%<%Y%m%d%H%M%S>-I-${slug}.org" "#+title: I-${title}\n#+filetags: :input")
+		:unnarrowed t)
+	        ("r" "reference" plain
+		"%?"
+		:target
+		(file+head "%(expand-file-name \"input\" org-roam-directory)/%<%Y%m%d%H%M%S>-I-${citekey}.org" "#+title: I-${citekey}\n#+filetags: :input")
+		:unnarrowed t)
+		)
+	      )
+	     :bind (("C-c n l" . org-roam-buffer-toggle)
+		    ("C-c n f" . org-roam-node-find)
+		    ("C-c n i" . org-roam-node-insert)
+		    ("C-M-i" . completion-at-point))
+	     :config
+	     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:20}" 'face 'org-tag)))
+	     (org-roam-db-autosync-mode t)
 
-           )
+	     )
 ```
 
 This part modifies the display template to show the tags associated with the note.

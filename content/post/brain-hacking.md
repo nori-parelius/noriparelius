@@ -2,7 +2,7 @@
 title = "How I ran into real-life brain-hacking"
 author = ["nori"]
 date = 2023-12-10T14:36:00+01:00
-tags = ["Mind"]
+tags = ["Sugar addiction", "Personal development", "Mental health"]
 categories = ["Hypnosis", "Sugar", "Addiction"]
 draft = false
 featured_image = "/img/featured_brain-hacking.jpg"

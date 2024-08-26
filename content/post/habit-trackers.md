@@ -2,8 +2,8 @@
 title = "Why I stopped using habit trackers and what I do instead"
 author = ["nori"]
 date = 2024-05-04
-tags = ["Bullet Journal", "Habits", "Personal development"]
-categories = ["BuJo", "Idenity shift"]
+tags = ["Writing", "Personal development", "Mental health"]
+categories = ["BuJo", "Habits", "Idenity shift", "Bullet Journal"]
 draft = false
 featured_image = "/img/featured_habit-trackers.jpg"
 f_alt = "A graphics of a checkbox with a big X drawn inside."
