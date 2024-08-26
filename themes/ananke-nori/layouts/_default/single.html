@@ -63,14 +63,6 @@
 
       {{- partial "kofi_button.html" . -}}
       
-      <div class="mt6 instapaper_ignoref">
-      {{ if .Site.DisqusShortname }}
-        {{ template "_internal/disqus.html" . }}
-      {{ end }}
-      {{ if .Site.Params.commentoEnable }}
-        {{- partial "commento.html" . -}}
-      {{ end }}
-      </div>
     </div>
 
    
