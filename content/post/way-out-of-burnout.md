@@ -1,6 +1,5 @@
 +++
 title = "Finding my way out of burnout – 4 changes I made to my lifestyle and mindset"
-author = ["nori"]
 date = 2024-04-28
 tags = ["Mental Health", "Knowledge work"]
 categories = ["Burnout", "Diet", "Sleep", "Insuline resistance", "Autism", "Mental illness"]

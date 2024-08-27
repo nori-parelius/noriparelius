@@ -1,6 +1,5 @@
 +++
 title = "We broke science"
-author = ["nori"]
 date = 2024-08-01
 tags = ["Food", "Knowledge work"]
 categories = ["Science", "Scientific method", "Academia", "Publishing", "Research"]
