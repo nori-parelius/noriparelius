@@ -1,6 +1,6 @@
 +++
 title = "A is for Aurora"
-date = 2024-08-03
+date = 2024-09-03
 tags = ["Alphabet Superset"]
 categories = ["A"]
 draft = false

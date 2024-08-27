@@ -7,11 +7,19 @@
       {{ .Content }}
     </section>
     <aside class="flex-ns flex-wrap justify-around mt5">
+      
+      {{ range .Sections }}
+      <div class="relative w-100 w-30-l mb4 bg-white">
+        {{ .Render "summary-section" }}
+      </div>
+      {{ end }}
+
       {{ range .Paginator.Pages }}
         <div class="relative w-100 w-30-l mb4 bg-white">
           {{ .Render "summary-2" }}
         </div>
-      {{ end }}
+	{{ end }}
+	
     </aside>
     {{ template "_internal/pagination.html" . }}
   </article>

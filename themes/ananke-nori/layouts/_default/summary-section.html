@@ -1,0 +1,19 @@
+{{ $featured_image := partial "func/GetFeaturedImage.html" . }}
+
+<div class="relative w-100 mb4 bg-white nested-copy-line-height">
+    <div class="bg-white mb3 pl4 pb0 pt4 gray overflow-hidden">
+    <h1 class="f3 near-black">
+      <a href="{{ .RelPermalink }}" class="link black dim">
+        {{ .Title }}
+      </a>
+    </h1>
+  </div>
+   {{ if $featured_image }}
+          {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
+        <div class="mt4 w-70 center contain">
+          <a href="{{.RelPermalink}}" class="db grow">
+            <img src="{{ $featured_image }}" class="img" alt="{{ .Params.f_alt }}">
+          </a>
+        </div>
+      {{ end }}
+</div>

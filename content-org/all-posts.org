@@ -2020,11 +2020,18 @@ I am thinking that not all processes get better when you try harder, some things
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
 :END:
 
+
 ** Alphabet Superset
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: fiction/alphabet_superset
+:END:
+
+*** DONE Alphabet Superset
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
 :END:
+
 
 Alphabet Superset is (or maybe rather was) a creative challenge conceived by Campbell Walker aka Struthless. The idea is to create 26 pieces of art, one every week, with a topic for each one starting with one letter of the alphabet, going from A to Z. The overarching theme and the style of the entire set is defined in the beginning, so that they will create a cohesive whole.
 
@@ -2032,13 +2039,14 @@ Originally, the challenge ran from September 2023 to April 2024. I found out abo
 
 So here it comes! And my topic is:
 
-*** Myths, legends & fairy tales
+**** Myths, legends & fairy tales
 
-** DONE A is for Aurora
+
+*** DONE A is for Aurora
 :PROPERTIES:
 :EXPORT_FILE_NAME: a_for_aurora
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_A.jpg :f_alt "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance."
-:EXPORT_DATE: 2024-08-03
+:EXPORT_DATE: 2024-09-03
 :EXPORT_HUGO_TAGS: "Alphabet Superset"
 :EXPORT_HUGO_CATEGORIES: A
 :END:
