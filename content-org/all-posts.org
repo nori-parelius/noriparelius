@@ -2029,7 +2029,7 @@ I am thinking that not all processes get better when you try harder, some things
 *** DONE Alphabet Superset
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_alphabet-superset.jpg 
 :END:
 
 

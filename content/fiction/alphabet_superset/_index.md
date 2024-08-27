@@ -1,7 +1,7 @@
 +++
 title = "Alphabet Superset"
 draft = false
-featured_image = "/img/mountain-2400x1000.jpg"
+featured_image = "/img/featured_alphabet-superset.jpg"
 +++
 
 Alphabet Superset is (or maybe rather was) a creative challenge conceived by Campbell Walker aka Struthless. The idea is to create 26 pieces of art, one every week, with a topic for each one starting with one letter of the alphabet, going from A to Z. The overarching theme and the style of the entire set is defined in the beginning, so that they will create a cohesive whole.
