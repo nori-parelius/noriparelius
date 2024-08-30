@@ -1,5 +1,6 @@
 +++
 title = "Why I think we should start growing life instead of the economy"
+author = ["nori"]
 date = 2023-12-31
 tags = ["Nature"]
 categories = ["Agriculture", "Farming", "Economic growth", "Happiness"]

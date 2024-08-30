@@ -1,5 +1,6 @@
 +++
 title = "The case for softness"
+author = ["nori"]
 date = 2024-08-01
 tags = ["Productivity", "Mental health", "Personal development"]
 categories = ["Follow joy", "Hustle culture", "Softness"]
