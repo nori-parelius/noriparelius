@@ -46,3 +46,5 @@ And we've been together since.
 After a few months of dating, I told her about that time I tried to ask her out for a date to the movies and she totally misunderstood my intention. She was mortified. She said she really didn't see it. Turned out she didn't see the interest from the other guys either. She just thought we were all good friends. She thought nobody could possibly like her _like that_. I thought that was a bit sad, wondered what I could have done to make her see it back then. I asked her what had to change.
 
 "I did," she said. "I needed to wake up."
+
+_(The image is Sleeping Beauty by Edward Frederick Brewtnall, with small modifications :) )_

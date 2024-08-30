@@ -2050,6 +2050,7 @@ So here it comes! And my topic is:
 :EXPORT_HUGO_TAGS: "Alphabet Superset"
 :EXPORT_HUGO_CATEGORIES: A
 :END:
+
 Aurora was the prettiest girl at school. Like, for real. Cute face, long blond hair, really cheeky smile. And a really nice body too. Although, you really had to see her in gym class in shorts, 'cause normally she would wear these weird-looking baggy clothes. Cool, don't get me wrong, but yeah, thank god for old Sullivan who made everyone wear shorts to gym. Those legs, man! Anyway. She was, like, really cute, and I had a crush. Well, duh! 
 
 But there was a problem. You know that old song by One Direction, /That's what makes you beautiful/, or something? How they sing that not knowing she's beautiful makes a girl beautiful? Yeah? Well, bullshit, that's what I say. They don't know what they are talking about, cause trust me, I've been there. I had a crush on a girl that didn't know how freaking good-looking she was, and the only thing that made her, was unavailable.
@@ -2087,3 +2088,5 @@ And we've been together since.
 After a few months of dating, I told her about that time I tried to ask her out for a date to the movies and she totally misunderstood my intention. She was mortified. She said she really didn't see it. Turned out she didn't see the interest from the other guys either. She just thought we were all good friends. She thought nobody could possibly like her /like that/. I thought that was a bit sad, wondered what I could have done to make her see it back then. I asked her what had to change.
 
 "I did," she said. "I needed to wake up."
+
+/(The image is Sleeping Beauty by Edward Frederick Brewtnall, with small modifications :) )/
