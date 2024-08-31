@@ -10,8 +10,6 @@ f_alt = "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a
 layout = "alphabet-superset-single"
 +++
 
-{{< figure src="/img/featured_A.jpg" alt="Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him." >}}
-
 Aurora was the prettiest girl at school. Like, for real. Cute face, long blond hair, really cheeky smile. And a really nice body too. Although, you really had to see her in gym class in shorts, 'cause normally she would wear these weird-looking baggy clothes. Cool, don't get me wrong, but yeah, thank god for old Sullivan who made everyone wear shorts to gym. Those legs, man! Anyway. She was, like, really cute, and I had a crush. Well, duh!
 
 But there was a problem. You know that old song by One Direction, _That's what makes you beautiful_, or something? How they sing that not knowing she's beautiful makes a girl beautiful? Yeah? Well, bullshit, that's what I say. They don't know what they are talking about, cause trust me, I've been there. I had a crush on a girl that didn't know how freaking good-looking she was, and the only thing that made her, was unavailable.
