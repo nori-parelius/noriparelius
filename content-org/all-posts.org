@@ -2045,12 +2045,13 @@ So here it comes! And my topic is:
 *** DONE A is for Aurora
 :PROPERTIES:
 :EXPORT_FILE_NAME: a_for_aurora
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_A.jpg :f_alt "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him." :layout 'alphabet-superset-single'
 :EXPORT_DATE: 2024-08-30
 :EXPORT_HUGO_TAGS: "Alphabet Superset"
 :EXPORT_HUGO_CATEGORIES: A
 :END:
 
-#+attr_html: :alt Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance.
+#+attr_html: :alt Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him.
 [[file:/img/featured_A.jpg]]
 
 Aurora was the prettiest girl at school. Like, for real. Cute face, long blond hair, really cheeky smile. And a really nice body too. Although, you really had to see her in gym class in shorts, 'cause normally she would wear these weird-looking baggy clothes. Cool, don't get me wrong, but yeah, thank god for old Sullivan who made everyone wear shorts to gym. Those legs, man! Anyway. She was, like, really cute, and I had a crush. Well, duh! 
@@ -2061,7 +2062,7 @@ Just let me tell you about the day I finally worked up my courage and asked her 
 
 Aurora was not just cute-looking, you know. She was really nice too. Like, kind, I mean. She was nice to everyone, and friendly and super easy to talk to. She could hang out with anyone, joking and laughing, and it looked like she was friends with all. But not once during school did she date anyone.
 
-I know I wasn't the only guy who liked her. Not like /everyone/ was into her, that's not what I'm trying to say, right, but she was cute and kind and approachable, and... So yeah, a few guys liked her, but nobody, /nobody/, could ;get out of friend zone with her.
+I know I wasn't the only guy who liked her. Not like /everyone/ was into her, that's not what I'm trying to say, right, but she was cute and kind and approachable, and... So yeah, a few guys liked her, but nobody, /nobody/, could get out of friend zone with her.
 
 I was hoping I would. We would hang out with a group of friends all the time and I was really trying to show her I liked her. I tried to impress her by being funny and making her laugh, dropping compliments, texting her, talking about movies and video games we liked, walking her home all the time. And you know what? I could almost see it on her face that she. Did. Not. Get. It. At all. She kept being friendly and oblivious and I couldn't even be mad at her for friend-zoning me, because she didn't know she did it!
 
