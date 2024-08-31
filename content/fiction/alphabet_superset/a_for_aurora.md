@@ -5,9 +5,9 @@ date = 2024-08-30
 tags = ["Alphabet Superset"]
 categories = ["A"]
 draft = false
-featured_image = "/img/featured_A.jpg"
-f_alt = "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance."
 +++
+
+{{< figure src="/img/featured_A.jpg" alt="Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance." >}}
 
 Aurora was the prettiest girl at school. Like, for real. Cute face, long blond hair, really cheeky smile. And a really nice body too. Although, you really had to see her in gym class in shorts, 'cause normally she would wear these weird-looking baggy clothes. Cool, don't get me wrong, but yeah, thank god for old Sullivan who made everyone wear shorts to gym. Those legs, man! Anyway. She was, like, really cute, and I had a crush. Well, duh!
 
