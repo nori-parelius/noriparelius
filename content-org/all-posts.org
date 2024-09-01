@@ -1964,14 +1964,14 @@ Statistics is not  intuitive, not common sense
 :EXPORT_HUGO_CATEGORIES: "Follow joy" "Hustle culture" Softness
 :END:
 
-It's easy to think that discipline, consistency and pushing yourself are the only way to fulfill your dreams. But what if you find that instead of crushing your goals you are only yourself?
+It's easy to think that discipline, consistency and pushing yourself are the only way to fulfill your dreams. But what if you find that, instead of crushing your goals, you are only crushing yourself?
 
 *** What if I don't want to go hard?
 I was talking to a few friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course you hate them. That's why you should do them! Prove to yourself that you can do hard things! Just look at David Goggings and what he achieved. Stay hard!
 
-And you know, I get it. I really do. It's good to stretch the boundaries of our comfort zone fron time to time, and to challenge ourselves and show ourselves that we are capable. But as I was sitting there I couldn't help but think that I don't want to do things I hate. I /don't want to/ be /hard/. I actually want to become /softer/. 
+And you know, I get it. I really do. It's good to stretch the boundaries of our comfort zone from time to time, and to challenge ourselves, and show ourselves that we are capable. But as I was sitting there I couldn't help but think that I don't want to do things I hate. I don't /want/ to be /hard/. I actually want to become /softer/. 
 
-I felt like that one driver driving in the wrong direction on a highway, and I didn't want to ruin my friends' vibe, so I didn't say anything. A year ago, I don't think I would have been able to admit to myself without guilt and thoughts of laziness that this message was not resonating with me. Now, after some nine months of dealing with burnout/mild long Covid, my views on productivity and my understanding of myself have shifted enough that I could see I wasn't really the right target audience here. 
+I listened to the conversation and I felt like I was that one driver driving in the wrong direction on a highway. I didn't want to ruin my friends' vibe, so I didn't say anything. A year ago, I don't think I would have been able to admit to myself without guilt and thoughts of laziness that this message was not resonating with me. Now, after some nine months of dealing with burnout/mild long Covid, my views on productivity and my understanding of myself have shifted enough that I could see I wasn't really the right target audience here. 
 
 My limits have been pushed enough. I know I can do hard things. It's time I learned that I don't always have to.
 
@@ -1984,29 +1984,31 @@ In reality, there is always something more behind what can look like laziness an
 
 There is so so much that can stop us from doing something that we (or others) think we should. 
 
-There is good old fear. Fear of failure, fear of success -- both equally paralysing. There is lack of energy, plain and simple. There is feeling that the activity doesn't really hold much meaning -- pretty soul-crushing if it goes on for long. There are competing interests and duties -- what do you pick, enough sleep or finishing up a work task? Maybe the task is above our skill level and feels too daunting. Maybe we feel we don't deserve the good things that might come from it. Maybe we feel overwhelmed, not even sure what to do. Maybe we're struggling with something completely different and have no bandwidth left for even the simplest tasks. Maybe, maybe, maybe. 
+There is good old fear. Fear of failure, fear of success -- both equally paralysing. There is lack of energy, plain and simple. There is feeling that the activity doesn't really hold much meaning -- pretty soul-crushing if it goes on for long. There are competing interests and duties. There are tasks that are  above our skill level and feel too daunting. Maybe we feel we don't deserve the good things that might come from it. Maybe we feel overwhelmed, not even sure what to do. Maybe we're struggling with something completely different and have no bandwidth left for even the simplest tasks. Maybe our brains are a bit rebellious and fight being told what to do. Maybe, maybe, maybe. 
 
 There is just so much that can be stopping us from doing things that will improve our life, and pretty much all of it is way more complicated and difficult than simple stupid laziness. 
 
-Let me share my personal biggest hurdles. Number one is what I call The Right Thing (TM). I learned about this one in a coaching session since years ago, when I had my first really big burnout. I answered some question that I don't remember by saying that I had to do the right thing. The psychologist repeated the question back to me: "So you have to do the right thing for yourself..." At that moment, I suddenly saw it so clearly. "No, no, no," I said quickly, "not the right thing /for me/. Just /the right thing/." 
-
-It's
 
 *** It's not the hard that brings the results
 
+In my quest to create a more sustainable life, I found "hardness" isn't what really brings the progress that people see when applying discipline, consistency and grind. It's what lies beneath all that -- the change in mindset that allows for the discipline and consistency to materialise in the first place.
 
+#+begin_quote
+The key ingredient to doing the things that are good for us and move us forward is actually *devotion to ourselves*.
+#+end_quote
 
+It is the love and respect we hold for ourselves that needs to guide what and how we do. It is caring for our own well-being, for our bodies, minds and souls, that can allow us to get the right nutritious food and movement, to rest without guilt when we need to, and to be challenged in ways that move us forward; to act with integrity and use our time meaningfully. Being devoted to oneself migh sometimes mean pushing ourselves hard and being hard, but at other times, strict discipline and grind are taking us in the wrong direction. Whether it is working on goals that are not meaningful to us, denying ourselves necessary rest or putting other people's needs and wishes far above our own in a misguided desire to do the 'right' thing. It is the self-love and self-compassion that will keep us on the right path and that will keep us going. Devotion to ourselves is where the motivation comes from, no willpower needed. And thankfully, while willpower is a limited resource, love and devotion are not.
 
-In my quest to create a more sustainable life, I found "hardness" isn't what really brings the progress that people see when applying discipline, consistency and grind. The key ingredient is actually devotion to yourself. Bear with me, I will explain.
+*** A break isn't quitting
 
-I am learning to half-ass things. I know it sounds like I'm going the wrong way here, like that one car on the highway, while online productivity and self-develpment spaces (and not only those) are full of buzz words such as discipline, willpower, consistency and grind. It took me a while to realise that /more/ discipline wasn't really what I was missing.
+When we rely on pure willpower and discipline, on unbroaken streaks and grind, it is easy to feel like every hiccup is a failure. We expect consistency in our performance, but we always make plans on days when we feel good, and bad days are coming as surely as the taxes. It's easy to think that we are failing and that we aren't good/strong/determined/capable enough to do what we set out to do.
 
-I used to have this idea, that you should give everything your 100%. Looking at our society, schooling system, and how much of the internet , I guess it's not so surprising. 
+But in reality, consistency is impossible and, thankfully, unnecessary. The only thing we need to do is remember why we are doing what we are doing and /keep showing up/. Even if it's just in the smallest way. That's why making our desired habits 'too small to fail' is such a good idea. For me, at the worst time in my burnout, this actually only meant a Visit -- /considering/ the habit -- showing up in the place I would usually do the activity and give myself the space and time to do as much or as little of it as made sense in that moment.
 
-Grind, hustle, pushing ourselves, discipline, productivity, willpower, consistency, crushing our goals. I don't know about you, but I am tired. Tired of pushing, of crushing, of powering through, of hustling and of grinding. And so I am looking for a softer, slower and gentler way of going through life.
-.
+Instead of flexing our willpower and forcing discipline and consistency, we are much better served by broadening our perspective, looking at our lives in the context of weeks, months and years, rather than days, and asking what is in our best interest, what would someone truly /devoted/ to themselves do.  
 
-I am thinking that not all processes get better when you try harder, some things simply need time and trust and consistency. This pressure on productivity and goals creates pressure on perfection too. Some of us respond to pressure with resistence, it's stressful. How do you know your goals are in accord with you if you don't slow down. Leaning into the body to know how you feel. Devotion instead of discipline. Limited amount of energy
+*** Softly
+So, in a world obsessed with pushing hard, I am choosing to be go softly. I am choosing to replace discipline with devotion to myself, consistency with gently showing up, willpower with desire to do what is best for me and others.  Sometimes that might mean going hard, but when it doesn't, I am more than happy to tread softly.  
 
 
 * Fiction
