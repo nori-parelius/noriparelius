@@ -1,6 +1,5 @@
 +++
 title = "Creativity in the age of Photoshop"
-author = ["nori"]
 date = 2024-05-13
 tags = ["Creativity", "Personal development", "Sharing"]
 categories = ["Perfectionism", "Play", "AI", "Authenticity"]

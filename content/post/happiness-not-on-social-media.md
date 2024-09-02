@@ -1,6 +1,5 @@
 +++
 title = "Happiness isn't found on social media"
-author = ["nori"]
 date = 2024-01-06
 tags = ["Mental health", "Personal development"]
 categories = ["Happiness", "Social media", "Enshittification", "Content"]

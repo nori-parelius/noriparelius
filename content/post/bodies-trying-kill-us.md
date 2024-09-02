@@ -1,6 +1,5 @@
 +++
 title = "Are our bodies trying to kill us?"
-author = ["nori"]
 date = 2023-06-02
 tags = ["Food"]
 draft = false
