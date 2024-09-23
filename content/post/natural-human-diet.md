@@ -1,5 +1,6 @@
 +++
 title = "What is the natural human diet?"
+author = ["nori"]
 date = 2023-12-12
 tags = ["Food"]
 draft = false

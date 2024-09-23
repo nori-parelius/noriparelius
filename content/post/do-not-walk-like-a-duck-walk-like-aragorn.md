@@ -1,5 +1,6 @@
 +++
 title = "Don't walk like a duck – walk like Aragorn"
+author = ["nori"]
 date = 2020-09-04
 tags = ["Movement"]
 draft = true

@@ -1,5 +1,6 @@
 +++
 title = "A is for Aurora"
+author = ["nori"]
 date = 2024-09-02
 tags = ["Alphabet Superset"]
 categories = ["A"]
