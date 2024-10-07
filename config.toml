@@ -30,7 +30,7 @@ ignoreErrors = ["error-output-taxonomy"]
 [[menu.main]]
   name = "Fiction"
   identifier = "menu.fiction"	
-  url = "/fiction"
+  url = "/alphabet_superset"
   weight = 3
 
 [sitemap]
