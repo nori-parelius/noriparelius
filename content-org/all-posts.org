@@ -2015,24 +2015,13 @@ Instead of flexing our willpower and forcing discipline and consistency, we are 
 So, in a world obsessed with pushing hard, I am choosing to go softly. I am choosing to replace discipline with devotion to myself, consistency with gently showing up, willpower with desire to do what is best for me and others.  Sometimes that might mean going hard, but when it doesn't, I am more than happy to tread softly.  
 
 
-* Fiction
+
+* Alphabet Superset
 :PROPERTIES:
-:EXPORT_HUGO_SECTION: fiction
+:EXPORT_HUGO_SECTION: alphabet_superset
 :END:
 
-** DONE Fiction
-:PROPERTIES:
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/mountain-2400x1000.jpg 
-:END:
-
-
-** Alphabet Superset
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: fiction/alphabet_superset
-:END:
-
-*** DONE Alphabet Superset
+** DONE Alphabet Superset
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_alphabet-superset.jpg 
@@ -2045,10 +2034,10 @@ Originally, the challenge ran from September 2023 to April 2024. I found out abo
 
 So here it comes! And my topic is:
 
-**** Myths, legends & fairy tales
+*** Myths, legends & fairy tales
 
 
-*** DONE A is for Aurora
+** DONE A is for Aurora
 :PROPERTIES:
 :EXPORT_FILE_NAME: a_for_aurora
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_A.jpg :f_alt "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him." :layout 'alphabet-superset-single'
@@ -2098,7 +2087,7 @@ After a few months of dating, I told her about that time I tried to ask her out 
 
 /(The image is Sleeping Beauty by Edward Frederick Brewtnall, with small modifications :) )/
 
-*** DONE B is for Bluebeard
+** DONE B is for Bluebeard
 :PROPERTIES:
 :EXPORT_FILE_NAME: b_for_bluebeard
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_B.jpg :f_alt "A painting of an oldschool big metal key by Edna C. Rex with drops of blood added." :layout 'alphabet-superset-single'
@@ -2133,7 +2122,7 @@ She stands facing the door, holding the knife with confidence, but my dead heart
 /(The image is Key by Edna C. Rex, with small modifications :) )/
 
 
-*** DONE C is for Cerberus
+** DONE C is for Cerberus
 :PROPERTIES:
 :EXPORT_FILE_NAME: c_for_cerberus
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_C.jpg :f_alt "A Drawing called Hades and Persephone by Eduard Trewendt, 1864, showing a king and a queen in togas sitting on a throne, holding hands, with a 3-headed dog by their feet" :layout 'alphabet-superset-single'
@@ -2160,7 +2149,7 @@ I hope you and Kerbie have a great adventure together!
 
 /(The image is Hades and Persephone by Eduard Trewendt, 1864, with small modifications)/
 
-*** DONE D is for Dragons
+** DONE D is for Dragons
 :PROPERTIES:
 :EXPORT_FILE_NAME: d_for_dragons
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_D.jpg :f_alt "Georges Seurat -- The Lighthouse at Honfleur, 1886. A painting of a shore with a building and a lighthouse in the distance. Small specks in the sky as birds are added. " :layout 'alphabet-superset-single'
