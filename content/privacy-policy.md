@@ -1,6 +1,6 @@
 +++
 title = "Privacy policy"
-author = ["nori"]
+author = ["Nori Parelius"]
 draft = false
 +++
 

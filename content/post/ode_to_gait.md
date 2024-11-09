@@ -1,6 +1,6 @@
 +++
 title = "An ode to human gait"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2023-08-19
 tags = ["Movement"]
 draft = false

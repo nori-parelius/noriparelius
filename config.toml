@@ -7,7 +7,7 @@ theme = 'ananke-nori'
 
 DefaultContentLanguage = "en"
 #SectionPagesMenu = "main" # this is for the menu items, all sections are added to main menu, doesn't work for me
-Paginate = 10 # this is set low for demonstrating with dummy content. Set to a higher number
+pagination.pagerSize = 10 # this is set low for demonstrating with dummy content. Set to a higher number
 googleAnalytics = ""
 enableRobotsTXT = true
 pluralizelisttitles = true

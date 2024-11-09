@@ -17,7 +17,8 @@ I can't be the only one who finds it a bit tricky sometimes, I think.
 
 This personal blog is about the things I think about, learn about, try and test, in my attempts to get better at being human.
 
-#+attr_html: :width 200px :alt A close up picture of Nori Parelius.
+#+attr_html: :alt A close up picture of Nori Parelius.
+#+attr_html: :width 200px
 [[file:Nori_Parelius-500x500.png]]
 
 ** Hi, I'm Nori
@@ -708,9 +709,9 @@ Can you imagine a harvest where you only harvest half?! Crazy. And beautiful.
 
 Now I know the world is headed in the opposite way nowadays, but that doesn't mean I have to follow. And so I am quite content with my short-lived venture into the competitive world of online business being over. It wasn't for me.
 
-#+begin_verse
+#+begin_quote
 And since I have the luxury of "failing" at selling, I can do this instead. Go back to having a blog, just for fun. Freely sharing my gifts with anyone who might benefit, doing my part in the gift economy.
-#+end_verse
+#+end_quote
 
 ** DONE Are our bodies trying to kill us?                   
 :PROPERTIES:

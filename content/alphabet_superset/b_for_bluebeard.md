@@ -1,6 +1,6 @@
 +++
 title = "B is for Bluebeard"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2024-09-16
 tags = ["Alphabet Superset"]
 categories = ["B"]

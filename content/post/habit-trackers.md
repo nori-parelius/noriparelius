@@ -1,6 +1,6 @@
 +++
 title = "Why I stopped using habit trackers and what I do instead"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2024-05-04
 tags = ["Writing", "Personal development", "Mental health"]
 categories = ["BuJo", "Habits", "Idenity shift", "Bullet Journal"]

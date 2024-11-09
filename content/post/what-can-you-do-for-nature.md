@@ -1,6 +1,6 @@
 +++
 title = "What can you do for nature?"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2024-01-23
 tags = ["Nature"]
 categories = ["Agriculture", "Nature", "Grasslands", "Rewilding", "Indigenous Knowledge"]

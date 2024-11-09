@@ -1,6 +1,6 @@
 +++
 title = "Alphabet Superset"
-author = ["nori"]
+author = ["Nori Parelius"]
 draft = false
 featured_image = "/img/featured_alphabet-superset.jpg"
 +++

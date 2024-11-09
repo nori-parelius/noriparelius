@@ -1,6 +1,6 @@
 +++
 title = "D is for Dragons"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2024-10-07
 tags = ["Alphabet Superset"]
 categories = ["D"]

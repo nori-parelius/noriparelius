@@ -1,6 +1,6 @@
 +++
 title = "We have a blind spot"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2023-07-11
 tags = ["Food", "Sugar addiction"]
 draft = false

@@ -1,6 +1,6 @@
 +++
 title = "My year with a Zettelkasten"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2023-12-31
 tags = ["Knowledge work", "Writing"]
 categories = ["Knowledge work", "Zettelkasten", "Learning", "Writing"]

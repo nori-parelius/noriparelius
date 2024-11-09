@@ -1,7 +1,7 @@
 +++
 title = "How I ran into real-life brain-hacking"
-author = ["nori"]
-date = 2023-12-10T14:36:00+01:00
+author = ["Nori Parelius"]
+date = 2023-12-10T14:36:00-05:00
 tags = ["Sugar addiction", "Personal development", "Mental health"]
 categories = ["Hypnosis", "Sugar", "Addiction"]
 draft = false

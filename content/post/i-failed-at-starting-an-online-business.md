@@ -1,6 +1,6 @@
 +++
 title = "I failed at starting an online business and I'm happy with that"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2023-03-17
 tags = ["Sharing"]
 draft = false
@@ -100,8 +100,4 @@ Can you imagine a harvest where you only harvest half?! Crazy. And beautiful.
 
 Now I know the world is headed in the opposite way nowadays, but that doesn't mean I have to follow. And so I am quite content with my short-lived venture into the competitive world of online business being over. It wasn't for me.
 
-<div class="verse">
-
-And since I have the luxury of "failing" at selling, I can do this instead. Go back to having a blog, just for fun. Freely sharing my gifts with anyone who might benefit, doing my part in the gift economy.<br />
-
-</div>
+> And since I have the luxury of "failing" at selling, I can do this instead. Go back to having a blog, just for fun. Freely sharing my gifts with anyone who might benefit, doing my part in the gift economy.
