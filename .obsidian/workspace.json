@@ -1,0 +1,238 @@
+{
+  "main": {
+    "id": "b13e51b04875dd7f",
+    "type": "split",
+    "children": [
+      {
+        "id": "2d4cd8b7beb86878",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e39734dbf81f6ab7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/7_Projects/O_TheBox.md",
+                "mode": "source",
+                "backlinks": true,
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "O_TheBox"
+            }
+          },
+          {
+            "id": "33b5f82416c1aa9c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "72bb2ea6c7b92cc1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "85febb53e91d1a18",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fb219a80e8d9bdfe",
+    "type": "split",
+    "children": [
+      {
+        "id": "0c2bb643501216f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "277b25c0262d0687",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "File explorer"
+            }
+          },
+          {
+            "id": "6fbb927cbbef97f1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "zettelkas",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "9982809fa0ed6909",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 647.5
+  },
+  "right": {
+    "id": "254710f4fb977569",
+    "type": "split",
+    "children": [
+      {
+        "id": "cd057e79e7ef3657",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "872a68430c041498",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "36c2f996f601bc9c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing Links"
+            }
+          },
+          {
+            "id": "48eae26f58748e4f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5f88e7020c0c4557",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {},
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "33b5f82416c1aa9c",
+  "lastOpenFiles": [
+    "Notes/3_Tags/writing.md",
+    "Notes/3_Tags/teaching.md",
+    "Notes/3_Tags/coding.md",
+    "Notes/10_Main_Notes/!blog_with_hugo.md",
+    "Notes/9_Dailies/2024-12-11.md",
+    "Notes/10_Main_Notes/!organising_my_md_notes.md",
+    "Notes/10_Main_Notes/!organising_my_task_management.md",
+    "Notes/9_Dailies/2024-12-08.md",
+    "Notes/7_Projects/1projects.md",
+    "Notes/8_AoFs/1aofs.md",
+    "Notes/7_Projects/O_TheBox.md",
+    "Notes/1_Inbox/1Inbox.md",
+    "Notes/5_Templates/Full_Note.md",
+    "Notes/10_Main_Notes/1.1_take_action.md",
+    "Notes/5_Templates/Daily_Note.md",
+    "Notes/9_Dailies/2024-12-07.md",
+    "Notes/10_Main_Notes/!activities_that_produce_unimportant_information_are_distractions.md",
+    "Notes/4_Structure_notes/zettelkasten.md",
+    "Notes/10_Main_Notes/!learning.md",
+    "Notes/10_Main_Notes/!explaining_helps_think.md",
+    "Notes/10_Main_Notes/!techniques_improving_recall.md",
+    "Notes/10_Main_Notes/!teaching_tips.md",
+    "Notes/O_Blog.md",
+    "Notes/10_Main_Notes/!we_need_to_process_things_and_make_them_our_own_to_get_something_out.md",
+    "Notes/10_Main_Notes/!no_point_reading_if_we_neither_remember_nor_experience.md",
+    "Notes/10_Main_Notes/!when_you_dont_know_what_matters_everything_seems_to_matter.md",
+    "Notes/0_Attachments/singer_hottakes_seed_oils.pdf",
+    "Notes/1a_Rumen/It's time to treat seed oils like you do refined sugars 2024-11-25T13_33_07+01_00.eml",
+    "Notes/0_Attachments/Weekly_Review_Checklist.pdf",
+    "Notes/Untitled",
+    "Notes/7_Projects/Project_Rumen",
+    "Notes/0_Attachments/other_files/docker_example/src/main.py",
+    "Notes/0_Attachments/other_files/docker_example/src",
+    "Notes/0_Attachments/other_files/docker_example/requirements.txt",
+    "Notes/0_Attachments/other_files/docker_example/docker-compose.yml",
+    "Notes/0_Attachments/other_files/docker_example/Dockerfile",
+    "Notes/0_Attachments/basb_value-creation-code.png",
+    "Notes/0_Attachments/basb-layers.png",
+    "Notes/0_Attachments/struthless_houseboat1.jpeg",
+    "Notes/0_Attachments/stana_pillars.jpeg",
+    "Notes/0_Attachments/sapala_writing1.jpeg",
+    "Notes/0_Attachments/sapala_woo1.jpeg",
+    "Notes/0_Attachments/sapala_small.jpeg",
+    "Notes/0_Attachments/sapala_seen1.jpeg",
+    "Notes/0_Attachments/sapala_revolution1.jpeg",
+    "Notes/0_Attachments/sapala_infj1.jpeg"
+  ]
+}

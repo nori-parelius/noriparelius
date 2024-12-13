@@ -1,0 +1,17 @@
+{
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": false,
+  "attachmentFolderPath": "Notes/0_Attachments",
+  "userIgnoreFilters": [
+    "noriparelius/content-org/",
+    "noriparelius/data/",
+    "noriparelius/public/",
+    "noriparelius/resources/",
+    "noriparelius/static/",
+    "noriparelius/themes/"
+  ],
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Notes",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute"
+}
