@@ -60,7 +60,7 @@ ignoreErrors = ["error-output-taxonomy"]
   Copyright = "Nori Parelius"
 
   # footer items, these are from here https://github.com/LukeSmithxyz/lugo/blob/master/config.toml
-  nextprev = true
+  nextprev = false
   showrss = false
 
   # default image to show in RSS feed if no featured
@@ -75,9 +75,9 @@ ignoreErrors = ["error-output-taxonomy"]
 name = "rss"
 url = "/post/index.xml"
 
-[[params.ananke_socials]]
-name = "medium"
-url = "https://medium.com/@nori.parelius"
+#[[params.ananke_socials]]
+#name = "medium"
+#url = "https://medium.com/@nori.parelius"
 
 
 #[[params.ananke_socials]]
@@ -95,16 +95,17 @@ label = "Tumblr"
 #url = "https://www.instagram.com/nori.parelius/"
 
 [[params.ananke_socials]]
+name = "bluesky"
+url = "https://bsky.app/profile/nori-pareli.bsky.social"
+color = "#1185fe"
+label = "BlueSky"
+
+[[params.ananke_socials]]
 name = "ko-fi"
 url = "https://ko-fi.com/noriparelius"
 color = "#ff5e5b"
 label = "Support me on Ko-fi"
 
-[[params.ananke_socials]]
-name = "bluesky"
-url = "https://bsky.app/profile/nori-pareli.bsky.social"
-color = "#ff5e5b"
-label = "BlueSky"
 
 # taxonomies
 [taxonomies]

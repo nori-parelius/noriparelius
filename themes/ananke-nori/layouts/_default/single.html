@@ -53,6 +53,10 @@
       {{- end }}
       {{- .Content -}}
       {{- partial "tags.html" . -}}
+
+      {{- if .Params.bsky }}
+        {{- partial "comment.html" . -}}
+      {{- end }}
       
       {{ if .Param "nextprev" }}{{ partial "nextprev.html" . -}}{{ end -}}
       
