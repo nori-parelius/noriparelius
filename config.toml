@@ -100,6 +100,12 @@ url = "https://ko-fi.com/noriparelius"
 color = "#ff5e5b"
 label = "Support me on Ko-fi"
 
+[[params.ananke_socials]]
+name = "bluesky"
+url = "https://bsky.app/profile/nori-pareli.bsky.social"
+color = "#ff5e5b"
+label = "BlueSky"
+
 # taxonomies
 [taxonomies]
 category = 'categories'
