@@ -7,6 +7,7 @@ categories = ["Social media", "Phones", "Tech"]
 draft = false
 featured_image = "/img/featured_phones.jpg"
 f_alt = "An image of a smartphone with a magicians hat on the screen and fireworks coming out of it."
+bsky = "https://bsky.app/profile/nori-pareli.bsky.social/post/3lfayckai6s2i"
 +++
 
 I have a bit of a love-hate relationship with my phone and I know I am not the only one. Just like most people, I spend more time on my phone than I would want to, all the while feeling that I have too little time for other things in my life. And I don't even feel better when I emerge from my phone dives. For the longest time, I thought this was a \`it's-not-you-it's-me' situation; I thought I wasn't good enough at managing my phone use, my willpower wasn't strong enough, it was all just me, etc etc. But that wasn't really getting me anywhere. I would vow to spend less time on my phone (and break my promises), put in app limits on the usual offenders (just to promptly ignore them), even uninstall apps (just to reinstall them embarrassingly soon, or install another app that would suck me in instead). It always worked for a bit, but I would always come crawling back, telling myself that I just need to be _better_ and then everything will be fine.

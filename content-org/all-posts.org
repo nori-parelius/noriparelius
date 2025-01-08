@@ -2018,7 +2018,7 @@ So, in a world obsessed with pushing hard, I am choosing to go softly. I am choo
 ** DONE The problem with phones or Taking back the moment
 :PROPERTIES:
 :EXPORT_FILE_NAME: problem_with_phones
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_phones.jpg :f_alt "An image of a smartphone with a magicians hat on the screen and fireworks coming out of it."
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_phones.jpg :f_alt "An image of a smartphone with a magicians hat on the screen and fireworks coming out of it." :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post/3lfayckai6s2i"
 :EXPORT_DATE: 2025-01-08
 :EXPORT_HUGO_TAGS: Productivity "Mental health" 
 :EXPORT_HUGO_CATEGORIES: "Social media" Phones Tech
