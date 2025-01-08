@@ -1,6 +1,6 @@
 +++
 title = "How I became a carnivore"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2022-08-18
 tags = ["Food", "About me"]
 draft = false

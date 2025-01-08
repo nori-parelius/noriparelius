@@ -1,6 +1,6 @@
 +++
 title = "My year with a Zettelkasten"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2023-12-31
 tags = ["Knowledge work", "Writing"]
 categories = ["Knowledge work", "Zettelkasten", "Learning", "Writing"]
@@ -131,7 +131,7 @@ Inputs might be called "fleeting notes" by some. In my workflow, these are the f
 
 My Zettelkasten is for me only, and would probably provide little value for anyone else. Whenever I want to make something for others, I put the draft into the "outputs" folder, where I can still link to the proper notes, but hold these compositions separate.
 
-I am not much of a tagger, and other than #MOC (for map of content), I don't use other tags. Yet. Instead, I rely on links and structure notes (MOCs) to help me find things and orient myself. Categories provide only weak associations and things like tags don't scale very well. Sooner or later, you will find yourself with too many tags and too many notes per tag. But we will see, maybe there will come a time when I will decide to add tags to my zettels.
+I am not much of a tagger, and other than # MOC (for map of content), I don't use other tags. Yet. Instead, I rely on links and structure notes (MOCs) to help me find things and orient myself. Categories provide only weak associations and things like tags don't scale very well. Sooner or later, you will find yourself with too many tags and too many notes per tag. But we will see, maybe there will come a time when I will decide to add tags to my zettels.
 
 I use pretty much a standard org-roam setup for my Zettelkasten, with quite a few elements inspired by [the org-roam setup of Jethro Kuan](https://jethrokuan.github.io/org-roam-guide/) who made org-roam.
 

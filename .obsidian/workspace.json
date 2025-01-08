@@ -154,8 +154,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f280afaa570b67a4",
+  "active": "277b25c0262d0687",
   "lastOpenFiles": [
+    "content/post/problem_with_phones.md~",
+    "content/do-not-walk-like-a-duck-walk-like-aragorn.md",
+    "content-org/#all-posts.org#",
+    "static/img/featured_phones.jpg",
     "Notes/3_Tags/writing.md",
     "Notes/3_Tags/teaching.md",
     "Notes/3_Tags/coding.md",
@@ -180,8 +184,6 @@
     "Notes/10_Main_Notes/!teaching_tips.md",
     "Notes/O_Blog.md",
     "Notes/10_Main_Notes/!we_need_to_process_things_and_make_them_our_own_to_get_something_out.md",
-    "Notes/10_Main_Notes/!no_point_reading_if_we_neither_remember_nor_experience.md",
-    "Notes/10_Main_Notes/!when_you_dont_know_what_matters_everything_seems_to_matter.md",
     "Notes/0_Attachments/singer_hottakes_seed_oils.pdf",
     "Notes/1a_Rumen/It's time to treat seed oils like you do refined sugars 2024-11-25T13_33_07+01_00.eml",
     "Notes/0_Attachments/Weekly_Review_Checklist.pdf",
@@ -191,7 +193,6 @@
     "Notes/0_Attachments/other_files/docker_example/src",
     "Notes/0_Attachments/other_files/docker_example/requirements.txt",
     "Notes/0_Attachments/other_files/docker_example/docker-compose.yml",
-    "Notes/0_Attachments/other_files/docker_example/Dockerfile",
     "Notes/0_Attachments/basb_value-creation-code.png",
     "Notes/0_Attachments/basb-layers.png",
     "Notes/0_Attachments/struthless_houseboat1.jpeg",
@@ -200,7 +201,6 @@
     "Notes/0_Attachments/sapala_woo1.jpeg",
     "Notes/0_Attachments/sapala_small.jpeg",
     "Notes/0_Attachments/sapala_seen1.jpeg",
-    "Notes/0_Attachments/sapala_revolution1.jpeg",
-    "Notes/0_Attachments/sapala_infj1.jpeg"
+    "Notes/0_Attachments/sapala_revolution1.jpeg"
   ]
 }

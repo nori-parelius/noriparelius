@@ -7,6 +7,7 @@ categories = ["Perfectionism", "Play", "AI", "Authenticity"]
 draft = false
 featured_image = "/img/featured_creativity.jpg"
 f_alt = "A graphics of four colorful beetles seen from above walking over a black and white striped surface that looks like a pedestrian crossing."
+bsky = "https://bsky.app/profile/nori-pareli.bsky.social/post/3lerbqr6g622b"
 +++
 
 > "I Dig a Pygmy" by Charles Hawtrey and the Deaf Aids. Phase one, in which Doris gets her oats.

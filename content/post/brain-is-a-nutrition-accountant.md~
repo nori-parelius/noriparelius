@@ -1,6 +1,6 @@
 +++
 title = "Your brain is a nutrition accountant"
-author = ["nori"]
+author = ["Nori Parelius"]
 tags = ["Food"]
 draft = true
 featured_image = "/img/featured_brain_accountant.jpg"

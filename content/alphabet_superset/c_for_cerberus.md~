@@ -1,6 +1,6 @@
 +++
 title = "C is for Cerberus"
-author = ["nori"]
+author = ["Nori Parelius"]
 date = 2024-09-23
 tags = ["Alphabet Superset"]
 categories = ["C"]
