@@ -2063,6 +2063,17 @@ Among the practical things I have done is
 
 I would be very interested in hearing about your experience with your smartphone; whether you are happy with how much time you spend on it, or what kind of precautions you use to keep it that way. 
 
+** TODO I tried and abandoned David Allen's Getting Things Done
+:PROPERTIES:
+:EXPORT_FILE_NAME: abandoned-gtd
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/gtd.jpg :f_alt " " :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post"
+:EXPORT_DATE: 2025-02-
+:EXPORT_HUGO_TAGS: Productivity "Mental health" 
+:EXPORT_HUGO_CATEGORIES: 
+:END:
+
+
+
 * Alphabet Superset
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: alphabet_superset

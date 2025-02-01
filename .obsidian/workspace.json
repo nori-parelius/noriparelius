@@ -11,10 +11,24 @@
             "id": "f280afaa570b67a4",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "content/post/my-reasons-for-blogging.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "my-reasons-for-blogging"
             }
           }
         ]
@@ -36,7 +50,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "File explorer"
@@ -154,10 +169,31 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "277b25c0262d0687",
+  "active": "f280afaa570b67a4",
   "lastOpenFiles": [
-    "content/post/problem_with_phones.md~",
+    "content/post/movement-moves-the-brain.md",
+    "content/post/move-more-move-better.md",
+    "content/post/i-failed-at-starting-an-online-business.md",
+    "content/post/how-i-became-carnivore.md",
+    "content/post/happiness-not-on-social-media.md",
+    "content/post/habit-trackers.md",
+    "content/post/grow-life-not-economy.md",
+    "content/post/do-not-walk-like-a-duck-walk-like-aragorn.md",
+    "content/post/creativity.md",
+    "content/post/case_for_softness.md",
+    "content/post/brain-is-a-nutrition-accountant.md",
+    "content/post/brain-hacking.md",
+    "content/post/bodies-trying-kill-us.md",
+    "content/post/_index.md",
+    "content/post/blind-spot.md",
+    "static/ox-hugo/kegel_pelvis-right.png",
+    "static/ox-hugo/ode_to_gait-tensegrity_toy.png",
+    "static/ox-hugo/A.jpg",
+    "content/alphabet_superset/a_for_aurora.md",
+    "content/privacy-policy.md",
     "content/do-not-walk-like-a-duck-walk-like-aragorn.md",
+    "content/post/problem_with_phones.md",
+    "content/post/problem_with_phones.md~",
     "content-org/#all-posts.org#",
     "static/img/featured_phones.jpg",
     "Notes/3_Tags/writing.md",
@@ -167,23 +203,6 @@
     "Notes/9_Dailies/2024-12-11.md",
     "Notes/10_Main_Notes/!organising_my_md_notes.md",
     "Notes/10_Main_Notes/!organising_my_task_management.md",
-    "Notes/9_Dailies/2024-12-08.md",
-    "Notes/7_Projects/1projects.md",
-    "Notes/8_AoFs/1aofs.md",
-    "Notes/7_Projects/O_TheBox.md",
-    "Notes/1_Inbox/1Inbox.md",
-    "Notes/5_Templates/Full_Note.md",
-    "Notes/10_Main_Notes/1.1_take_action.md",
-    "Notes/5_Templates/Daily_Note.md",
-    "Notes/9_Dailies/2024-12-07.md",
-    "Notes/10_Main_Notes/!activities_that_produce_unimportant_information_are_distractions.md",
-    "Notes/4_Structure_notes/zettelkasten.md",
-    "Notes/10_Main_Notes/!learning.md",
-    "Notes/10_Main_Notes/!explaining_helps_think.md",
-    "Notes/10_Main_Notes/!techniques_improving_recall.md",
-    "Notes/10_Main_Notes/!teaching_tips.md",
-    "Notes/O_Blog.md",
-    "Notes/10_Main_Notes/!we_need_to_process_things_and_make_them_our_own_to_get_something_out.md",
     "Notes/0_Attachments/singer_hottakes_seed_oils.pdf",
     "Notes/1a_Rumen/It's time to treat seed oils like you do refined sugars 2024-11-25T13_33_07+01_00.eml",
     "Notes/0_Attachments/Weekly_Review_Checklist.pdf",
@@ -192,15 +211,11 @@
     "Notes/0_Attachments/other_files/docker_example/src/main.py",
     "Notes/0_Attachments/other_files/docker_example/src",
     "Notes/0_Attachments/other_files/docker_example/requirements.txt",
-    "Notes/0_Attachments/other_files/docker_example/docker-compose.yml",
     "Notes/0_Attachments/basb_value-creation-code.png",
     "Notes/0_Attachments/basb-layers.png",
     "Notes/0_Attachments/struthless_houseboat1.jpeg",
     "Notes/0_Attachments/stana_pillars.jpeg",
     "Notes/0_Attachments/sapala_writing1.jpeg",
-    "Notes/0_Attachments/sapala_woo1.jpeg",
-    "Notes/0_Attachments/sapala_small.jpeg",
-    "Notes/0_Attachments/sapala_seen1.jpeg",
-    "Notes/0_Attachments/sapala_revolution1.jpeg"
+    "Notes/0_Attachments/sapala_woo1.jpeg"
   ]
 }
