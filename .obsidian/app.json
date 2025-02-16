@@ -1,6 +1,6 @@
 {
   "alwaysUpdateLinks": true,
-  "showUnsupportedFiles": false,
+  "showUnsupportedFiles": true,
   "attachmentFolderPath": "Notes/0_Attachments",
   "userIgnoreFilters": [
     "noriparelius/content-org/",

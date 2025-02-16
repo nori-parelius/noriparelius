@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/post/my-reasons-for-blogging.md",
+                "file": "content/post/move-more-move-better.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "my-reasons-for-blogging"
+              "title": "move-more-move-better"
             }
           }
         ]
@@ -172,20 +172,22 @@
   "active": "f280afaa570b67a4",
   "lastOpenFiles": [
     "content/post/movement-moves-the-brain.md",
-    "content/post/move-more-move-better.md",
+    "content/post/case_for_softness.md",
+    "content/post/happiness-not-on-social-media.md",
+    "content/post/natural-human-diet.md",
+    "content/post/brain-is-a-nutrition-accountant.md",
+    "content/post/my-reasons-for-blogging.md",
     "content/post/i-failed-at-starting-an-online-business.md",
     "content/post/how-i-became-carnivore.md",
-    "content/post/happiness-not-on-social-media.md",
+    "content/post/brain-hacking.md",
+    "content/post/bodies-trying-kill-us.md",
+    "content/post/blind-spot.md",
+    "content/post/move-more-move-better.md",
     "content/post/habit-trackers.md",
     "content/post/grow-life-not-economy.md",
     "content/post/do-not-walk-like-a-duck-walk-like-aragorn.md",
     "content/post/creativity.md",
-    "content/post/case_for_softness.md",
-    "content/post/brain-is-a-nutrition-accountant.md",
-    "content/post/brain-hacking.md",
-    "content/post/bodies-trying-kill-us.md",
     "content/post/_index.md",
-    "content/post/blind-spot.md",
     "static/ox-hugo/kegel_pelvis-right.png",
     "static/ox-hugo/ode_to_gait-tensegrity_toy.png",
     "static/ox-hugo/A.jpg",
@@ -201,8 +203,6 @@
     "Notes/3_Tags/coding.md",
     "Notes/10_Main_Notes/!blog_with_hugo.md",
     "Notes/9_Dailies/2024-12-11.md",
-    "Notes/10_Main_Notes/!organising_my_md_notes.md",
-    "Notes/10_Main_Notes/!organising_my_task_management.md",
     "Notes/0_Attachments/singer_hottakes_seed_oils.pdf",
     "Notes/1a_Rumen/It's time to treat seed oils like you do refined sugars 2024-11-25T13_33_07+01_00.eml",
     "Notes/0_Attachments/Weekly_Review_Checklist.pdf",
