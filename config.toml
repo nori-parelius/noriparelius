@@ -1,4 +1,4 @@
-baseURL = 'https://noriparelius.netlify.app/'
+baseURL = 'https://nori-parelius.statichost.eu/'
 languageCode = 'en-us'
 title = 'Being Human'
 theme = 'ananke-nori'
