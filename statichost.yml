@@ -2,4 +2,8 @@ image: hugomods/hugo:base-0.141.0
 command: hugo
 public: public
 
-
+domains:
+  # Primary domain
+  - www.noriparelius.com
+  # Domains that redirect to the primary
+  - noriparelius.com
