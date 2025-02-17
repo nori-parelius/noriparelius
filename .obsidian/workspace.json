@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "content/privacy-policy.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "privacy-policy"
             }
           }
         ],
@@ -220,6 +220,7 @@
   },
   "active": "3a60df1c0fc8cfbb",
   "lastOpenFiles": [
+    "README.md",
     "content/confirmation-email-signup-final.md",
     "content/confirmation-email-signup.md",
     "public/confirmation-email-signup-final/index.html",
