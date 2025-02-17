@@ -61,7 +61,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/confirmation-email-signup-final.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -76,7 +76,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "confirmation-email-signup-final"
+              "title": "README"
             }
           }
         ],
@@ -220,8 +220,8 @@
   },
   "active": "3a60df1c0fc8cfbb",
   "lastOpenFiles": [
-    "content/confirmation-email-signup.md",
     "content/confirmation-email-signup-final.md",
+    "content/confirmation-email-signup.md",
     "public/confirmation-email-signup-final/index.html",
     "public/confirmation-email-signup-final",
     "public/confirmation-email-signup/index.html",
