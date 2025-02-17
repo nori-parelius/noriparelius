@@ -30,8 +30,57 @@
               "icon": "lucide-file",
               "title": "move-more-move-better"
             }
+          },
+          {
+            "id": "89a9d386ab84dea6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/confirmation-email-signup.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "confirmation-email-signup"
+            }
+          },
+          {
+            "id": "3a60df1c0fc8cfbb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/confirmation-email-signup-final.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "confirmation-email-signup-final"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -169,8 +218,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f280afaa570b67a4",
+  "active": "3a60df1c0fc8cfbb",
   "lastOpenFiles": [
+    "content/confirmation-email-signup.md",
+    "content/confirmation-email-signup-final.md",
+    "public/confirmation-email-signup-final/index.html",
+    "public/confirmation-email-signup-final",
+    "public/confirmation-email-signup/index.html",
+    "public/confirmation-email-signup",
+    "content/privacy-policy.md",
+    "content/post/move-more-move-better.md",
     "content/post/movement-moves-the-brain.md",
     "content/post/case_for_softness.md",
     "content/post/happiness-not-on-social-media.md",
@@ -182,7 +239,6 @@
     "content/post/brain-hacking.md",
     "content/post/bodies-trying-kill-us.md",
     "content/post/blind-spot.md",
-    "content/post/move-more-move-better.md",
     "content/post/habit-trackers.md",
     "content/post/grow-life-not-economy.md",
     "content/post/do-not-walk-like-a-duck-walk-like-aragorn.md",
@@ -192,7 +248,6 @@
     "static/ox-hugo/ode_to_gait-tensegrity_toy.png",
     "static/ox-hugo/A.jpg",
     "content/alphabet_superset/a_for_aurora.md",
-    "content/privacy-policy.md",
     "content/do-not-walk-like-a-duck-walk-like-aragorn.md",
     "content/post/problem_with_phones.md",
     "content/post/problem_with_phones.md~",
@@ -200,17 +255,10 @@
     "static/img/featured_phones.jpg",
     "Notes/3_Tags/writing.md",
     "Notes/3_Tags/teaching.md",
-    "Notes/3_Tags/coding.md",
-    "Notes/10_Main_Notes/!blog_with_hugo.md",
-    "Notes/9_Dailies/2024-12-11.md",
     "Notes/0_Attachments/singer_hottakes_seed_oils.pdf",
     "Notes/1a_Rumen/It's time to treat seed oils like you do refined sugars 2024-11-25T13_33_07+01_00.eml",
     "Notes/0_Attachments/Weekly_Review_Checklist.pdf",
     "Notes/Untitled",
-    "Notes/7_Projects/Project_Rumen",
-    "Notes/0_Attachments/other_files/docker_example/src/main.py",
-    "Notes/0_Attachments/other_files/docker_example/src",
-    "Notes/0_Attachments/other_files/docker_example/requirements.txt",
     "Notes/0_Attachments/basb_value-creation-code.png",
     "Notes/0_Attachments/basb-layers.png",
     "Notes/0_Attachments/struthless_houseboat1.jpeg",
