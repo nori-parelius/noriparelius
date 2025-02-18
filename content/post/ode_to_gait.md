@@ -43,7 +43,9 @@ We are not towers, and we are not pendulums. We are dynamic, living tensegrity s
 
 Tensegrity (tensional integrity) is a term from architecture that describes structures built from two types of elements: hard rods that aren't directly connected to each other, and ropes that are holding them together. It's easier to understand from a picture.
 
-{{< figure src="/ox-hugo/ode_to_gait-tensegrity_toy.png" alt="A picture of a colorful toy made of sticks that are not touching each other, but are connected by a bunch of rubber bands." caption="<span class=\"figure-number\">Figure 1: </span>A kids' tensegrity toy. You know, start them early." >}}
+![A picture of a colorful toy made of sticks that are not touching each other, but are connected by a bunch of rubber bands.](/ox-hugo/ode_to_gait-tensegrity_toy.png)
+
+*A kids' tensegrity toy. You know, start them early.*
 
 The hard rods are not compressible, while the ropes or rubber bands are providing tension that keeps them up, standing even when they look like they shouldn't. I always felt like they looked a little organic, a little magical, a little ethereal. And that is what we are too. A bunch of hard rods (bones) connected with rubber bands (tendons, ligaments, fascia and muscles).
 

@@ -65,8 +65,6 @@ Truth is, I want people to read what I write. I want to know what they think. I 
 
 Now that I am thinking about it, my blogging already turned a distant acquaintance into one of my now best friends. (Shoutout to Mariš!) I don't see where and how we would have gotten to know each other if I didn't step out of my comfort zone and started writing. So I guess it is working.
 
-{{< figure src="/ox-hugo/pin_my_reasons_for_blogging_1.jpg" alt="My 5 reasons for blogging not related to money: 1. Sorting out my thoughts, 2. Learning by explaining, 3. Getting better at writing, 4. Capturing memories, 5. Connecting with others." width="300" height="450" >}}
-
 
 ## What I didn't mention {#what-i-didn-t-mention}
 

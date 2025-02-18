@@ -13,6 +13,7 @@ I can't be the only one who finds it a bit tricky sometimes, I think.
 
 This personal blog is about the things I think about, learn about, try and test, in my attempts to get better at being human.
 
+
 {{< figure src="/ox-hugo/Nori_Parelius-500x500.png" alt="A close up picture of Nori Parelius." width="200px" >}}
 
 
