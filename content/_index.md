@@ -30,5 +30,5 @@ I am from Slovakia, now living in Norway with my Viking husband and two little w
 
 ## I'm not much about social media {#i-m-not-much-about-social-media}
 
-Whatever I post here goes also on some social media, but if you want to be reliably notified the next time I post something, and prefer reading without ads or anyone tracking you, I recommend to [sign up for the newsletter](https://76227124.sibforms.com/serve/MUIFABS3ijCScNnROypwZa6KRuwNd7uKSN6tAZfM9Vd4JK01iH7yyf8ejNH0bZ0MYABUOsNSOBGb4NguWwGNw7-mRMjrcxrIBJfiK7O2wrqtkxkKS8gFZl5niTZ0MtkmzgWcxoMfxXhHB4Ng3wV2CgqFBe7BdoAN6d9XJnVYL5Ngu1XooynlpsnMYCljApjHxPDWEqoZuHrkiwmv). No spam, just letting you know when I write, at most once a week, but most likely much (much) less often than that. There is also an RSS feed, if that is more your thing.
+Whatever I post here goes also on some social media, but if you want to be reliably notified the next time I post something, and prefer reading without ads or anyone tracking you, I recommend to sign up for the newsletter. No spam, just letting you know when I write, at most once a week, but most likely much (much) less often than that. There is also an RSS feed, if that is more your thing.
 
