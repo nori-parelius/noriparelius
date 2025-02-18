@@ -6,7 +6,7 @@ draft = false
 
 ## Who I am {#who-i-am}
 
-Hi, my name is Eleonora (Nori) Parelius and this is my website: <https://noriparelius.com>. You can contact me through email at nori@noriparelius.com. I care about your privacy and protecting any data you might trust me with.
+Hi, my name is Eleonora (Nori) Parelius and this is my website: [https://noriparelius.com](https://noriparelius.com). You can contact me through email at nori@noriparelius.com. I care about your privacy and protecting any data you might trust me with.
 
 
 ## Cookies {#cookies}
