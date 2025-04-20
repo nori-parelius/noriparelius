@@ -6,12 +6,15 @@ draft = false
 
 ## Who I am {#who-i-am}
 
-Hi, my name is Eleonora (Nori) Parelius and this is my website: [https://noriparelius.com](https://noriparelius.com). You can contact me through email at nori@noriparelius.com. I care about your privacy and protecting any data you might trust me with.
+Hi, my name is Eleonora (Nori) Parelius and this is my website: <https://noriparelius.com>. You can contact me through email at nori@noriparelius.com. I care about your privacy and protecting any data you might trust me with.
 
 
 ## Cookies {#cookies}
 
 This website is a static website and it uses no cookies on its own.
+
+I also don't use any analytics, which means I am not tracking any of your visits (and also have no idea how many people are actually reading my blog).
+
 
 ### Embedded content from other websites {#embedded-content-from-other-websites}
 
@@ -22,7 +25,7 @@ These websites may collect data about you, use cookies, embed additional third-p
 
 ## Email newsletter {#email-newsletter}
 
-If you decide to sign up for my email newsletter by entering your email into the sign-up form, I will store your email address. This I need in order to be able to send you the newsletter that you signed up for. For this email service I am using [Brevo](https://www.brevo.com/legal/privacypolicy/). You can read their privacy policy at the link. 
+If you decide to sign up for my email newsletter by entering your email into the sign-up form, I will store your email address. This I need in order to be able to send you the newsletter that you signed up for. For this email service I am using [MailerLite](https://www.mailerlite.com). They also keep track for me of whether you open the email and click on any links in it.
 
 You can unsubscribe from the newsletter at any time by clicking a link in one of the emails, or by sending me an email to nori@noriparelius.com letting me know you want to unsubscribe.
 
@@ -38,7 +41,7 @@ According to the law, you have the following rights with respect to your persona
 -   Right to transfer your data: you have the right to request all your personal data from the controller and transfer it in its entirety to another controller.
 -   Right to object: you may object to the processing of your data. I comply with this, unless there are justified grounds for processing.
 
-If you want to exercise any of these rights, feel free to contact me.
+If you want to exercise any of these rights, feel free to contact me
 
 
 ## Contact details {#contact-details}

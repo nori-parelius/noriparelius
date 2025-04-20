@@ -15,6 +15,13 @@ pluralizelisttitles = true
 # This next thing is because I set an output for taxonomy
 ignoreErrors = ["error-output-taxonomy"]
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
+
 [[menu.main]]
   name = "Home"
   identifier = "menu.home"

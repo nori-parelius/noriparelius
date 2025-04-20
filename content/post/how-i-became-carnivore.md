@@ -35,9 +35,9 @@ She was actually doing very well for a child with allergies - most likely thanks
 
 ### I started falling apart {#i-started-falling-apart}
 
-![A picture of a woman with long hair, in a tank top, sitting by a dining table, smiling at the camera with a bowl of oatmeal in front of her. Her arms are somewhat thin and there are slight bags under her eyes.](/ox-hugo/carnivore_Nori2018_411x637.jpg)
+{{< figure src="/ox-hugo/carnivore_Nori2018_411x637.jpg" alt="A picture of a woman with long hair, in a tank top, sitting by a dining table, smiling at the camera with a bowl of oatmeal in front of her. Her arms are somewhat thin and there are slight bags under her eyes." >}}
 
-*That is oatmeal in my bowl. January 2018, 8 months post partum. Tired.*
+_That is oatmeal in my bowl. January 2018, 8 months post partum. Tired._
 
 It slowly crept up on me, but by the time she was a year, I was hardly recognising myself. I was skinny, weak, perpetually tired and always sick.  Any virus passing by would get me and keep me miserable for many weeks. I even managed to break two of my ribs in a coughing fit.  Really.
 
@@ -80,9 +80,9 @@ My personal little miracle
 
 We were going to try it for a month. It has now been over 3 years. It really felt like experiencing my own little miracle.
 
-![A picture of a woman in a black dress holding a child on her hip, standing by a Christmas tree.](/ox-hugo/carnivore_Nori2019_341x767.jpg)
+{{< figure src="/ox-hugo/carnivore_Nori2019_341x767.jpg" alt="A picture of a woman in a black dress holding a child on her hip, standing by a Christmas tree." >}}
 
-*7 months carnivore and things are good. Definitely less dark circles under the eyes.*
+_7 months carnivore and things are good. Definitely less dark circles under the eyes._
 
 > I do indeed thrive.
 

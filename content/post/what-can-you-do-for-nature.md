@@ -31,7 +31,6 @@ I think George Monbiot got it wrong from the premise. For him, the number one pr
 It is clear that George Monbiot can't imagine that humans could actually be useful to the rest of the natural world. And he definitely can't see us as a part of it. He takes it even further, and as many of his fellow vegans, he even sees domestic animals as inherently damaging to nature and something that should be removed. It's as if cows and sheep and other domestic animals have lost their status as part of nature in his eyes. It's as if they were tainted by their contact with us.
 
 
-
 ## Humans are nature too {#humans-are-nature-too}
 
 We have been thinking of ourselves as separate from nature for a while now. The concept of nature came to be after the Middle Ages, during the period of Enlightenment. It is even more recent to think of ourselves as only being capable of natural destruction. But thankfully, our culture does not represent all the people in existence and definitely not all the people in history. We might have forgotten about it, but the truth is that humans _can_ live in peace with nature. And not only that, we can even help it prosper.

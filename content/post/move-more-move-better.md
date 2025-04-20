@@ -22,9 +22,9 @@ And I don't think I even understood how much it affected me mentally...
 
 I wasn't happy with the way I looked and I ingored as best as I could the way I felt in my own body.
 
-![A picture of a young woman with a long skirt and a tank top standing on a hill outside. Her feet are pointing out and the pelvis is in a posterior tilt.](/ox-hugo/move_more_better_Nori_2013_576x1024.png)
+{{< figure src="/ox-hugo/move_more_better_Nori_2013_576x1024.png" alt="A picture of a young woman with a long skirt and a tank top standing on a hill outside. Her feet are pointing out and the pelvis is in a posterior tilt." >}}
 
-*Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt.*
+_Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt._
 
 
 ## It changed, thankfully {#it-changed-thankfully}
@@ -62,8 +62,6 @@ connected to my body and the world around me.
 
 I finally feel at home in my body. I finally feel like I belong. And it's a good feeling.
 
-![A picture of a woman with short hair and a black dress holding a child on her hip.](/ox-hugo/move-more-better_Nori2019_576x1024.jpg)
+{{< figure src="/ox-hugo/move-more-better_Nori2019_576x1024.jpg" alt="A picture of a woman with short hair and a black dress holding a child on her hip." >}}
 
-*Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good.*
-
-
+_Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good._

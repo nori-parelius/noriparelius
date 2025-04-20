@@ -83,6 +83,27 @@ Eleonora Parelius,
 
 nori@noriparelius.com
 
+* Almost there
+:PROPERTIES:
+:EXPORT_FILE_NAME: confirmation-email-signup
+:END:
+
+** Thank you so much for signing up for my newsletter!
+*** Please, confirm your subscription by clicking on a link in an email you should get any moment now.
+
+To make sure that my emails only go to people who actually want them, you need to confirm your interest by following a link in an email that has just been sent to your email address. 
+
+If you are having trouble finding it, it might have ended up in your Spam or Promotions folder. 
+
+* You are now signed up
+:PROPERTIES:
+:EXPORT_FILE_NAME: confirmation-email-signup-final
+:END:
+
+** Thank you for joining me!
+I'm happy to have you on board :)
+
+
 * Post
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: post
@@ -446,8 +467,9 @@ And I don't think I even understood how much it affected me mentally...
 I wasn't happy with the way I looked and I ingored as best as I could the way I felt in my own body.
 
 #+attr_html: :alt A picture of a young woman with a long skirt and a tank top standing on a hill outside. Her feet are pointing out and the pelvis is in a posterior tilt. 
-#+caption: Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt. 
 [[file:move_more_better_Nori_2013_576x1024.png]]
+
+/Year 2013. I'm 24. Sloping shoulders, swayback posture with my pelvis way forward and duck feet. Of course I hurt./ 
 
 *** It changed, thankfully
 
@@ -484,8 +506,9 @@ connected to my body and the world around me.
 I finally feel at home in my body. I finally feel like I belong. And it's a good feeling. 
 
 #+attr_html: :alt A picture of a woman with short hair and a black dress holding a child on her hip.
-#+caption: Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good.
 [[file:move-more-better_Nori2019_576x1024.jpg]]
+
+/Year 2019. I seem to be holding a child in every single picture. But my shoulders are straighter, my pelvis is in its right place and I feel good./
 
 ** DONE How I became a carnivore 
 :PROPERTIES:
@@ -519,8 +542,9 @@ She was actually doing very well for a child with allergies - most likely thanks
 
 **** I started falling apart
 #+attr_html: :alt A picture of a woman with long hair, in a tank top, sitting by a dining table, smiling at the camera with a bowl of oatmeal in front of her. Her arms are somewhat thin and there are slight bags under her eyes. 
-#+caption: That is oatmeal in my bowl. January 2018, 8 months post partum. Tired.
 [[file:carnivore_Nori2018_411x637.jpg]]
+
+/That is oatmeal in my bowl. January 2018, 8 months post partum. Tired./
 
 
 It slowly crept up on me, but by the time she was a year, I was hardly recognising myself. I was skinny, weak, perpetually tired and always sick.  Any virus passing by would get me and keep me miserable for many weeks. I even managed to break two of my ribs in a coughing fit.  Really.  
@@ -570,8 +594,9 @@ My personal little miracle
 We were going to try it for a month. It has now been over 3 years. It really felt like experiencing my own little miracle. 
 
 #+attr_html: :alt A picture of a woman in a black dress holding a child on her hip, standing by a Christmas tree. 
-#+caption: 7 months carnivore and things are good. Definitely less dark circles under the eyes.
 [[file:carnivore_Nori2019_341x767.jpg]]
+
+/7 months carnivore and things are good. Definitely less dark circles under the eyes./
 
 #+begin_quote
 I do indeed thrive.
@@ -990,8 +1015,9 @@ We are not towers, and we are not pendulums. We are dynamic, living tensegrity s
 Tensegrity (tensional integrity) is a term from architecture that describes structures built from two types of elements: hard rods that aren't directly connected to each other, and ropes that are holding them together. It's easier to understand from a picture.
 
 #+attr_html: :alt A picture of a colorful toy made of sticks that are not touching each other, but are connected by a bunch of rubber bands.
-#+caption: A kids' tensegrity toy. You know, start them early. 
 [[file:ode_to_gait-tensegrity_toy.png]]
+
+/A kids' tensegrity toy. You know, start them early./ 
 
 The hard rods are not compressible, while the ropes or rubber bands are providing tension that keeps them up, standing even when they look like they shouldn't. I always felt like they looked a little organic, a little magical, a little ethereal. And that is what we are too. A bunch of hard rods (bones) connected with rubber bands (tendons, ligaments, fascia and muscles).
 
@@ -1009,7 +1035,6 @@ I know everyone always recommends to "just walk", or "at least walk" and we all 
 Walking is a wonderful form of movement; it's healthy, practical, pleasant and almost always available. If you have the privilege to be able to walk, I encourage you to use it. 
 
 ** DONE How I ran into real-life brain-hacking
-CLOSED: [2023-12-10 Sun 14:36]
 :PROPERTIES:
 :EXPORT_FILE_NAME: brain-hacking
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_brain-hacking.jpg :f_alt "Image of a blue and white network as an artistic depiction of brain connections."
@@ -1181,11 +1206,6 @@ I often doubt whether my writing makes any sense, whether anyone wants to read i
 Truth is, I want people to read what I write. I want to know what they think. I want to test my ideas by showing them to others. I want to share the things I discovered, that make my life better or bring me join. I hope I might help someone, or inspire them, even if I only inspire them to prove me wrong on something.
 
 Now that I am thinking about it, my blogging already turned a distant acquaintance into one of my now best friends. (Shoutout to Mariš!) I don't see where and how we would have gotten to know each other if I didn't step out of my comfort zone and started writing. So I guess it is working.
-
-#+attr_html: :alt My 5 reasons for blogging not related to money: 1. Sorting out my thoughts, 2. Learning by explaining, 3. Getting better at writing, 4. Capturing memories, 5. Connecting with others.
-#+attr_html: :width 300 :height 450
-#+caption: 
-[[file:pin_my_reasons_for_blogging_1.jpg]]
 
 *** What I didn't mention
 An attentive reader might notice that I didn't talk about some things that many people nowadays aim for when starting a blog. There are no mentions of traffic, marketing, or growth. In short, no money.
@@ -1501,11 +1521,6 @@ I think George Monbiot got it wrong from the premise. For him, the number one pr
 
 It is clear that George Monbiot can't imagine that humans could actually be useful to the rest of the natural world. And he definitely can't see us as a part of it. He takes it even further, and as many of his fellow vegans, he even sees domestic animals as inherently damaging to nature and something that should be removed. It's as if cows and sheep and other domestic animals have lost their status as part of nature in his eyes. It's as if they were tainted by their contact with us.
 
-#+attr_html: :alt If we can't even imagine that our interactions with the rest of the natural world could be beneficial for it, how can we hope to actually do anything positive?
-#+attr_html: :width 300 :height 450
-#+caption: 
-[[file:pin_what_can_you_do_for_nature_1.jpg]]
-
 *** Humans are nature too
 We have been thinking of ourselves as separate from nature for a while now. The concept of nature came to be after the Middle Ages, during the period of Enlightenment. It is even more recent to think of ourselves as only being capable of natural destruction. But thankfully, our culture does not represent all the people in existence and definitely not all the people in history. We might have forgotten about it, but the truth is that humans /can/ live in peace with nature. And not only that, we can even help it prosper.
 
@@ -1674,9 +1689,9 @@ And I remind myself of the wisdom that was hanging on the wall of my classroom i
 
 #+attr_html: :alt A cute drawing of a child and his plushies sleeping in a bed with big pillow. They seem to be in a bubble in space with the moon looking at them. Text in French says /Dormir, c'est vivre aussi.../, meaning /Sleeping is living too.../.
 #+attr_html: :width 300 
-#+caption: I actually found the poster we had hanging in my high school classroom. It seems like it came straight from France from some 90s campaign for better sleep. I remember how its message: "Sleeping is living too" felt meaningful in those days when we were staying up late with homework. 
 [[file:burnout_dormir-c-est-vivre-aussi.jpg]]
 
+/I actually found the poster we had hanging in my high school classroom. It seems like it came straight from France from some 90s campaign for better sleep. I remember how its message: "Sleeping is living too" felt meaningful in those days when we were staying up late with homework./ 
 
 *** 2. Diet
 Nutrition has everything to do with everything and is probably the number one thing to fix when dealing with, well, anything.
@@ -1772,8 +1787,9 @@ My bullet journalling has been evolving with me over the years and changing acco
 I tracked all kinds of things over the years. Eating according to my plan, going to bed before 10, exercising, taking supplements, writing, avoiding social media, meditating, even journalling itself.
 
 #+attr_html: :alt A collage of 7 photos of hand written habit trackers. Columns of squares where some are crossed out while others are colored in and many are left blank. The dates above span from May 2019 to January 2024. 
-#+caption: A selection of some of my (very not fancy) habit trackers over the years. Just look at the amount of blank (or black) squares!
 [[file:habit-trackers_1.jpg]]
+
+/A selection of some of my (very not fancy) habit trackers over the years. Just look at the amount of blank (or black) squares!/
 
 *** What habit trackers are supposed to do
 I can't back this up by any data, but I think habit trackers are one of those things virtually every bullet journaler uses. We all want to stick to our good habits, get rid of the bad ones and create new ones. Habit trackers are meant to help with that. I believe the idea is for them to work serving these 3 main purposes:

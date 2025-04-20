@@ -14,11 +14,11 @@ It's easy to think that discipline, consistency and pushing yourself are the onl
 
 ## What if I don't want to go hard? {#what-if-i-don-t-want-to-go-hard}
 
-I was talking to a few friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course, you hate them. That's why you should do them! Prove to yourself that you can do hard things! Just look at [David Goggins](https://en.wikipedia.org/wiki/David_Goggins) and what he achieved. Stay hard!
+I was talking to a few friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course, you hate them. That's why you should do them! Prove to yourself that you can do hard things! Just look at [David Goggins](<https://en.wikipedia.org/wiki/David_Goggins>) and what he achieved. Stay hard!
 
 And you know, I get it. I really do. It's good to stretch the boundaries of our comfort zone from time to time, and to challenge ourselves, and show ourselves that we are capable. But as I was sitting there I couldn't help but think that I don't want to do things I hate. I don't _want_ to be hard. I actually want to become _softer_.
 
-I listened to the conversation and felt like I was that one driver driving in the wrong direction on a highway. I didn't want to ruin my friends' vibe, so I didn't say anything. A year ago, I don't think I would have been able to admit to myself without guilt and thoughts of laziness that this message was not resonating with me. Now, after some nine months of [dealing with burnout/mild long Covid](https://noriparelius.com/post/way-out-of-burnout/), my views on productivity and my understanding of myself have shifted enough that I could see I wasn't really the right target audience here.
+I listened to the conversation and felt like I was that one driver driving in the wrong direction on a highway. I didn't want to ruin my friends' vibe, so I didn't say anything. A year ago, I don't think I would have been able to admit to myself without guilt and thoughts of laziness that this message was not resonating with me. Now, after some nine months of [dealing with burnout/mild long Covid](<https://noriparelius.com/post/way-out-of-burnout/>), my views on productivity and my understanding of myself have shifted enough that I could see I wasn't really the right target audience here.
 
 My limits have been pushed enough. I know I can do hard things. It's time I learned that I don't always have to.
 
@@ -55,9 +55,9 @@ It is the self-love and self-compassion that will keep us on the right path and 
 
 When we rely on pure willpower and discipline, on unbroken streaks and grind, it is easy to feel like every hiccup is a failure. We expect consistency in our performance, but we always make plans on days when we feel good, and bad days are coming as surely as the taxes. It's easy to think that we are failing and that we aren't good/strong/determined/capable enough to do what we set out to do.
 
-But in reality, consistency is impossible and, thankfully, unnecessary. The only thing we need to do is remember why we are doing what we are doing and _keep showing up_. Even if it's just in the smallest way. That's why making our desired habits 'too small to fail' is such a good idea. For me, at the worst time in my burnout, this actually only meant a [Visit](https://www.kouroshdini.com/the-visit-and-the-waves-of-focus/) -- _considering_ the habit -- showing up in the place I would usually do the activity and give myself the space and time to do as much or as little of it as made sense at that moment.
+But in reality, consistency is impossible and, thankfully, unnecessary. The only thing we need to do is remember why we are doing what we are doing and _keep showing up_. Even if it's just in the smallest way. That's why making our desired habits 'too small to fail' is such a good idea. For me, at the worst time in my burnout, this actually only meant a [Visit](<https://www.kouroshdini.com/the-visit-and-the-waves-of-focus/>) -- _considering_ the habit -- showing up in the place I would usually do the activity and give myself the space and time to do as much or as little of it as made sense at that moment.
 
-Instead of flexing our willpower and forcing discipline and consistency, we are much better served by [broadening our perspective](https://www.thezag.com/broad-view-of-time/), looking at our lives in the context of weeks, months and years, rather than days, and asking what is in our best interest, what would someone truly _devoted_ to themselves do.
+Instead of flexing our willpower and forcing discipline and consistency, we are much better served by [broadening our perspective](<https://www.thezag.com/broad-view-of-time/>), looking at our lives in the context of weeks, months and years, rather than days, and asking what is in our best interest, what would someone truly _devoted_ to themselves do.
 
 
 ## Softly {#softly}

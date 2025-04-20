@@ -13,7 +13,6 @@ I can't be the only one who finds it a bit tricky sometimes, I think.
 
 This personal blog is about the things I think about, learn about, try and test, in my attempts to get better at being human.
 
-
 {{< figure src="/ox-hugo/Nori_Parelius-500x500.png" alt="A close up picture of Nori Parelius." width="200px" >}}
 
 
@@ -31,4 +30,3 @@ I am from Slovakia, now living in Norway with my Viking husband and two little w
 ## I'm not much about social media {#i-m-not-much-about-social-media}
 
 Whatever I post here goes also on some social media, but if you want to be reliably notified the next time I post something, and prefer reading without ads or anyone tracking you, I recommend to sign up for the newsletter. No spam, just letting you know when I write, at most once a week, but most likely much (much) less often than that. There is also an RSS feed, if that is more your thing.
-

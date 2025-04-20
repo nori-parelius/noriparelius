@@ -20,9 +20,9 @@ My bullet journalling has been evolving with me over the years and changing acco
 
 I tracked all kinds of things over the years. Eating according to my plan, going to bed before 10, exercising, taking supplements, writing, avoiding social media, meditating, even journalling itself.
 
-![A collage of 7 photos of hand written habit trackers. Columns of squares where some are crossed out while others are colored in and many are left blank. The dates above span from May 2019 to January 2024.](/ox-hugo/habit-trackers_1.jpg)
-*A selection of some of my (very not fancy) habit trackers over the years. Just look at the amount of blank (or black) squares!*
+{{< figure src="/ox-hugo/habit-trackers_1.jpg" alt="A collage of 7 photos of hand written habit trackers. Columns of squares where some are crossed out while others are colored in and many are left blank. The dates above span from May 2019 to January 2024." >}}
 
+_A selection of some of my (very not fancy) habit trackers over the years. Just look at the amount of blank (or black) squares!_
 
 
 ## What habit trackers are supposed to do {#what-habit-trackers-are-supposed-to-do}
