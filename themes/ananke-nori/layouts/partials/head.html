@@ -62,7 +62,5 @@
   <meta name="twitter:title" content="{{ .Title }}"/>
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
 
-  <script src="https://alceris.com/script.js" data-id="8af49cc181625f3e" async defer></script>
-
   {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
   </head>
