@@ -25,7 +25,7 @@ These websites may collect data about you, use cookies, embed additional third-p
 
 ## Email newsletter {#email-newsletter}
 
-If you decide to sign up for my email newsletter by entering your email into the sign-up form, I will store your email address. This I need in order to be able to send you the newsletter that you signed up for. For this email service I am using [MailerLite](https://www.mailerlite.com). They also keep track for me of whether you open the email and click on any links in it.
+If you decide to sign up for my email newsletter by entering your email into the sign-up form, I will store your email address. This I need in order to be able to send you the newsletter that you signed up for. For this email service I am using [Brevo](https://www.brevo.com/). They also keep track for me of whether you open the email and click on any links in it.
 
 You can unsubscribe from the newsletter at any time by clicking a link in one of the emails, or by sending me an email to nori@noriparelius.com letting me know you want to unsubscribe.
 
