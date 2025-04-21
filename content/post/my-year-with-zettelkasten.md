@@ -9,6 +9,8 @@ featured_image = "/img/featured_my-year-with-zettelkasten.jpg"
 f_alt = "An image of a graph of a few hundred nodes of different colours connected with lines."
 +++
 
+_Update_: [Here you can read how I abandoned Zettelkasten about a year after I wrote this post](https://www.noriparelius.com/post/goodbye-zettelkasten)
+
 It is almost a tradition for people who get hooked on Zettelkasten to write a blog post about it. After using it for a year, I think it is about time I followed this tradition and added my experiences.
 
 I have always been a note-taker. I feel a strong urge to capture thoughts, events and ideas that are important to me. Over the years, I have been using a bunch of apps, paper notebooks, different kinds of files and folder systems to try to keep some order in my notes. No matter how hard I tried though, it always ended up being a mess, sooner or later. I think I sort of accepted that as an inevitable part of life. That notes were temporary -- only good for helping me acquire the knowledge, but useless for long term storage. Now all of that changed with Zettelkasten.
@@ -95,6 +97,8 @@ I find Zettelkasten to be freeing, because it lowers the threshold for taking no
 I do enjoy working with my Zettelkasten and find it useful and enriching. But I don't think everyone needs one. Zettelkasten requires a fair amount of work, and it is not a magic pill that will output great new ideas on its own. In the end, it really is just a way of taking and organising notes.
 
 I think it can be a great tool/companion for anyone doing research, be it scientists, non-fiction writers, journalists, students or bloggers.
+
+_Update_: [Here you can read how I abandoned Zettelkasten about a year after I wrote this post](https://www.noriparelius.com/post/goodbye-zettelkasten)
 
 
 ## My Zettelkasten set up {#my-zettelkasten-set-up}
