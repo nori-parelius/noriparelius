@@ -1,4 +1,5 @@
-baseURL = 'https://nori-parelius.statichost.eu/'
+#baseURL = 'https://nori-parelius.statichost.eu/'
+baseURL = 'https://noriparelius.com'
 languageCode = 'en-us'
 title = 'Being Human'
 theme = 'ananke-nori'
