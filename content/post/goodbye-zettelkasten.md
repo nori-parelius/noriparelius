@@ -1,5 +1,5 @@
 +++
-title = "Goodbye Zettelkasten. I quit."
+title = "Goodbye, Zettelkasten. I quit."
 author = ["Nori Parelius"]
 date = 2025-04-22
 tags = ["Knowledge work", "Creativity"]

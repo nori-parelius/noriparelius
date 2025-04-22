@@ -2063,7 +2063,7 @@ Among the practical things I have done is
 
 I would be very interested in hearing about your experience with your smartphone; whether you are happy with how much time you spend on it, or what kind of precautions you use to keep it that way. 
 
-** DONE Goodbye Zettelkasten. I quit.
+** DONE Goodbye, Zettelkasten. I quit.
 :PROPERTIES:
 :EXPORT_FILE_NAME: goodbye-zettelkasten
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_goodbye-zettelkasten.jpg :f_alt "A photograph of a trail through a summer birch forest" :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post"
