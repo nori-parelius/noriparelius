@@ -6,7 +6,7 @@ tags = ["Knowledge work", "Creativity"]
 draft = false
 featured_image = "/img/featured_goodbye-zettelkasten.jpg"
 f_alt = "A photograph of a trail through a summer birch forest"
-bsky = "https://bsky.app/profile/nori-pareli.bsky.social/post"
+bsky = "https://bsky.app/profile/nori-pareli.bsky.social/post/3lng364ookk2u"
 +++
 
 When I first heard about the Zettelkasten (ZK) method, it seemed like the Holy Grail of note-taking. (And I happen to be the kind of person to get excited about that.) One place to put all my thoughts, all my ideas, all the things I am learning and would wish to remember? One place to _always_ find them? One place to bring them all... _and in the darkness bind them_? I mean: bring them all together?
