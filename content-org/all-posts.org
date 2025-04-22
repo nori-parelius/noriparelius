@@ -2069,7 +2069,7 @@ I would be very interested in hearing about your experience with your smartphone
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/featured_goodbye-zettelkasten.jpg :f_alt "A photograph of a trail through a summer birch forest" :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post/3lng364ookk2u"
 :EXPORT_DATE: 2025-04-22
 :EXPORT_HUGO_TAGS: "Knowledge work" Creativity 
-:EXPORT_HUGO_CATEGORIES: 
+:EXPORT_HUGO_CATEGORIES: Zettelkasten "Note-taking"
 :END:
 
 When I first heard about the Zettelkasten (ZK) method, it seemed like the Holy Grail of note-taking. (And I happen to be the kind of person to get excited about that.) One place to put all my thoughts, all my ideas, all the things I am learning and would wish to remember? One place to /always/ find them? One place to bring them all... /and in the darkness bind them/? I mean: bring them all together?

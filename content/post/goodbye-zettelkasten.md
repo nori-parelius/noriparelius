@@ -3,6 +3,7 @@ title = "Goodbye, Zettelkasten. I quit."
 author = ["Nori Parelius"]
 date = 2025-04-22
 tags = ["Knowledge work", "Creativity"]
+categories = ["Zettelkasten", "Note-taking"]
 draft = false
 featured_image = "/img/featured_goodbye-zettelkasten.jpg"
 f_alt = "A photograph of a trail through a summer birch forest"
