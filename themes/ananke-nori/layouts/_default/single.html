@@ -58,8 +58,10 @@
       
       {{- partial "menu-contextual.html" . -}}
 
-      {{- if .Params.bsky }}
-        {{- partial "comment.html" . -}}
+      {{- if .Param "bskycomments"}}
+        {{- if .Params.bsky }}
+          {{- partial "comment.html" . -}}
+        {{- end -}}
       {{- end }}
       
       {{- partial "newsletter.html" . -}}
