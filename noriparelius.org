@@ -1,0 +1,78 @@
+* Poem 
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: poem
+:END:
+
+** DONE Poems
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/noriparelius.png
+:END:
+here is text
+
+** A spring butterfly
+:PROPERTIES:
+:EXPORT_FILE_NAME: spring-butterfly
+:EXPORT_DATE: 2018-04-30
+:END:
+
+#+attr_html: :alt A picture of a small child with a white hat squatting by a flower bed 
+[[file:spring-butterfly-image.jpg]]
+
+#+begin_verse
+Dandelions, tulips and roses
+Daffodils and violets
+And those tiny blue flowers I don't know the name of
+but seem to be your favourite
+You walk your little unsteady steps
+From one to the other
+Touching
+Crushing
+Carrying
+Yelling
+Smashing
+Waving
+
+Appreciating
+
+And you are right, little one
+Sometimes beauty has to be tasted
+#+end_verse
+
+** (Self-)control of one-year-olds
+:PROPERTIES:
+:EXPORT_FILE_NAME: self-control
+:EXPORT_DATE: 2018-05-02
+:END:
+
+
+#+begin_verse
+How can I blame you
+My little baby
+For ignoring my "no"
+Even if I think, lately
+What I mean by it you know
+How can I blame you
+For ignoring my "no"s
+If I do it too
+When chocolate is close
+#+end_verse
+
+** Baby moves
+:PROPERTIES:
+:EXPORT_FILE_NAME: baby-moves
+:EXPORT_DATE: 2018-05-01
+:END:
+
+#+attr_html: :alt A picture of baby shoes
+[[file:baby-moves-image.jpg]]
+
+#+begin_verse
+You taught me there is always a reason to dance
+There is music in the sound of the shower
+The coming of the train
+The spinning of the spinning top
+The sound of a blender
+And I wonder how and when I forgot
+#+end_verse
+
