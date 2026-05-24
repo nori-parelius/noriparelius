@@ -1,14 +1,18 @@
-* Poem 
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: poem
-:END:
-
-** DONE Poems
+* nori parelius
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/noriparelius.png
 :END:
-here is text
+
+Welcome to my digital notebook. It's my little place on the internet where I think, wonder and write.
+
+* Poem 
+:PROPERTIES:
+:EXPORT_SECTION: poem
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/noriparelius.png
+:END:
+
 
 ** A spring butterfly
 :PROPERTIES:
