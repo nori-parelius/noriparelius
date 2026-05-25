@@ -360,10 +360,10 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
      (file
       (let* ((file-dir (expand-file-name (nori-site-concat-to-dir current-path file)))
 	     (html (nori-site-export-subtree-to-html buffer begin))
-	     (filename (if (string= file "index")
-			   (expand-file-name "index.html" current-path)
+	     (filename (if (or (string= file "index") (string= file "_index"))
+			   (expand-file-name (concat file ".html") current-path)
 			 (expand-file-name "index.html" file-dir))))
-	(unless (or (file-exists-p file-dir) (string= file "index"))
+	(unless (or (file-exists-p file-dir) (string= file "index") (string= file "_index"))
 	  (make-directory file-dir t))
 	(let ((page (nori-site-generate-page metadata html)))
           (with-temp-file filename
