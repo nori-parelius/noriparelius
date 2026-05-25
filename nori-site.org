@@ -21,7 +21,7 @@
 (with-current-buffer (find-file-noselect nori-site-source-org-filename) (org-element-parse-buffer))
 #+end_src
 #+RESULTS:
-| org-data | (:standard-properties [1 1 1 1488 1488 0 nil org-data nil nil nil 3 1488 nil noriparelius.org nil nil nil] :path /home/nori/Documents/Notes/website/noriparelius.org :CATEGORY noriparelius) | (headline (:standard-properties [1 1 9 1488 1488 0 (:title) first-section nil nil nil 54 1486 1 noriparelius.org nil nil (org-data (:standard-properties [1 1 1 1488 1488 0 nil org-data nil nil nil 3 1488 nil noriparelius.org nil nil nil] :path /home/nori/Documents/Notes/website/noriparelius.org :CATEGORY noriparelius) #0)] :pre-blank 0 :raw-value Poem :title (Poem) :level 1 :priority nil :tags nil :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_HUGO_SECTION poem) (section (:standard-properties [9 9 9 56 56 0 nil section nil nil nil 9 56 nil noriparelius.org nil nil #0]) (property-drawer (:standard-properties [9 9 22 49 56 1 nil planning nil nil nil nil nil nil noriparelius.org nil nil #1]) (node-property (:standard-properties [22 22 nil nil 49 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #2] :key EXPORT_HUGO_SECTION :value poem)))) (headline (:standard-properties [56 56 70 188 188 0 (:title) nil nil nil nil nil nil 2 noriparelius.org nil nil #0] :pre-blank 0 :raw-value Poems :title (Poems) :level 2 :priority nil :tags nil :todo-keyword DONE :todo-type done :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_FILE_NAME _index :EXPORT_HUGO_CUSTOM_FRONT_MATTER :featured_image /img/noriparelius.png) (section (:standard-properties [70 70 70 188 188 0 nil section nil nil nil 70 188 nil noriparelius.org nil nil #1]) (property-drawer (:standard-properties [70 70 83 181 188 1 nil planning nil nil nil nil nil nil noriparelius.org nil nil #2]) (node-property (:standard-properties [83 83 nil nil 109 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #3] :key EXPORT_FILE_NAME :value _index)) (node-property (:standard-properties [109 109 nil nil 181 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #3] :key EXPORT_HUGO_CUSTOM_FRONT_MATTER :value :featured_image /img/noriparelius.png))))) (headline (:standard-properties [188 188 210 766 766 0 (:title) nil nil nil nil 289 764 2 noriparelius.org nil nil #0] :pre-blank 0 :raw-value A spring butterfly :title (A spring butterfly) :level 2 :priority nil :tags nil :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_FILE_NAME spring-butterfly :EXPORT_DATE 2018-04-30) (section (:standard-properties [210 210 210 766 766 0 nil section nil nil nil 210 766 nil noriparelius.org nil nil #1]) (property-drawer (:standard-properties [210 210 223 284 291 1 nil planning nil nil nil nil nil nil noriparelius.org nil nil #2]) (node-property (:standard-properties [223 223 nil nil 259 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #3] :key EXPORT_FILE_NAME :value spring-butterfly)) (node-property (:standard-properties [259 259 nil nil 284 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #3] :key EXPORT_DATE :value 2018-04-30))) (paragraph (:standard-properties [291 380 380 416 417 1 nil nil nil nil nil nil nil nil noriparelius.org nil nil #2] :attr_html (:alt A picture of a small child with a white hat squatting by a flower bed)) (link (:standard-properties [380 nil nil nil 415 0 nil nil nil nil nil nil nil nil noriparelius.org nil nil #3] :type file :type-explicit-p t :path spring-butterfly-image.jpg :format bracket :raw-link file:spring-butterfly-image.jpg :application nil :search-option nil)) |
+| org-data | (:standard-properties [1 1 1 2161 2161 0 nil org-data nil nil nil 3 2161 nil noriparelius.org nil nil nil] :path /home/nori/Documents/Notes/website/noriparelius.org :CATEGORY noriparelius) | (headline (:standard-properties [1 1 17 248 248 0 (:title) first-section nil nil nil 106 246 1 noriparelius.org nil nil (org-data (:standard-properties [1 1 1 2161 2161 0 nil org-data nil nil nil 3 2161 nil noriparelius.org nil nil nil] :path /home/nori/Documents/Notes/website/noriparelius.org :CATEGORY noriparelius) #0 (headline (:standard-properties [248 248 266 1757 1757 0 (:title) nil nil nil nil 377 1755 1 noriparelius.org nil nil #3] :pre-blank 0 :raw-value Poem :title (Poem) :level 1 :priority nil :tags (allpoems) :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_SECTION poem :EXPORT_FILE_NAME index :EXPORT_FEATURED_IMAGE /img/noriparelius.png) (section (:standard-properties [266 266 266 401 401 0 nil section nil nil nil 266 401 nil noriparelius.org nil nil #4]) (property-drawer (:standard-properties [266 266 279 372 378 0 nil planning nil nil nil nil nil nil noriparelius.org nil nil #5]) (node-property (:standard-properties [279 279 nil nil 301 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #6] :key EXPORT_SECTION :value poem)) (node-property (:standard-properties [301 301 nil nil 326 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #6] :key EXPORT_FILE_NAME :value index)) (node-property (:standard-properties [326 326 nil nil 372 0 nil node-property nil nil nil nil nil nil noriparelius.org nil nil #6] :key EXPORT_FEATURED_IMAGE :value /img/noriparelius.png))) (paragraph (:standard-properties [378 378 378 401 401 0 nil nil nil nil nil nil nil nil noriparelius.org nil nil #5]) Poems intro goes here. |
 
 ** A headline in the AST looks like this according to a clanker
 #+begin_src elisp
@@ -154,7 +154,7 @@
 * Setup
 - start and set up variables
 #+name: variables
-#+begin_src elisp :tangle yes
+#+begin_src elisp
 ;;; -*- lexical-binding: t -*-
 (require 'org)
 (require 'ox-html)
@@ -188,155 +188,158 @@
 #+end_src
 
 #+RESULTS: variables
-: nori-site-featured-post-number
+: nori-site-concat-to-dir
 
-* Run all
+* Run all - make site
+#+name: make-site
 #+begin_src elisp :noweb strip-export
 ;:results list
 <<variables>>
-<<make-site>>
+<<process-headline>>
+
+(defun nori-site-make-site (org-file &optional debug)
+  "Generate the full site from the ORG-FILE"
+  
+  (let ((publish-dir (expand-file-name nori-site-publish-directory))
+	(org-buffer (find-file-noselect org-file)))
+    ;; Ensure publish directory exists
+    (unless (file-exists-p publish-dir)
+      (make-directory publish-dir t))
+    
+    ;; Change to org-source buffer
+    (with-current-buffer org-buffer
+      ;; Parse the org-source buffer
+      (let ((ast (org-element-parse-buffer)))
+
+	;; Process each top level headline
+	(org-element-map ast 'headline
+	  (lambda (headline)
+	    (when (= 1 (org-element-property :level headline)) 
+	      (nori-site-process-headline headline org-buffer publish-dir))))))))
+
 (nori-site-make-site nori-site-source-org-filename t)
 #+end_src
 
 #+RESULTS:
-| (title . Baby moves) | (section-title . Poem) | (section-name) | (file-name . baby-moves) | (export-section . poem) | (todo) | (date . 2018-05-01) | (tags) | (categories) | (begin . 1293) | (contents-begin . 1307) | (contents-end . 1687) | (html . |
+| <div id="table-of-contents" role="doc-toc"> |
 
-* Make site
-#+name: make-site
+* Recursively process each headline
+#+name: process-headline
 #+begin_src elisp :noweb strip-export
 <<parse-headline>>
-(defun nori-site-make-site (org-file &optional debug)
-  "Generate the full site from the ORG-FILE"
-  (let ((publish-dir (expand-file-name nori-site-publish-directory))
-	(posts '()))
-    ;; Ensure publish directory exists
-    (unless (file-exists-p publish-dir)
-      (make-directory publish-dir t))
-    ;; Change to org-source buffer
-    (with-current-buffer (find-file-noselect org-file)
-      ;; Parse the org-source buffer
-      (let ((ast (org-element-parse-buffer)))
-	(when debug
-	  (message "Got the source file ast"))
-	;; Process each headline
-	(org-element-map ast 'headline
-	  (lambda (headline)
-	    ;; Parse headline of posts for metadata and content
-	    (when (= (org-element-property :level headline) 1)
-	      (let* ((section (nori-site-parse-headline headline)))
-		(when (alist-get 'section-name section)
-		  (let ((section-dir (expand-file-name (nori-site-concat-to-dir publish-dir (alist-get 'section-name section))))
-			)
-		    (unless (file-exists-p section-dir)
-		      (make-directory section-dir t))
-		    (message "DEBUG: Contents end is %s" (alist-get 'contents-end section))
-		    ))))
-		     
-	    (when (= (org-element-property :level headline) 2)
-	      (let* ((post (nori-site-parse-headline headline))
-		     (section-dir (nori-site-concat-to-dir publish-dir (alist-get 'export-section post)))
-		     (output-file (expand-file-name (concat (alist-get 'file-name post) ".html") section-dir)))
-		
-		(when debug
-		  (message "Title is %s" (alist-get 'title post))
-		  (message "Publish dir is %s" publish-dir)
-		  (message "Filename is %s" output-file))
-		
-		(push post posts)
-		))))))
-					;(nreverse posts)
-    (when debug
-      (message "Number of posts is %s" (length posts)))
-    posts)
-  )
+<<subtree-to-html>>
+<<generate-page>>
+
+(defun nori-site-process-headline (headline buffer current-path)
+  (let* ((metadata (nori-site-parse-headline headline))
+	 (section
+	  (alist-get 'section-name metadata))
+	 (file
+	  (alist-get 'file-name metadata))
+	 (section
+	  (alist-get 'section-name metadata))
+	 (begin
+	  (alist-get 'begin metadata))
+	 )
+
+    (cond
+     ;; section
+     (section ;check if it's a section
+      (let ((section-dir (expand-file-name (nori-site-concat-to-dir current-path section))))
+	(unless (file-exists-p section-dir)
+	  (make-directory section-dir t))
+	(org-element-map (org-element-contents headline) 'headline
+	  (lambda (child)
+	    (nori-site-process-headline child buffer section-dir)))
+	))
+     ;; file
+     (file
+      (let ((file-dir (expand-file-name (nori-site-concat-to-dir current-path file)))
+	    (filename '())
+	    (html (nori-site-export-subtree-to-html buffer begin)))
+	(unless (or (file-exists-p file-dir) (string= file "index"))
+	  (make-directory file-dir t))
+	(if (string= file "index")
+	    (setq filename (concat file-dir ".html"))
+	  (setq filename (expand-file-name (nori-site-concat-to-dir file-dir "index.html"))))
+	(let ((page (nori-site-generate-page metadata html)))
+          (with-temp-file filename
+            (insert page)))
+	
+	))
+     ;; else do nothing
+     (t nil))))
 #+end_src
 
 #+RESULTS: make-site
-: nori-site-make-site
 
-** Parse headline
+* Parse headline
 #+name: parse-headline
-#+begin_src elisp :noweb strip-export
-<<subtree-to-html>>
+#+begin_src elisp
 (defun nori-site-parse-headline (headline)
   (let* ((begin (org-element-property :begin headline))
 	 (contents-begin (org-element-property :contents-begin headline))
-         (contents-end (org-element-property :contents-end headline))
-	 (parent (org-element-lineage headline '(headline)))
-	 (section-title (if parent
-			    (substring-no-properties
-			     (org-element-interpret-data
-			      (org-element-property :title parent)))
-			  "Unknown"))
+	 (contents-end (org-element-property :contents-end headline))
 	 (title (substring-no-properties
 		 (org-element-interpret-data
 		  (org-element-property :title headline))))
-	 (parent-props (org-entry-properties parent))
 	 (props (org-entry-properties begin 'all))
-	 (export-section (alist-get
-			  "EXPORT_SECTION"
-			  parent-props nil nil #'string=))
 	 (export-file-name (alist-get
                             "EXPORT_FILE_NAME"
                             props nil nil #'string=))
 	 (date (alist-get
 		"EXPORT_DATE"
 		props nil nil #'string=))
-	 (tags (org-entry-get
-                begin
-                "EXPORT_HUGO_TAGS"
-                :inherit))
          (categories (org-entry-get
                       begin
-                      "EXPORT_HUGO_CATEGORIES"
+                      "EXPORT_CATEGORIES"
                       :inherit))
 	 (section-name (org-entry-get
-                      begin
-                      "EXPORT_SECTION"))
+			begin
+			"EXPORT_SECTION"))
 	 (todo (org-entry-get
                 begin
                 "TODO"
                 :inherit))
-	 (contents (buffer-substring contents-begin contents-end))
-	 (html (nori-site-export-subtree-to-html (current-buffer) begin t))
-	 
-	 (post `((title . ,title)
-		 (section-title . ,section-title)
-		 (section-name . ,section-name)
-		 (file-name . ,export-file-name)
-		 (export-section . ,export-section)
-		 (todo . ,todo)
-		 (date . ,date)
-		 (tags . ,tags)
-		 (categories . ,categories)
-		 (begin . ,begin)
-		 (contents-begin . ,contents-begin)
-		 (contents-end . ,contents-end)
-		 (html . ,html)
-		 (contents . ,contents))
-	       ) ; This is an alist where the dot creates a cons pair of key and value. Without the dot it would be a two element list. Backquote means to evaluate literaly, except for the things that are preceded by a comma, which are to be evaluated as symbols.
-	 ; To access (assoc 'title post) gives (title . "title"), so (cdr (assoc 'title post)) returns just "title". Can also use (alist-get 'title post)
-	 )
-    ;(message "DEBUG: Props %s" props)
-    ;(message "DEBUG: Parent props %s" parent-props)
-    ;(message "DEBUG: Contents is %s" contents)
-    post))
+	 (tags (org-entry-get
+		begin
+		"ALLTAGS"))
+	 (featured (alist-get
+		    "EXPORT_FEATURED_IMAGE"
+		    props nil nil #'string=))
+	 (contents
+	  (when contents-begin ;just in case it's empty
+	    (buffer-substring contents-begin contents-end))))
+
+    `((begin . ,begin)
+      (contents-begin . ,contents-begin)
+      (contents-end . ,contents-end)
+      (title . ,title)
+      (file-name . ,export-file-name)
+      (date . ,date)
+      (categories . ,categories)
+      (section-name . ,section-name)
+      (todo . ,todo)
+      (tags . ,tags)
+      (featured . ,featured)
+      (contents . ,contents))
+    ))
 #+end_src
 
 #+RESULTS: parse-headline
 : nori-site-parse-headline
 
-*** Export subtree to html
+* Export subtree to html
 #+name: subtree-to-html
 #+begin_src elisp
-(defun nori-site-export-subtree-to-html (buffer begin &optional debug)
+(defun nori-site-export-subtree-to-html (buffer begin)
   "Export a subtree contents to HTML with debugging."
+  (message "DEBUG: Buffere here in export is %s" buffer)
   (with-current-buffer buffer
     (save-excursion ;saves buffer selection and point
       (save-restriction ;saves narrowing state
 	(goto-char begin)
-	(when debug
-	  (message "DEBUG: At point: %s" (buffer-substring (line-beginning-position) (line-end-position))))
+	(message "DEBUG: At point: %s" (buffer-substring (line-beginning-position) (line-end-position)))
 	(let ((exported-html nil)
 	      (export-buffer
 	       (org-html-export-as-html
@@ -351,8 +354,7 @@
 		    (with-current-buffer export-buffer
 		      (buffer-string)))
 	    (kill-buffer export-buffer))
-	  (when debug
-            (message "DEBUG: Exported html length: %d" (length exported-html)))
+            (message "DEBUG: Exported html length: %d" (length exported-html))
 	    
 	  exported-html
 	  )))))
@@ -361,9 +363,75 @@
 #+RESULTS: subtree-to-html
 : nori-site-export-subtree-to-html
 
+* Load template
+#+name: load-template
+#+begin_src elisp
+(defun nori-site-load-template-from-block (name)
+  "Return contents of named org-babel source block NAME."
+  (with-current-buffer (get-file-buffer "nori-site.org")
+    (save-excursion
+      (org-babel-goto-named-src-block name)
+      (org-element-property :value (org-element-at-point)))))
+(princ (nori-site-load-template-from-block "simple"))
+#+end_src
+
+#+RESULTS: load-template
+#+begin_example
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TITLE}}</title>
+  </head>
+
+  <body>
+    {{CONTENTS}}
+  </body>
+</html>
+#+end_example
+
+* Render template
+#+name: render-template
+#+begin_src elisp
+(defun nori-site-render-template (template-string replacements)
+  "Replace PLACEHOLDERS in TEMPLATE_STRING using REPLACEMENTS alist.
+REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
+  (let ((result template-string))
+    (dolist (pair replacements)
+      (setq result (replace-regexp-in-string
+		    (car pair)
+		    (cdr pair)
+		    result
+		    t t))) ; case-sensitive, literal match
+    result)) 
+#+end_src
+
+#+RESULTS: render-template
+: nori-site-render-template
+
+* Generate page
+#+name: generate-page
+#+begin_src elisp :noweb strip-export
+<<load-template>>
+<<render-template>>
+(defun nori-site-generate-page (metadata html)
+  "Generate a page using the template."
+  (let* ((template (nori-site-load-template-from-block "simple"))
+	 (title (alist-get 'title metadata))
+	 (replacements
+	  `(("{{TITLE}}" . ,title)
+	    ("{{CONTENTS}}" . ,html)
+            ("{{LANGUAGE_CODE}}" . ,nori-site-language-code))))
+    (nori-site-render-template template replacements)))
+#+end_src
+
+#+RESULTS: generate-page
+: nori-site-generate-page
+
 
 * Other
-#+begin_src elisp :tangle yes
+#+begin_src elisp 
 ;; Render all posts to HTML
 (defun nori-site-generate-all-posts ()
   "Parse source file and generate HTML for each post."
@@ -466,8 +534,23 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+end_src
 
 
-
 * Templates
+** Simple template
+#+name: simple
+#+begin_src html :tangle templates/simple.html
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TITLE}}</title>
+  </head>
+
+  <body>
+    {{CONTENTS}}
+  </body>
+</html>
+#+end_src
 ** Head
 #+name: head-template
 #+begin_src html

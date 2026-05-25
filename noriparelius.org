@@ -1,20 +1,28 @@
 * nori parelius
 :PROPERTIES:
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/noriparelius.png
+:EXPORT_FILE_NAME: index
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
 :END:
 
 Welcome to my digital notebook. It's my little place on the internet where I think, wonder and write.
 
-* Poem 
+** Optional homepage subheader here
+
+* Poem :allpoems:
 :PROPERTIES:
 :EXPORT_SECTION: poem
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :featured_image /img/noriparelius.png
 :END:
 
+** Poem
+:PROPERTIES:
+:EXPORT_FILE_NAME: index
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
+:END:
+Poems intro goes here.
+*** Optional poem section subheader
+With text
 
-** A spring butterfly
+** A spring butterfly :onepoem:
 :PROPERTIES:
 :EXPORT_FILE_NAME: spring-butterfly
 :EXPORT_DATE: 2018-04-30
@@ -80,3 +88,51 @@ The sound of a blender
 And I wonder how and when I forgot
 #+end_verse
 
+* Another section
+:PROPERTIES:
+:EXPORT_SECTION: somesection
+:END:
+
+** Another section
+:PROPERTIES:
+:EXPORT_FILE_NAME: index
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
+:END:
+
+*** Section subheader
+
+** Some post 1
+:PROPERTIES:
+:EXPORT_FILE_NAME: post1
+:END:
+
+*** Subheading 1
+iii
+**** Subsub1
+**** Subsub2
+**** Subsub3
+*** Subheading 2
+ooo
+*** Subheading 3
+kkk
+
+** Some subsection
+:PROPERTIES:
+:EXPORT_SECTION: subsection
+:END:
+
+*** Some subsection
+:PROPERTIES:
+:EXPORT_FILE_NAME: index
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
+:END:
+
+*** Some subpost 1
+:PROPERTIES:
+:EXPORT_FILE_NAME: subpost1
+:END:
+
+*** Some subpost 2
+:PROPERTIES:
+:EXPORT_FILE_NAME: subpost2
+:END:
