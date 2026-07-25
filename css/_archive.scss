@@ -1,0 +1,41 @@
+/* ~~~~~~~ Year archive ~~~~~~ */
+.year-archive {
+}
+
+.year-panel {
+  margin-bottom: 0.5rem;
+  border: 2px solid var(--frame);
+  border-radius: 5px;
+  border-left: 12px solid var(--dusty-rose);
+  background: var(--sidebar-bg);
+}
+
+.year-header {
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--ink-brown);
+}
+
+.year-header:hover {
+    color: var(--highlight);
+}
+
+.post-list {
+  list-style: circle;
+  margin: 0;
+  padding: 0 1rem 1rem 1.5rem;
+}
+
+.post-item {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+}
+
+.post-item a{
+    color: var(--text-main);
+}
+
+.post-item a:hover{
+    color: var(--highlight);
+}

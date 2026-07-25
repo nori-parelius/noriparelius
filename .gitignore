@@ -1,1 +1,7 @@
 /public
+/img
+*.jpg
+*.png
+*.webp
+*.jpeg
+*_archive

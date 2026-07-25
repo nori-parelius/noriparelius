@@ -1,0 +1,91 @@
+/* === Article: main content of a single === */
+.single-article {
+    display: flex;
+    flex-direction: column;
+}
+
+.single-article header {
+    max-width: 60ch;
+    margin: 1rem auto 0 auto;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.single-article-main-content {
+    max-width: 60ch;
+    margin: 0 auto 1rem auto;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.single-article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  padding: 0;
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.single-article figure {
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.reading-time-words {
+    color: var(--text-subtle);
+}
+
+.single-article .section-title a {
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: 1rem;
+  text-decoration: none;
+}
+
+.single-article .section-title a:hover {
+    text-decoration: underline;
+    color: var(--highlight);
+}
+
+.single-article .meta {
+    font-size: 1rem;
+    color: var(--text-subtle);
+    margin-bottom: 0rem;
+}
+
+.single-title a {
+    text-decoration: none;
+    color: var(--ink-brown);
+}
+
+.single-article .meta a {
+    color: var(--text-subtle);
+}
+
+.comments {
+    max-width: 60ch;
+    margin: 0 auto 1rem auto;
+    padding: 0 1rem;
+}
+
+#load-comments {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-family: 'Special Elite';
+    background-color: var(--pale-ochre);
+    border: 1px solid var(--pale-ochre);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    margin: 0 0 2rem 0;
+    padding: 1rem 1.5rem;
+}
+
+#load-comments:hover {
+    color: var(--bg-paper);
+    background-color: var(--rosewood);
+    border-color: var(--rosewood);
+}

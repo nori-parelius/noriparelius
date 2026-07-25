@@ -1,0 +1,85 @@
+.main-content-wrapper {
+    position: relative;
+    flex-grow: 1;
+    padding: 2rem;
+    border: 1px solid var(--frame);
+    background-color: var(--bg-paper);
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);  
+}
+
+@media (prefers-color-scheme: light) {
+    .main-content-wrapper {
+	background-image:
+	    url('/img/paper-fibers.png'),
+            repeating-linear-gradient(
+		to bottom,
+		rgba(0, 0, 255, 0.03),
+		rgba(0, 0, 255, 0.03) 1px,
+		transparent 1px,
+		transparent 24px);
+	background-blend-mode: multiply;
+    }
+}
+
+.main-content-wrapper::before,
+.main-content-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--frame);
+    background-color: var(--bg-paper);
+    background-image: url('/img/paper-fibers.png');
+    background-blend-mode: multiply;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: -1;
+    
+}
+
+.main-content-wrapper::before {
+  top: -6px;
+  left: -4px;
+  transform: rotate(-0.05deg);
+}
+
+.main-content-wrapper::after {
+  top: 8px;
+  left: 10px;
+}
+
+@media (min-width: 850px) {
+    
+    .spiral {
+	z-index: 1;
+	width: 15px;
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 10px 0px;
+    }
+
+    .spiral::before {
+	content: '';
+	display: block;
+	height: 100%;
+	width: 25px;
+	background: repeating-linear-gradient(
+	    to bottom,
+	    var(--text-subtle),
+	    var(--text-subtle) 1px,
+	    transparent 1px,
+	    transparent 24px
+	);
+    }
+}
+
+@media (max-width: 850px) {
+    .main-content-wrapper {
+	padding: 0.1rem;
+    }
+}
+
+
+

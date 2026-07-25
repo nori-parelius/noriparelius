@@ -1,0 +1,36 @@
+{{- define "main" -}}
+<article class="homepage">
+  <article class="main-article-home">
+    {{- .Content -}}
+  </article>
+  <section class="about-me">
+    <div class="about-me-pic">
+      <img src="/ox-hugo/Nori-Parelius.jpg" alt="A close up picture of Nori Parelius">
+    </div>
+    <div class="about-me-text">
+      {{- partial "about-me.html" . -}}
+    </div>
+  </section>
+
+  <section class="currently-reading-and-microblog">
+    {{- partial "currently-reading.html" . -}}
+    {{- partial "microblog-latest.html" . -}}
+  </section>  
+
+  <section class="recent-posts">
+    <h2 class="recent-posts-header">Recent Posts</h2>
+    {{- range first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "post") -}}
+      {{- partial "summary-with-image.html" . -}}
+    {{- end -}}
+    <div class="more-posts-button-div">
+      <a class="more-posts-button" href="{{- "/post/" | relURL -}}">More Posts</a>
+    </div>
+  </section>
+
+  <section class="newsletter-signup">
+    {{- partial "newsletter.html" . -}}
+  </section>
+  
+</article>
+  
+{{- end -}}

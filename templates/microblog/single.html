@@ -1,0 +1,21 @@
+{{- define "main" -}}
+{{- partial "micro-nextprev.html" . -}}
+<article class="micro-article">
+  <header>
+    
+    <a href="{{ .CurrentSection.Permalink }}">
+      {{- with .CurrentSection.Title -}}
+        <h1 class="micro-section-title"> ✶ {{ . }} ✶ </h1>
+      {{- end -}}
+      </a>	
+
+    <h2 class="micro-header">{{ .Title }}</h2>    
+  </header>
+  
+  <article class="micro-content">
+    {{ .Content }}
+  </article>
+</article>
+
+{{- partial "micro-nextprev.html" . -}}
+{{- end -}}

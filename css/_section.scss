@@ -1,0 +1,118 @@
+/* ~~~~~~ section.html ~~~~~~ */
+
+.section-article {
+    display: flex;
+    flex-direction: column;
+}
+
+.section-article h1 {
+    max-width: 80ch;
+    padding: 1rem;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.section-article h2 {
+    max-width: 80ch;
+    padding: 1rem;
+    margin: 0;
+}
+
+.section-article p {
+    max-width: 80ch;
+    padding: 0 1rem;
+}
+
+.recent-posts-section {
+  max-width: 100ch;
+  margin: 0rem auto 2rem  auto;
+  padding: 0 0;
+}
+
+.preview-recent-posts {
+    margin: 0rem;
+    padding: 1.5rem 0 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--frame);
+}
+
+@media (max-width: 1200px) {
+    .preview-recent-posts {
+	flex-direction: column;
+	gap: 0.5rem;
+    }
+}
+
+.preview-image-div {
+    flex: 40%;
+}
+
+.preview-summary-div {
+    flex: 60%;
+}
+
+
+.featured-image-preview-section {
+    width:100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem 0 0 0;
+    border-radius: 0.5rem;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.featured-image-preview-im-link:hover .featured-image-preview-section {
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.6);
+}
+
+.preview-summary-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.preview-summary-div h2 {
+    padding: 1rem;
+    margin: 0;
+}
+
+.preview-summary-div .meta {
+    padding: 0 1rem;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-subtle);
+    margin-bottom: 1rem;
+}
+
+.preview-summary-div .meta a {
+    color: var(--text-subtle);
+}
+
+.preview-summary-link-text div {
+    margin: 0rem 1rem;
+}
+
+.preview-summary-link-text p {
+    padding: 0;
+}
+
+.preview-summary-link-header {
+    color: var(--ink-brown);
+    text-decoration: none;
+}
+
+.preview-summary-link-text,
+.preview-summary-link-text:hover {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.terms {
+    margin: 4rem auto 1rem auto;
+}

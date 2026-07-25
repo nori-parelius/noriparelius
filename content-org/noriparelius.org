@@ -1,7 +1,8 @@
 * nori parelius
 :PROPERTIES:
 :EXPORT_FILE_NAME: index
-:EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
+:MENU_NAME: Home
 :END:
 
 Welcome to my digital notebook. It's my little place on the internet where I think, wonder and write.
@@ -62,13 +63,15 @@ nori@noriparelius.com
 ** DONE Posts
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
-:EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
+:MENU_NAME: Posts
 :END:
 
 ** TODO Don't walk like a duck -- walk like Aragorn :movement:
 :PROPERTIES:
 :EXPORT_FILE_NAME: do-not-walk-like-a-duck-walk-like-aragorn
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_walk-like-aragorn.webp :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_walk-like-aragorn.webp
+:EXPORT_LAYOUT: single-post
 :EXPORT_DATE: 2020-09-04
 :END:
 
@@ -177,7 +180,8 @@ Ak vás tento článok presvedčil, že nechcete chodiť s nohami na krivo, aby 
 ** TODO To kegel or not to kegel :movement: 
 :PROPERTIES:
 :EXPORT_FILE_NAME: to_kegel_or_not_to_kegel
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_kegel_or_not_kegel.webp :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_kegel_or_not_kegel.webp
+:EXPORT_LAYOUT: single-post
 :EXPORT_DATE: 2021-09-06
 :END:
 
@@ -319,8 +323,11 @@ So how is your relationship with kegels? You can let me know if you feel like it
 ** Movement moves the brain - why dancing is better than sudoku    :movement:cognition:   
 :PROPERTIES:
 :EXPORT_FILE_NAME: movement-moves-the-brain
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_movement-moves-the-brain.webp :f_alt "A watercolor of a brain" :summary "As a teenager I used to always listen to music or audiobooks when I went for a run. I did it because running and exercise were a chore - a boring, annoying, but necessary chore. I didn't do it for the fun of it. It's common to see exercise as a chore that we just want to get over with, but today I will tell you about all the reasons why a focused movement practice is good for not only your body, but also your brain. " :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_movement-moves-the-brain.webp
+:EXPORT_FEATURED_ALT: "A watercolor of a brain"
+:DESCRIPTION: As a teenager I used to always listen to music or audiobooks when I went for a run. I did it because running and exercise were a chore - a boring, annoying, but necessary chore. I didn't do it for the fun of it. It's common to see exercise as a chore that we just want to get over with, but today I will tell you about all the reasons why a focused movement practice is good for not only your body, but also your brain. 
 :EXPORT_DATE: 2022-07-14
+:EXPORT_LAYOUT: single-post
 :END:
 
 *** Can I drop my body off at the gym and pick it up when it's done?
@@ -392,8 +399,11 @@ Nobody would dream of leaving their brain behind when going to practice playing 
 ** How I found out I had to move more and move better     :movement:    
 :PROPERTIES:
 :EXPORT_FILE_NAME: move-more-move-better
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_move-more-move-better.webp :f_alt "A photograph of a wooden bridge over a stream with trees around." :summary "I used to be a nerdy little bookworm as a kid and as a teenager. And honestly a bit of a couch potato. If I could sit in a comfy armchair with a book, I would sit in a comfy armchair with a book. I never really decided not to move - but it was happening and it had consequences." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_move-more-move-better.webp 
+:EXPORT_FEATURED_ALT: "A photograph of a wooden bridge over a stream with trees around."
+:DESCRIPTION: I used to be a nerdy little bookworm as a kid and as a teenager. And honestly a bit of a couch potato. If I could sit in a comfy armchair with a book, I would sit in a comfy armchair with a book. I never really decided not to move - but it was happening and it had consequences.
 :EXPORT_DATE: 2022-08-06
+:EXPORT_LAYOUT: single-post
   
 :END:
 
@@ -458,8 +468,11 @@ I finally feel at home in my body. I finally feel like I belong. And it's a good
 ** How I became a carnivore :food: 
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-i-became-carnivore
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_carnivore.webp :f_alt "A close up of a raw steak" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_carnivore.webp
+:EXPORT_FEATURED_ALT: "A close up of a raw steak" 
 :EXPORT_DATE: 2022-08-18
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: I don’t eat a “varied and balanced diet” anymore. I don’t do five a day. There is no rainbow on my plate. And no holy (whole)  grains.  Zero fibre,  actually. On the other hand, I eat lots of saturated fat, cholesterol and salt. I eat meat, eggs, fish, salt and water. And that's pretty much it 99% of the time. And believe it or not I have never felt better.
 :END:
 
 I don’t eat a “varied and balanced diet” anymore. I don’t do five a day. There is no rainbow on my plate. And no holy (whole)  grains.  Zero fibre,  actually. On the other hand, I eat lots of saturated fat, cholesterol and salt. 
@@ -467,8 +480,6 @@ I don’t eat a “varied and balanced diet” anymore. I don’t do five a day.
 I eat meat, eggs, fish, salt and water. And that's pretty much it 99% of the time. 
 
 And believe it or not I have never felt better.  
-
-#+hugo: more
 
 How did I get here? Let us start from the middle...
 
@@ -573,13 +584,14 @@ And that's why I just can't keep it to myself.
 ** I failed at starting an online business and I'm happy with that :sharing:personal__growth:
 :PROPERTIES:
 :EXPORT_FILE_NAME: i-failed-at-starting-an-online-business
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_failed-online-business.webp :f_alt "An image with a computer screen in the middle and two hands exchanging a credit card and a shopping bag in front of it." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_failed-online-business.webp
+:EXPORT_FEATURED_ALT: "An image with a computer screen in the middle and two hands exchanging a credit card and a shopping bag in front of it." 
 :EXPORT_DATE: 2023-03-17
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: I really really tried to start an online business, but it was just an endless struggle. I just couldn't get myself to do the things and I couldn't get it right. And so I finally stopped. It was a relief and a disappointment at the same time. And it actually took me close to a year to figure out what went "wrong", and why it's for the best.
 :END:
 
 I really really tried to start an online business, but it was just an endless struggle. I just couldn't get myself to do the things and I couldn't get it right. And so I finally stopped. It was a relief and a disappointment at the same time. And it actually took me close to a year to figure out what went "wrong", and why it's for the best.
-
-#+hugo: more
 
 If you are looking for a guide on how to start making money online, this is not it. This is me tracing back my steps, trying to figure out where and why I "failed". And the short story is: It didn't agree with me. The long story is… well, longer:
 
@@ -688,12 +700,13 @@ And since I have the luxury of "failing" at selling, I can do this instead. Go b
 ** Are our bodies trying to kill us?                    :food:
 :PROPERTIES:
 :EXPORT_FILE_NAME: bodies-trying-kill-us
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_bodies-trying-kill-us.webp :f_alt "An image of a big stick of butter." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_bodies-trying-kill-us.webp
+:EXPORT_FEATURED_ALT: "An image of a big stick of butter." 
 :EXPORT_DATE: 2023-06-02
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: I have recently finished reading Malcolm Kendrick's books /The Great Cholesterol Con/ and /The Clot Thickens/ and it was a treat. It was insightful, captivating and so very funny, just dripping with dry, British humour. And with frustration. A LOT of frustration.
 :END:
 I have recently finished reading Malcolm Kendrick's books /The Great Cholesterol Con/ and /The Clot Thickens/ and it was a treat. It was insightful, captivating and so very funny, just dripping with dry, British humour. And with frustration. A LOT of frustration.
-
-#+hugo: more
 
 *** What causes heart disease?
 **** The cholesterol hypothesis
@@ -791,8 +804,11 @@ And if I'm wrong, so be it. I will rather live in a world where my body is on my
 ** We have a blind spot :food:sugar__addiction:
 :PROPERTIES:
 :EXPORT_FILE_NAME: blind-spot
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_blind-spot.webp :f_alt "A close-up of a pile of white crystalline substance." :summary "For the longest time, I didn't want to admit it to myself. I thought I was in control. I thought I was "moderating", whatever that might mean. But in truth I was moderating myself to a serving of my drug of choice dozens of times every day. Simply because I wouldn't feel good without it. Simply because I wanted it. A lot." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_blind-spot.webp
+:EXPORT_FEATURED_ALT: "A close-up of a pile of white crystalline substance."
+:DESCRIPTION: For the longest time, I didn't want to admit it to myself. I thought I was in control. I thought I was "moderating", whatever that might mean. But in truth I was moderating myself to a serving of my drug of choice dozens of times every day. Simply because I wouldn't feel good without it. Simply because I wanted it. A lot.
 :EXPORT_DATE: 2023-07-11
+:EXPORT_LAYOUT: single-post
 :END:
 *** Hello, my name is Nori, and I am an addict.
 
@@ -910,6 +926,7 @@ Maybe one day, there will be no wells. Maybe one day, I will even be able to mod
 :EXPORT_FILE_NAME: brain-is-a-nutrition-accountant
 :EXPORT_FEATURED_IMAGE: :featured_image /img/featured_brain_accountant.webp :layout "single-post"
 :EXPORT_DATE: 2023-04-
+:EXPORT_LAYOUT: single-post
 :END:
 
 Have you ever seen a fat giraffe? No, me neither. Not even in a zoo. 
@@ -926,13 +943,14 @@ Did you know that statistically speaking, someone trying to lose weight has chan
 ** An ode to human gait :movement:
 :PROPERTIES:
 :EXPORT_FILE_NAME: ode_to_gait
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_ode-to-gait.webp :f_alt "A photograph of a toddler in blue rain gear walking away from the camera." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_ode-to-gait.webp
+:EXPORT_FEATURED_ALT: "A photograph of a toddler in blue rain gear walking away from the camera."
 :EXPORT_DATE: 2023-08-19
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: There are probably several magical ingredients in the soup of humanity that make us who we are; like big brains, opposable thumbs and a tendency to cooperate. And among these, we can definitely list our gait too.
 :END:
 
 There are probably several magical ingredients in the soup of humanity that make us who we are; like big brains, opposable thumbs and a tendency to cooperate. And among these, we can definitely list our gait too.
-
-#+hugo: more
 
 The way we humans walk is unique in the natural world. Moving around on two legs freed up those opposable thumbs for other purposes, allowed us to throw things, carry things and use tools. It placed our heads higher up, allowing us to see further. It was an extremely successful adaptation that opened up an ocean of possibilities.
 
@@ -984,8 +1002,11 @@ Walking is a wonderful form of movement; it's healthy, practical, pleasant and a
 ** How I ran into real-life brain-hacking :sugar__addiction:mental__health:personal__growth:
 :PROPERTIES:
 :EXPORT_FILE_NAME: brain-hacking
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_brain-hacking.webp :f_alt "Image of a blue and white network as an artistic depiction of brain connections." :summary "I have been struggling with sugar addiction for years. And just like it tends to be with addictions, it was a very tough battle, and I wasn't always winning. I was ready to fight for the rest of my life, but now I think I might not have to." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_brain-hacking.webp
+:EXPORT_FEATURED_ALT: "Image of a blue and white network as an artistic depiction of brain connections."
+:DESCRIPTION: I have been struggling with sugar addiction for years. And just like it tends to be with addictions, it was a very tough battle, and I wasn't always winning. I was ready to fight for the rest of my life, but now I think I might not have to. 
 :EXPORT_DATE: 2023-12-10
+:EXPORT_LAYOUT: single-post
 :END:
 
 I have been struggling with sugar addiction for years. It took its toll on both my physical and mental health long before I even knew I had it and I have been fighting it ever since I recognized its ugly face. And just like it tends to be with addictions, it was a very tough battle, and I wasn't always winning. I was ready to fight for the rest of my life, but now I think I might not have to. I think, carefully and hopefully, that I maybe, just maybe, might have won. How? Believe it or not, it was hypnosis.
@@ -1038,8 +1059,11 @@ If you find any of this intriguing, and you are wondering how hypnosis actually 
 ** What is the natural human diet? :food:
 :PROPERTIES:
 :EXPORT_FILE_NAME: natural-human-diet
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_natural-human-diet.webp :f_alt "A photograph of a plastic mammoth on a wooden bench in front of a lake." :summary "Pandas eat bambus, koalas eucalyptys. Humans are probably the only creatures in the world that are confused about what they should be eating. What are we meant to eat? What is the natural human diet?" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_natural-human-diet.webp
+:EXPORT_FEATURED_ALT: "A photograph of a plastic mammoth on a wooden bench in front of a lake."
+:DESCRIPTION: Pandas eat bambus, koalas eucalyptys. Humans are probably the only creatures in the world that are confused about what they should be eating. What are we meant to eat? What is the natural human diet?
 :EXPORT_DATE: 2023-12-12
+:EXPORT_LAYOUT: single-post
 :END:
 Humans are probably the only creatures in the world that are confused about what they should be eating.
 
@@ -1101,8 +1125,11 @@ Plants started to take a bigger and bigger part in our diet about 15 000 years a
 CLOSED: [2023-12-14 Thu 18:39]
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-reasons-for-blogging
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_my-reasons-for-blogging.webp :f_alt "An AI generated watercolor image of a platypus in front of a laptop." :summary "As I was starting yet another blog (this one), I decided to be a bit more mindful and conscious of what my goals actually are. Because if you don't know where you want to go, every step you take is in the wrong direction. So here are my 5 reasons for blogging!" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_my-reasons-for-blogging.webp
+:EXPORT_FEATURED_ALT: "An AI generated watercolor image of a platypus in front of a laptop."
+:DESCRIPTION: As I was starting yet another blog (this one), I decided to be a bit more mindful and conscious of what my goals actually are. Because if you don't know where you want to go, every step you take is in the wrong direction. So here are my 5 reasons for blogging!
 :EXPORT_DATE: 2023-12-14
+:EXPORT_LAYOUT: single-post
 :END:
 
 I believe this is my fifth(?!) attempt at blogging in the last 12 years. Some of those blogs were very short-lived, some survived for longer. None of the previous four are out there anymore. I had my reasons for starting each of the blogs, but it wasn't something I thought about much, not something that was clear in my mind. As I was starting yet another blog (this one), I decided to be a bit more mindful and conscious of what my goals actually are. Because if you don't know where you want to go, every step you take is in the wrong direction.
@@ -1161,8 +1188,11 @@ Thankfully, I don't need to make money from blogging, and I have a bunch of othe
 ** My year with a Zettelkasten :knowledge__work:note__taking:zettelkasten:writing:
 :PROPERTIES:
 :EXPORT_FILE_NAME: my-year-with-zettelkasten
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_my-year-with-zettelkasten.webp :f_alt "An image of a graph of a few hundred nodes of different colours connected with lines." :summary "It is almost a tradition for people who get hooked on Zettelkasten to write a blog post about it. After using it for a year, I think it is about time I followed this tradition and added my experiences." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_my-year-with-zettelkasten.webp
+:EXPORT_FEATURED_ALT: "An image of a graph of a few hundred nodes of different colours connected with lines."
+:DESCRIPTION: It is almost a tradition for people who get hooked on Zettelkasten to write a blog post about it. After using it for a year, I think it is about time I followed this tradition and added my experiences.
 :EXPORT_DATE: 2023-12-31
+:EXPORT_LAYOUT: single-post
 :END:
 
 /Update/: [[https://www.noriparelius.com/post/goodbye-zettelkasten][Here you can read how I abandoned Zettelkasten about a year after I wrote this post]]
@@ -1371,8 +1401,11 @@ Citar org roam allows me to use my roam capture template to make a note from a r
 ** Happiness isn't found on social media :mental__health:technology:
 :PROPERTIES:
 :EXPORT_FILE_NAME: happiness-not-on-social-media
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_happiness-not-on-social-media.webp :f_alt "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle." :summary "We go there to see things we (mostly) didn't choose ourselves, served to us in small bite-sized bits: *-- an interesting fact! -- a sad story :( -- an update from a "friend" you haven't talked to in 12 years -- a funny video! -- a scary thing you should look out for!!! --...* Before you get the time to digest one, you move onto the next. Over and over again. Scroll, scroll, scroll." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_happiness-not-on-social-media.webp
+:EXPORT_FEATURED_ALT: "A collage of photographs of various scenes, from landscapes, through animals, people, war scenes, close ups etc, with a sad emoji in the middle."
+:DESCRIPTION: We go there to see things we (mostly) didn't choose ourselves, served to us in small bite-sized bits: *-- an interesting fact! -- a sad story :( -- an update from a "friend" you haven't talked to in 12 years -- a funny video! -- a scary thing you should look out for!!! --...* Before you get the time to digest one, you move onto the next. Over and over again. Scroll, scroll, scroll.
 :EXPORT_DATE: 2024-01-06
+:EXPORT_LAYOUT: single-post
 :END:
 
 We live in the age of social media. So much of our interactions, information sharing, news acquiring and entertainment happens there. Yet many of us have a somewhat (or very) mixed relationship with them. And rightly so. When you think about it, it is the strangest thing. We go there to see things we (mostly) didn't choose ourselves, served to us in small bite-sized bits: /-- an interesting fact! -- a sad story :( -- an update from a "friend" you haven't talked to in 12 years -- a funny video! -- a scary thing you should look out for!!! --/ Before you get the time to digest one, you move onto the next. Over and over again. Scroll, scroll, scroll. There are so many good things social media have given us, and I love them for that. But today, I am once again choosing to take a break from them, because of all the bad things they do to my brain.
@@ -1437,13 +1470,14 @@ I think it's time we started to protect our attention and our mental energy, whe
 ** What can you do for nature?                                       :nature:
 :PROPERTIES:
 :EXPORT_FILE_NAME: what-can-you-do-for-nature
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_what-can-you-do-for-nature.webp :f_alt "A blurry image of a meadow with a few plants in focus in the forground." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_what-can-you-do-for-nature.webp
+:EXPORT_FEATURED_ALT: "A blurry image of a meadow with a few plants in focus in the forground." 
 :EXPORT_DATE: 2024-01-23
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: As a civilisation, we seem to be painfully aware of all the shortcomings in our contact with nature. Stories about all we have destroyed, and where we have failed, permeate our culture. Truth is, we don't even believe anymore that we could do any good. Most of us feel like the best thing we could do for nature, is to leave it alone. But that kind of thinking is wrong. And dangerous.
 :END:
 
 As a civilisation, we seem to be painfully aware of all the shortcomings in our contact with nature. Stories about all we have destroyed, and where we have failed, permeate our culture. Truth is, we don't even believe anymore that we could do any good. Most of us feel like the best thing we could do for nature, is to leave it alone. But that kind of thinking is wrong. And dangerous.
-
-#+hugo: more
 
 *** How can we do good, if we can't even imagine it?
 If I asked you how humans are affecting the nature, I suspect you would tell me about all the bad things we are doing. About the pollution, the deforestation, about the insecticides and herbicides, about microplastics, and mining, and species loss. And you would, of course, be right.
@@ -1513,8 +1547,10 @@ The change, if it happens, will come from the bottom. From people with a new vis
 ** TODO Why I think we should start growing life instead of the economy :nature:
 :PROPERTIES:
 :EXPORT_FILE_NAME: grow-life-not-economy
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_grow-life-not-economy.webp :f_alt "" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_grow-life-not-economy.webp :f_alt ""
 :EXPORT_DATE: 2023-12-31
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: When I was young, I used to think farming was boring. Totally uninteresting, kinda dumb, even. Oh, how I cringe, embarrased, when I think about that old and dumb me. Now I know better. Because when you really, really think about it, farming is one of the most important things anyone could ever do. And it seems we got it pretty wrong.
 :END:
 
 When I was young, I used to think farming was boring. Totally uninteresting, kinda dumb, even. Oh, how I cringe, embarrased, when I think about that old and dumb me. Now I know better. Because when you really, really think about it, farming is one of the most important things anyone could ever do. And it seems we got it pretty wrong.
@@ -1573,8 +1609,11 @@ Agriculture existed long before the agricultural revolution. Humans have been nu
 ** Finding my way out of burnout -- 4 changes I made to my lifestyle and mindset :mental__health:knowledge__work:
 :PROPERTIES:
 :EXPORT_FILE_NAME: way-out-of-burnout
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_way-out-of-burnout.webp :f_alt "An image of standing matchsticks with one in the middle being burnt and black." :summary "I haven't been feeling like myself for the last 5 months. Actually, that is a bit of an understatement." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_way-out-of-burnout.webp
+:EXPORT_FEATURED_ALT: "An image of standing matchsticks with one in the middle being burnt and black."
+:DESCRIPTION: I haven't been feeling like myself for the last 5 months. Actually, that is a bit of an understatement.
 :EXPORT_DATE: 2024-04-28
+:EXPORT_LAYOUT: single-post
 :END:
 
 I haven't been feeling like myself for the last 5 months. Actually, that is a bit of an understatement. I have been so absolutely, utterly exhausted that it affected everything. I had to slow down considerably in all areas of my life. Work, hobbies, house chores, everything. There was no chance in hell I could attempt something like exercise. Just getting through a normal day would leave me so exhausted I had to sleep for most of the next day. I have been frustrated, scatter-brained, unmotivated and unfocused. Often irritable, often feeling down.
@@ -1707,7 +1746,10 @@ The strategies I outlined here are just some of the things I have tried. I have 
 ** Why I stopped using habit trackers and what I do instead :writing:journalling:mental__health:personal__growth:
 :PROPERTIES:
 :EXPORT_FILE_NAME: habit-trackers
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_habit-trackers.webp :f_alt "A graphics of a checkbox with a big X drawn inside." :summary "Habit trackers seem like the perfect solution for when you want to build or maintain a habit. Yet, they stopped working for me (if they ever really worked at all) and so I have finally stopped using them. Thankfully, I figured out better ways of making my new habits stick." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_habit-trackers.webp
+:EXPORT_FEATURED_ALT: "A graphics of a checkbox with a big X drawn inside."
+:DESCRIPTION: Habit trackers seem like the perfect solution for when you want to build or maintain a habit. Yet, they stopped working for me (if they ever really worked at all) and so I have finally stopped using them. Thankfully, I figured out better ways of making my new habits stick.
+:EXPORT_LAYOUT: single-post
 :EXPORT_DATE: 2024-05-04
 :END:
 
@@ -1803,8 +1845,11 @@ Habit trackers are super popular in the journalling community and I am sure they
 ** Creativity in the age of Photoshop :creativity:sharing:
 :PROPERTIES:
 :EXPORT_FILE_NAME: creativity
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_creativity.webp :f_alt "A graphics of four colorful beetles seen from above walking over a black and white striped surface that looks like a pedestrian crossing." :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post/3lerbqr6g622b" :summary "My husband and I have been watching *The Beatles: Get Back* documentary and it made me think a lot about creativity, art and authenticity." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_creativity.webp
+:EXPORT_FEATURED_ALT: "A graphics of four colorful beetles seen from above walking over a black and white striped surface that looks like a pedestrian crossing."
+:DESCRIPTION: My husband and I have been watching *The Beatles: Get Back* documentary and it made me think a lot about creativity, art and authenticity.
 :EXPORT_DATE: 2024-05-13
+:EXPORT_LAYOUT: single-post
 :END:
 
 #+begin_quote
@@ -1870,8 +1915,9 @@ I think the tide of our times will turn. Just like the 50s were followed by the 
 ** TODO We broke science
 :PROPERTIES:
 :EXPORT_FILE_NAME: science
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_science.webp :f_alt "" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_science.webp :f_alt "" 
 :EXPORT_DATE: 2024-08-01
+:EXPORT_LAYOUT: single-post
 :END:
 
 Science is broken. I guess this statement might make me sound like a crazy consipationalist that will try to convince you that the Earth is flat. Don't worry, I won't. Maybe I should mention at this point that I am an actual (slightly crazy) scientist, if I am to believe the job title on my work badge. And while I whole-heartedly believe that the scientific method of inquiry is hands-down the best way to learn about the reality we live in, what we call "science" is, indeed, broken.
@@ -1905,13 +1951,14 @@ Statistics is not  intuitive, not common sense
 ** The case for softness ::personal_growth:mental__health:
 :PROPERTIES:
 :EXPORT_FILE_NAME: case_for_softness
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_soft.webp :f_alt "A closeup image of a feather" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_soft.webp
+:EXPORT_FEATURED_ALT: "A closeup image of a feather" 
 :EXPORT_DATE: 2024-09-02
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: It's easy to think that discipline, consistency and pushing yourself are the only way to fulfil your dreams. But what if you find that, instead of crushing your goals, you are only crushing yourself?
 :END:
 
 It's easy to think that discipline, consistency and pushing yourself are the only way to fulfil your dreams. But what if you find that, instead of crushing your goals, you are only crushing yourself?
-
-#+hugo: more
 
 *** What if I don't want to go hard?
 I was talking to a few friends the other day, and the conversation turned to exercise. The idea seemed to be that you should do what you hate. Burpees? Sprints? Of course, you hate them. That's why you should do them! Prove to yourself that you can do hard things! Just look at [David Goggins](https://en.wikipedia.org/wiki/David_Goggins) and what he achieved. Stay hard!
@@ -1964,8 +2011,11 @@ So, in a world obsessed with pushing hard, I am choosing to go softly. I am choo
 ** The problem with phones or Taking back the moment :mental__health:technology:cognition:
 :PROPERTIES:
 :EXPORT_FILE_NAME: problem_with_phones
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_phones.webp :f_alt "An image of a smartphone with a magicians hat on the screen and fireworks coming out of it." :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post/3lfayckai6s2i" :summary "Knowing we are being affected doesn't stop us from being affected, just like knowing a magic trick isn't real magic doesn't stop us from being tricked. But, if nothing else, I find it easier to manage my phone use knowing what I am up against and what it is about the smart phone that makes it difficult to moderate. So here are the three ways in which the smartphones mess with us." :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_phones.webp
+:EXPORT_FEATURED_ALT: "An image of a smartphone with a magicians hat on the screen and fireworks coming out of it."
+:DESCRIPTION: Knowing we are being affected doesn't stop us from being affected, just like knowing a magic trick isn't real magic doesn't stop us from being tricked. But, if nothing else, I find it easier to manage my phone use knowing what I am up against and what it is about the smart phone that makes it difficult to moderate. So here are the three ways in which the smartphones mess with us.
 :EXPORT_DATE: 2025-01-08
+:EXPORT_LAYOUT: single-post
 :END:
 
 I have a bit of a love-hate relationship with my phone and I know I am not the only one. Just like most people, I spend more time on my phone than I would want to, all the while feeling that I have too little time for other things in my life. And I don't even feel better when I emerge from my phone dives. For the longest time, I thought this was a `it's-not-you-it's-me' situation; I thought I wasn't good enough at managing my phone use, my willpower wasn't strong enough, it was all just me, etc etc. But that wasn't really getting me anywhere. I would vow to spend less time on my phone (and break my promises), put in app limits on the usual offenders (just to promptly ignore them), even uninstall apps (just to reinstall them embarrassingly soon, or install another app that would suck me in instead). It always worked for a bit, but I would always come crawling back, telling myself that I just need to be /better/ and then everything will be fine.
@@ -2010,8 +2060,11 @@ I would be very interested in hearing about your experience with your smartphone
 ** Goodbye, Zettelkasten. I quit. :knowledge__work:creativity:zettelkasten:journalling:note__taking:
 :PROPERTIES:
 :EXPORT_FILE_NAME: goodbye-zettelkasten
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_goodbye-zettelkasten.webp :f_alt "A photograph of a trail through a summer birch forest" :bsky "https://bsky.app/profile/nori-pareli.bsky.social/post/3lng364ookk2u" :summary "When I first heard about the Zettelkasten (ZK) method, it seemed like the Holy Grail of note-taking. One place to put all my thoughts, all my ideas, all the things I am learning and would wish to remember? One place to *always* find them? One place to bring them all... *and in the darkness bind them*? I mean: bring them all together?" :layout "single-post"
+:EXPORT_FEATURED_IMAGE: /img/featured_goodbye-zettelkasten.webp
+:EXPORT_FEATURED_ALT: "A photograph of a trail through a summer birch forest"
+:DESCRIPTION: When I first heard about the Zettelkasten (ZK) method, it seemed like the Holy Grail of note-taking. One place to put all my thoughts, all my ideas, all the things I am learning and would wish to remember? One place to *always* find them? One place to bring them all... *and in the darkness bind them*? I mean: bring them all together?
 :EXPORT_DATE: 2025-04-22
+:EXPORT_LAYOUT: single-post
 :END:
 
 When I first heard about the Zettelkasten (ZK) method, it seemed like the Holy Grail of note-taking. (And I happen to be the kind of person to get excited about that.) One place to put all my thoughts, all my ideas, all the things I am learning and would wish to remember? One place to /always/ find them? One place to bring them all... /and in the darkness bind them/? I mean: bring them all together?
@@ -2118,13 +2171,14 @@ My mind does not work in an interconnected map of atomic ideas. It works in narr
 ** Thinking  ̶w̶o̶r̶k̶  /play/ in an overstimulating world :knowledge__work:personal__growth:creativity:journalling:zettelkasten:note__taking: 
 :PROPERTIES:
 :EXPORT_FILE_NAME: thiniking-in-an-overstimulating-world
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_knowledge-play.webp :f_alt "A painting of a fountain pen leaving an ink stain." :layout "single-post" 
+:EXPORT_FEATURED_IMAGE: /img/featured_knowledge-play.webp
+:EXPORT_FEATURED_ALT: "A painting of a fountain pen leaving an ink stain." 
 :EXPORT_DATE: 2025-08-02
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: After tossing away my Zettelkasten, I was still left with the task of thinking (and hanging onto my thoughts) in this noisy world. Fortunately, I got some unexpected help.
 :END:
 
 After tossing away my Zettelkasten, I was still left with the task of thinking (and hanging onto my thoughts) in this noisy world. Fortunately, I got some unexpected help.
-
-#+hugo: more
 
 [[https://www.noriparelius.com/post/goodbye-zettelkasten/][The article about my break-up with ZK]] prompted an unusual number of responses. Among others, I was contacted by THE Sascha Fast himself from [[https://zettelkasten.de][zettelkasten.de]], and offered a coaching session. As done as I felt with the method, I was incredibly curious to hear what Sascha had to say, and obviously couldn't decline the offer. If you feel like watching what we have talked about, the [[https://www.youtube.com/watch?v=F6-_Gr80Pl8&t=101s][coaching session is on YouTube]].
 
@@ -2289,13 +2343,14 @@ How I want to be: an amateur writer—one who does it out of love.
 ** What the left hemisphere might tell us about large language models :technology:cognition:
 :PROPERTIES:
 :EXPORT_FILE_NAME: ai-left-hemisphere
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_ai-left.webp :f_alt "A drawing of a left hemisphere of the brain, with some circuitry next to it and lines slashing across both." :layout "single-post" 
+:EXPORT_FEATURED_IMAGE: /img/featured_ai-left.webp
+:DESCRIPTION: "A drawing of a left hemisphere of the brain, with some circuitry next to it and lines slashing across both."
 :EXPORT_DATE: 2025-09-19
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: It's eloquent, but it routinely confidently makes things up to fill in the gaps, has no sense of right and wrong and tends to get fixated on things. ChatGPT? Yes -- and the left hemisphere.
 :END:
 
 It's eloquent, but it routinely confidently makes things up to fill in the gaps, has no sense of right and wrong and tends to get fixated on things. ChatGPT? Yes -- and the left hemisphere.
-
-#+hugo: more
 
 But first things first:
 *** What is the left hemisphere like?
@@ -2505,13 +2560,14 @@ Anyway. I think this is a tricky topic, and while I find the left hemisphere com
 ** Looking for the roots of agency :personal__growth:mental__health:
 :PROPERTIES:
 :EXPORT_FILE_NAME: agency
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_agency.webp :f_alt "Drawing of a slightly open door." :layout "single-post" 
+:EXPORT_FEATURED_IMAGE: /img/featured_agency.webp
+:EXPORT_FEATURED_ALT: "Drawing of a slightly open door." 
 :EXPORT_DATE: 2025-10-27
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: I wanted to write and read and make music and dance and exercise and go on walks and and and... Yet, every evening, I was finding myself in the familiar situation of not having done any of what I wanted to do...
 :END:
 
 I wanted to write and read and make music and dance and exercise and go on walks and and and... Yet, every evening, I was finding myself in the familiar situation of not having done any of what I wanted to do...
-
-#+hugo: more
 
 A few months ago, I found myself writing in my journal that I finally felt healthy and like myself again. I noticed that after 18 months of slow, up-and-down recovery from Long Covid/burnout/whatever-that-was, I have been feeling good more consistently.
 
@@ -2632,12 +2688,13 @@ Agency is attention. And trust.
 ** Susanna Clarke's Jonathan Strange and Mr Norrell (book review)    :review:
 :PROPERTIES:
 :EXPORT_FILE_NAME: jonathan-strange-and-mr-norrell-review
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_jonathan-strange-mr-norrell.webp :f_alt "Cover of Jonathan Strange and Mr Norrell - a novel by Susanna Clarke, featuring a white silhouette of raven on black background." :layout "single-post" 
+:EXPORT_FEATURED_IMAGE: /img/featured_jonathan-strange-mr-norrell.webp
+:EXPORT_FEATURED_ALT: "Cover of Jonathan Strange and Mr Norrell - a novel by Susanna Clarke, featuring a white silhouette of raven on black background." 
 :EXPORT_DATE: 2025-11-08
+:EXPORT_LAYOUT: single-post
+:DESCRIPTION: Susanna Clarke's (debut!) novel Jonathan Strange and Mr Norrell is delightful, magical, and very difficult to describe.
 :END:
 Susanna Clarke's (debut!) novel Jonathan Strange and Mr Norrell is delightful, magical, and very difficult to describe.
-
-#+hugo: more
 
 It's a book about a pair of magicians trying to return magic to an early 1800s alternative-universe England. It's half historical fantasy, half Gothic novel with Jane Austen vibes, half magical realism (I know it's too many halves, but that book is more than a sum of it's parts). It's meandering, wide and sprawling, but it satisfyingly meets itself in a single point at the end. It's full of magic that feels at the same time extraordinary and normal. It's slow and gripping. It's witty and detached and deeply involved and emotional. It's so well written. It's a real masterpiece.
 
@@ -2655,10 +2712,11 @@ Susanna Clarke is a master storyteller, and Jonathan Strange & Mr Norrell is wel
 :EXPORT_SECTION: alphabet_superset
 :END:
 
-** DONE Alphabet Superset
+** Alphabet Superset
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_alphabet-superset.webp 
+:EXPORT_FEATURED_IMAGE: /img/featured_alphabet-superset.webp
+:MENU_NAME: Fiction
 :END:
 
 
@@ -2671,12 +2729,13 @@ So here it comes! And my topic is:
 *** Myths, legends & fairy tales
 
 
-** DONE A is for Aurora
+** A is for Aurora
 :PROPERTIES:
 :EXPORT_FILE_NAME: a_for_aurora
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_A.webp :f_alt "Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him." :layout 'single-alphabet-superset'
+:EXPORT_FEATURED_IMAGE: /img/featured_A.webp
+:EXPORT_FEATURED_ALT: Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him.
+:EXPORT_LAYOUT: 'single-alphabet-superset'
 :EXPORT_DATE: 2024-09-02
-  
 :END:
 
 
@@ -2720,12 +2779,14 @@ After a few months of dating, I told her about that time I tried to ask her out 
 
 /(The image is Sleeping Beauty by Edward Frederick Brewtnall, with small modifications :) )/
 
-** DONE B is for Bluebeard
+** B is for Bluebeard
 :PROPERTIES:
 :EXPORT_FILE_NAME: b_for_bluebeard
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_B.webp :f_alt "A painting of an oldschool big metal key by Edna C. Rex with drops of blood added." :layout 'single-alphabet-superset'
+:EXPORT_FEATURED_IMAGE: /img/featured_B.webp
+:EXPORT_FEATURED_ALT: "A painting of an oldschool big metal key by Edna C. Rex with drops of blood added."
+:DESCRIPTION: She's standing there like a complete fool. The key clutched in her hand so hard that her knuckles are turning white. It's a big key. Heavy. And cold. So cold it feels like it's sucking the life out of the hand that is holding it. She's standing there in front of the door, frozen. She has been standing there for a while now. What is she thinking about? Does she know? Does she suspect? Is that why she's hesitating?
+:EXPORT_LAYOUT: 'single-alphabet-superset'
 :EXPORT_DATE: 2024-09-16
-  
 :END:
 
 She's standing there like a complete fool. The key clutched in her hand so hard that her knuckles are turning white. It's a big key. Heavy. And cold. So cold it feels like it's sucking the life out of the hand that is holding it. She's standing there in front of the door, frozen. She has been standing there for a while now. What is she thinking about? Does she know? Does she suspect? Is that why she's hesitating?
@@ -2753,12 +2814,14 @@ She stands facing the door, holding the knife with confidence, but my dead heart
 
 /(The image is Key by Edna C. Rex, with small modifications :) )/
 
-** DONE C is for Cerberus
+** C is for Cerberus
 :PROPERTIES:
 :EXPORT_FILE_NAME: c_for_cerberus
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_C.webp :f_alt "A Drawing called Hades and Persephone by Eduard Trewendt, 1864, showing a king and a queen in togas sitting on a throne, holding hands, with a 3-headed dog by their feet" :layout 'single-alphabet-superset'
+:EXPORT_FEATURED_IMAGE: /img/featured_C.webp
+:EXPORT_FEATURED_ALT: "A Drawing called Hades and Persephone by Eduard Trewendt, 1864, showing a king and a queen in togas sitting on a throne, holding hands, with a 3-headed dog by their feet"
+:DESCRIPTION: First draft: Dear Sir or Madam Hi there!
+:EXPORT_LAYOUT: 'single-alphabet-superset'
 :EXPORT_DATE: 2024-09-23
-  
 :END:
 
 /First draft/
@@ -2779,12 +2842,14 @@ I hope you and Kerbie have a great adventure together!
 
 /(The image is Hades and Persephone by Eduard Trewendt, 1864, with small modifications)/
 
-** DONE D is for Dragons
+** D is for Dragons
 :PROPERTIES:
 :EXPORT_FILE_NAME: d_for_dragons
-:EXPORT_FEATURED_IMAGE: :featured_image /img/featured_D.webp :f_alt "Georges Seurat -- The Lighthouse at Honfleur, 1886. A painting of a shore with a building and a lighthouse in the distance. Small specks in the sky as birds are added. " :layout 'single-alphabet-superset'
+:EXPORT_FEATURED_IMAGE: /img/featured_D.webp
+:EXPORT_FEATURED_ALT: "Georges Seurat -- The Lighthouse at Honfleur, 1886. A painting of a shore with a building and a lighthouse in the distance. Small specks in the sky as birds are added. "
+:DESCRIPTION: When the first reports of dragons came in, they didn't even quite come in. Nobody believed it, and no serious news outlet would touch it. Most of the not-so-serious ones wouldn't either. And so the first mentions appeared alongside reports of Nessie sightings, stories of alien abductions and haunted houses. In that company, a small village falling prey to a dragon or two seemed both tamer and somehow less believable at the same time.
+:EXPORT_LAYOUT: 'single-alphabet-superset'
 :EXPORT_DATE: 2024-10-07
-  
 :END:
 
 When the first reports of dragons came in, they didn't even quite come in. Nobody believed it, and no serious news outlet would touch it. Most of the not-so-serious ones wouldn't either. And so the first mentions appeared alongside reports of Nessie sightings, stories of alien abductions and haunted houses. In that company, a small village falling prey to a dragon or two seemed both tamer and somehow less believable at the same time.
@@ -2824,10 +2889,10 @@ Hannah felt sudden warmth in her stomach, like acid reflux on steroids. She felt
 :EXPORT_SECTION: poem
 :END:
 
-** DONE Poems
+** Poems
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
-:EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
+:EXPORT_FEATURED_IMAGE: /img/noriparelius.png
 :END:
 
 ** A spring butterfly
@@ -3416,10 +3481,11 @@ says the orchid in a sidewalk crack.
 :EXPORT_SECTION: microblog
 :END:
 
-** DONE Microblog
+** Microblog
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
+:MENU_NAME: Microblog
 :END:
 
 ** October 27, 2025

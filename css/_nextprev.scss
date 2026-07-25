@@ -1,0 +1,23 @@
+
+.nextprev {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3rem;
+  text-decoration: bold;
+}
+
+.prev,
+.next {
+    border-bottom: 1px dashed var(--rosewood);
+}
+
+.prev-link,
+.next-link {
+  text-decoration: none;
+  color: var(--rosewood);
+}
+
+.prev-link:hover,
+.next-link:hover {
+  color: var(--highlight);
+}

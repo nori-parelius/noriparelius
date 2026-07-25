@@ -1,0 +1,21 @@
+<!--
+{{- with resources.Get "css/main.css" }}
+  {{- if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{- else }}
+    {{- with . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{- end }}
+  {{- end }}
+{{- end }}
+-->
+
+{{ $scss := resources.Get "css/style.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $scss.RelPermalink }}" integrity="{{ $scss.Data.Integrity }}">
+
+<!--
+    resources.Get loads the scss
+    toCSS compiles it
+    minifiy shrinks the output
+    finterprint adds a content hash + integrity attribute for cache busting and security
+    -->

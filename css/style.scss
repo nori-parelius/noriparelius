@@ -1,0 +1,75 @@
+// Base
+@import 'variables'; // fonts and colors
+@import 'global'; // base text styles, body, links, headers, blockquote
+
+// Layout
+@import 'header';
+@import 'site-container';
+@import 'sidebar';
+@import 'main';
+@import 'footer';
+
+
+// Components
+@import 'toc';
+@import 'main-menu'; // menu
+@import 'single-article'; // article
+@import 'archive'; // archive
+@import 'pagination';
+@import 'nextprev'; // nextprev for micro
+// buttons // CTA buttons, pagination, etc
+// navigation // Menus, TOC, nav links
+@import 'microblog';// microblog
+// media // Images, spiral binding
+@import 'poem';
+
+// Pages
+@import 'home'; // homepage
+@import 'section'; // sections
+
+// Extras
+//animations // Transitions, logo hover, motion
+// utilities // Helper classes, reusable styles
+
+
+
+
+
+
+
+
+
+
+
+/* Pressed flower flourish (optional) 
+.flower-corner {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 80px;
+  opacity: 0.7;
+}
+*/
+
+/* Subtle gif or candle flicker 
+.flicker {
+  animation: flicker 2.5s infinite alternate;
+  opacity: 0.9;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.85; }
+  50% { opacity: 0.6; }
+  100% { opacity: 0.95; }
+}
+*/
+
+/* Gentle highlight (e.g. like ink or smudge) */
+.highlight-block {
+  background: rgba(255, 248, 220, 0.4);
+  border-left: 3px solid #a08060;
+  padding: 0.5rem 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+/* End of stuff from ChatGPT */

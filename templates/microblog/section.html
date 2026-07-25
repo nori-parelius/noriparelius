@@ -1,0 +1,74 @@
+{{- define "main" -}}
+
+  {{/* Get all posts in this section */}}
+  {{ $all := .Pages }}
+  {{ $years := slice }}
+
+  {{/* Collect unique years and pick one representative post per year */}}
+  {{ range $all.ByDate.Reverse }}
+    {{ $y := .Date.Year }}
+    {{ if not (in $years $y) }}
+      {{ $years = $years | append $y }}
+      {{/* We'll just reuse the first post from that year as a representative */}}
+      {{ .Scratch.Set "year" $y }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Build a slice of representative pages (first post per year) */}}
+  {{ $representatives := slice }}
+  {{ $seen := slice }}
+  {{ range $all.ByDate.Reverse }}
+    {{ $y := .Date.Year }}
+    {{ if not (in $seen $y) }}
+      {{ $representatives = $representatives | append . }}
+      {{ $seen = $seen | append $y }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Paginate over those representative pages */}}
+  {{ $paginator := .Paginate $representatives 1 }}
+
+  {{/* The current "representative" determines which year we’re on */}}
+  {{ $currentPage := index $paginator.Pages 0 }}
+  {{ $currentYear := $currentPage.Date.Year }}
+
+<article class="micro-section">
+    <h1 class="micro-section-title"> ✶ {{- .Title -}} ✶ </h1>
+    {{- .Content -}}
+
+  <nav class="pagination-subtle">
+    {{ range $i, $p := .Paginator.Pagers }}
+      {{ $rep := index $p.Pages 0 }}
+      {{ $year := $rep.Date.Year }}
+      <a href="{{ $p.URL }}"
+         class="page-link-subtle">
+        {{ $year }}
+      </a>
+    {{ end }}
+  </nav>
+    
+  {{ $postsThisYear := where $all "Date.Year" "eq" $currentYear }}
+  {{ range $postsThisYear.ByDate.Reverse }}
+    <h2 class="micro-header">{{ .Title }}</h2>
+    <article class="micro-content">
+    {{ .Content }}
+    </article>
+    {{- end -}} 
+ 
+
+  <nav class="pagination">
+    {{ range $i, $p := .Paginator.Pagers }}
+      {{ $rep := index $p.Pages 0 }}
+      {{ $year := $rep.Date.Year }}
+      <a href="{{ $p.URL }}"
+         class="page-link">
+        {{ $year }}
+      </a>
+    {{ end }}
+  </nav>
+
+  
+{{ end }}
+
+
+

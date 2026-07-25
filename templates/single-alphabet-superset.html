@@ -1,0 +1,47 @@
+{{- define "main" -}}
+<article class="h-entry as-article single-article">
+  <header>
+    
+    {{- with .CurrentSection.Title -}}
+    <aside class="section-title">
+      <a href="{{ $.CurrentSection.Permalink }}">{{ . }}</a>
+    </aside>
+    {{- end -}}
+
+    <h1 class="p-name single-title">
+      <a class="u-url" href="{{ .Permalink }}">
+	{{ .Title }}
+      </a>
+    </h1>
+
+    <img src="{{ .Params.featured_image }}" alt="{{ $.Params.f_alt | default $.Title }}">
+    
+    <p class="meta">
+      {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
+      {{- $dateHuman := .Date | time.Format ":date_long" -}}
+      <time class="dt-published" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      <span class="reading-time-words">- {{ .ReadingTime }}-minute read - {{ .WordCount }} words - by</span>
+      <span class="p-author h-card">
+	<a class="u-url p-name" href="{{ .Site.BaseURL }}"> {{ .Site.Title }}</a>
+      </span>
+    </p>
+    
+  </header>
+  
+  <article class="single-article-main-content">
+    <div class="e-content">
+      {{- .Content -}}
+    </div>
+    {{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
+  </article>
+  <section class="newsletter-signup">
+    {{- partial "newsletter.html" . -}}
+  </section>
+</article>
+
+<p class="copyright">
+  © 2018-{{ now.Format "2006" }} Nori Parelius. All rights reserved.  
+  Please do not reproduce, distribute, or publish this work without permission.  
+</p>
+
+{{- end -}}

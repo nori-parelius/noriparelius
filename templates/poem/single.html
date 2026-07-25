@@ -1,0 +1,43 @@
+{{- define "main" -}}
+<article class="h-entry single-poem">
+  <header>
+    
+    {{- with .CurrentSection.Title -}}
+    <aside class="section-title">
+      <a href="{{ $.CurrentSection.Permalink }}">{{ . }}</a>
+    </aside>
+    {{- end -}}
+    
+    <h1 class="p-name single-title">
+      <a class="u-url" href="{{ .Permalink }}">
+	{{ .Title }}
+      </a>
+    </h1>
+    
+    <p class="meta">
+      {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
+      {{- $dateHuman := .Date | time.Format ":date_long" -}}
+      <time class="dt-published" datetime="{{ $dateMachine }}">{{- $dateHuman -}}</time> - by
+      <span class="p-author h-card">
+	<a class="u-url p-name" href="{{ .Site.BaseURL }}"> {{ .Site.Title }}</a>
+      </span>
+    </p>  
+  </header>
+  
+  <article class="e-content poem-text">
+    {{- .Content -}}
+  </article>
+
+  {{- partial "poem-nextprev.html" . -}}
+  
+  <div class="back-to-poems">
+    <a href="/poem/">Back to all poems</a>
+  </div>
+</article>
+
+<p class="copyright">
+  © 2018-{{ now.Format "2006" }} Nori Parelius. All rights reserved.  
+  Please do not reproduce, distribute, or publish this work without permission.  
+</p>
+
+{{- end -}}

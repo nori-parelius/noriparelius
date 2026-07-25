@@ -1,0 +1,117 @@
+.site-container {
+    max-width: 150ch;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.5rem;
+    width: 100%;
+    position: relative;
+}
+
+.main-content {
+    display: flex;
+    align-items: stretch;
+
+}
+
+/* Desktop layout */
+@media (min-width: 850px) {
+    .site-container {
+	/* two columns: sidebar + main */
+	grid-template-columns: 250px 1fr;
+	/* two rows so that sidebar has a top and bottom */
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+	    "menu   main"
+	    "extras main";
+	min-height: 100vh;
+	padding: 0 2rem 2rem 2rem;
+    }
+    .menu-section, .sidebar-extras-section {
+	padding: 1rem 0 0 0;
+    }
+
+    .main-content {
+	grid-area: main;
+	padding: 2rem;
+	margin: 1rem;
+    }
+
+    .menu-section { grid-area: menu; }
+
+    .sidebar-extras-section { grid-area: extras; }
+    
+}
+
+/* Mobile layout */
+@media (max-width: 849px) {
+    .site-container {
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+	    "menu"
+	    "main"
+	    "extras";
+	padding: 0.3rem;
+    }
+
+    .menu-section { grid-area: menu; }
+    .main-content {
+	grid-area: main;
+	padding: 0.5rem;
+	margin: 0rem 0 2rem 0;
+    }
+    .sidebar-extras-section { grid-area: extras; }
+
+    .site-nav ul {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+    }
+}
+
+// Flower
+.site-container::after {
+  content: "";
+  position: absolute;
+  top: -3rem;
+  right: 2rem;
+  width: 70px;
+  height: 70px;
+  background-image: url('/img/pressed_flower_3.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+@media (max-width: 849px) {
+  .site-container::after {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    right: 0rem;
+    width: 70px;
+    height: 70px;
+    background-image: url('/img/pressed_flower_3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 849px) {
+    
+    .doodle1 {
+	position: absolute;
+	background-image: url('/img/doodle1.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	opacity: 0.6;
+	pointer-events: none;
+	width: 60px;
+	height: 60px;
+	top: 16rem;
+	left: 17rem;
+    }
+}

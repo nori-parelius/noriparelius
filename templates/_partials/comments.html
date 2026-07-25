@@ -1,0 +1,28 @@
+<button id="load-comments" onclick="loadComments()">Show comments (no tracking)</button>
+
+<script type="text/javascript">
+  function loadComments() {
+      // Prevent loading twice
+      if (document.getElementById('isso-script')) return;
+      
+      const s = document.createElement('script');
+      s.id = 'isso-script';
+      s.src = 'https://comments.noriparelius.com/js/embed.min.js';
+
+      s.setAttribute('data-isso', 'https://comments.noriparelius.com/');
+      s.setAttribute('data-isso-max-comments-top', '10');
+      s.setAttribute('data-isso-max-comments-nested', '5');
+      s.setAttribute('data-isso-reveal-on-click', '5');
+      s.setAttribute('data-isso-sorting', 'oldest'); // 'oldest' or 'newest'
+      s.setAttribute('data-isso-avatar', 'false');
+      s.setAttribute('data-isso-vote', 'false');
+
+      document.body.appendChild(s);
+
+      // Hide button after loading
+      document.getElementById('load-comments').style.display = 'none';
+  }
+
+</script>
+
+<section id="isso-thread"></section>

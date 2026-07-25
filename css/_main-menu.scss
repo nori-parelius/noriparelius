@@ -1,0 +1,38 @@
+/* Navigation styles */
+.site-nav ul {
+    position: relative;
+    background-color: var(--pale-ochre);
+    background-image: url('/img/paper.png');
+    background-blend-mode: multiply;
+    list-style: none;
+    padding: 1rem;
+    margin: 40px auto;
+    font-family: 'Special Elite';
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+    transform: rotate(-1.5deg);
+    border: 1px solid var(--frame);
+    border-radius: 2px;
+	      
+}
+
+.site-nav ul:hover {
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.site-nav li {
+    margin: 0.5rem 0;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+    color: var(--rosewood);
+}
+
+.site-nav a.active {
+    color: var(--highlight);
+}
