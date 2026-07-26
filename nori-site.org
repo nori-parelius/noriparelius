@@ -34,6 +34,14 @@ At each level, a heading can be either a section or a post. The section post (in
 - todo state
 ** Local server
 =python3 -m http.server 8000=
+** Todos
+*** Post archive
+*** Tag clouds
+*** Tags
+*** RSS feed
+*** List pages
+*** Fix table of contents
+*** HTML formatting after conversion
 * Working it out
 ** What org-element-parse-buffer gives
 #+begin_src elisp
@@ -272,6 +280,13 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+end_src
 
 * Setup
+** CSS prep
+Need to compile scss to css and minify.
+Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo pacman -S sassc~.  Can use a local script without global install. Download the `sass-linux-x86_64` binary from the [GitHub releases](https://github.com/sass/dart-sass/releases) page, make it executable (`chmod +x dart-sass`), and run it directly.
+
+Use ~sass input.scss output.css --style=compressed~
+
+** Variables
 - start and set up variables
 #+name: variables
 #+begin_src elisp
@@ -306,8 +321,10 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
   "Filepath to img directiory.")
 (defvar nori-site-content-dir "~/Documents/Notes/website/content-org/"
   "Filepath to content dir. Contains both the org file with text and images.")
-(defvar nori-site-css-dir "~/Documents/Notes/website/css-minified/"
-  "Filepath to css dir.")
+(defvar nori-site-css-dir "~/Documents/Notes/website/css/"
+  "Filepath to css directory.")
+(defvar nori-site-fonts-dir "~/Documents/Notes/website/fonts/"
+  "Filepath to the fonts directory.")
 (defvar nori-site-featured-post-number 5
   "Number of posts included on the home page.")
 (defvar nori-site-entry-index nil
@@ -321,7 +338,7 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+RESULTS: variables
 : nori-site-concat-to-dir
 
-* PARSE-ONCE APPROACH
+* CODE
 ** Build the entry index - all the metadata and html from the source org file
 #+name: entry-index
 #+begin_src elisp :noweb strip-export
@@ -392,10 +409,11 @@ Stores the result in 'nori-site-post-index'."
 		       (final-filename nil)
 		       (contents
 			(when contents-begin ;just in case it's empty
-			  (buffer-substring contents-begin contents-end))))
+			  (buffer-substring contents-begin contents-end)))
+		       (wordcount (count-words contents-begin contents-end)))
 
 		  
-
+		  (message "wordcount is %d" wordcount)
 		  ;; Determine target directory and final-filename
 		  ;; Append path chain
 		  (dolist (part (nreverse path-chain))
@@ -433,6 +451,7 @@ Stores the result in 'nori-site-post-index'."
 				(tags . ,tags)
 				(target-dir . ,target-dir)
 				(final-filename . ,final-filename)
+				(wordcount . ,wordcount)
 					;(contents . ,contents)
 				)))
 		    ;; Add to index
@@ -450,7 +469,6 @@ Stores the result in 'nori-site-post-index'."
 #+RESULTS: entry-index
 : nori-site-build-entry-index
 
-
 ** Render pages
 #+name: render-all-pages
 #+begin_src elisp :noweb strip-export
@@ -458,6 +476,7 @@ Stores the result in 'nori-site-post-index'."
 <<entry-index>>
 <<subtree-to-html>>
 <<generate-page>>
+<<generate-archive-sidebar>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
   (interactive)
@@ -465,45 +484,74 @@ Stores the result in 'nori-site-post-index'."
   (unless nori-site-entry-index
     (nori-site-build-entry-index nori-site-source-org-filename))
 
+  ;; Run the css compilation and minification
+  (shell-command "bash /home/nori/Documents/Notes/website/process-css.sh")
+
   (let ((publish-dir (expand-file-name nori-site-publish-directory))
-	(org-buffer (find-file-noselect nori-site-source-org-filename)))
+	(org-buffer (find-file-noselect nori-site-source-org-filename))
+	(archive-html nil))
     ;; Ensure publish directory exists
     (unless (file-exists-p publish-dir)
       (make-directory publish-dir t))
     
-    ;; Copy asset folders to publish-dir
+    ;; Copy assets to publish-dir
     (copy-directory nori-site-img-dir publish-dir t t nil)
-    (copy-directory nori-site-css-dir publish-dir t t nil)
     (copy-directory nori-site-content-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
+    (copy-directory nori-site-css-dir publish-dir t t nil)
+    (copy-directory nori-site-fonts-dir publish-dir t t nil)
+    
     (message "Index length %d" (length nori-site-entry-index))
-    ;; Loop through index
-    (dolist (entry nori-site-entry-index)
+    
+    ;; Gather posts for archive
+    (let ((posts (copy-alist nori-site-entry-index)))
+      (setq posts (cl-remove-if
+		   (lambda (item)
+		     (let* ((metadata (cdr item))
+			    (path-chain (cdr (assoc 'path-chain metadata)))
+			    (parent (car path-chain))
+			    (todo (cdr (assoc 'todo metadata)))
+			    (date (cdr (assoc 'date metadata)))
+			    (file-name (cdr (assoc 'file-name metadata)))
+			    )
+		       (message " path-chain is %s, parent is %s" path-chain parent)
+		       (or (not date) (not file-name) (not (equal "post" parent)) (and todo (string= todo "TODO")))))
+		   posts))
+      (message "Post count %d" (length posts))
+      ;; Sort by date descending
+      (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
       
-      (let* ((title (car entry))
-	     (meta (cdr entry))
-	     (section-name (alist-get 'section-name meta))
-	     (file-name (alist-get 'file-name meta))
-	     (begin (alist-get 'begin meta))
-	     (todo-state (alist-get 'todo meta))
-	     (target-dir (alist-get 'target-dir meta))
-	     (final-filename (alist-get 'final-filename meta)))
+      (setq archive-html (nori-site-generate-archive-sidebar posts)))
+    
+  
 
-	;; Skip TODO items
-	(unless (and todo-state (string= todo-state "TODO"))
-	  ;; Ensure directory exists
-	  (unless (file-exists-p target-dir)
-	    (make-directory target-dir t))
+  ;; Loop through index to render
+  (dolist (entry nori-site-entry-index)
+    
+    (let* ((title (car entry))
+	   (meta (cdr entry))
+	   (section-name (alist-get 'section-name meta))
+	   (file-name (alist-get 'file-name meta))
+	   (begin (alist-get 'begin meta))
+	   (todo-state (alist-get 'todo meta))
+	   (target-dir (alist-get 'target-dir meta))
+	   (final-filename (alist-get 'final-filename meta)))
 
-	  ;; Render
-	  (when final-filename
-	    (let* ((html (nori-site-export-subtree-to-html org-buffer begin))
-		   (page (nori-site-generate-page meta html))
-	      	   )
-	      (with-temp-file final-filename
-		(insert page))
-	      )
-	    (message "Published: %s -> %s" title file-name))
-	  )))))
+      ;; Skip TODO items
+      (unless (and todo-state (string= todo-state "TODO"))
+	;; Ensure directory exists
+	(unless (file-exists-p target-dir)
+	  (make-directory target-dir t))
+
+	;; Render
+	(when final-filename
+	  (let* ((html (nori-site-export-subtree-to-html org-buffer begin))
+		 (page (nori-site-generate-page meta html archive-html))
+	      	 )
+	    (with-temp-file final-filename
+	      (insert page))
+	    )
+	  (message "Published: %s -> %s" title file-name))
+	)))))
 (nori-site-render-all-pages)
   #+end_src
 
@@ -540,8 +588,6 @@ Stores the result in 'nori-site-post-index'."
 
 #+RESULTS: subtree-to-html
 : nori-site-export-subtree-to-html
-
-
 
 
 ** Load template
@@ -598,14 +644,18 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 <<render-template>>
 <<make-menu>>
 
-(defun nori-site-generate-page (metadata html)
+(defun nori-site-generate-page (metadata html archive-html)
   "Generate a page using the template."
-  (let* ((template (nori-site-load-template "baseof"))
+  (let* ((template (nori-site-load-template "post"))
 	 (title (alist-get 'title metadata))
 	 (file-name (alist-get 'file-name metadata))
 	 (section-name (alist-get 'section-name metadata))
 	 (f-image (alist-get 'f-image metadata))
+	 (f-alt (alist-get 'f-alt metadata))
 	 (description (alist-get 'description metadata))
+	 (path-chain (alist-get 'path-chain metadata))
+	 (date (alist-get 'date metadata))
+	 (wordcount (alist-get 'wordcount metadata))
 	 (menu-name (alist-get 'menu-name metadata))
 	 (menu-html (nori-site-build-menu menu-name))
 	 ;(sidebar-html (nori-site-build-sidebar metadata))
@@ -613,14 +663,23 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 	  `(("{{TITLE}}" . ,title)
 	    ("{{CONTENTS}}" . ,html)
             ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
-	    ("{{URL}}" . ,(concat nori-site-base-url section-name "/" file-name))
+	    ("{{URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" file-name))
+	    ("{{SECTION_TITLE}}" . ,section-name)
+	    ("{{SECTION_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/")))
+	    ("{{DATE}}" . ,date)
+	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
+	    ("{{WORDCOUNT}}" . ,(int-to-string wordcount))
+	    ;; Average reading speed is about 238 words/min
+	    ("{{READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
 	    ("{{MENU_HTML}}" . ,menu-html)
+	    ("{{ARCHIVE}}" . ,archive-html)
 	    ;("{{SIDEBAR_HTML}}" . ,sidebar-html)
 	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
 	    ("{{FAVICON}}" . ,nori-site-favicon)
 	    ("{{SITE_NAME}}" . ,nori-site-title)
 	    ("{{FEATURED_IMAGE}}" . ,(concat nori-site-base-url f-image))
-	    ("{{HOME_LINK}}" . ,nori-site-base-url)
+	    ("{{FEATURED_ALT}}" . ,f-alt)
+	    ("{{HOME_URL}}" . ,nori-site-base-url)
 	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
 	    ("{{SITE_TITLE}}" . ,nori-site-title)
 	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat nori-site-base-url "privacy-policy"))
@@ -630,7 +689,7 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+end_src
 
 #+RESULTS: generate-page
-: nori-site-build-menu
+: nori-site-generate-page
 
 ** Create menu
 #+name: make-menu
@@ -664,80 +723,10 @@ used to add the active class."
 
 #+RESULTS: make-menu
 : nori-site-build-menu
-** Collect and sort post metadata for archive
-#+name: collect-posts
-#+begin_src elisp
-(defun nori-site-collect-posts (org-buffer)
-  "Scan the ORG_BUFFER with posts for post headlines and return a sorted alist.
-Returns: ((DATE . TITLE) ...) sorted by DATE descending."
-  (with-current-buffer org-buffer
-	(let ((posts '())
-	      (ast (org-element-parse-buffer)))
-	  ;; Map over all headlines
-	  (org-element-map ast 'headline
-	    (lambda (headline)
-	      (when (= (org-element-property :level headline) 2)
-		(let* ((title (substring-no-properties
-			       (org-element-interpret-data
-				(org-element-property :title headline))))
-		       (props (org-entry-properties (org-element-property :begin headline) 'all))
-		       (export-file-name (alist-get "EXPORT_FILE_NAME" props nil nil #'string=))
-		       (date (alist-get
-			      "EXPORT_DATE"
-			      props nil nil #'string=))
-		       (todo (org-entry-get (org-element-property :begin headline)
-					    "TODO"
-					    :inherit))
-		       (parent (org-element-lineage headline '(headline)))
-		       (section-title (if parent
-					  (substring-no-properties
-					   (org-element-interpret-data
-					    (org-element-property :title parent)))
-					"Unknown")))
-		  
-		  ;; Filter: Must have EXPORT_NAME_FILE, a date, be of type post and not TODO
-		  (when (and export-file-name date (string= section-title "Post") (not (and todo (string= todo "TODO"))))
-		    (push `((title . ,title)
-			    (date . ,date))
-			  posts))))))
-	  ;; Sort by date descending
-	  (sort posts (lambda (a b) (string> (alist-get 'date a) (alist-get 'date b)))))))
-
-(let* ((org-buffer (find-file-noselect  nori-site-source-org-filename))
-       (sorted-posts (nori-site-collect-posts org-buffer)))
-  (print sorted-posts))
-
-
-
-#+end_src
-
-#+RESULTS: collect-posts
-| (title . Susanna Clarke's Jonathan Strange and Mr Norrell (book review))                | (date . 2025-11-08) |
-| (title . Looking for the roots of agency)                                               | (date . 2025-10-27) |
-| (title . What the left hemisphere might tell us about large language models)            | (date . 2025-09-19) |
-| (title . Thinking  ̶w̶o̶r̶k̶  /play/ in an overstimulating world)                     | (date . 2025-08-02) |
-| (title . Goodbye, Zettelkasten. I quit.)                                                | (date . 2025-04-22) |
-| (title . The problem with phones or Taking back the moment)                             | (date . 2025-01-08) |
-| (title . The case for softness)                                                         | (date . 2024-09-02) |
-| (title . Creativity in the age of Photoshop)                                            | (date . 2024-05-13) |
-| (title . Why I stopped using habit trackers and what I do instead)                      | (date . 2024-05-04) |
-| (title . Finding my way out of burnout -- 4 changes I made to my lifestyle and mindset) | (date . 2024-04-28) |
-| (title . What can you do for nature?)                                                   | (date . 2024-01-23) |
-| (title . Happiness isn't found on social media)                                         | (date . 2024-01-06) |
-| (title . My year with a Zettelkasten)                                                   | (date . 2023-12-31) |
-| (title . My 5 reasons for blogging)                                                     | (date . 2023-12-14) |
-| (title . What is the natural human diet?)                                               | (date . 2023-12-12) |
-| (title . How I ran into real-life brain-hacking)                                        | (date . 2023-12-10) |
-| (title . An ode to human gait)                                                          | (date . 2023-08-19) |
-| (title . We have a blind spot)                                                          | (date . 2023-07-11) |
-| (title . Are our bodies trying to kill us?)                                             | (date . 2023-06-02) |
-| (title . I failed at starting an online business and I'm happy with that)               | (date . 2023-03-17) |
-| (title . How I became a carnivore)                                                      | (date . 2022-08-18) |
-| (title . Movement moves the brain - why dancing is better than sudoku)                  | (date . 2022-07-14) |
-
 ** Generate Archive Sidebar HTML
 #+name: generate-archive-sidebar
-#+begin_src elisp
+#+begin_src elisp :noweb strip-export
+<<variables>>
 (defun nori-site-generate-archive-sidebar (sorted-posts)
   "Generate the HTML for the year archive sidebar using the COLLECTED-POSTS list."
   (let* ((html "<div class=\"year-archive\">")
@@ -745,14 +734,15 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
          (first-group t))
     
     (dolist (post sorted-posts)
-      (let* ((meta (car post))
-	     (timestamp (cdr post))
-             (year-str (format-time-string "%Y" timestamp))
-             (date-display (format-time-string "%d %b" timestamp))
-             (title (plist-get meta :title))
-             (file (plist-get meta :file))
-             (permalink (concat nori-site-base-url "post/" file "/"))) ; Adjust path logic if needed
-         
+      (let* ((meta (cdr post))
+	     (date (date-to-time (alist-get 'date meta)))
+             (year-str (format-time-string "%Y" date))
+             (date-display (format-time-string "%d %b" date))
+             (title (alist-get 'title meta))
+             (file-name (alist-get 'file-name meta))
+	     (path-chain (alist-get 'path-chain meta))
+	     (url (concat nori-site-base-url (string-join path-chain "/") "/" file-name)))
+
         ;; Check if year changed
         (if (not (string= year-str prev-year))
             ;; New Year Group
@@ -774,7 +764,7 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
           ;; Add list item
           (setq html (concat html
                              "    <li class=\"post-item\">\n"
-                             "      <a href=\"" permalink "\">" date-display " – " title "</a>\n"
+                             "      <a href=\"" url "\">" date-display " – " title "</a>\n"
                              "    </li>\n")))))
     
     ;; Close the final group
@@ -786,8 +776,262 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
 #+RESULTS: generate-archive-sidebar
 : nori-site-generate-archive-sidebar
 
-* Make site by processing headlines recursively
-** Run
+* Templates
+** Head
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}" dir="ltr">
+
+  <!-- ========== HEAD============== -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>{{TITLE}}</title>
+
+    <!-- Static links (social, webmentions, etc) -->
+    <!-- Canonical link -->
+    <link rel="canonical" href="{{URL}}"/>
+    <!-- Social rel="me" links -->
+    <link rel="me" href="https://medium.com/@nori.parelius" />
+    <link rel="me" href="https://substack.com/@noriparelius" />
+    <link rel="me" href="https://github.com/nori-parelius" />
+    <!-- Webmetions -->
+    <link rel="webmention" href="https://webmention.io/www.noriparelius.com/webmention"/>
+        <!-- Favicon -->
+    <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
+        <!-- Meta description -->
+    <meta name="description" content="{{DESCRIPTION}}"/>
+
+
+    <!-- Robots meta tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph metadata to control appearance when shared -->
+<meta property="og:url" content="{{URL}}">
+  <meta property="og:site_name" content="{{SITE_NAME}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:locale" content="en">
+    <meta property="og:image" content="{{FEATURED_IMAGE}}">
+
+
+	<!-- Twitter cards for the same -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{FEATURED_IMAGE}}">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+
+
+    <!-- RSS feed link -->
+  <!-- https://gohugo.io/templates/rss/ -->
+    <!--
+    {{- with .OutputFormats.Get "rss" -}}
+    {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
+    {{- end -}}
+ -->
+
+    <!-- Load css and js -->
+    <link rel="stylesheet" href="/css/style.css">
+
+
+  </head>
+
+#+end_src
+
+** Header
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+
+  <body>
+<!-- ========== SITE-HEADER============== -->
+    <header class="site-header">
+      <div class="site-header-inner h-card">
+
+	<div class="site-logo-div">
+	  <a class="site-logo-link" href="{{HOME_LINK}}">
+	    <div class="site-logo-wrapper">
+              <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
+	    </div>
+	  </a>
+	</div>
+
+	<div class="site-title-div">
+	  <h1 class="site-title">
+	    <a class="site-title-link p-name u-url u-uid" href="{{HOME_LINK}}">
+              {{SITE_TITLE}}
+	    </a>
+	  </h1>
+	</div>
+      </div>
+
+    </header>
+
+    <div class="site-container">
+
+      <!-- ========== MENU============== -->
+      <div class="menu-section">
+		  {{MENU_HTML}}
+		  </div>
+      
+#+end_src
+
+** Main
+#+begin_src html
+;;:tangle "/home/nori/Documents/Notes/website/templates/post.html"
+      <main class="main-content">
+	<div class="spiral"></div>
+	<div class="main-content-wrapper">
+	  {{CONTENTS}}
+	</div>
+      </main>
+#+end_src
+
+** Post main
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="h-entry blog-post-article single-article">
+      <header>
+	<aside class="section-title">
+	  <a href="{{SECTION_URL}}">{{SECTION_TITLE}}</a>
+	</aside>
+
+	<h1 class="p-name single-title">
+	  <a class="u-url" href="{{URL}}">
+	    {{TITLE}}
+	  </a>
+	</h1>
+
+	<img src="{{FEATURED_IMAGE}}" alt="{{FEATURED_ALT}}">
+	
+	<p class="meta">
+	  <time class="dt-published" datetime="{{DATE}}">{{DATE_HUMAN}}</time>
+	  <span class="reading-time-words">- {{READING_TIME}}-minute read - {{WORDCOUNT}} words - by</span>
+	  <span class="p-author h-card">
+	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+	  </span>
+	</p>
+	
+	<details class="toc">
+	  <summary>Table of Contents</summary>
+	  {{TOC}}
+	</details>
+
+
+      </header>
+      <article class="single-article-main-content">
+	<div class="e-content">
+	  {{CONTENTS}}
+	</div>
+	{{TERMS}}
+      </article>
+      <!-- ======= NEWSLETTER ========== -->
+      <section class="newsletter-signup">
+	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
+      </section>
+      <section class="comments">
+	{{COMMENTS}}
+      </section>
+    </article>
+
+    <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+      This work is licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+	<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+	<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+      </a>.
+</br>
+This means you can distribute, remix, adapt, and build upon it, even for commercial purposes. You just need to give credit to me,
+<a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ .Site.Home.Permalink }}" >Nori Parelius</a>, and link to this site.
+    </p>
+
+  </div>
+</main>
+#+end_src
+
+** Sidebar
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+      <div class="sidebar-extras-section">
+	<div class="sidebar-widgets1">
+	  <div class="sidebar-archive">
+	    <h3>Archive</h3>
+	      {{ARCHIVE}}
+	  </div>
+
+	</div>
+
+	<div class="sidebar-widgets2">
+	  <div class="sidebar-rss">
+	    <h3>RSS feed</h3>
+	    <p>
+	      <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+	    </p>
+	  </div>
+	</div>
+
+	<div class="sidebar-widgets3">
+	  <div class="sidebar-tagcloud">
+	    <h3>Tags</h3>
+	    {{TAGCLOUD}}
+	  </div>
+	  <div class="tape"></div>
+	</div>
+
+	<div class="sidebar-widgets4">
+	  <a class="flower-link" href="/poem/" >
+	    <img src="/img/pressed_flower_2.png" alt="Pressed flower">
+	  </a>
+	</div>
+
+
+      </div>
+      
+      <div class="doodle1"></div>
+    </div>
+    <footer>
+      <div class="top-footer">
+	<p class="privacy-policy">
+	  <a href="{{PRIVACY_POLICY_LINK}}">Privacy Policy</a>
+	</p>
+
+#+end_src
+
+** Footer
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+
+	<p class="footer-rss">
+	  <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+	</p>
+
+	<p class="kofi-button">
+	  <a href='https://ko-fi.com/U7U4WWKDC' target='_blank' rel="noopener">
+	    <img src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' alt='Buy Me a Coffee at ko-fi.com' />
+	  </a>
+	</p>
+
+
+      </div>
+
+      <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+	© 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_LINK}}">noriparelius.com</a> — Nori Parelius
+	<br>
+	Essays are shared under
+	<a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+	  <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC icon">
+	  <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY icon">
+	</a>
+	<br>
+	Fiction & poetry are © Nori Parelius, all rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>
+
+#+end_src
+* Old
+** Make site by processing headlines recursively
 #+name: make-site
 #+begin_src elisp :noweb strip-export
 ;:results list
@@ -949,4 +1193,75 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
 
 #+RESULTS: parse-headline
 : nori-site-parse-headline
+
+** Collect and sort post metadata for archive - old
+#+name: collect-posts
+#+begin_src elisp
+(defun nori-site-collect-posts (org-buffer)
+  "Scan the ORG_BUFFER with posts for post headlines and return a sorted alist.
+Returns: ((DATE . TITLE) ...) sorted by DATE descending."
+  (with-current-buffer org-buffer
+	(let ((posts '())
+	      (ast (org-element-parse-buffer)))
+	  ;; Map over all headlines
+	  (org-element-map ast 'headline
+	    (lambda (headline)
+	      (when (= (org-element-property :level headline) 2)
+		(let* ((title (substring-no-properties
+			       (org-element-interpret-data
+				(org-element-property :title headline))))
+		       (props (org-entry-properties (org-element-property :begin headline) 'all))
+		       (export-file-name (alist-get "EXPORT_FILE_NAME" props nil nil #'string=))
+		       (date (alist-get
+			      "EXPORT_DATE"
+			      props nil nil #'string=))
+		       (todo (org-entry-get (org-element-property :begin headline)
+					    "TODO"
+					    :inherit))
+		       (parent (org-element-lineage headline '(headline)))
+		       (section-title (if parent
+					  (substring-no-properties
+					   (org-element-interpret-data
+					    (org-element-property :title parent)))
+					"Unknown")))
+		  
+		  ;; Filter: Must have EXPORT_NAME_FILE, a date, be of type post and not TODO
+		  (when (and export-file-name date (string= section-title "Post") (not (and todo (string= todo "TODO"))))
+		    (push `((title . ,title)
+			    (date . ,date))
+			  posts))))))
+	  ;; Sort by date descending
+	  (sort posts (lambda (a b) (string> (alist-get 'date a) (alist-get 'date b)))))))
+
+(let* ((org-buffer (find-file-noselect  nori-site-source-org-filename))
+       (sorted-posts (nori-site-collect-posts org-buffer)))
+  (print sorted-posts))
+
+
+
+#+end_src
+
+#+RESULTS: collect-posts
+| (title . Susanna Clarke's Jonathan Strange and Mr Norrell (book review))                | (date . 2025-11-08) |
+| (title . Looking for the roots of agency)                                               | (date . 2025-10-27) |
+| (title . What the left hemisphere might tell us about large language models)            | (date . 2025-09-19) |
+| (title . Thinking  ̶w̶o̶r̶k̶  /play/ in an overstimulating world)                     | (date . 2025-08-02) |
+| (title . Goodbye, Zettelkasten. I quit.)                                                | (date . 2025-04-22) |
+| (title . The problem with phones or Taking back the moment)                             | (date . 2025-01-08) |
+| (title . The case for softness)                                                         | (date . 2024-09-02) |
+| (title . Creativity in the age of Photoshop)                                            | (date . 2024-05-13) |
+| (title . Why I stopped using habit trackers and what I do instead)                      | (date . 2024-05-04) |
+| (title . Finding my way out of burnout -- 4 changes I made to my lifestyle and mindset) | (date . 2024-04-28) |
+| (title . What can you do for nature?)                                                   | (date . 2024-01-23) |
+| (title . Happiness isn't found on social media)                                         | (date . 2024-01-06) |
+| (title . My year with a Zettelkasten)                                                   | (date . 2023-12-31) |
+| (title . My 5 reasons for blogging)                                                     | (date . 2023-12-14) |
+| (title . What is the natural human diet?)                                               | (date . 2023-12-12) |
+| (title . How I ran into real-life brain-hacking)                                        | (date . 2023-12-10) |
+| (title . An ode to human gait)                                                          | (date . 2023-08-19) |
+| (title . We have a blind spot)                                                          | (date . 2023-07-11) |
+| (title . Are our bodies trying to kill us?)                                             | (date . 2023-06-02) |
+| (title . I failed at starting an online business and I'm happy with that)               | (date . 2023-03-17) |
+| (title . How I became a carnivore)                                                      | (date . 2022-08-18) |
+| (title . Movement moves the brain - why dancing is better than sudoku)                  | (date . 2022-07-14) |
 

@@ -2344,7 +2344,7 @@ How I want to be: an amateur writer—one who does it out of love.
 :PROPERTIES:
 :EXPORT_FILE_NAME: ai-left-hemisphere
 :EXPORT_FEATURED_IMAGE: /img/featured_ai-left.webp
-:DESCRIPTION: "A drawing of a left hemisphere of the brain, with some circuitry next to it and lines slashing across both."
+:EXPORT_FEATURED_ALT: "A drawing of a left hemisphere of the brain, with some circuitry next to it and lines slashing across both."
 :EXPORT_DATE: 2025-09-19
 :EXPORT_LAYOUT: single-post
 :DESCRIPTION: It's eloquent, but it routinely confidently makes things up to fill in the gaps, has no sense of right and wrong and tends to get fixated on things. ChatGPT? Yes -- and the left hemisphere.
@@ -3503,7 +3503,6 @@ I know that we get access to infinite amounts of information instead, something 
 :EXPORT_DATE: 2025-09-16
 :END:
 I get so sad when I run into some writing online that is written by a real person, about a real thing that they care about, but so clearly drafted/edited by some large language model. I know it is tempting. It makes your own thoughts and ideas sound so good, so sophisticated. But it also just makes everything sound the same. Half the internet is now written in ChatGPT-ese. The internet, the place where you are allowed to be yourself. Don't choose to be ChatGPT, please. (This is as much a plea to you, dear reader, as to myself.)
-
 
 ** September 4, 2025
 :PROPERTIES:

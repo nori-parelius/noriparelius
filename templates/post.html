@@ -63,7 +63,7 @@
       <div class="site-header-inner h-card">
 
 	<div class="site-logo-div">
-	  <a class="site-logo-link" href="{{HOME_URL}}">
+	  <a class="site-logo-link" href="{{HOME_LINK}}">
 	    <div class="site-logo-wrapper">
               <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
 	    </div>
@@ -72,7 +72,7 @@
 
 	<div class="site-title-div">
 	  <h1 class="site-title">
-	    <a class="site-title-link p-name u-url u-uid" href="{{HOME_URL}}">
+	    <a class="site-title-link p-name u-url u-uid" href="{{HOME_LINK}}">
               {{SITE_TITLE}}
 	    </a>
 	  </h1>
@@ -87,13 +87,67 @@
       <div class="menu-section">
 		  {{MENU_HTML}}
 		  </div>
-      
-      <main class="main-content">
-	<div class="spiral"></div>
-	<div class="main-content-wrapper">
+
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="h-entry blog-post-article single-article">
+      <header>
+	<aside class="section-title">
+	  <a href="{{SECTION_URL}}">{{SECTION_TITLE}}</a>
+	</aside>
+
+	<h1 class="p-name single-title">
+	  <a class="u-url" href="{{URL}}">
+	    {{TITLE}}
+	  </a>
+	</h1>
+
+	<img src="{{FEATURED_IMAGE}}" alt="{{FEATURED_ALT}}">
+	
+	<p class="meta">
+	  <time class="dt-published" datetime="{{DATE}}">{{DATE_HUMAN}}</time>
+	  <span class="reading-time-words">- {{READING_TIME}}-minute read - {{WORDCOUNT}} words - by</span>
+	  <span class="p-author h-card">
+	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+	  </span>
+	</p>
+	
+	<details class="toc">
+	  <summary>Table of Contents</summary>
+	  {{TOC}}
+	</details>
+
+
+      </header>
+      <article class="single-article-main-content">
+	<div class="e-content">
 	  {{CONTENTS}}
 	</div>
-      </main>
+	{{TERMS}}
+      </article>
+      <section class="newsletter-signup">
+	{{NEWSLETTER}}
+      </section>
+      <section class="comments">
+	{{COMMENTS}}
+      </section>
+    </article>
+
+    <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+      This work is licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+	<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+	<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+      </a>.
+</br>
+This means you can distribute, remix, adapt, and build upon it, even for commercial purposes. You just need to give credit to me,
+<a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ .Site.Home.Permalink }}" >Nori Parelius</a>, and link to this site.
+    </p>
+
+  </div>
+</main>
+
       <div class="sidebar-extras-section">
 	<div class="sidebar-widgets1">
 	  <div class="sidebar-archive">
@@ -151,7 +205,7 @@
       </div>
 
       <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-	© 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_URL}}">noriparelius.com</a> — Nori Parelius
+	© 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_LINK}}">noriparelius.com</a> — Nori Parelius
 	<br>
 	Essays are shared under
 	<a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
@@ -161,10 +215,6 @@
 	<br>
 	Fiction & poetry are © Nori Parelius, all rights reserved.
       </p>
-
-
-
     </footer>
-
   </body>
 </html>
