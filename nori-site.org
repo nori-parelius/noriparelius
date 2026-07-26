@@ -38,7 +38,7 @@ At each level, a heading can be either a section or a post. The section post (in
 *** Tag clouds
 *** RSS feed
 *** List pages
-*** HTML formatting after conversion
+*** Maybe merge section header with the section post somehow? Also so that I can better make the section title on each post
 * Working it out
 ** What org-element-parse-buffer gives
 #+begin_src elisp
@@ -563,7 +563,7 @@ Stores the result in 'nori-site-post-index'."
             ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
 	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" (unless file-name "index")))
 	    ("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
-	    ("{{SECTION_TITLE}}" . ,section-name)
+	    ("{{SECTION_TITLE}}" . ,(car path-chain))
 	    ("{{SECTION_URL}}" . ,(concat "/" (string-join path-chain "/")))
 	    ("{{DATE}}" . ,date)
 	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
