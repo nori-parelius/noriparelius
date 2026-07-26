@@ -403,7 +403,8 @@ Stores the result in 'nori-site-post-index'."
 			      :inherit))
 		       (tags (org-entry-get
 			      begin
-			      "ALLTAGS"))
+			      "ALLTAGS"
+			      :inherit))
 		       (publish-dir (expand-file-name nori-site-publish-directory))
 		       (target-dir publish-dir)
 		       (final-filename nil)
@@ -413,7 +414,6 @@ Stores the result in 'nori-site-post-index'."
 		       (wordcount (count-words contents-begin contents-end)))
 
 		  
-		  (message "wordcount is %d" wordcount)
 		  ;; Determine target directory and final-filename
 		  ;; Append path chain
 		  (dolist (part (nreverse path-chain))
@@ -489,7 +489,7 @@ Stores the result in 'nori-site-post-index'."
 
   (let ((publish-dir (expand-file-name nori-site-publish-directory))
 	(org-buffer (find-file-noselect nori-site-source-org-filename))
-	(archive-html nil))
+	(archive-html (nori-site-generate-archive-sidebar)))
     ;; Ensure publish directory exists
     (unless (file-exists-p publish-dir)
       (make-directory publish-dir t))
@@ -502,28 +502,6 @@ Stores the result in 'nori-site-post-index'."
     
     (message "Index length %d" (length nori-site-entry-index))
     
-    ;; Gather posts for archive
-    (let ((posts (copy-alist nori-site-entry-index)))
-      (setq posts (cl-remove-if
-		   (lambda (item)
-		     (let* ((metadata (cdr item))
-			    (path-chain (cdr (assoc 'path-chain metadata)))
-			    (parent (car path-chain))
-			    (todo (cdr (assoc 'todo metadata)))
-			    (date (cdr (assoc 'date metadata)))
-			    (file-name (cdr (assoc 'file-name metadata)))
-			    )
-		       (message " path-chain is %s, parent is %s" path-chain parent)
-		       (or (not date) (not file-name) (not (equal "post" parent)) (and todo (string= todo "TODO")))))
-		   posts))
-      (message "Post count %d" (length posts))
-      ;; Sort by date descending
-      (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-      
-      (setq archive-html (nori-site-generate-archive-sidebar posts)))
-    
-  
-
   ;; Loop through index to render
   (dolist (entry nori-site-entry-index)
     
@@ -556,6 +534,64 @@ Stores the result in 'nori-site-post-index'."
   #+end_src
 
   #+RESULTS: render-all-pages
+** Generate page
+#+name: generate-page
+#+begin_src elisp :noweb strip-export
+<<load-template>>
+<<render-template>>
+<<make-menu>>
+<<make-tag-list>>
+
+(defun nori-site-generate-page (metadata html archive-html)
+  "Generate a page using the template."
+  (let* ((template (nori-site-load-template "post"))
+	 (title (alist-get 'title metadata))
+	 (file-name (alist-get 'file-name metadata))
+	 (section-name (alist-get 'section-name metadata))
+	 (f-image (alist-get 'f-image metadata))
+	 (f-alt (alist-get 'f-alt metadata))
+	 (description (alist-get 'description metadata))
+	 (path-chain (alist-get 'path-chain metadata))
+	 (date (alist-get 'date metadata))
+	 (tags (alist-get 'tags metadata))
+	 (wordcount (alist-get 'wordcount metadata))
+	 (menu-name (alist-get 'menu-name metadata))
+	 (menu-html (nori-site-build-menu menu-name))
+	 ;(sidebar-html (nori-site-build-sidebar metadata))
+	 (replacements
+	  `(("{{TITLE}}" . ,title)
+	    ("{{CONTENTS}}" . ,html)
+            ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
+	    ("{{URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" file-name))
+	    ("{{SECTION_TITLE}}" . ,section-name)
+	    ("{{SECTION_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/")))
+	    ("{{DATE}}" . ,date)
+	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
+	    ("{{WORDCOUNT}}" . ,(int-to-string wordcount))
+	    ;; Average reading speed is about 238 words/min
+	    ("{{READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
+	    ("{{MENU_HTML}}" . ,menu-html)
+	    ("{{ARCHIVE}}" . ,archive-html)
+	    ;("{{SIDEBAR_HTML}}" . ,sidebar-html)
+	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
+	    ("{{FAVICON}}" . ,nori-site-favicon)
+	    ("{{SITE_NAME}}" . ,nori-site-title)
+	    ("{{FEATURED_IMAGE}}" . ,(concat nori-site-base-url f-image))
+	    ("{{FEATURED_ALT}}" . ,f-alt)
+	    ("{{HOME_URL}}" . ,nori-site-base-url)
+	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
+	    ("{{SITE_TITLE}}" . ,nori-site-title)
+	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat nori-site-base-url "privacy-policy"))
+	    ("{{DESCRIPTION}}" . ,description)
+	    ("{{POST_TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
+				  ""))
+	    )))
+    (nori-site-render-template template replacements)))
+#+end_src
+
+#+RESULTS: generate-page
+: nori-site-generate-page
+
 ** Export subtree to html
 #+name: subtree-to-html
 #+begin_src elisp
@@ -589,22 +625,7 @@ Stores the result in 'nori-site-post-index'."
 #+RESULTS: subtree-to-html
 : nori-site-export-subtree-to-html
 
-
 ** Load template
-#+name: load-template-from-org
-#+begin_src elisp
-(defun nori-site-load-template-from-block (name)
-  "Return contents of named org-babel source block NAME."
-  (with-current-buffer (find-file-noselect (expand-file-name nori-site-literate-file))
-    (let ((ast (org-element-parse-buffer)))
-      (org-element-map ast 'src-block
-	(lambda (block)
-	  (when (string= (org-element-property :name block) name)
-	    (org-element-property :value block)))
-	nil t))))
-;(princ (nori-site-load-template-from-block "simple"))
-#+end_src
-
 #+name: load-template
 #+begin_src elisp
 (defun nori-site-load-template (name)
@@ -636,60 +657,6 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 
 #+RESULTS: render-template
 : nori-site-render-template
-
-** Generate page
-#+name: generate-page
-#+begin_src elisp :noweb strip-export
-<<load-template>>
-<<render-template>>
-<<make-menu>>
-
-(defun nori-site-generate-page (metadata html archive-html)
-  "Generate a page using the template."
-  (let* ((template (nori-site-load-template "post"))
-	 (title (alist-get 'title metadata))
-	 (file-name (alist-get 'file-name metadata))
-	 (section-name (alist-get 'section-name metadata))
-	 (f-image (alist-get 'f-image metadata))
-	 (f-alt (alist-get 'f-alt metadata))
-	 (description (alist-get 'description metadata))
-	 (path-chain (alist-get 'path-chain metadata))
-	 (date (alist-get 'date metadata))
-	 (wordcount (alist-get 'wordcount metadata))
-	 (menu-name (alist-get 'menu-name metadata))
-	 (menu-html (nori-site-build-menu menu-name))
-	 ;(sidebar-html (nori-site-build-sidebar metadata))
-	 (replacements
-	  `(("{{TITLE}}" . ,title)
-	    ("{{CONTENTS}}" . ,html)
-            ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
-	    ("{{URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" file-name))
-	    ("{{SECTION_TITLE}}" . ,section-name)
-	    ("{{SECTION_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/")))
-	    ("{{DATE}}" . ,date)
-	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
-	    ("{{WORDCOUNT}}" . ,(int-to-string wordcount))
-	    ;; Average reading speed is about 238 words/min
-	    ("{{READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
-	    ("{{MENU_HTML}}" . ,menu-html)
-	    ("{{ARCHIVE}}" . ,archive-html)
-	    ;("{{SIDEBAR_HTML}}" . ,sidebar-html)
-	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
-	    ("{{FAVICON}}" . ,nori-site-favicon)
-	    ("{{SITE_NAME}}" . ,nori-site-title)
-	    ("{{FEATURED_IMAGE}}" . ,(concat nori-site-base-url f-image))
-	    ("{{FEATURED_ALT}}" . ,f-alt)
-	    ("{{HOME_URL}}" . ,nori-site-base-url)
-	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
-	    ("{{SITE_TITLE}}" . ,nori-site-title)
-	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat nori-site-base-url "privacy-policy"))
-	    ("{{DESCRIPTION}}" . ,description)
-	    )))
-    (nori-site-render-template template replacements)))
-#+end_src
-
-#+RESULTS: generate-page
-: nori-site-generate-page
 
 ** Create menu
 #+name: make-menu
@@ -727,54 +694,100 @@ used to add the active class."
 #+name: generate-archive-sidebar
 #+begin_src elisp :noweb strip-export
 <<variables>>
-(defun nori-site-generate-archive-sidebar (sorted-posts)
-  "Generate the HTML for the year archive sidebar using the COLLECTED-POSTS list."
-  (let* ((html "<div class=\"year-archive\">")
-         (prev-year nil)
-         (first-group t))
-    
-    (dolist (post sorted-posts)
-      (let* ((meta (cdr post))
-	     (date (date-to-time (alist-get 'date meta)))
-             (year-str (format-time-string "%Y" date))
-             (date-display (format-time-string "%d %b" date))
-             (title (alist-get 'title meta))
-             (file-name (alist-get 'file-name meta))
-	     (path-chain (alist-get 'path-chain meta))
-	     (url (concat nori-site-base-url (string-join path-chain "/") "/" file-name)))
+(defun nori-site-generate-archive-sidebar ()
+  "Generate the HTML for the year archive sidebar. Using the nori-site-entry-index global variable."
+  ;; Gather posts for archive
+  ;; Parse the org-source if not parsed yet
+  (unless nori-site-entry-index
+    (nori-site-build-entry-index nori-site-source-org-filename))
+  (let ((posts (copy-alist nori-site-entry-index)))
+    (setq posts (cl-remove-if
+		 (lambda (item)
+		   (let* ((metadata (cdr item))
+			  (path-chain (cdr (assoc 'path-chain metadata)))
+			  (parent (car path-chain))
+			  (todo (cdr (assoc 'todo metadata)))
+			  (date (cdr (assoc 'date metadata)))
+			  (file-name (cdr (assoc 'file-name metadata)))
+			  )
 
-        ;; Check if year changed
-        (if (not (string= year-str prev-year))
-            ;; New Year Group
-            (progn
-              ;; Close previous group if not the first one
-              (unless first-group
-                (setq html (concat html "    </ul>\n  </details>\n")))
-              
-              ;; Open new group
-              (setq html (concat html
-                                 "  <details class=\"year-panel\">\n"
-                                 "    <summary class=\"year-header\">" year-str "</summary>\n"
-                                 "    <ul class=\"post-list\">\n"))
-              
-              (setq prev-year year-str)
-              (setq first-group nil))
-          ;; Same year, just continue
+		     (or (not date) (not file-name) (not (equal "post" parent)) (and todo (string= todo "TODO")))))
+		 posts))
+    (message "Post count %d" (length posts))
+    ;; Sort by date descending
+    (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
+    
+    ;; Create the archive html
+    (let* ((html "<div class=\"year-archive\">")
+           (prev-year nil)
+           (first-group t))
+      
+      (dolist (post posts)
+	(let* ((meta (cdr post))
+	       (date (date-to-time (alist-get 'date meta)))
+               (year-str (format-time-string "%Y" date))
+               (date-display (format-time-string "%d %b" date))
+               (title (alist-get 'title meta))
+               (file-name (alist-get 'file-name meta))
+	       (path-chain (alist-get 'path-chain meta))
+	       (url (concat nori-site-base-url (string-join path-chain "/") "/" file-name)))
+
+          ;; Check if year changed
+          (if (not (string= year-str prev-year))
+              ;; New Year Group
+              (progn
+		;; Close previous group if not the first one
+		(unless first-group
+                  (setq html (concat html "    </ul>\n  </details>\n")))
+		
+		;; Open new group
+		(setq html (concat html
+                                   "  <details class=\"year-panel\">\n"
+                                   "    <summary class=\"year-header\">" year-str "</summary>\n"
+                                   "    <ul class=\"post-list\">\n"))
+		
+		(setq prev-year year-str)
+		(setq first-group nil))
+            ;; Same year, just continue
             
-          ;; Add list item
-          (setq html (concat html
-                             "    <li class=\"post-item\">\n"
-                             "      <a href=\"" url "\">" date-display " – " title "</a>\n"
-                             "    </li>\n")))))
-    
-    ;; Close the final group
-    (setq html (concat html "    </ul>\n  </details>\n</div>"))
-    html))
-
+            ;; Add list item
+            (setq html (concat html
+                               "    <li class=\"post-item\">\n"
+                               "      <a href=\"" url "\">" date-display " – " title "</a>\n"
+                               "    </li>\n")))))
+      
+      ;; Close the final group
+      (setq html (concat html "    </ul>\n  </details>\n</div>"))
+      html)))
+;(nori-site-generate-archive-sidebar)
 #+end_src
 
 #+RESULTS: generate-archive-sidebar
 : nori-site-generate-archive-sidebar
+
+** Generate tag list
+#+name: make-tag-list
+#+begin_src elisp :noweb strip-export
+(defun nori-site-generate-tag-list (tags)
+  "Generate the html for the tag list under a post from a TAGS list."
+  (let* ((html "")
+	 (tag-list (split-string tags ":" t))
+	 (formatted-tag-list (mapcar (lambda (tag)
+				       (replace-regexp-in-string "__" " " tag))
+				     tag-list)))
+    (dolist (tag formatted-tag-list)
+      (let* ((url-tag (replace-regexp-in-string " " "-" tag))
+	     (url (concat "/" "tags" "/" url-tag)))
+	(message "tag is %s and url is %s" tag url)
+	(setq html (concat html "<li><a href=\"" url "\">" tag "</a></li>\n"))))
+    html))
+(nori-site-generate-tag-list ":one__one:two:three:")
+#+end_src
+
+#+RESULTS: make-tag-list
+: <li><a href="/tags/one-one">one one</a></li>
+: <li><a href="/tags/two">two</a></li>
+: <li><a href="/tags/three">three</a></li>
 
 * Templates
 ** Head
@@ -925,7 +938,12 @@ used to add the active class."
 	<div class="e-content">
 	  {{CONTENTS}}
 	</div>
-	{{TERMS}}
+	<div class="terms">
+	  <h3 class="terms-label">Tags:</h3>
+	  <ul>
+	    {{POST_TAGS}}
+	  </ul>
+	</div>
       </article>
       <!-- ======= NEWSLETTER ========== -->
       <section class="newsletter-signup">
@@ -1030,6 +1048,11 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 </html>
 
 #+end_src
+
+
+
+
+
 * Old
 ** Make site by processing headlines recursively
 #+name: make-site
@@ -1265,3 +1288,17 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
 | (title . How I became a carnivore)                                                      | (date . 2022-08-18) |
 | (title . Movement moves the brain - why dancing is better than sudoku)                  | (date . 2022-07-14) |
 
+** Load template from org
+#+name: load-template-from-org
+#+begin_src elisp
+(defun nori-site-load-template-from-block (name)
+  "Return contents of named org-babel source block NAME."
+  (with-current-buffer (find-file-noselect (expand-file-name nori-site-literate-file))
+    (let ((ast (org-element-parse-buffer)))
+      (org-element-map ast 'src-block
+	(lambda (block)
+	  (when (string= (org-element-property :name block) name)
+	    (org-element-property :value block)))
+	nil t))))
+;(princ (nori-site-load-template-from-block "simple"))
+#+end_src
