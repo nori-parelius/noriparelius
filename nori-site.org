@@ -35,12 +35,9 @@ At each level, a heading can be either a section or a post. The section post (in
 ** Local server
 =python3 -m http.server 8000=
 ** Todos
-*** Post archive
 *** Tag clouds
-*** Tags
 *** RSS feed
 *** List pages
-*** Fix table of contents
 *** HTML formatting after conversion
 * Working it out
 ** What org-element-parse-buffer gives
@@ -320,7 +317,9 @@ Use ~sass input.scss output.css --style=compressed~
 (defvar nori-site-img-dir "~/Documents/Notes/website/img/"
   "Filepath to img directiory.")
 (defvar nori-site-content-dir "~/Documents/Notes/website/content-org/"
-  "Filepath to content dir. Contains both the org file with text and images.")
+  "Filepath to content dir. Contains both the org file with text and images in img/.")
+(defvar nori-site-content-img-dir "~/Documents/Notes/website/content-org/img/"
+  "Filepath to the img dir in the content dir, which contains all the images referenced straight from the org file.")
 (defvar nori-site-css-dir "~/Documents/Notes/website/css/"
   "Filepath to css directory.")
 (defvar nori-site-fonts-dir "~/Documents/Notes/website/fonts/"
@@ -496,7 +495,7 @@ Stores the result in 'nori-site-post-index'."
     
     ;; Copy assets to publish-dir
     (copy-directory nori-site-img-dir publish-dir t t nil)
-    (copy-directory nori-site-content-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
+    (copy-directory nori-site-content-img-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
     (copy-directory nori-site-css-dir publish-dir t t nil)
     (copy-directory nori-site-fonts-dir publish-dir t t nil)
     
@@ -562,9 +561,10 @@ Stores the result in 'nori-site-post-index'."
 	  `(("{{TITLE}}" . ,title)
 	    ("{{CONTENTS}}" . ,html)
             ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
-	    ("{{URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" file-name))
+	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" (unless file-name "index")))
+	    ("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
 	    ("{{SECTION_TITLE}}" . ,section-name)
-	    ("{{SECTION_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/")))
+	    ("{{SECTION_URL}}" . ,(concat "/" (string-join path-chain "/")))
 	    ("{{DATE}}" . ,date)
 	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
 	    ("{{WORDCOUNT}}" . ,(int-to-string wordcount))
@@ -578,10 +578,10 @@ Stores the result in 'nori-site-post-index'."
 	    ("{{SITE_NAME}}" . ,nori-site-title)
 	    ("{{FEATURED_IMAGE}}" . ,(concat nori-site-base-url f-image))
 	    ("{{FEATURED_ALT}}" . ,f-alt)
-	    ("{{HOME_URL}}" . ,nori-site-base-url)
+	    ("{{HOME_URL}}" . "/")
 	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
 	    ("{{SITE_TITLE}}" . ,nori-site-title)
-	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat nori-site-base-url "privacy-policy"))
+	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
 	    ("{{DESCRIPTION}}" . ,description)
 	    ("{{POST_TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
 				  ""))
@@ -601,7 +601,7 @@ Stores the result in 'nori-site-post-index'."
     (save-excursion ;saves buffer selection and point
       (save-restriction ;saves narrowing state
 	(goto-char begin)
-	;(message "DEBUG: At point: %s" (buffer-substring (line-beginning-position) (line-end-position)))
+					;(message "DEBUG: At point: %s" (buffer-substring (line-beginning-position) (line-end-position)))
 	(let ((exported-html nil)
 	      (export-buffer
 	       (org-html-export-as-html
@@ -609,18 +609,21 @@ Stores the result in 'nori-site-post-index'."
 		t         ; subtreep
 		nil       ; visible-only
 		t         ; body-only
-		nil       ; ext-plist
+		'(:with-toc nil
+			    :section-numbers nil)       ; ext-plist default nil
 		)))
 	  (unwind-protect
               (setq exported-html
 		    (with-current-buffer export-buffer
 		      (buffer-string)))
 	    (kill-buffer export-buffer))
-            ;(message "DEBUG: Exported html length: %d" (length exported-html))
-	    
+					;(message "DEBUG: Exported html length: %d" (length exported-html))
+	  ;; Fix image links, they need and extra / src="img -> src="\img
+	  (setq exported-html (replace-regexp-in-string "src=\"img" "src=\"\\\\img" exported-html))
+	  
 	  exported-html
 	  )))))
-#+end_src
+		#+end_src
 
 #+RESULTS: subtree-to-html
 : nori-site-export-subtree-to-html
@@ -730,8 +733,8 @@ used to add the active class."
                (title (alist-get 'title meta))
                (file-name (alist-get 'file-name meta))
 	       (path-chain (alist-get 'path-chain meta))
-	       (url (concat nori-site-base-url (string-join path-chain "/") "/" file-name)))
-
+	       (url (concat "/" (string-join path-chain "/") "/" file-name)))
+	  (message "%s" title)
           ;; Check if year changed
           (if (not (string= year-str prev-year))
               ;; New Year Group
@@ -749,17 +752,19 @@ used to add the active class."
 		(setq prev-year year-str)
 		(setq first-group nil))
             ;; Same year, just continue
+	    
+	    )
             
             ;; Add list item
             (setq html (concat html
                                "    <li class=\"post-item\">\n"
                                "      <a href=\"" url "\">" date-display " – " title "</a>\n"
-                               "    </li>\n")))))
+                               "    </li>\n"))))
       
       ;; Close the final group
       (setq html (concat html "    </ul>\n  </details>\n</div>"))
       html)))
-;(nori-site-generate-archive-sidebar)
+					;(nori-site-generate-archive-sidebar)
 #+end_src
 
 #+RESULTS: generate-archive-sidebar
@@ -805,7 +810,7 @@ used to add the active class."
 
     <!-- Static links (social, webmentions, etc) -->
     <!-- Canonical link -->
-    <link rel="canonical" href="{{URL}}"/>
+    <link rel="canonical" href="{{CANONICAL_URL}}"/>
     <!-- Social rel="me" links -->
     <link rel="me" href="https://medium.com/@nori.parelius" />
     <link rel="me" href="https://substack.com/@noriparelius" />
@@ -862,7 +867,7 @@ used to add the active class."
       <div class="site-header-inner h-card">
 
 	<div class="site-logo-div">
-	  <a class="site-logo-link" href="{{HOME_LINK}}">
+	  <a class="site-logo-link" href="{{HOME_URL}}">
 	    <div class="site-logo-wrapper">
               <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
 	    </div>
@@ -871,7 +876,7 @@ used to add the active class."
 
 	<div class="site-title-div">
 	  <h1 class="site-title">
-	    <a class="site-title-link p-name u-url u-uid" href="{{HOME_LINK}}">
+	    <a class="site-title-link p-name u-url u-uid" href="{{HOME_URL}}">
               {{SITE_TITLE}}
 	    </a>
 	  </h1>
@@ -926,12 +931,6 @@ used to add the active class."
 	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
 	  </span>
 	</p>
-	
-	<details class="toc">
-	  <summary>Table of Contents</summary>
-	  {{TOC}}
-	</details>
-
 
       </header>
       <article class="single-article-main-content">
@@ -1033,7 +1032,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       </div>
 
       <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-	© 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_LINK}}">noriparelius.com</a> — Nori Parelius
+	© 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_URL}}">noriparelius.com</a> — Nori Parelius
 	<br>
 	Essays are shared under
 	<a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
