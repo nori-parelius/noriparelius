@@ -301,7 +301,7 @@ Use ~sass input.scss output.css --style=compressed~
   "Directory where all the files needed for the website live")
 (defvar nori-site-publish-directory "~/Documents/Notes/website/public/"
   "Directory where published HTML files are stored.")
-(defvar nori-site-source-org-filename "~/Documents/Notes/website/content-org/noriparelius.org"
+(defvar nori-site-source-org-filename "~/Documents/Notes/website/noriparelius.org"
   "Filepath of the org file that holds the posts")
 (defvar nori-site-literate-file "~/Documents/Notes/website/nori-site.org"
   "Filepath of this file, the literate config")
@@ -312,20 +312,20 @@ Use ~sass input.scss output.css --style=compressed~
   "Description of the site.")
 (defvar nori-site-favicon "/img/favicon.ico"
   "Favicon.")
-(defvar nori-site-default-featured-image "noriparelius.png"
+(defvar nori-site-default-featured-image "/img/noriparelius.png"
   "Default featured image.")
-(defvar nori-site-img-dir "~/Documents/Notes/website/img/"
-  "Filepath to img directiory.")
-(defvar nori-site-content-dir "~/Documents/Notes/website/content-org/"
-  "Filepath to content dir. Contains both the org file with text and images in img/.")
-(defvar nori-site-content-img-dir "~/Documents/Notes/website/content-org/img/"
-  "Filepath to the img dir in the content dir, which contains all the images referenced straight from the org file.")
+(defvar nori-site-img-dir "~/Documents/Notes/website/img-global/"
+  "Filepath to global img directiory.")
+(defvar nori-site-content-img-dir "~/Documents/Notes/website/img/"
+  "Filepath to the img dir which contains all the images referenced straight from the org file.")
 (defvar nori-site-css-dir "~/Documents/Notes/website/css/"
   "Filepath to css directory.")
 (defvar nori-site-fonts-dir "~/Documents/Notes/website/fonts/"
   "Filepath to the fonts directory.")
 (defvar nori-site-featured-post-number 5
   "Number of posts included on the home page.")
+(defvar nori-site-post-pagination-page-size 10
+  "Number of posts included on each /post list page.")
 (defvar nori-site-entry-index nil
   "Alist of (TITLE . METADATA-ALIST) for all entries.")
 
@@ -494,8 +494,8 @@ Stores the result in 'nori-site-post-index'."
       (make-directory publish-dir t))
     
     ;; Copy assets to publish-dir
-    (copy-directory nori-site-img-dir publish-dir t t nil)
-    (copy-directory nori-site-content-img-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
+    (copy-directory nori-site-content-img-dir publish-dir t t nil)
+    (copy-directory nori-site-img-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
     (copy-directory nori-site-css-dir publish-dir t t nil)
     (copy-directory nori-site-fonts-dir publish-dir t t nil)
     
