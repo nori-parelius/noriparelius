@@ -252,9 +252,10 @@ Stores the result in 'nori-site-post-index'."
   ;; Run the css compilation and minification
   (shell-command "bash /home/nori/Documents/Notes/website/process-css.sh")
 
-  (let ((publish-dir (expand-file-name nori-site-publish-directory))
+  (let* ((publish-dir (expand-file-name nori-site-publish-directory))
 	(org-buffer (find-file-noselect nori-site-source-org-filename))
-	(archive-html (nori-site-generate-archive-sidebar)))
+	(posts (nori-site-gather-posts))
+	(archive-html (nori-site-generate-archive-sidebar posts)))
     ;; Ensure publish directory exists
     (unless (file-exists-p publish-dir)
       (make-directory publish-dir t))
@@ -486,8 +487,8 @@ used to add the active class."
     (message "Post count %d" (length posts))
     ;; Sort by date descending
     (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-	  posts))
-    #+end_src
+    posts))
+	  #+end_src
 ** Generate Archive Sidebar HTML
 #+name: generate-archive-sidebar
 #+begin_src elisp :noweb strip-export
@@ -538,8 +539,8 @@ used to add the active class."
     ;; Close the final group
     (setq html (concat html "    </ul>\n  </details>\n</div>"))
     html))
-;(nori-site-generate-archive-sidebar)
-#+end_src
+					;(nori-site-generate-archive-sidebar)
+				 #+end_src
 
 #+RESULTS: generate-archive-sidebar
 : nori-site-generate-archive-sidebar
@@ -568,9 +569,49 @@ used to add the active class."
 : <li><a href="/tags/two">two</a></li>
 : <li><a href="/tags/three">three</a></li>
 
+** Paginate post list
+#+name: paginate-post-list
+#+begin_src elisp
+(defun paginate-list (items page-size)
+  "Split ITEMS into pages of PAGE-SIZE.
+Return a list of pages, each element is a plist:
+(:number N :total N :items LIST :url STRING :prev URL/nil :next URL/nil ...)."
+  (let* ((total-pages (ceiling (/ (length items) page-size)))
+	 pages
+	 start-index)
+    (dotimes (i total-pages)
+      (setq start-index (* i page-size))
+      (push
+       (list :number (1+ i)
+	     :total total-pages
+	     :items (seq-subseq items start-index (min (+ start-index page-size) (length items)))
+	     :url (format "/page/%d/" (1+ i)))
+       pages))
+    ;; Reverse because we pushed in reverse order
+    (setq pages (nreverse pages))
+
+    ;; Add prev/next/first/last references
+    (cl-loop for page in pages
+	     for idx from 0
+	     do
+	     (setf (plist-get page :prev)
+		   (when (> idx 0)
+		     (plist-get (nth (- idx 1) pages :url))))
+	     (setf (plist-get page :next)
+		   (when (< idx (1- (length pages)))
+		     (plist-get (nth (+ idx 1) pages :url))))
+	     (setf (plist-get page :first)
+		   (plist-get (car pages) :url))
+	     (setf (plist-get page :last)
+		   (plist-get (car (last pages)) :url)))
+    pages))
+
+
+#+end_src
 * Templates
 ** Head
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+#+name: head
+#+begin_src html
 <!DOCTYPE html>
 <html lang="{{LANGUAGE_CODE}}" dir="ltr">
 
@@ -591,9 +632,9 @@ used to add the active class."
     <link rel="me" href="https://github.com/nori-parelius" />
     <!-- Webmetions -->
     <link rel="webmention" href="https://webmention.io/www.noriparelius.com/webmention"/>
-        <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
-        <!-- Meta description -->
+    <!-- Meta description -->
     <meta name="description" content="{{DESCRIPTION}}"/>
 
 
@@ -601,28 +642,28 @@ used to add the active class."
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph metadata to control appearance when shared -->
-<meta property="og:url" content="{{URL}}">
-  <meta property="og:site_name" content="{{SITE_NAME}}">
-  <meta property="og:title" content="{{TITLE}}">
-  <meta property="og:description" content="{{DESCRIPTION}}">
-  <meta property="og:locale" content="en">
+    <meta property="og:url" content="{{URL}}">
+    <meta property="og:site_name" content="{{SITE_NAME}}">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:locale" content="en">
     <meta property="og:image" content="{{FEATURED_IMAGE}}">
 
 
-	<!-- Twitter cards for the same -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="{{FEATURED_IMAGE}}">
-  <meta name="twitter:title" content="{{TITLE}}">
-  <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <!-- Twitter cards for the same -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{FEATURED_IMAGE}}">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
 
 
     <!-- RSS feed link -->
-  <!-- https://gohugo.io/templates/rss/ -->
+    <!-- https://gohugo.io/templates/rss/ -->
     <!--
-    {{- with .OutputFormats.Get "rss" -}}
-    {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
-    {{- end -}}
- -->
+	{{- with .OutputFormats.Get "rss" -}}
+	{{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
+	{{- end -}}
+      -->
 
     <!-- Load css and js -->
     <link rel="stylesheet" href="/css/style.css">
@@ -633,54 +674,56 @@ used to add the active class."
 #+end_src
 
 ** Header
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+#+name: header
+#+begin_src html
 
-  <body>
-<!-- ========== SITE-HEADER============== -->
-    <header class="site-header">
-      <div class="site-header-inner h-card">
+<body>
+  <!-- ========== SITE-HEADER============== -->
+  <header class="site-header">
+    <div class="site-header-inner h-card">
 
-	<div class="site-logo-div">
-	  <a class="site-logo-link" href="{{HOME_URL}}">
-	    <div class="site-logo-wrapper">
-              <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
-	    </div>
-	  </a>
-	</div>
-
-	<div class="site-title-div">
-	  <h1 class="site-title">
-	    <a class="site-title-link p-name u-url u-uid" href="{{HOME_URL}}">
-              {{SITE_TITLE}}
-	    </a>
-	  </h1>
-	</div>
+      <div class="site-logo-div">
+	<a class="site-logo-link" href="{{HOME_URL}}">
+	  <div class="site-logo-wrapper">
+            <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
+	  </div>
+	</a>
       </div>
 
-    </header>
+      <div class="site-title-div">
+	<h1 class="site-title">
+	  <a class="site-title-link p-name u-url u-uid" href="{{HOME_URL}}">
+            {{SITE_TITLE}}
+	  </a>
+	</h1>
+      </div>
+    </div>
 
-    <div class="site-container">
+  </header>
 
-      <!-- ========== MENU============== -->
-      <div class="menu-section">
-		  {{MENU_HTML}}
-		  </div>
-      
+  <div class="site-container">
+
+    <!-- ========== MENU============== -->
+    <div class="menu-section">
+      {{MENU_HTML}}
+    </div>
+    
 #+end_src
 
 ** Main
 #+begin_src html
 ;;:tangle "/home/nori/Documents/Notes/website/templates/post.html"
-      <main class="main-content">
-	<div class="spiral"></div>
-	<div class="main-content-wrapper">
-	  {{CONTENTS}}
-	</div>
-      </main>
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    {{CONTENTS}}
+  </div>
+</main>
 #+end_src
 
 ** Post main
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+#+name: post-main
+#+begin_src html 
 <main class="main-content">
   <div class="spiral"></div>
   <div class="main-content-wrapper">
@@ -742,55 +785,73 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 </main>
 #+end_src
 
+** Poem list main
+#+name: poem-list-main
+#+begin_src html 
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="section-poetry">
+      <h1>{{TITLE}}</h1>
+      {{CONTENTS}}
+      {{POEM-LIST}}
+      {{PAGINATION}}
+    </article>
+  </div>
+</main>
+#+end_src
+
 ** Sidebar
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
-      <div class="sidebar-extras-section">
-	<div class="sidebar-widgets1">
-	  <div class="sidebar-archive">
-	    <h3>Archive</h3>
-	      {{ARCHIVE}}
-	  </div>
-
-	</div>
-
-	<div class="sidebar-widgets2">
-	  <div class="sidebar-rss">
-	    <h3>RSS feed</h3>
-	    <p>
-	      <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
-	    </p>
-	  </div>
-	</div>
-
-	<div class="sidebar-widgets3">
-	  <div class="sidebar-tagcloud">
-	    <h3>Tags</h3>
-	    {{TAGCLOUD}}
-	  </div>
-	  <div class="tape"></div>
-	</div>
-
-	<div class="sidebar-widgets4">
-	  <a class="flower-link" href="/poem/" >
-	    <img src="/img/pressed_flower_2.png" alt="Pressed flower">
-	  </a>
-	</div>
-
-
-      </div>
-      
-      <div class="doodle1"></div>
+#+name: sidebar
+#+begin_src html 
+<div class="sidebar-extras-section">
+  <div class="sidebar-widgets1">
+    <div class="sidebar-archive">
+      <h3>Archive</h3>
+      {{ARCHIVE}}
     </div>
-    <footer>
-      <div class="top-footer">
-	<p class="privacy-policy">
-	  <a href="{{PRIVACY_POLICY_LINK}}">Privacy Policy</a>
-	</p>
+
+  </div>
+
+  <div class="sidebar-widgets2">
+    <div class="sidebar-rss">
+      <h3>RSS feed</h3>
+      <p>
+	<a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="sidebar-widgets3">
+    <div class="sidebar-tagcloud">
+      <h3>Tags</h3>
+      {{TAGCLOUD}}
+    </div>
+    <div class="tape"></div>
+  </div>
+
+  <div class="sidebar-widgets4">
+    <a class="flower-link" href="/poem/" >
+      <img src="/img/pressed_flower_2.png" alt="Pressed flower">
+    </a>
+  </div>
+
+
+</div>
+
+<div class="doodle1"></div>
+</div>
+<footer>
+  <div class="top-footer">
+    <p class="privacy-policy">
+      <a href="{{PRIVACY_POLICY_LINK}}">Privacy Policy</a>
+    </p>
 
 #+end_src
 
 ** Footer
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+#+name: footer
+#+begin_src html 
 
 	<p class="footer-rss">
 	  <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
@@ -825,7 +886,24 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 
 
-
+** Indivindi poem listing
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/poem-listing-item.html"
+  <div class="h-entry individual-poem">
+    <h2 class="p-name">
+      <a class="u-url" href="{{ITEM-URL}}">{{ITEM-TITLE}}
+      </a>
+    </h2>
+  </div>
+#+end_src
+** Tangle templates
+*** Post
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+<<head>>
+<<header>>
+<<post-main>>
+<<sidebar>>
+<<footer>>  
+#+end_src
 * Old
 ** Make site by processing headlines recursively
 #+name: make-site
