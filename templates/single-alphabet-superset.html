@@ -1,47 +1,221 @@
-{{- define "main" -}}
-<article class="h-entry as-article single-article">
-  <header>
-    
-    {{- with .CurrentSection.Title -}}
-    <aside class="section-title">
-      <a href="{{ $.CurrentSection.Permalink }}">{{ . }}</a>
-    </aside>
-    {{- end -}}
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}" dir="ltr">
 
-    <h1 class="p-name single-title">
-      <a class="u-url" href="{{ .Permalink }}">
-	{{ .Title }}
-      </a>
-    </h1>
+  <!-- ========== HEAD============== -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <img src="{{ .Params.featured_image }}" alt="{{ $.Params.f_alt | default $.Title }}">
-    
-    <p class="meta">
-      {{- $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" -}}
-      {{- $dateHuman := .Date | time.Format ":date_long" -}}
-      <time class="dt-published" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-      <span class="reading-time-words">- {{ .ReadingTime }}-minute read - {{ .WordCount }} words - by</span>
-      <span class="p-author h-card">
-	<a class="u-url p-name" href="{{ .Site.BaseURL }}"> {{ .Site.Title }}</a>
-      </span>
-    </p>
-    
-  </header>
+    <!-- Title -->
+    <title>{{TITLE}}</title>
+
+    <!-- Static links (social, webmentions, etc) -->
+    <!-- Canonical link -->
+    <link rel="canonical" href="{{CANONICAL_URL}}"/>
+    <!-- Social rel="me" links -->
+    <link rel="me" href="https://medium.com/@nori.parelius" />
+    <link rel="me" href="https://substack.com/@noriparelius" />
+    <link rel="me" href="https://github.com/nori-parelius" />
+    <!-- Webmetions -->
+    <link rel="webmention" href="https://webmention.io/www.noriparelius.com/webmention"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
+    <!-- Meta description -->
+    <meta name="description" content="{{DESCRIPTION}}"/>
+
+
+    <!-- Robots meta tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph metadata to control appearance when shared -->
+    <meta property="og:url" content="{{URL}}">
+    <meta property="og:site_name" content="{{SITE_NAME}}">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:locale" content="en">
+    <meta property="og:image" content="{{FEATURED_IMAGE}}">
+
+
+    <!-- Twitter cards for the same -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{FEATURED_IMAGE}}">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+
+
+    <!-- RSS feed link -->
+    <!-- https://gohugo.io/templates/rss/ -->
+    <!--
+	{{- with .OutputFormats.Get "rss" -}}
+	{{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
+	{{- end -}}
+      -->
+
+    <!-- Load css and js -->
+    <link rel="stylesheet" href="/css/style.css">
+
+
+  </head>
+
   
-  <article class="single-article-main-content">
-    <div class="e-content">
-      {{- .Content -}}
-    </div>
-    {{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
-  </article>
-  <section class="newsletter-signup">
-    {{- partial "newsletter.html" . -}}
-  </section>
-</article>
-
-<p class="copyright">
-  © 2018-{{ now.Format "2006" }} Nori Parelius. All rights reserved.  
-  Please do not reproduce, distribute, or publish this work without permission.  
-</p>
-
-{{- end -}}
+  <body>
+    <!-- ========== SITE-HEADER============== -->
+    <header class="site-header">
+      <div class="site-header-inner h-card">
+  
+        <div class="site-logo-div">
+  	<a class="site-logo-link" href="{{HOME_URL}}">
+  	  <div class="site-logo-wrapper">
+              <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
+  	  </div>
+  	</a>
+        </div>
+  
+        <div class="site-title-div">
+  	<h1 class="site-title">
+  	  <a class="site-title-link p-name u-url u-uid" href="{{HOME_URL}}">
+              {{SITE_TITLE}}
+  	  </a>
+  	</h1>
+        </div>
+      </div>
+  
+    </header>
+  
+    <div class="site-container">
+  
+      <!-- ========== MENU============== -->
+      <div class="menu-section">
+        {{MENU_HTML}}
+      </div>
+      
+    <main class="main-content">
+      <div class="spiral"></div>
+      <div class="main-content-wrapper">
+        <article class="h-entry blog-post-article single-article">
+          <header>
+    	<aside class="section-title">
+    	  <a href="{{SECTION_URL}}">{{SECTION_TITLE}}</a>
+    	</aside>
+    
+    	<h1 class="p-name single-title">
+    	  <a class="u-url" href="{{URL}}">
+    	    {{TITLE}}
+    	  </a>
+    	</h1>
+    
+    	<img src="{{FEATURED_IMAGE}}" alt="{{FEATURED_ALT}}">
+    	
+    	<p class="meta">
+    	  <time class="dt-published" datetime="{{DATE}}">{{DATE_HUMAN}}</time>
+    	  <span class="reading-time-words">- {{READING_TIME}}-minute read - {{WORDCOUNT}} words - by</span>
+    	  <span class="p-author h-card">
+    	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+    	  </span>
+    	</p>
+    
+          </header>
+          <article class="single-article-main-content">
+    	<div class="e-content">
+    	  {{CONTENTS}}
+    	</div>
+    	<div class="terms">
+    	  <h3 class="terms-label">Tags:</h3>
+    	  <ul>
+    	    {{POST_TAGS}}
+    	  </ul>
+    	</div>
+          </article>
+          <!-- ======= NEWSLETTER ========== -->
+          <section class="newsletter-signup">
+    	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
+          </section>
+          <section class="comments">
+    	{{COMMENTS}}
+          </section>
+        </article>
+    
+        <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+          This work is licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+    	<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+    	<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+          </a>.
+    </br>
+    This means you can distribute, remix, adapt, and build upon it, even for commercial purposes. You just need to give credit to me,
+    <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ .Site.Home.Permalink }}" >Nori Parelius</a>, and link to this site.
+        </p>
+    
+      </div>
+    </main>
+      <div class="sidebar-extras-section">
+        <div class="sidebar-widgets1">
+          <div class="sidebar-archive">
+            <h3>Archive</h3>
+            {{ARCHIVE}}
+          </div>
+      
+        </div>
+      
+        <div class="sidebar-widgets2">
+          <div class="sidebar-rss">
+            <h3>RSS feed</h3>
+            <p>
+      	<a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+            </p>
+          </div>
+        </div>
+      
+        <div class="sidebar-widgets3">
+          <div class="sidebar-tagcloud">
+            <h3>Tags</h3>
+            {{TAGCLOUD}}
+          </div>
+          <div class="tape"></div>
+        </div>
+      
+        <div class="sidebar-widgets4">
+          <a class="flower-link" href="/poem/" >
+            <img src="/img/pressed_flower_2.png" alt="Pressed flower">
+          </a>
+        </div>
+      
+      
+      </div>
+      
+      <div class="doodle1"></div>
+      </div>
+      <footer>
+        <div class="top-footer">
+          <p class="privacy-policy">
+            <a href="{{PRIVACY_POLICY_LINK}}">Privacy Policy</a>
+          </p>
+      
+	
+	<p class="footer-rss">
+	  <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+	</p>
+	
+	<p class="kofi-button">
+	  <a href='https://ko-fi.com/U7U4WWKDC' target='_blank' rel="noopener">
+	    <img src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' alt='Buy Me a Coffee at ko-fi.com' />
+	  </a>
+	</p>
+	
+	
+	</div>
+	
+	<p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+	  © 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_URL}}">noriparelius.com</a> — Nori Parelius
+	  <br>
+	  Essays are shared under
+	  <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+	    <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC icon">
+	    <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY icon">
+	  </a>
+	  <br>
+	  Fiction & poetry are © Nori Parelius, all rights reserved.
+	</p>
+	</footer>
+	</body>
+	</html>

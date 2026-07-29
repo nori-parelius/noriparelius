@@ -310,7 +310,10 @@ Stores the result in 'nori-site-post-index'."
 
 (defun nori-site-generate-page (metadata html archive-html)
   "Generate a page using the template."
-  (let* ((template (nori-site-load-template "post"))
+  (let* ((layout (alist-get 'layout metadata))
+	 (template (if layout
+		       (nori-site-load-template layout)
+		     "post"))
 	 (title (alist-get 'title metadata))
 	 (file-name (alist-get 'file-name metadata))
 	 (section-name (alist-get 'section-name metadata))
@@ -324,11 +327,11 @@ Stores the result in 'nori-site-post-index'."
 	 (wordcount (alist-get 'wordcount metadata))
 	 (menu-name (alist-get 'menu-name metadata))
 	 (menu-html (nori-site-build-menu menu-name))
-	 ;(sidebar-html (nori-site-build-sidebar metadata))
+					;(sidebar-html (nori-site-build-sidebar metadata))
 	 (replacements
 	  `(("{{TITLE}}" . ,title)
 	    ("{{CONTENTS}}" . ,html)
-            ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
+	    ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
 	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" (unless file-name "index")))
 	    ("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
 	    ("{{SECTION_TITLE}}" . ,(car ancestors-names))
@@ -340,7 +343,7 @@ Stores the result in 'nori-site-post-index'."
 	    ("{{READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
 	    ("{{MENU_HTML}}" . ,menu-html)
 	    ("{{ARCHIVE}}" . ,archive-html)
-	    ;("{{SIDEBAR_HTML}}" . ,sidebar-html)
+					;("{{SIDEBAR_HTML}}" . ,sidebar-html)
 	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
 	    ("{{FAVICON}}" . ,nori-site-favicon)
 	    ("{{SITE_NAME}}" . ,nori-site-title)
@@ -355,7 +358,7 @@ Stores the result in 'nori-site-post-index'."
 				  ""))
 	    )))
     (nori-site-render-template template replacements)))
-#+end_src
+  #+end_src
 
 #+RESULTS: generate-page
 : nori-site-generate-page
@@ -391,7 +394,7 @@ Stores the result in 'nori-site-post-index'."
 	  
 	  exported-html
 	  )))))
-		#+end_src
+#+end_src
 
 #+RESULTS: subtree-to-html
 : nori-site-export-subtree-to-html
@@ -488,7 +491,7 @@ used to add the active class."
     ;; Sort by date descending
     (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
     posts))
-	  #+end_src
+#+end_src
 ** Generate Archive Sidebar HTML
 #+name: generate-archive-sidebar
 #+begin_src elisp :noweb strip-export
@@ -540,7 +543,7 @@ used to add the active class."
     (setq html (concat html "    </ul>\n  </details>\n</div>"))
     html))
 					;(nori-site-generate-archive-sidebar)
-				 #+end_src
+#+end_src
 
 #+RESULTS: generate-archive-sidebar
 : nori-site-generate-archive-sidebar
@@ -853,32 +856,32 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+name: footer
 #+begin_src html 
 
-	<p class="footer-rss">
-	  <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
-	</p>
+<p class="footer-rss">
+  <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</p>
 
-	<p class="kofi-button">
-	  <a href='https://ko-fi.com/U7U4WWKDC' target='_blank' rel="noopener">
-	    <img src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' alt='Buy Me a Coffee at ko-fi.com' />
-	  </a>
-	</p>
+<p class="kofi-button">
+  <a href='https://ko-fi.com/U7U4WWKDC' target='_blank' rel="noopener">
+    <img src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' alt='Buy Me a Coffee at ko-fi.com' />
+  </a>
+</p>
 
 
-      </div>
+</div>
 
-      <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-	© 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_URL}}">noriparelius.com</a> — Nori Parelius
-	<br>
-	Essays are shared under
-	<a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
-	  <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC icon">
-	  <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY icon">
-	</a>
-	<br>
-	Fiction & poetry are © Nori Parelius, all rights reserved.
-      </p>
-    </footer>
-  </body>
+<p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  © 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_URL}}">noriparelius.com</a> — Nori Parelius
+  <br>
+  Essays are shared under
+  <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+    <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC icon">
+    <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY icon">
+  </a>
+  <br>
+  Fiction & poetry are © Nori Parelius, all rights reserved.
+</p>
+</footer>
+</body>
 </html>
 
 #+end_src
@@ -888,22 +891,40 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 ** Indivindi poem listing
 #+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/poem-listing-item.html"
-  <div class="h-entry individual-poem">
-    <h2 class="p-name">
-      <a class="u-url" href="{{ITEM-URL}}">{{ITEM-TITLE}}
-      </a>
-    </h2>
-  </div>
+<div class="h-entry individual-poem">
+  <h2 class="p-name">
+    <a class="u-url" href="{{ITEM-URL}}">{{ITEM-TITLE}}
+    </a>
+  </h2>
+</div>
 #+end_src
 ** Tangle templates
-*** Post
+*** post
 #+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/post.html"
 <<head>>
-<<header>>
-<<post-main>>
-<<sidebar>>
-<<footer>>  
+  <<header>>
+    <<post-main>>
+      <<sidebar>>
+	<<footer>>  
 #+end_src
+
+*** poem-section
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/poem-section.html"
+<<head>>
+  <<header>>
+    <<poem-list-main>>
+      <<sidebar>>
+	<<footer>>
+#+end_src
+*** single-alphabet-superset
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/single-alphabet-superset.html"
+<<head>>
+  <<header>>
+    <<post-main>>
+      <<sidebar>>
+	<<footer>>
+#+end_src
+
 * Old
 ** Make site by processing headlines recursively
 #+name: make-site
