@@ -376,6 +376,23 @@ Stores the result in 'nori-site-post-index'."
 				       (p-props (org-entry-properties p-begin 'all)))
 				  (alist-get "EXPORT_SECTION" p-props nil nil #'string=))
 				))))
+		       (ancestors 
+			(org-element-lineage-map headline
+			    (lambda (parent)
+			      (when (eq (org-element-type parent) 'headline)
+				parent))))
+		       (ancestors-begin (mapcar (lambda (parent)
+						(org-element-property :begin parent))
+						ancestors))
+		       (ancestors-props (mapcar (lambda (an-begin)
+						(org-entry-properties an-begin 'all))
+						ancestors-begin))
+		       (ancestors-names (mapcar (lambda (parent)
+					       (substring-no-properties
+						(org-element-interpret-data
+						 (org-element-property :title parent))))
+					       ancestors))
+
 		       (title (substring-no-properties
 			       (org-element-interpret-data
 				(org-element-property :title headline))))
@@ -438,6 +455,7 @@ Stores the result in 'nori-site-post-index'."
 				(contents-end . ,contents-end)
 				(level . ,level)
 				(path-chain . ,(nreverse path-chain))
+				(ancestors-names . ,(nreverse ancestors-names))
 				(title . ,title)
 				(date . ,date)
 				(categories . ,categories)
