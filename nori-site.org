@@ -313,7 +313,7 @@ Stores the result in 'nori-site-post-index'."
   (let* ((layout (alist-get 'layout metadata))
 	 (template (if layout
 		       (nori-site-load-template layout)
-		     "post"))
+		     (nori-site-load-template "post")))
 	 (title (alist-get 'title metadata))
 	 (file-name (alist-get 'file-name metadata))
 	 (section-name (alist-get 'section-name metadata))
