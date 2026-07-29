@@ -121,30 +121,25 @@ Stores the result in 'nori-site-post-index'."
 		(let* ((contents-begin (org-element-property :contents-begin headline))
 		       (contents-end (org-element-property :contents-end headline))
 		       (level (org-element-property :level headline))
-		       (path-chain
-			(org-element-lineage-map headline
-			    (lambda (parent)
-			      (when (eq (org-element-type parent) 'headline)
-				(let* ((p-begin (org-element-property :begin parent))
-				       (p-props (org-entry-properties p-begin 'all)))
-				  (alist-get "EXPORT_SECTION" p-props nil nil #'string=))
-				))))
 		       (ancestors 
 			(org-element-lineage-map headline
 			    (lambda (parent)
 			      (when (eq (org-element-type parent) 'headline)
 				parent))))
 		       (ancestors-begin (mapcar (lambda (parent)
-						(org-element-property :begin parent))
+						  (org-element-property :begin parent))
 						ancestors))
 		       (ancestors-props (mapcar (lambda (an-begin)
-						(org-entry-properties an-begin 'all))
+						  (org-entry-properties an-begin 'all))
 						ancestors-begin))
 		       (ancestors-names (mapcar (lambda (parent)
-					       (substring-no-properties
-						(org-element-interpret-data
-						 (org-element-property :title parent))))
-					       ancestors))
+						  (substring-no-properties
+						   (org-element-interpret-data
+						    (org-element-property :title parent))))
+						ancestors))
+		       (path-chain (mapcar (lambda (an-props)
+					     (alist-get "EXPORT_SECTION" an-props nil nil #'string=))
+					   ancestors-props))
 
 		       (title (substring-no-properties
 			       (org-element-interpret-data
@@ -232,7 +227,7 @@ Stores the result in 'nori-site-post-index'."
     index
     ))
 
-;(nori-site-build-entry-index  nori-site-source-org-filename)
+					;(nori-site-build-entry-index  nori-site-source-org-filename)
 
 #+end_src
 
@@ -322,6 +317,7 @@ Stores the result in 'nori-site-post-index'."
 	 (f-alt (alist-get 'f-alt metadata))
 	 (description (alist-get 'description metadata))
 	 (path-chain (alist-get 'path-chain metadata))
+	 (ancestors-names (alist-get 'ancestors-names metadata))
 	 (date (alist-get 'date metadata))
 	 (tags (alist-get 'tags metadata))
 	 (wordcount (alist-get 'wordcount metadata))
@@ -334,7 +330,7 @@ Stores the result in 'nori-site-post-index'."
             ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
 	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" (unless file-name "index")))
 	    ("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
-	    ("{{SECTION_TITLE}}" . ,(car path-chain))
+	    ("{{SECTION_TITLE}}" . ,(car ancestors-names))
 	    ("{{SECTION_URL}}" . ,(concat "/" (string-join path-chain "/")))
 	    ("{{DATE}}" . ,date)
 	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
@@ -464,13 +460,13 @@ used to add the active class."
 
 #+RESULTS: make-menu
 : nori-site-build-menu
-** Generate Archive Sidebar HTML
-#+name: generate-archive-sidebar
+** Get all posts
+#+name: get-all-posts
 #+begin_src elisp :noweb strip-export
 <<variables>>
-(defun nori-site-generate-archive-sidebar ()
-  "Generate the HTML for the year archive sidebar. Using the nori-site-entry-index global variable."
-  ;; Gather posts for archive
+(defun nori-site-gather-posts ()
+  "Gather all posts into an alist of the same form as nori-site-entry-index."
+  ;; Gather posts
   ;; Parse the org-source if not parsed yet
   (unless nori-site-entry-index
     (nori-site-build-entry-index nori-site-source-org-filename))
@@ -490,52 +486,59 @@ used to add the active class."
     (message "Post count %d" (length posts))
     ;; Sort by date descending
     (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
+	  posts))
+    #+end_src
+** Generate Archive Sidebar HTML
+#+name: generate-archive-sidebar
+#+begin_src elisp :noweb strip-export
+<<get-all-posts>>
+(defun nori-site-generate-archive-sidebar (posts)
+  "Generate the HTML for the year archive sidebar using an alist of sorted POSTS"
+  ;; Create the archive html
+  (let* ((html "<div class=\"year-archive\">")
+         (prev-year nil)
+         (first-group t))
     
-    ;; Create the archive html
-    (let* ((html "<div class=\"year-archive\">")
-           (prev-year nil)
-           (first-group t))
-      
-      (dolist (post posts)
-	(let* ((meta (cdr post))
-	       (date (date-to-time (alist-get 'date meta)))
-               (year-str (format-time-string "%Y" date))
-               (date-display (format-time-string "%d %b" date))
-               (title (alist-get 'title meta))
-               (file-name (alist-get 'file-name meta))
-	       (path-chain (alist-get 'path-chain meta))
-	       (url (concat "/" (string-join path-chain "/") "/" file-name)))
-	  (message "%s" title)
-          ;; Check if year changed
-          (if (not (string= year-str prev-year))
-              ;; New Year Group
-              (progn
-		;; Close previous group if not the first one
-		(unless first-group
-                  (setq html (concat html "    </ul>\n  </details>\n")))
-		
-		;; Open new group
-		(setq html (concat html
-                                   "  <details class=\"year-panel\">\n"
-                                   "    <summary class=\"year-header\">" year-str "</summary>\n"
-                                   "    <ul class=\"post-list\">\n"))
-		
-		(setq prev-year year-str)
-		(setq first-group nil))
-            ;; Same year, just continue
-	    
-	    )
-            
-            ;; Add list item
-            (setq html (concat html
-                               "    <li class=\"post-item\">\n"
-                               "      <a href=\"" url "\">" date-display " – " title "</a>\n"
-                               "    </li>\n"))))
-      
-      ;; Close the final group
-      (setq html (concat html "    </ul>\n  </details>\n</div>"))
-      html)))
-					;(nori-site-generate-archive-sidebar)
+    (dolist (post posts)
+      (let* ((meta (cdr post))
+	     (date (date-to-time (alist-get 'date meta)))
+             (year-str (format-time-string "%Y" date))
+             (date-display (format-time-string "%d %b" date))
+             (title (alist-get 'title meta))
+             (file-name (alist-get 'file-name meta))
+	     (path-chain (alist-get 'path-chain meta))
+	     (url (concat "/" (string-join path-chain "/") "/" file-name)))
+	(message "%s" title)
+        ;; Check if year changed
+        (if (not (string= year-str prev-year))
+            ;; New Year Group
+            (progn
+	      ;; Close previous group if not the first one
+	      (unless first-group
+                (setq html (concat html "    </ul>\n  </details>\n")))
+	      
+	      ;; Open new group
+	      (setq html (concat html
+                                 "  <details class=\"year-panel\">\n"
+                                 "    <summary class=\"year-header\">" year-str "</summary>\n"
+                                 "    <ul class=\"post-list\">\n"))
+	      
+	      (setq prev-year year-str)
+	      (setq first-group nil))
+          ;; Same year, just continue
+	  
+	  )
+        
+        ;; Add list item
+        (setq html (concat html
+                           "    <li class=\"post-item\">\n"
+                           "      <a href=\"" url "\">" date-display " – " title "</a>\n"
+                           "    </li>\n"))))
+    
+    ;; Close the final group
+    (setq html (concat html "    </ul>\n  </details>\n</div>"))
+    html))
+;(nori-site-generate-archive-sidebar)
 #+end_src
 
 #+RESULTS: generate-archive-sidebar
