@@ -55,7 +55,7 @@ Eleonora Parelius,
 
 nori@noriparelius.com
 
-* Post
+* Posts
 :PROPERTIES:
 :EXPORT_SECTION: post
 :END:
@@ -2883,7 +2883,7 @@ Hannah felt sudden warmth in her stomach, like acid reflux on steroids. She felt
 
 /(The image is Georges Seurat, The Lighthouse at Honfleur, 1886 , with small modifications)/
 
-* Poem 
+* Poems 
 :PROPERTIES:
 :EXPORT_SECTION: poem
 :END:
