@@ -32,10 +32,17 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-*** Tag clouds
-*** RSS feed
-*** List pages
-*** Maybe merge section header with the section post somehow? Also so that I can better make the section title on each post
+- pagination - create pages
+  - for posts/poems/alphabet-superset
+  - for microblog by years
+- pagination - buttons
+  - for posts and as
+  - for poems and microblog
+- post-list, as-list, microblog-list
+- tag list, tag page
+- tag cloud
+- rss feed
+
 * CODE
 ** Variables
 - start and set up variables
