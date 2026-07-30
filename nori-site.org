@@ -256,6 +256,7 @@ Stores the result in 'nori-site-post-index'."
 <<subtree-to-html>>
 <<generate-page>>
 <<get-items>>
+<<paginate-list>>
 <<generate-archive-sidebar>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
@@ -272,6 +273,7 @@ Stores the result in 'nori-site-post-index'."
 	 (posts (nori-site-gather-items "post"))
 	 (poems (nori-site-gather-items "poem"))
 	 (al-supersets (nori-site-gather-items "alphabet-superset"))
+	 (poem-pages (nori-site-paginate-list poems 5))
 	 (archive-html (nori-site-generate-archive-sidebar posts)))
 
     ;; Ensure publish directory exists, remove old one if there was one
@@ -290,14 +292,13 @@ Stores the result in 'nori-site-post-index'."
     ;; Loop through index to render
     (dolist (entry nori-site-entry-index)
       
-      (let* ((title (car entry))
-	     (meta (cdr entry))
-	     (section-name (alist-get 'section-name meta))
+      (let* ((meta (cdr entry))
 	     (file-name (alist-get 'file-name meta))
 	     (begin (alist-get 'begin meta))
+	     (final-filename (alist-get 'final-filename meta))
 	     (todo-state (alist-get 'todo meta))
 	     (target-dir (alist-get 'target-dir meta))
-	     (final-filename (alist-get 'final-filename meta)))
+	     (html (nori-site-export-subtree-to-html org-buffer begin)))
 
 	;; Skip TODO items
 	(unless (and todo-state (string= todo-state "TODO"))
@@ -307,14 +308,34 @@ Stores the result in 'nori-site-post-index'."
 
 	  ;; Render
 	  (when final-filename
-	    (let* ((html (nori-site-export-subtree-to-html org-buffer begin))
-		   (page (nori-site-generate-page meta html archive-html posts poems))
-	      	   )
-	      (with-temp-file final-filename
-		(insert page))
-	      )
-	    (message "Published: %s -> %s" title file-name))
+	    (if (string= file-name "_index")
+		(nori-site-render-listing-page meta html archive-html posts poems)
+	      (nori-site-render-single-page meta html archive-html posts poems)))
 	  )))))
+
+
+(defun nori-site-render-single-page (meta html archive-html posts poems)
+  "Render a single page."
+  (let ((final-filename (alist-get 'final-filename meta))
+	(file-name (alist-get 'file-name meta))
+	(title (alist-get 'title meta))
+	(page (nori-site-generate-page meta html archive-html posts poems)))
+    (with-temp-file final-filename
+      (insert page))
+
+    (message "Published: %s -> %s" title file-name)))
+
+(defun nori-site-render-listing-page (meta html archive-html posts poems)
+  "Render a listing page."
+  (let ((final-filename (alist-get 'final-filename meta))
+	(file-name (alist-get 'file-name meta))
+	(title (alist-get 'title meta))
+	(page (nori-site-generate-page meta html archive-html posts poems)))
+    (with-temp-file final-filename
+      (insert page))
+
+    (message "Published: %s -> %s" title file-name)))
+
 (nori-site-render-all-pages)
       #+end_src
 
