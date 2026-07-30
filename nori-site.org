@@ -321,9 +321,6 @@ Stores the result in 'nori-site-post-index'."
 (defun nori-site-generate-page (metadata html archive-html posts poems)
   "Generate a page using the template."
   (let* ((layout (alist-get 'layout metadata))
-	 (template (if layout
-		       (nori-site-load-template layout)
-		     (nori-site-load-template "post")))
 	 (title (alist-get 'title metadata))
 	 (file-name (alist-get 'file-name metadata))
 	 (url (alist-get 'url metadata))
@@ -333,6 +330,9 @@ Stores the result in 'nori-site-post-index'."
 	 (description (alist-get 'description metadata))
 	 (path-chain (alist-get 'path-chain metadata))
 	 (ancestors-names (alist-get 'ancestors-names metadata))
+	 (template (if layout
+		       (nori-site-load-template layout)
+		     (nori-site-load-template (car path-chain))))
 	 (date (alist-get 'date metadata))
 	 (tags (alist-get 'tags metadata))
 	 (wordcount (alist-get 'wordcount metadata))
@@ -367,7 +367,7 @@ Stores the result in 'nori-site-post-index'."
 	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
 	    ("{{DESCRIPTION}}" . ,description)
 	    ("{{TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
-				  ""))
+			     ""))
 	    ("{{POEM_LIST}}" . ,(let ((poem-listing-template (nori-site-load-template "poem-listing-item"))
 				      (poem-list-html ""))
 				  (dolist (poem poems)
@@ -926,22 +926,6 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
   </div>
 </main>
 #+end_src
-** Poem list main
-#+name: poem-list-main
-#+begin_src html 
-<main class="main-content">
-  <div class="spiral"></div>
-  <div class="main-content-wrapper">
-    <article class="section-poetry">
-      <h1>{{TITLE}}</h1>
-      {{CONTENTS}}
-      {{POEM_LIST}}
-      {{PAGINATION}}
-    </article>
-  </div>
-</main>
-#+end_src
-
 ** Alphabet superset main
 #+name: as-main
 #+begin_src html 
@@ -996,6 +980,48 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
   </div>
 </main>
 #+end_src
+** Microblog main
+#+name: microblog-main
+#+begin_src html
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    {{MIRCRO_NEXT_PREV}}
+    <article class="micro-article">
+      <header>
+	
+	<a href="{{SECTION_URL}}">
+          <h1 class="micro-section-title"> ✶ {{SECTION_TITLE}} ✶ </h1>
+	</a>	
+
+	<h2 class="micro-header">{{TITLE}}</h2>    
+      </header>
+      
+      <article class="micro-content">
+	{{CONTENTS}}
+      </article>
+    </article>
+
+    {{MICRO_NEXT_PREV}}
+  </div>
+</main>
+#+end_src
+** Poem list main
+#+name: poem-list-main
+#+begin_src html 
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="section-poetry">
+      <h1>{{TITLE}}</h1>
+      {{CONTENTS}}
+      {{POEM_LIST}}
+      {{PAGINATION}}
+    </article>
+  </div>
+</main>
+#+end_src
+
 ** Sidebar
 #+name: sidebar
 #+begin_src html 
@@ -1166,7 +1192,14 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       <<sidebar>>
 	<<footer>>
 #+end_src
-
+*** microblog
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/microblog.html"
+<<head>>
+  <<header>>
+    <<microblog-main>>
+      <<sidebar>>
+	<<footer>>
+#+end_src
 *** poem-section
 #+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/poem-section.html"
 <<head>>
@@ -1175,6 +1208,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       <<sidebar>>
 	<<footer>>
 #+end_src
+
 * Old
 ** Make site by processing headlines recursively
 #+name: make-site
