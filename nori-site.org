@@ -271,11 +271,12 @@ Stores the result in 'nori-site-post-index'."
 	 (org-buffer (find-file-noselect nori-site-source-org-filename))
 	 (posts (nori-site-gather-items "post"))
 	 (poems (nori-site-gather-items "poem"))
+	 (al-supersets (nori-site-gather-items "alphabet-superset"))
 	 (archive-html (nori-site-generate-archive-sidebar posts)))
 
     ;; Ensure publish directory exists, remove old one if there was one
     (if (file-exists-p publish-dir)
-	(delete-directory publish-dir))
+	(delete-directory publish-dir t nil))
     (make-directory publish-dir t)
     
     ;; Copy assets to publish-dir
@@ -610,46 +611,49 @@ used to add the active class."
 
 ** Paginate list
 #+name: paginate-list
-#+begin_src elisp
-(defun paginate-list (items page-size)
-  "Split an ordered alist ITEMS into pages of PAGE-SIZE.
-Return a list of pages, each element is a plist:
-(:number N :total N :items LIST :url STRING :prev URL/nil :next URL/nil ...)."
+#+begin_src elisp :noweb strip-export
+<<get-items>>
+(defun nori-site-paginate-list (items page-size)
+  "Split an alist of ITEMS (TITLE . METADATA-ALIST) into pages of PAGE-SIZE.
+Return an alist PAGES"
   (let* ((total-pages (ceiling (/ (length items) page-size)))
-	 pages
-	 start-index)
-    (dotimes (i total-pages)
-      (setq start-index (* i page-size))
-      (push
-       (list :number (1+ i)
-	     :total total-pages
-	     :items (seq-subseq items start-index (min (+ start-index page-size) (length items)))
-	     :url (format "/page/%d/" (1+ i)))
-       pages))
-    ;; Reverse because we pushed in reverse order
+	 (pages `())
+	 start-index
+	 end-index)
+    (dotimes (i total-pages) ;for each page from 0 to total-pages
+      (setq start-index (* i page-size)) ;index of the first item on the page
+      (setq end-index (min (+ start-index page-size) (length items)))
+      (let ((page `((page-number . ,(1+ i))
+		  (total-pages . ,total-pages)
+		  (items-range . ,(seq-subseq items start-index end-index))
+		  (page-url . ,(if (= 0 i) "/"
+				 (format "/page/%d/" (1+ i)))))
+		  ))
+	(push page pages)))
     (setq pages (nreverse pages))
-
-    ;; Add prev/next/first/last references
+    ;; Add prev/next/first/last url
     (cl-loop for page in pages
 	     for idx from 0
 	     do
-	     (setf (plist-get page :prev)
+	     (setf (alist-get 'prev page)
 		   (when (> idx 0)
-		     (plist-get (nth (- idx 1) pages :url))))
-	     (setf (plist-get page :next)
+		     (alist-get 'page-url (nth (- idx 1) pages))))
+	     (setf (alist-get 'next page)
 		   (when (< idx (1- (length pages)))
-		     (plist-get (nth (+ idx 1) pages :url))))
-	     (setf (plist-get page :first)
-		   (plist-get (car pages) :url))
-	     (setf (plist-get page :last)
-		   (plist-get (car (last pages)) :url)))
-    pages))
+		     (alist-get 'page-url (nth (+ idx 1) pages))))
+	     (setf (alist-get 'first page)
+		   (alist-get 'page-url (car pages)))
+	     (setf (alist-get 'last page)
+		   (alist-get 'page-url (car (last pages)))))
+    pages
+	    ))
 
+;(nori-site-paginate-list (nori-site-gather-items "poem") 3)
 
 #+end_src
 
 #+RESULTS: paginate-list
-: paginate-list
+: nori-site-paginate-list
 
 * Templates
 ** Head
