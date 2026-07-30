@@ -115,7 +115,7 @@ Stores the result in 'nori-site-post-index'."
 			       "EXPORT_FILE_NAME"
 			       props nil nil #'string=))
 		   (section-name (alist-get
-				  "EXPORT_SECTION"egin
+				  "EXPORT_SECTION"
 				  props nil nil #'string=)))
 	      ;; Only process sections and files
 	      (when (or section-name file-name)
@@ -234,9 +234,9 @@ Stores the result in 'nori-site-post-index'."
     index
     ))
 
-;					(nori-site-build-entry-index  nori-site-source-org-filename)
+;(nori-site-build-entry-index  nori-site-source-org-filename)
 
-#+end_src
+			#+end_src
 
 #+RESULTS: entry-index
 : nori-site-build-entry-index
@@ -261,14 +261,15 @@ Stores the result in 'nori-site-post-index'."
   (shell-command "bash /home/nori/Documents/Notes/website/process-css.sh")
 
   (let* ((publish-dir (expand-file-name nori-site-publish-directory))
-	(org-buffer (find-file-noselect nori-site-source-org-filename))
-	(posts (nori-site-gather-items "post"))
-	(poems (nori-site-gather-items "poem"))
-	(archive-html (nori-site-generate-archive-sidebar posts)))
+	 (org-buffer (find-file-noselect nori-site-source-org-filename))
+	 (posts (nori-site-gather-items "post"))
+	 (poems (nori-site-gather-items "poem"))
+	 (archive-html (nori-site-generate-archive-sidebar posts)))
 
-    ;; Ensure publish directory exists
-    (unless (file-exists-p publish-dir)
-      (make-directory publish-dir t))
+    ;; Ensure publish directory exists, remove old one if there was one
+    (if (file-exists-p publish-dir)
+	(delete-directory publish-dir))
+    (make-directory publish-dir t)
     
     ;; Copy assets to publish-dir
     (copy-directory nori-site-content-img-dir publish-dir t t nil)
@@ -278,38 +279,38 @@ Stores the result in 'nori-site-post-index'."
     
     (message "Index length %d" (length nori-site-entry-index))
     
-  ;; Loop through index to render
-  (dolist (entry nori-site-entry-index)
-    
-    (let* ((title (car entry))
-	   (meta (cdr entry))
-	   (section-name (alist-get 'section-name meta))
-	   (file-name (alist-get 'file-name meta))
-	   (begin (alist-get 'begin meta))
-	   (todo-state (alist-get 'todo meta))
-	   (target-dir (alist-get 'target-dir meta))
-	   (final-filename (alist-get 'final-filename meta)))
+    ;; Loop through index to render
+    (dolist (entry nori-site-entry-index)
+      
+      (let* ((title (car entry))
+	     (meta (cdr entry))
+	     (section-name (alist-get 'section-name meta))
+	     (file-name (alist-get 'file-name meta))
+	     (begin (alist-get 'begin meta))
+	     (todo-state (alist-get 'todo meta))
+	     (target-dir (alist-get 'target-dir meta))
+	     (final-filename (alist-get 'final-filename meta)))
 
-      ;; Skip TODO items
-      (unless (and todo-state (string= todo-state "TODO"))
-	;; Ensure directory exists
-	(unless (file-exists-p target-dir)
-	  (make-directory target-dir t))
+	;; Skip TODO items
+	(unless (and todo-state (string= todo-state "TODO"))
+	  ;; Ensure directory exists
+	  (unless (file-exists-p target-dir)
+	    (make-directory target-dir t))
 
-	;; Render
-	(when final-filename
-	  (let* ((html (nori-site-export-subtree-to-html org-buffer begin))
-		 (page (nori-site-generate-page meta html archive-html posts poems))
-	      	 )
-	    (with-temp-file final-filename
-	      (insert page))
-	    )
-	  (message "Published: %s -> %s" title file-name))
-	)))))
+	  ;; Render
+	  (when final-filename
+	    (let* ((html (nori-site-export-subtree-to-html org-buffer begin))
+		   (page (nori-site-generate-page meta html archive-html posts poems))
+	      	   )
+	      (with-temp-file final-filename
+		(insert page))
+	      )
+	    (message "Published: %s -> %s" title file-name))
+	  )))))
 (nori-site-render-all-pages)
-  #+end_src
+      #+end_src
 
-  #+RESULTS: render-all-pages
+#+RESULTS: render-all-pages
 ** Generate page
 #+name: generate-page
 #+begin_src elisp :noweb strip-export
@@ -382,7 +383,7 @@ Stores the result in 'nori-site-post-index'."
 	    
 	    )))
     (nori-site-render-template template replacements)))
-  #+end_src
+#+end_src
 
 #+RESULTS: generate-page
 : nori-site-generate-page
@@ -465,7 +466,7 @@ CURRENT-FILE is the EXPORT_FILE_NAME of the page being rendered,
 used to add the active class."
   (let ((menu-items '(("Home" . "/")
 		      ("Posts" . "/post/")
-		      ("Fiction" . "/alphabet_superset/")
+		      ("Fiction" . "/alphabet-superset/")
 		      ("Microblog" . "/microblog/")))
 	(html "  <nav class=\"site-nav\">\n    <ul>\n")
 	)
@@ -540,7 +541,7 @@ used to add the active class."
              (file-name (alist-get 'file-name meta))
 	     (path-chain (alist-get 'path-chain meta))
 	     (url (concat "/" (string-join path-chain "/") "/" file-name)))
-	;(message "%s" title)
+					;(message "%s" title)
         ;; Check if year changed
         (if (not (string= year-str prev-year))
             ;; New Year Group
@@ -589,7 +590,7 @@ used to add the active class."
     (dolist (tag formatted-tag-list)
       (let* ((url-tag (replace-regexp-in-string " " "-" tag))
 	     (url (concat "/" "tags" "/" url-tag)))
-	;(message "tag is %s and url is %s" tag url)
+					;(message "tag is %s and url is %s" tag url)
 	(setq html (concat html "<li><a href=\"" url "\">" tag "</a></li>\n"))))
     html))
 (nori-site-generate-tag-list ":one__one:two:three:")
@@ -805,8 +806,8 @@ Return a list of pages, each element is a plist:
       <section class="recent-posts">
 	<h2 class="recent-posts-header">Recent Posts</h2>
 	<!-- {{- range first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "post") -}}
-	{{- partial "summary-with-image.html" . -}}
-	{{- end -}} -->
+	     {{- partial "summary-with-image.html" . -}}
+	     {{- end -}} -->
 	<div class="more-posts-button-div">
 	  <a class="more-posts-button" href="/post/">More Posts</a>
 	</div>
@@ -861,9 +862,9 @@ Return a list of pages, each element is a plist:
 	</div>
       </article>
       <<newsletter>>
-      <section class="comments">
-	<<comments>>
-      </section>
+	<section class="comments">
+	  <<comments>>
+	</section>
     </article>
 
     <p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
@@ -1111,9 +1112,9 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+name: newsletter
 #+begin_src html
 <!-- ======= NEWSLETTER ========== -->
-      <section class="newsletter-signup">
-	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
-      </section>
+<section class="newsletter-signup">
+  <script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
+</section>
 #+end_src
 ** Comments
 :tangle "/home/nori/Documents/Notes/website/templates/comments.html"
@@ -1123,25 +1124,25 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 <script type="text/javascript">
   function loadComments() {
-      // Prevent loading twice
-      if (document.getElementById('isso-script')) return;
-      
-      const s = document.createElement('script');
-      s.id = 'isso-script';
-      s.src = 'https://comments.noriparelius.com/js/embed.min.js';
+  // Prevent loading twice
+  if (document.getElementById('isso-script')) return;
+  
+  const s = document.createElement('script');
+  s.id = 'isso-script';
+  s.src = 'https://comments.noriparelius.com/js/embed.min.js';
 
-      s.setAttribute('data-isso', 'https://comments.noriparelius.com/');
-      s.setAttribute('data-isso-max-comments-top', '10');
-      s.setAttribute('data-isso-max-comments-nested', '5');
-      s.setAttribute('data-isso-reveal-on-click', '5');
-      s.setAttribute('data-isso-sorting', 'oldest'); // 'oldest' or 'newest'
-      s.setAttribute('data-isso-avatar', 'false');
-      s.setAttribute('data-isso-vote', 'false');
+  s.setAttribute('data-isso', 'https://comments.noriparelius.com/');
+  s.setAttribute('data-isso-max-comments-top', '10');
+  s.setAttribute('data-isso-max-comments-nested', '5');
+  s.setAttribute('data-isso-reveal-on-click', '5');
+  s.setAttribute('data-isso-sorting', 'oldest'); // 'oldest' or 'newest'
+  s.setAttribute('data-isso-avatar', 'false');
+  s.setAttribute('data-isso-vote', 'false');
 
-      document.body.appendChild(s);
+  document.body.appendChild(s);
 
-      // Hide button after loading
-      document.getElementById('load-comments').style.display = 'none';
+  // Hide button after loading
+  document.getElementById('load-comments').style.display = 'none';
   }
 
 </script>
