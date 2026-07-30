@@ -309,7 +309,7 @@ Stores the result in 'nori-site-post-index'."
 	  ;; Render
 	  (when final-filename
 	    (if (string= file-name "_index")
-		(nori-site-render-listing-page meta html archive-html posts poems)
+		(nori-site-render-listing-page meta html archive-html posts poems poem-pages)
 	      (nori-site-render-single-page meta html archive-html posts poems)))
 	  )))))
 
@@ -325,17 +325,11 @@ Stores the result in 'nori-site-post-index'."
 
     (message "Published: %s -> %s" title file-name)))
 
-(defun nori-site-render-listing-page (meta html archive-html posts poems)
+(defun nori-site-render-listing-page (meta html archive-html posts poems poem-pages)
   "Render a listing page."
-  (let ((final-filename (alist-get 'final-filename meta))
-	(file-name (alist-get 'file-name meta))
-	(title (alist-get 'title meta))
-	(page (nori-site-generate-page meta html archive-html posts poems)))
-    (with-temp-file final-filename
-      (insert page))
+  )
 
-    (message "Published: %s -> %s" title file-name)))
-
+  
 (nori-site-render-all-pages)
       #+end_src
 
