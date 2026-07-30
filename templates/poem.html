@@ -92,12 +92,42 @@
     <main class="main-content">
       <div class="spiral"></div>
       <div class="main-content-wrapper">
-        <article class="section-poetry">
-          <h1>{{TITLE}}</h1>
-          {{CONTENTS}}
-          {{POEM-LIST}}
-          {{PAGINATION}}
+        <article class="h-entry single-poem">
+          <header>
+    	<aside class="section-title">
+    	  <a href="{{SECTION_URL}}">{{SECTION_TITLE}}</a>
+    	</aside>
+    	
+    	<h1 class="p-name single-title">
+    	  <a class="u-url" href="{{URL}}">
+    	    {{TITLE}}
+    	  </a>
+    	</h1>
+    	
+    	<p class="meta">
+    	  <time class="dt-published" datetime="{{DATE}}">{{DATE_HUMAN}}</time> - by
+    	  <span class="p-author h-card">
+    	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+    	  </span>
+    	</p>  
+          </header>
+          
+          <article class="e-content poem-text">
+    	{{CONTENTS}}
+          </article>
+    
+          {{POEM_NEXT_PREV}}
+          
+          <div class="back-to-poems">
+    	<a href="/poem/">Back to all poems</a>
+          </div>
         </article>
+    
+        <p class="copyright">
+          © 2018-{{CURRENT_YEAR}} Nori Parelius. All rights reserved.  
+          Please do not reproduce, distribute, or publish this work without permission.  
+        </p>
+    
       </div>
     </main>
       <div class="sidebar-extras-section">

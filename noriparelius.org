@@ -3,6 +3,7 @@
 :EXPORT_FILE_NAME: index
 :EXPORT_FEATURED_IMAGE: /img/noriparelius.png
 :MENU_NAME: Home
+:EXPORT_LAYOUT: home
 :END:
 
 Welcome to my digital notebook. It's my little place on the internet where I think, wonder and write.
@@ -2727,13 +2728,12 @@ So here it comes! And my topic is:
 
 *** Myths, legends & fairy tales
 
-
 ** A is for Aurora
 :PROPERTIES:
 :EXPORT_FILE_NAME: a_for_aurora
 :EXPORT_FEATURED_IMAGE: /img/featured_A.webp
 :EXPORT_FEATURED_ALT: Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him.
-:EXPORT_LAYOUT: single-alphabet-superset
+:EXPORT_LAYOUT: alphabet-superset
 :EXPORT_DATE: 2024-09-02
 :END:
 
@@ -2784,7 +2784,7 @@ After a few months of dating, I told her about that time I tried to ask her out 
 :EXPORT_FEATURED_IMAGE: /img/featured_B.webp
 :EXPORT_FEATURED_ALT: A painting of an oldschool big metal key by Edna C. Rex with drops of blood added.
 :DESCRIPTION: She's standing there like a complete fool. The key clutched in her hand so hard that her knuckles are turning white. It's a big key. Heavy. And cold. So cold it feels like it's sucking the life out of the hand that is holding it. She's standing there in front of the door, frozen. She has been standing there for a while now. What is she thinking about? Does she know? Does she suspect? Is that why she's hesitating?
-:EXPORT_LAYOUT: single-alphabet-superset
+:EXPORT_LAYOUT: alphabet-superset
 :EXPORT_DATE: 2024-09-16
 :END:
 
@@ -2819,7 +2819,7 @@ She stands facing the door, holding the knife with confidence, but my dead heart
 :EXPORT_FEATURED_IMAGE: /img/featured_C.webp
 :EXPORT_FEATURED_ALT: A Drawing called Hades and Persephone by Eduard Trewendt, 1864, showing a king and a queen in togas sitting on a throne, holding hands, with a 3-headed dog by their feet
 :DESCRIPTION: First draft: Dear Sir or Madam Hi there!
-:EXPORT_LAYOUT: single-alphabet-superset
+:EXPORT_LAYOUT: alphabet-superset
 :EXPORT_DATE: 2024-09-23
 :END:
 
@@ -2847,7 +2847,7 @@ I hope you and Kerbie have a great adventure together!
 :EXPORT_FEATURED_IMAGE: /img/featured_D.webp
 :EXPORT_FEATURED_ALT: Georges Seurat -- The Lighthouse at Honfleur, 1886. A painting of a shore with a building and a lighthouse in the distance. Small specks in the sky as birds are added. 
 :DESCRIPTION: When the first reports of dragons came in, they didn't even quite come in. Nobody believed it, and no serious news outlet would touch it. Most of the not-so-serious ones wouldn't either. And so the first mentions appeared alongside reports of Nessie sightings, stories of alien abductions and haunted houses. In that company, a small village falling prey to a dragon or two seemed both tamer and somehow less believable at the same time.
-:EXPORT_LAYOUT: single-alphabet-superset
+:EXPORT_LAYOUT: alphabet-superset
 :EXPORT_DATE: 2024-10-07
 :END:
 
@@ -2899,6 +2899,7 @@ Hannah felt sudden warmth in her stomach, like acid reflux on steroids. She felt
 :PROPERTIES:
 :EXPORT_FILE_NAME: spring-butterfly
 :EXPORT_DATE: 2018-04-30
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A picture of a small child with a white hat squatting by a flower bed 
@@ -2928,6 +2929,7 @@ Sometimes beauty has to be tasted
 :PROPERTIES:
 :EXPORT_FILE_NAME: self-control
 :EXPORT_DATE: 2018-05-02
+:EXPORT_LAYOUT: poem
 :END:
 
 
@@ -2947,6 +2949,7 @@ When chocolate is close
 :PROPERTIES:
 :EXPORT_FILE_NAME: baby-moves
 :EXPORT_DATE: 2018-05-01
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A picture of baby shoes
@@ -2965,6 +2968,7 @@ And I wonder how and when I forgot
 :PROPERTIES:
 :EXPORT_FILE_NAME: spring
 :EXPORT_DATE: 2018-05-01
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A picture of curtains with light behind them
@@ -2989,6 +2993,7 @@ Or to wish it here
 :PROPERTIES:
 :EXPORT_FILE_NAME: quiet-before-the-storm
 :EXPORT_DATE: 2018-04-30
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A photo of a sky with dark clouds
@@ -3024,6 +3029,7 @@ A world that forgot what a storm is
 :PROPERTIES:
 :EXPORT_FILE_NAME: holding-you-sleep
 :EXPORT_DATE: 2018-05-01
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A picture of a small child's foot
@@ -3053,6 +3059,7 @@ Wish for the time to slow
 :PROPERTIES:
 :EXPORT_FILE_NAME: foreign
 :EXPORT_DATE: 2018-04-30
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A photograph of a red flower in the middle of a green forest 
@@ -3071,6 +3078,7 @@ How can you grow where you do not belong?
 :PROPERTIES:
 :EXPORT_FILE_NAME: time-travel
 :EXPORT_DATE: 2025-08-30
+:EXPORT_LAYOUT: poem
 :END:
 
 #+begin_columns
@@ -3141,6 +3149,7 @@ Ostáva mi v mysli
 :PROPERTIES:
 :EXPORT_FILE_NAME: vlak
 :EXPORT_DATE: 2025-09-01
+:EXPORT_LAYOUT: poem
 :END:
 
 #+begin_columns
@@ -3185,6 +3194,7 @@ Only a snail shell of metal
 :PROPERTIES:
 :EXPORT_FILE_NAME: broken-mirrors
 :EXPORT_DATE: 2025-09-04
+:EXPORT_LAYOUT: poem
 :END:
 
 #+begin_verse
@@ -3222,6 +3232,7 @@ Mirror, mirror, cursed by evil
 :PROPERTIES:
 :EXPORT_FILE_NAME: water-spirit
 :EXPORT_DATE: 2025-09-15
+:EXPORT_LAYOUT: poem
 :END:
 
 #+begin_verse
@@ -3286,6 +3297,7 @@ You're all
 :PROPERTIES:
 :EXPORT_FILE_NAME: bird
 :EXPORT_DATE: 2025-10-19
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A sketch of a bird in flight
@@ -3332,6 +3344,7 @@ the world's song now whispers to me.
 :PROPERTIES:
 :EXPORT_FILE_NAME: flow
 :EXPORT_DATE: 2025-10-20
+:EXPORT_LAYOUT: poem
 :END:
 
 #+attr_html: :alt A drawing of a tiny sailboat with a red sail on a big wave
@@ -3424,6 +3437,7 @@ Nech už je, aká je
 :PROPERTIES:
 :EXPORT_FILE_NAME: fist
 :EXPORT_DATE: 2026-02-03
+:EXPORT_LAYOUT: poem
 :END:
 #+begin_verse
 Held tight, tighter, tightest
@@ -3452,6 +3466,7 @@ But what if you will laugh, sing, love?
 :PROPERTIES:
 :EXPORT_FILE_NAME: ugly-little-dandelion
 :EXPORT_DATE: 2026-02-06
+:EXPORT_LAYOUT: poem
 :END:
 #+begin_verse
 Where is your proud yellow head

@@ -99,7 +99,9 @@ Use ~sass input.scss output.css --style=compressed~
   "Scan the ORG-FILE buffer - source file holding posts - and build a global index of metadata and contents.
 Stores the result in 'nori-site-post-index'."
   (interactive)
-  (let ((o-buffer (or (find-file-noselect org-file) (current-buffer)))
+  (let ((o-buffer
+	 (if org-file (find-file-noselect org-file)
+	   (current-buffer)))
 	(index '()))
     (with-current-buffer o-buffer
       ;; Parse the buffer once
@@ -113,7 +115,7 @@ Stores the result in 'nori-site-post-index'."
 			       "EXPORT_FILE_NAME"
 			       props nil nil #'string=))
 		   (section-name (alist-get
-				  "EXPORT_SECTION"
+				  "EXPORT_SECTION"egin
 				  props nil nil #'string=)))
 	      ;; Only process sections and files
 	      (when (or section-name file-name)
@@ -172,6 +174,10 @@ Stores the result in 'nori-site-post-index'."
 		       (publish-dir (expand-file-name nori-site-publish-directory))
 		       (target-dir publish-dir)
 		       (final-filename nil)
+		       (url
+			(if (or (string= file-name "_index")(string= file-name "index"))
+			    (concat "/" (string-join path-chain "/"))
+			  (concat "/" (string-join path-chain "/") "/" file-name)))
 		       (contents
 			(when contents-begin ;just in case it's empty
 			  (buffer-substring contents-begin contents-end)))
@@ -193,7 +199,7 @@ Stores the result in 'nori-site-post-index'."
 			  (setq final-filename (expand-file-name "index.html" target-dir))
 			;; Regular posts get their own subfolder /target/post-name/index.html
 			(setq target-dir (expand-file-name file-name target-dir))
-			(setq final-filename (expand-file-name "index.html" target-dir))))
+			(setq final-filename (expand-file-name "index.html" target-dir))))		  
 
 		  ;; Build the index entry for the headline
 		  (let ((meta `((begin . ,begin)
@@ -216,6 +222,7 @@ Stores the result in 'nori-site-post-index'."
 				(tags . ,tags)
 				(target-dir . ,target-dir)
 				(final-filename . ,final-filename)
+				(url . ,url)
 				(wordcount . ,wordcount)
 					;(contents . ,contents)
 				)))
@@ -227,7 +234,7 @@ Stores the result in 'nori-site-post-index'."
     index
     ))
 
-					;(nori-site-build-entry-index  nori-site-source-org-filename)
+;					(nori-site-build-entry-index  nori-site-source-org-filename)
 
 #+end_src
 
@@ -241,6 +248,7 @@ Stores the result in 'nori-site-post-index'."
 <<entry-index>>
 <<subtree-to-html>>
 <<generate-page>>
+<<get-items>>
 <<generate-archive-sidebar>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
@@ -254,8 +262,10 @@ Stores the result in 'nori-site-post-index'."
 
   (let* ((publish-dir (expand-file-name nori-site-publish-directory))
 	(org-buffer (find-file-noselect nori-site-source-org-filename))
-	(posts (nori-site-gather-posts))
+	(posts (nori-site-gather-items "post"))
+	(poems (nori-site-gather-items "poem"))
 	(archive-html (nori-site-generate-archive-sidebar posts)))
+
     ;; Ensure publish directory exists
     (unless (file-exists-p publish-dir)
       (make-directory publish-dir t))
@@ -289,7 +299,7 @@ Stores the result in 'nori-site-post-index'."
 	;; Render
 	(when final-filename
 	  (let* ((html (nori-site-export-subtree-to-html org-buffer begin))
-		 (page (nori-site-generate-page meta html archive-html))
+		 (page (nori-site-generate-page meta html archive-html posts poems))
 	      	 )
 	    (with-temp-file final-filename
 	      (insert page))
@@ -308,7 +318,7 @@ Stores the result in 'nori-site-post-index'."
 <<make-menu>>
 <<make-tag-list>>
 
-(defun nori-site-generate-page (metadata html archive-html)
+(defun nori-site-generate-page (metadata html archive-html posts poems)
   "Generate a page using the template."
   (let* ((layout (alist-get 'layout metadata))
 	 (template (if layout
@@ -316,6 +326,7 @@ Stores the result in 'nori-site-post-index'."
 		     (nori-site-load-template "post")))
 	 (title (alist-get 'title metadata))
 	 (file-name (alist-get 'file-name metadata))
+	 (url (alist-get 'url metadata))
 	 (section-name (alist-get 'section-name metadata))
 	 (f-image (alist-get 'f-image metadata))
 	 (f-alt (alist-get 'f-alt metadata))
@@ -333,7 +344,8 @@ Stores the result in 'nori-site-post-index'."
 	    ("{{CONTENTS}}" . ,html)
 	    ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
 	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" (unless file-name "index")))
-	    ("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
+					;("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
+	    ("{{URL}}" . ,url)
 	    ("{{SECTION_TITLE}}" . ,(car ancestors-names))
 	    ("{{SECTION_URL}}" . ,(concat "/" (string-join path-chain "/")))
 	    ("{{DATE}}" . ,date)
@@ -354,8 +366,20 @@ Stores the result in 'nori-site-post-index'."
 	    ("{{SITE_TITLE}}" . ,nori-site-title)
 	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
 	    ("{{DESCRIPTION}}" . ,description)
-	    ("{{POST_TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
+	    ("{{TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
 				  ""))
+	    ("{{POEM_LIST}}" . ,(let ((poem-listing-template (nori-site-load-template "poem-listing-item"))
+				      (poem-list-html ""))
+				  (dolist (poem poems)
+				    (let ((poem-replacements
+					   `(("{{ITEM_URL}}" . ,(alist-get 'url (cdr poem)))
+					     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr poem))))))
+				      (setq poem-list-html (concat poem-list-html "\n" (nori-site-render-template poem-listing-template poem-replacements)))))
+				  poem-list-html))
+	    
+	    
+	    
+	    
 	    )))
     (nori-site-render-template template replacements)))
   #+end_src
@@ -464,18 +488,18 @@ used to add the active class."
 
 #+RESULTS: make-menu
 : nori-site-build-menu
-** Get all posts
-#+name: get-all-posts
+** Get all itmes of certain type
+#+name: get-items
 #+begin_src elisp :noweb strip-export
 <<variables>>
-(defun nori-site-gather-posts ()
-  "Gather all posts into an alist of the same form as nori-site-entry-index."
-  ;; Gather posts
+(defun nori-site-gather-items (parent-section-name)
+  "Gather all items with a given PARENT-SECTION-NAME into an alist of the same form as nori-site-entry-index."
+  ;; Gather items
   ;; Parse the org-source if not parsed yet
   (unless nori-site-entry-index
     (nori-site-build-entry-index nori-site-source-org-filename))
-  (let ((posts (copy-alist nori-site-entry-index)))
-    (setq posts (cl-remove-if
+  (let ((items (copy-alist nori-site-entry-index)))
+    (setq items (cl-remove-if
 		 (lambda (item)
 		   (let* ((metadata (cdr item))
 			  (path-chain (cdr (assoc 'path-chain metadata)))
@@ -485,13 +509,17 @@ used to add the active class."
 			  (file-name (cdr (assoc 'file-name metadata)))
 			  )
 
-		     (or (not date) (not file-name) (not (equal "post" parent)) (and todo (string= todo "TODO")))))
-		 posts))
-    (message "Post count %d" (length posts))
+		     (or (not date) (not file-name) (not (equal parent-section-name parent)) (and todo (string= todo "TODO")))))
+		 items))
+    (message "%s count %d" parent-section-name (length items))
     ;; Sort by date descending
-    (sort posts (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-    posts))
+    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
+    items))
 #+end_src
+
+#+RESULTS: get-items
+: nori-site-gather-items
+
 ** Generate Archive Sidebar HTML
 #+name: generate-archive-sidebar
 #+begin_src elisp :noweb strip-export
@@ -512,7 +540,7 @@ used to add the active class."
              (file-name (alist-get 'file-name meta))
 	     (path-chain (alist-get 'path-chain meta))
 	     (url (concat "/" (string-join path-chain "/") "/" file-name)))
-	(message "%s" title)
+	;(message "%s" title)
         ;; Check if year changed
         (if (not (string= year-str prev-year))
             ;; New Year Group
@@ -552,7 +580,7 @@ used to add the active class."
 #+name: make-tag-list
 #+begin_src elisp :noweb strip-export
 (defun nori-site-generate-tag-list (tags)
-  "Generate the html for the tag list under a post from a TAGS list."
+  "Generate the html for the tag list from a TAGS list for a given item."
   (let* ((html "")
 	 (tag-list (split-string tags ":" t))
 	 (formatted-tag-list (mapcar (lambda (tag)
@@ -561,7 +589,7 @@ used to add the active class."
     (dolist (tag formatted-tag-list)
       (let* ((url-tag (replace-regexp-in-string " " "-" tag))
 	     (url (concat "/" "tags" "/" url-tag)))
-	(message "tag is %s and url is %s" tag url)
+	;(message "tag is %s and url is %s" tag url)
 	(setq html (concat html "<li><a href=\"" url "\">" tag "</a></li>\n"))))
     html))
 (nori-site-generate-tag-list ":one__one:two:three:")
@@ -572,11 +600,11 @@ used to add the active class."
 : <li><a href="/tags/two">two</a></li>
 : <li><a href="/tags/three">three</a></li>
 
-** Paginate post list
-#+name: paginate-post-list
+** Paginate list
+#+name: paginate-list
 #+begin_src elisp
 (defun paginate-list (items page-size)
-  "Split ITEMS into pages of PAGE-SIZE.
+  "Split an ordered alist ITEMS into pages of PAGE-SIZE.
 Return a list of pages, each element is a plist:
 (:number N :total N :items LIST :url STRING :prev URL/nil :next URL/nil ...)."
   (let* ((total-pages (ceiling (/ (length items) page-size)))
@@ -611,6 +639,10 @@ Return a list of pages, each element is a plist:
 
 
 #+end_src
+
+#+RESULTS: paginate-list
+: paginate-list
+
 * Templates
 ** Head
 #+name: head
@@ -724,9 +756,73 @@ Return a list of pages, each element is a plist:
 </main>
 #+end_src
 
+** Home main
+#+name: home-main
+#+begin_src html html :noweb strip-export
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="homepage">
+      <article class="main-article-home">
+	{{CONTENTS}}
+      </article>
+      <section class="about-me">
+	<div class="about-me-pic">
+	  <img src="/img/Nori-Parelius.jpg" alt="A close up picture of Nori Parelius">
+	</div>
+	<div class="about-me-text">
+	  <h2>Hi, I'm Nori</h2>
+	  <p>I strive to be an amateur (from French 'one who loves')—
+	    to do what I like and to like what I do. I am an amateur thinker and an amateur writer.</p>
+
+	  <p>To be honest, I mostly write about myself, or rather, about the things that are on my mind, hoping there might be some general in the particular, or that it will be useful to someone else. </p>
+
+	  <p>In the real world, I have a PhD in biophysics and a day job in data analysis and teaching.</p> 
+
+	  <p>I am from Slovakia, now living in Norway with my Viking husband and two little wildlings.</p>
+	</div>
+      </section>
+
+      <section class="currently-reading-and-microblog">
+	<div class="currently-reading">
+	  <h4>Currently reading</h4>
+	  <p>
+	    <ul>
+	      <li>Calvin Luther Martin -- The Way of the Human Being</li>
+	    </ul>
+	  </p>
+	</div>
+	<a class="microblog-latest-link" href="/microblog">
+	  <div class="microblog-latest">
+	    <h4>Latest from the <span style="text-decoration: underline;">microblog</span></h4>
+	    <div class="latest-snippet">
+	      {{LAST_MICROBLOG_DESCRIPTION}}
+	    </div>
+	  </div>  
+	</a>
+      </section>  
+
+      <section class="recent-posts">
+	<h2 class="recent-posts-header">Recent Posts</h2>
+	<!-- {{- range first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "post") -}}
+	{{- partial "summary-with-image.html" . -}}
+	{{- end -}} -->
+	<div class="more-posts-button-div">
+	  <a class="more-posts-button" href="/post/">More Posts</a>
+	</div>
+      </section>
+
+      <section class="newsletter-signup">
+	<<newsletter>>
+      </section>
+      
+    </article>
+  </div>
+</main>
+#+end_src
 ** Post main
 #+name: post-main
-#+begin_src html 
+#+begin_src html :noweb strip-export
 <main class="main-content">
   <div class="spiral"></div>
   <div class="main-content-wrapper">
@@ -760,16 +856,13 @@ Return a list of pages, each element is a plist:
 	<div class="terms">
 	  <h3 class="terms-label">Tags:</h3>
 	  <ul>
-	    {{POST_TAGS}}
+	    {{TAGS}}
 	  </ul>
 	</div>
       </article>
-      <!-- ======= NEWSLETTER ========== -->
-      <section class="newsletter-signup">
-	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
-      </section>
+      <<newsletter>>
       <section class="comments">
-	{{COMMENTS}}
+	<<comments>>
       </section>
     </article>
 
@@ -781,13 +874,58 @@ Return a list of pages, each element is a plist:
       </a>.
 </br>
 This means you can distribute, remix, adapt, and build upon it, even for commercial purposes. You just need to give credit to me,
-<a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ .Site.Home.Permalink }}" >Nori Parelius</a>, and link to this site.
+<a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{HOME_URL}}" >Nori Parelius</a>, and link to this site.
     </p>
 
   </div>
 </main>
 #+end_src
 
+** Poem main
+#+name: poem-main
+#+begin_src html 
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="h-entry single-poem">
+      <header>
+	<aside class="section-title">
+	  <a href="{{SECTION_URL}}">{{SECTION_TITLE}}</a>
+	</aside>
+	
+	<h1 class="p-name single-title">
+	  <a class="u-url" href="{{URL}}">
+	    {{TITLE}}
+	  </a>
+	</h1>
+	
+	<p class="meta">
+	  <time class="dt-published" datetime="{{DATE}}">{{DATE_HUMAN}}</time> - by
+	  <span class="p-author h-card">
+	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+	  </span>
+	</p>  
+      </header>
+      
+      <article class="e-content poem-text">
+	{{CONTENTS}}
+      </article>
+
+      {{POEM_NEXT_PREV}}
+      
+      <div class="back-to-poems">
+	<a href="/poem/">Back to all poems</a>
+      </div>
+    </article>
+
+    <p class="copyright">
+      © 2018-{{CURRENT_YEAR}} Nori Parelius. All rights reserved.  
+      Please do not reproduce, distribute, or publish this work without permission.  
+    </p>
+
+  </div>
+</main>
+#+end_src
 ** Poem list main
 #+name: poem-list-main
 #+begin_src html 
@@ -797,13 +935,67 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
     <article class="section-poetry">
       <h1>{{TITLE}}</h1>
       {{CONTENTS}}
-      {{POEM-LIST}}
+      {{POEM_LIST}}
       {{PAGINATION}}
     </article>
   </div>
 </main>
 #+end_src
 
+** Alphabet superset main
+#+name: as-main
+#+begin_src html 
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="h-entry as-article single-article">
+      <header>
+	<aside class="section-title">
+	  <a href="{{SECTION_URL}}">{{SECTION_TITLE}}</a>
+	</aside>
+
+	<h1 class="p-name single-title">
+	  <a class="u-url" href="{{URL}}">
+	    {{TITLE}}
+	  </a>
+	</h1>
+
+	<img src="{{FEATURED_IMAGE}}" alt="{{FEATURED_ALT}}">
+	
+	<p class="meta">
+	  <time class="dt-published" datetime="{{DATE}}">{{DATE_HUMAN}}</time>
+	  <span class="reading-time-words">- {{READING_TIME}}-minute read - {{WORDCOUNT}} words - by</span>
+	  <span class="p-author h-card">
+	    <a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+	  </span>
+	</p>
+	
+      </header>
+      
+      <article class="single-article-main-content">
+	<div class="e-content">
+	  {{CONTENTS}}
+	</div>
+      </article>
+      <div class="terms">
+	<h3 class="terms-label">Tags:</h3>
+	<ul>
+	  {{TAGS}}
+	</ul>
+      </div>
+      <!-- ======= NEWSLETTER ========== -->
+      <section class="newsletter-signup">
+	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
+      </section>
+    </article>
+
+    <p class="copyright">
+      © 2018-{{CURRENT_YEAR}} Nori Parelius. All rights reserved.  
+      Please do not reproduce, distribute, or publish this work without permission.  
+    </p>
+  </div>
+</main>
+#+end_src
 ** Sidebar
 #+name: sidebar
 #+begin_src html 
@@ -889,16 +1081,66 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 
 
+** Newsletter
+#+name: newsletter
+#+begin_src html
+<!-- ======= NEWSLETTER ========== -->
+      <section class="newsletter-signup">
+	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
+      </section>
+#+end_src
+** Comments
+:tangle "/home/nori/Documents/Notes/website/templates/comments.html"
+#+name: comments
+#+begin_src html
+<button id="load-comments" onclick="loadComments()">Show comments (no tracking)</button>
+
+<script type="text/javascript">
+  function loadComments() {
+      // Prevent loading twice
+      if (document.getElementById('isso-script')) return;
+      
+      const s = document.createElement('script');
+      s.id = 'isso-script';
+      s.src = 'https://comments.noriparelius.com/js/embed.min.js';
+
+      s.setAttribute('data-isso', 'https://comments.noriparelius.com/');
+      s.setAttribute('data-isso-max-comments-top', '10');
+      s.setAttribute('data-isso-max-comments-nested', '5');
+      s.setAttribute('data-isso-reveal-on-click', '5');
+      s.setAttribute('data-isso-sorting', 'oldest'); // 'oldest' or 'newest'
+      s.setAttribute('data-isso-avatar', 'false');
+      s.setAttribute('data-isso-vote', 'false');
+
+      document.body.appendChild(s);
+
+      // Hide button after loading
+      document.getElementById('load-comments').style.display = 'none';
+  }
+
+</script>
+
+<section id="isso-thread"></section>
+
+#+end_src
 ** Indivindi poem listing
 #+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/poem-listing-item.html"
 <div class="h-entry individual-poem">
   <h2 class="p-name">
-    <a class="u-url" href="{{ITEM-URL}}">{{ITEM-TITLE}}
+    <a class="u-url" href="{{ITEM_URL}}">{{ITEM_TITLE}}
     </a>
   </h2>
 </div>
 #+end_src
 ** Tangle templates
+*** home
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/home.html"
+<<head>>
+  <<header>>
+    <<home-main>>
+      <<sidebar>>
+	<<footer>>  
+#+end_src
 *** post
 #+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/post.html"
 <<head>>
@@ -906,6 +1148,23 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
     <<post-main>>
       <<sidebar>>
 	<<footer>>  
+#+end_src
+
+*** poem
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/poem.html"
+<<head>>
+  <<header>>
+    <<poem-main>>
+      <<sidebar>>
+	<<footer>>  
+#+end_src
+*** alphabet-superset
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/alphabet-superset.html"
+<<head>>
+  <<header>>
+    <<as-main>>
+      <<sidebar>>
+	<<footer>>
 #+end_src
 
 *** poem-section
@@ -916,15 +1175,6 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       <<sidebar>>
 	<<footer>>
 #+end_src
-*** single-alphabet-superset
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/single-alphabet-superset.html"
-<<head>>
-  <<header>>
-    <<post-main>>
-      <<sidebar>>
-	<<footer>>
-#+end_src
-
 * Old
 ** Make site by processing headlines recursively
 #+name: make-site

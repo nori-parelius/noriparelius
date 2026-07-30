@@ -122,16 +122,44 @@
     	<div class="terms">
     	  <h3 class="terms-label">Tags:</h3>
     	  <ul>
-    	    {{POST_TAGS}}
+    	    {{TAGS}}
     	  </ul>
     	</div>
           </article>
           <!-- ======= NEWSLETTER ========== -->
-          <section class="newsletter-signup">
-    	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
-          </section>
+                <section class="newsletter-signup">
+          	<script async src="https://eocampaign1.com/form/59e68edc-1e85-11f0-89bb-a7e2f5e2b395.js" data-form="59e68edc-1e85-11f0-89bb-a7e2f5e2b395"></script>
+                </section>
           <section class="comments">
-    	{{COMMENTS}}
+    	<button id="load-comments" onclick="loadComments()">Show comments (no tracking)</button>
+    	
+    	<script type="text/javascript">
+    	  function loadComments() {
+    	      // Prevent loading twice
+    	      if (document.getElementById('isso-script')) return;
+    	      
+    	      const s = document.createElement('script');
+    	      s.id = 'isso-script';
+    	      s.src = 'https://comments.noriparelius.com/js/embed.min.js';
+    	
+    	      s.setAttribute('data-isso', 'https://comments.noriparelius.com/');
+    	      s.setAttribute('data-isso-max-comments-top', '10');
+    	      s.setAttribute('data-isso-max-comments-nested', '5');
+    	      s.setAttribute('data-isso-reveal-on-click', '5');
+    	      s.setAttribute('data-isso-sorting', 'oldest'); // 'oldest' or 'newest'
+    	      s.setAttribute('data-isso-avatar', 'false');
+    	      s.setAttribute('data-isso-vote', 'false');
+    	
+    	      document.body.appendChild(s);
+    	
+    	      // Hide button after loading
+    	      document.getElementById('load-comments').style.display = 'none';
+    	  }
+    	
+    	</script>
+    	
+    	<section id="isso-thread"></section>
+    	
           </section>
         </article>
     
@@ -143,7 +171,7 @@
           </a>.
     </br>
     This means you can distribute, remix, adapt, and build upon it, even for commercial purposes. You just need to give credit to me,
-    <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{ .Site.Home.Permalink }}" >Nori Parelius</a>, and link to this site.
+    <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="{{HOME_URL}}" >Nori Parelius</a>, and link to this site.
         </p>
     
       </div>
