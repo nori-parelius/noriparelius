@@ -11,6 +11,7 @@ Welcome to my digital notebook. It's my little place on the internet where I thi
 * Privacy policy
 :PROPERTIES:
 :EXPORT_FILE_NAME: privacy-policy
+:EXPORT_LAYOUT: post
 :END:
 
 ** Who I am
@@ -2709,7 +2710,7 @@ I'm not going to spoil the ending of this 20-year old book for you. It wasn't on
 Susanna Clarke is a master storyteller, and Jonathan Strange & Mr Norrell is well worth the read. 
 * Alphabet Superset :fiction:alphabet__superset:
 :PROPERTIES:
-:EXPORT_SECTION: alphabet_superset
+:EXPORT_SECTION: alphabet-superset
 :END:
 
 ** Alphabet Superset
