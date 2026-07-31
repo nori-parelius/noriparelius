@@ -215,7 +215,7 @@ The INDEX contains only headlines with file-name and no TODO."
       (let* ((ast (org-element-parse-buffer))
 	     (index (nori-site-traverse-ast-for-index ast)))
 	(setq index (nori-site-add-listings-data-to-index index))
-;	(setq index (nori-site-paginate index))
+	(setq index (nori-site-paginate index))
 	(setq nori-site-entry-index index)
 	(message "Indexed %d entries." (length index))
 	index))))
@@ -231,40 +231,43 @@ The INDEX contains only headlines with file-name and no TODO."
 #+begin_src elisp :noweb strip-export
 <<get-items>>
 (defun nori-site-paginate (index)
-  (let ((all-new-pages `()))
+  (let ((new-index nil))
     (cl-loop for entry in index
-	     for metadata = (cdr entry)
-	     for file-name = (alist-get 'file-name metadata)
-	     for page-size = (alist-get 'page-size metadata)
-	     when (and (string= file-name "_index") page-size)
+	     for title = (car entry)
+	     for meta-orig = (cdr entry)
+	     for file-name = (alist-get 'file-name meta-orig)
+	     ;; Check if we need to paginate
+	     ;; index files that have paginations set
+	     for page-size-entry = (alist-get 'page-size meta-orig)
+	     when (and (string= file-name "_index") page-size-entry)
 	     do
-	     (let* ((page-size (string-to-number page-size))
-		    (sections-slugs (alist-get 'sections-slugs metadata))
-		    (slug (alist-get 'slug metadata))
-		    (file-path-dir (alist-get 'file-path-dir metadata))
-		    (file-path-file (alist-get 'file-path-file metadata))
-		    (list-items (alist-get 'list-items metadata))
+	     (let* ((page-size (string-to-number page-size-entry))
+		    (sections-slugs (alist-get 'sections-slugs meta-orig))
+		    (slug (alist-get 'slug meta-orig))
+		    (file-path-dir (alist-get 'file-path-dir meta-orig))
+		    (file-path-file (alist-get 'file-path-file meta-orig))
+		    (list-items (alist-get 'list-items meta-orig))
 		    (total-pages (ceiling (/ (length list-items) page-size)))
-		    (pages `()))
+		    (pages nil))
+	       ;; Create each paginated page in a loop
 	       (dotimes (i total-pages) ;for each page from 0 to total-pages
-		 (let* ((page (if (= 0 i) entry
-				(copy-alist entry)))
+		 (let* ((meta (copy-alist meta-orig))
 			(page-number (1+ i))
 			(start-index (* i page-size))
 			(end-index (min (+ start-index page-size) (length list-items))))
 		   (unless (= 0 i)
-		     (setf (alist-get 'sections-slugs metadata)
-			   (push page-number sections-slugs))
-		     (message "here")
-		     (setf (alist-get 'slug metadata)
+		     (setf (alist-get 'sections-slugs meta)
+			   (push (int-to-string page-number) sections-slugs))
+		     (message "sections-slugs %s" sections-slugs)
+		     (setf (alist-get 'slug meta)
 			   (concat slug (format "page/%d/" (1+ i))))
-		     (setf (alist-get 'file-path-dir metadata)
+		     (setf (alist-get 'file-path-dir meta)
 			   (concat file-path-dir (format "page/%d/" (1+ i))))
-		     (setf (alist-get 'file-path-file metadata)
-			   (concat (alist-get 'file-path-dir metadata) "index.html")))
-		   (setf (alist-get 'list-items metadata)
+		     (setf (alist-get 'file-path-file meta)
+			   (concat (alist-get 'file-path-dir meta) "index.html")))
+		   (setf (alist-get 'list-items meta)
 			 (seq-subseq list-items start-index end-index))
-		   (push page pages)))
+		   (push (cons title meta) pages)))
 	       (setq pages (nreverse pages))
 	       ;; Add prev/next/first/last url
 	       (cl-loop for page in pages
@@ -280,63 +283,16 @@ The INDEX contains only headlines with file-name and no TODO."
 			      (alist-get 'slug (car pages)))
 			(setf (alist-get 'last page)
 			      (alist-get 'slug (car (last pages)))))
-	       (push pages all-new-pages))
-	     (remove entry index)
-	     )
-    (push all-new-pages index)))
-
-
-(defun nori-site-paginate-items (index-file items page-size)
-  "Split an alist of ITEMS (TITLE . METADATA-ALIST) into pages of PAGE-SIZE and of type INDEX-FILE.
-Return an alist PAGES"
-  (let* ((total-pages (ceiling (/ (length items) page-size)))
-	 (pages `())
-	 start-index
-	 end-index)
-    (dotimes (i total-pages) ;for each page from 0 to total-pages
-      (setq start-index (* i page-size)) ;index of the first item on the page
-      (setq end-index (min (+ start-index page-size) (length items)))
-      (let* ((page (copy-alist index-file))
-	     (metadata (car page))
-	     (sections-slugs (alist-get 'sections-slugs metadata))
-	     (slug (alist-get 'slug metadata))
-	     (file-path-dir (alist-get 'file-path-dir metadata))
-	     (file-path-file (alist-get 'file-path-file metadata))
-	     (list-items (alist-get 'list-items metadata))
-	     (page-number (1+ i)))
-	(setf (alist-get 'sections-slugs metadata)
-	      (concat sections-slugs page-number "/"))
-	(setf (alist-get 'slug metadata)
-	      (concat slug 
-		      (setf (alist-get 'sections-
-				       `((page-number . ,(1+ i))
-					 (total-pages . ,total-pages)
-					 (items-range . ,(seq-subseq items start-index end-index))
-					 (page-url . ,(if (= 0 i) "/"
-							(format "/page/%d/" (1+ i)))))
-				       ))
-		      (push page pages)))
-	(setq pages (nreverse pages))
-	;; Add prev/next/first/last url
-	(cl-loop for page in pages
-		 for idx from 0
-		 do
-		 (setf (alist-get 'prev page)
-		       (when (> idx 0)
-			 (alist-get 'page-url (nth (- idx 1) pages))))
-		 (setf (alist-get 'next page)
-		       (when (< idx (1- (length pages)))
-			 (alist-get 'page-url (nth (+ idx 1) pages))))
-		 (setf (alist-get 'first page)
-		       (alist-get 'page-url (car pages)))
-		 (setf (alist-get 'last page)
-		       (alist-get 'page-url (car (last pages)))))
-	pages
-	))))
-
-					;(nori-site-paginate-list (nori-site-gather-items "poem") 3)
+	       (dolist (p pages)
+		 (push p new-index)))
+	     else
+	     do (push entry new-index))
+    (nreverse new-index)))
 
 #+end_src
+
+#+RESULTS: paginate-list
+: nori-site-paginate-items
 
 ** Render pages
 #+name: render-all-pages
@@ -352,8 +308,8 @@ Return an alist PAGES"
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
   (interactive)
   ;; Parse the org-source if not parsed yet
-  (unless nori-site-entry-index
-    (nori-site-build-entry-index nori-site-source-org-filename))
+  ;(unless nori-site-entry-index
+    (nori-site-build-entry-index nori-site-source-org-filename);)
 
   ;; Run the css compilation and minification
   (shell-command "bash /home/nori/Documents/Notes/website/process-css.sh")
@@ -384,7 +340,6 @@ Return an alist PAGES"
 	     (file-path-dir (alist-get 'file-path-dir meta))
 	     (html (nori-site-export-subtree-to-html org-buffer begin))
 	     (title (alist-get 'title meta)))
-	(message "meta is %s" meta)
 	;; Ensure directory exists
 	(unless (file-exists-p file-path-dir)
 	  (make-directory file-path-dir t))
@@ -448,7 +403,7 @@ Return an alist PAGES"
 	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
 	    ("{{FAVICON}}" . ,nori-site-favicon)
 	    ("{{SITE_NAME}}" . ,nori-site-title)
-	    ("{{FEATURED_IMAGE}}" . ,(concat "/" f-image))
+	    ("{{FEATURED_IMAGE}}" . ,f-image)
 	    ("{{FEATURED_ALT}}" . ,f-alt)
 	    ("{{HOME_URL}}" . "/")
 	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
@@ -461,7 +416,7 @@ Return an alist PAGES"
 				      (poem-list-html ""))
 				  (dolist (poem poems)
 				    (let ((poem-replacements
-					   `(("{{ITEM_URL}}" . ,(alist-get 'url (cdr poem)))
+					   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr poem))))
 					     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr poem))))))
 				      (setq poem-list-html (concat poem-list-html "\n" (nori-site-render-template poem-listing-template poem-replacements)))))
 				  poem-list-html))
@@ -620,9 +575,9 @@ used to add the active class."
              (date-display (format-time-string "%d %b" date))
              (title (alist-get 'title meta))
              (file-name (alist-get 'file-name meta))
-	     (path-chain (alist-get 'path-chain meta))
-	     (url (concat "/" (string-join path-chain "/") "/" file-name)))
-					;(message "%s" title)
+	     (slug (alist-get 'slug meta))
+	     (url (concat "/" slug)))
+
         ;; Check if year changed
         (if (not (string= year-str prev-year))
             ;; New Year Group
