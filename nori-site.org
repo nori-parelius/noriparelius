@@ -33,7 +33,7 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
 - pagination - create pages
-  - for posts/poems/alphabet-superset
+  - for posts/poems/alphabet-superset - done
   - for microblog by years
 - pagination - buttons
   - for posts and as
@@ -221,8 +221,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	index))))
 
 
-					;(nori-site-build-entry-index nori-site-source-org-filename)
-		  #+end_src
+#+end_src
 
 #+RESULTS: entry-index
 : nori-site-build-entry-index
