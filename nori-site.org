@@ -98,155 +98,138 @@ Use ~sass input.scss output.css --style=compressed~
 #+RESULTS: variables
 : nori-site-concat-to-dir
 
-** Build the entry index - all the metadata and html from the source org file
+** Build the entry index - all the metadata from the source org file (not the html or contents) + anything else needed to render pages
 #+name: entry-index
 #+begin_src elisp :noweb strip-export
 <<variables>>
-(defun nori-site-build-entry-index (&optional org-file)
-  "Scan the ORG-FILE buffer - source file holding posts - and build a global index of metadata and contents.
-Stores the result in 'nori-site-post-index'."
-  (interactive)
-  (let ((o-buffer
-	 (if org-file (find-file-noselect org-file)
-	   (current-buffer)))
-	(index '()))
-    (with-current-buffer o-buffer
-      ;; Parse the buffer once
-      (let ((ast (org-element-parse-buffer)))
-	;; Process each headline
-	(org-element-map ast 'headline
-	  (lambda (headline)
-	    (let* ((begin (org-element-property :begin headline))
-		   (props (org-entry-properties begin 'all))
-		   (file-name (alist-get
-			       "EXPORT_FILE_NAME"
-			       props nil nil #'string=))
-		   (section-name (alist-get
-				  "EXPORT_SECTION"
-				  props nil nil #'string=)))
-	      ;; Only process sections and files
-	      (when (or section-name file-name)
-		;; Extract everything
-		(let* ((contents-begin (org-element-property :contents-begin headline))
-		       (contents-end (org-element-property :contents-end headline))
-		       (level (org-element-property :level headline))
-		       (ancestors 
-			(org-element-lineage-map headline
-			    (lambda (parent)
-			      (when (eq (org-element-type parent) 'headline)
-				parent))))
-		       (ancestors-begin (mapcar (lambda (parent)
-						  (org-element-property :begin parent))
-						ancestors))
-		       (ancestors-props (mapcar (lambda (an-begin)
-						  (org-entry-properties an-begin 'all))
-						ancestors-begin))
-		       (ancestors-names (mapcar (lambda (parent)
-						  (substring-no-properties
-						   (org-element-interpret-data
-						    (org-element-property :title parent))))
-						ancestors))
-		       (path-chain (mapcar (lambda (an-props)
-					     (alist-get "EXPORT_SECTION" an-props nil nil #'string=))
-					   ancestors-props))
+<<get-items>>
+<<paginate-list>>
 
-		       (title (substring-no-properties
-			       (org-element-interpret-data
-				(org-element-property :title headline))))
-		       (date (alist-get
-			      "EXPORT_DATE"
-			      props nil nil #'string=))
-		       (categories (org-entry-get
-				    begin
-				    "EXPORT_CATEGORIES"
-				    :inherit))
-		       (layout (alist-get "EXPORT_LAYOUT"
-					  props nil nil #'string=))
-		       (f-image (alist-get "EXPORT_FEATURED_IMAGE"
-					   props nil nil #'string=))
-		       (f-alt (alist-get "EXPORT_FEATURED_ALT"
-					 props nil nil #'string=))
-		       (description (alist-get "DESCRIPTION"
-					       props nil nil #'string=))
-		       (menu-name (alist-get "MENU_NAME"
-					     props nil nil #'string=))
-		       (todo (org-entry-get
-			      begin
-			      "TODO"
-			      :inherit))
-		       (tags (org-entry-get
-			      begin
-			      "ALLTAGS"
-			      :inherit))
-		       (publish-dir (expand-file-name nori-site-publish-directory))
-		       (target-dir publish-dir)
-		       (final-filename nil)
-		       (url
-			(if (or (string= file-name "_index")(string= file-name "index"))
-			    (concat "/" (string-join path-chain "/"))
-			  (concat "/" (string-join path-chain "/") "/" file-name)))
-		       (contents
-			(when contents-begin ;just in case it's empty
-			  (buffer-substring contents-begin contents-end)))
-		       (wordcount (count-words contents-begin contents-end)))
+(defun nori-site-extract-headline-meta (headline)
+  "Extract metadata alist from one HEADLINE node.
+Assumes to only get headlines that have an export_file_name, in order not to include subheadings and not even sections, those will be handled through files." 
+  ;; Extract everything
+  (let* ((begin (org-element-property :begin headline))
+	 (props (org-entry-properties begin 'all))
+	 (file-name (alist-get "EXPORT_FILE_NAME" props nil nil #'string=))
+	 (contents-begin (org-element-property :contents-begin headline))
+	 (contents-end (org-element-property :contents-end headline))
+	 (title (substring-no-properties
+		 (org-element-interpret-data
+		  (org-element-property :title headline))))
+	 (date (alist-get "EXPORT_DATE" props nil nil #'string=))
+	 (layout (alist-get "EXPORT_LAYOUT" props nil nil #'string=))
+	 (f-image (alist-get "EXPORT_FEATURED_IMAGE" props nil nil #'string=))
+	 (f-alt (alist-get "EXPORT_FEATURED_ALT" props nil nil #'string=))
+	 (description (alist-get "DESCRIPTION" props nil nil #'string=))
+	 (page-size (alist-get "PAGINATION" props nil nil #'string=))
+	 (todo (org-entry-get begin "TODO" :inherit))
+	 (tags (org-entry-get begin "ALLTAGS" :inherit))
 
-		  
-		  ;; Determine target directory and final-filename
-		  ;; Append path chain
-		  (dolist (part (nreverse path-chain))
-		    (setq target-dir (expand-file-name part target-dir)))
-		  ;; Append current section name if exists
-		  (when section-name
-		    (setq target-dir (expand-file-name section-name target-dir)))
-		  
-		  ;; Determine filename
-		  (if file-name
-		      (if (or (string= file-name "_index")(string= file-name "index"))
-			  ;; Index files go directly in the calculated target-dir
-			  (setq final-filename (expand-file-name "index.html" target-dir))
-			;; Regular posts get their own subfolder /target/post-name/index.html
-			(setq target-dir (expand-file-name file-name target-dir))
-			(setq final-filename (expand-file-name "index.html" target-dir))))		  
-
-		  ;; Build the index entry for the headline
-		  (let ((meta `((begin . ,begin)
-				(file-name . ,file-name)
-				(section-name . ,section-name)
-				(contents-begin . ,contents-begin)
-				(contents-end . ,contents-end)
-				(level . ,level)
-				(path-chain . ,(nreverse path-chain))
-				(ancestors-names . ,(nreverse ancestors-names))
-				(title . ,title)
-				(date . ,date)
-				(categories . ,categories)
-				(layout . ,layout)
-				(f-image . ,f-image)
-				(f-alt . ,f-alt)
-				(description . ,description)
-				(menu-name . ,menu-name)
-				(todo . ,todo)
-				(tags . ,tags)
-				(target-dir . ,target-dir)
-				(final-filename . ,final-filename)
-				(url . ,url)
-				(wordcount . ,wordcount)
-					;(contents . ,contents)
-				)))
-		    ;; Add to index
-		    (push (cons title meta) index)))))))))
-    ;; Store globally
-    (setq nori-site-entry-index index)
-    (message "Indexed %d posts." (length index))
-    index
+	 (wordcount (count-words contents-begin contents-end))
+	 (ancestors (org-element-lineage-map headline
+			(lambda (parent)
+			  (when (eq (org-element-type parent) 'headline) parent))))
+	 (ancestors-begin (mapcar (lambda (parent)
+				    (org-element-property :begin parent))
+				  ancestors))
+	 (ancestors-props (mapcar (lambda (an-begin)
+				    (org-entry-properties an-begin 'all))
+				  ancestors-begin))
+	 (sections-names (mapcar (lambda (parent)
+				   (substring-no-properties
+				    (org-element-interpret-data
+				     (org-element-property :title parent))))
+				 ancestors))
+	 (sections-slugs (mapcar (lambda (an-prop)
+				   (alist-get "EXPORT_SECTION" an-prop nil nil #'string=))
+				 ancestors-props))
+	 (slug-interm (concat "/" (string-join (nreverse sections-slugs) "/") "/"))
+	 (slug  (if (or (string= file-name "_index") (string= file-name "index")) slug-interm
+		  (concat slug-interm file-name "/")))
+	 (file-path-dir (concat nori-site-publish-directory slug))
+	 (file-path-file (concat file-path-dir "index.html"))
+	 
+	 ;; Build the metadata alist for the headline
+	 (meta `((begin . ,begin)
+		 (file-name . ,file-name)
+		 (contents-begin . ,contents-begin)
+		 (contents-end . ,contents-end)
+		 (title . ,title)
+		 (date . ,date)
+		 (layout . ,layout)
+		 (f-image . ,f-image)
+		 (f-alt . ,f-alt)
+		 (description . ,description)
+		 (page-size . ,page-size)
+		 (todo . ,todo)
+		 (tags . ,tags)
+		 (wordcount . ,wordcount)
+		 (sections-names . ,sections-names)
+		 (sections-slugs . ,sections-slugs)
+		 (slug . ,slug)
+		 (file-path-dir . ,file-path-dir)
+		 (file-path-file . ,file-path-file)
+		 (list-items . ,nil)
+		 (pages . ,nil)
+		 )))
+    meta
     ))
+(defun nori-site-traverse-ast-for-index (ast)
+  "Traverse AST and return an INDEX as alist of (TITLE . METADATA-ALIST).
+The INDEX contains only headlines with file-name and no TODO."
+  (let ((index '()))
+    (org-element-map ast 'headline
+      (lambda (headline)
+	(let* ((begin (org-element-property :begin headline))
+	       (props (org-entry-properties begin 'all))
+	       (file-name (alist-get "EXPORT_FILE_NAME" props nil nil #'string=))
+	       (todo (org-entry-get begin "TODO" :inherit)))
+	  ;; Only process files, not subnodes or sections, and exclude todos
+	  (when (and file-name (not (and todo (string= todo "TODO"))))
+	    (let* ((meta (nori-site-extract-headline-meta headline))
+		   (title (alist-get 'title meta)))
+					; Push to index
+	      (push (cons title meta) index))))))
+    index))
 
-;(nori-site-build-entry-index  nori-site-source-org-filename)
+(defun nori-site-add-listings-data-to-index (index)
+  "Add data about which entries are on a listing entry and how pages are."
+  (cl-loop for entry in index
+	   for metadata = (cdr entry)
+	   for file-name = (alist-get 'file-name metadata)
+	   when (string= file-name "_index")
+	   do
+	   (let* ((parent-section (car (alist-get 'sections-slugs metadata)))
+		  (page-size (alist-get 'page-size metadata))
+		  (list-items (nori-site-gather-items parent-section index))
+		  (pages (when page-size (nori-site-paginate-list list-items (string-to-number page-size))))
+		  )
+	     (setf (alist-get 'list-items metadata) list-items)
+	     (setf (alist-get 'pages metadata) pages)))
+  index)
 
-			#+end_src
+(defun nori-site-build-entry-index (&optional org-file)
+  "Scan the ORG-FILE or current buffer and build a global index of metadata."
+  (interactive)
+  (let* ((o-buffer
+	  (if org-file (find-file-noselect org-file)
+	    (current-buffer))))
+    (with-current-buffer o-buffer
+      (let* ((ast (org-element-parse-buffer))
+	     (index (nori-site-traverse-ast-for-index ast)))
+	(setq index (nori-site-add-listings-data-to-index index))
+	(setq nori-site-entry-index index)
+	(message "Indexed %d entries." (length index))
+	index))))
+
+
+;(nori-site-build-entry-index nori-site-source-org-filename)
+		  #+end_src
 
 #+RESULTS: entry-index
 : nori-site-build-entry-index
+
 
 ** Render pages
 #+name: render-all-pages
@@ -270,10 +253,8 @@ Stores the result in 'nori-site-post-index'."
 
   (let* ((publish-dir (expand-file-name nori-site-publish-directory))
 	 (org-buffer (find-file-noselect nori-site-source-org-filename))
-	 (posts (nori-site-gather-items "post"))
-	 (poems (nori-site-gather-items "poem"))
-	 (al-supersets (nori-site-gather-items "alphabet-superset"))
-	 (poem-pages (nori-site-paginate-list poems 5))
+	 (posts (nori-site-gather-items "post" nori-site-entry-index))
+	 (poems (nori-site-gather-items "poem" nori-site-entry-index))
 	 (archive-html (nori-site-generate-archive-sidebar posts)))
 
     ;; Ensure publish directory exists, remove old one if there was one
@@ -287,51 +268,32 @@ Stores the result in 'nori-site-post-index'."
     (copy-directory nori-site-css-dir publish-dir t t nil)
     (copy-directory nori-site-fonts-dir publish-dir t t nil)
     
-    (message "Index length %d" (length nori-site-entry-index))
-    
     ;; Loop through index to render
     (dolist (entry nori-site-entry-index)
       
       (let* ((meta (cdr entry))
 	     (file-name (alist-get 'file-name meta))
 	     (begin (alist-get 'begin meta))
-	     (final-filename (alist-get 'final-filename meta))
-	     (todo-state (alist-get 'todo meta))
-	     (target-dir (alist-get 'target-dir meta))
-	     (html (nori-site-export-subtree-to-html org-buffer begin)))
+	     (file-path-file (alist-get 'file-path-file meta))
+	     (file-path-dir (alist-get 'file-path-dir meta))
+	     (html (nori-site-export-subtree-to-html org-buffer begin))
+	     (title (alist-get 'title meta)))
 
-	;; Skip TODO items
-	(unless (and todo-state (string= todo-state "TODO"))
-	  ;; Ensure directory exists
-	  (unless (file-exists-p target-dir)
-	    (make-directory target-dir t))
+	;; Ensure directory exists
+	(unless (file-exists-p file-path-dir)
+	  (make-directory file-path-dir t))
 
-	  ;; Render
-	  (when final-filename
-	    (if (string= file-name "_index")
-		(nori-site-render-listing-page meta html archive-html posts poems poem-pages)
-	      (nori-site-render-single-page meta html archive-html posts poems)))
-	  )))))
+	;; Render
+	(let ((page (nori-site-generate-page meta html archive-html posts poems)))
+	  (with-temp-file file-path-file
+	    (insert page))
+
+	  (message "Published: %s -> %s" title file-name))
+	))))
 
 
-(defun nori-site-render-single-page (meta html archive-html posts poems)
-  "Render a single page."
-  (let ((final-filename (alist-get 'final-filename meta))
-	(file-name (alist-get 'file-name meta))
-	(title (alist-get 'title meta))
-	(page (nori-site-generate-page meta html archive-html posts poems)))
-    (with-temp-file final-filename
-      (insert page))
-
-    (message "Published: %s -> %s" title file-name)))
-
-(defun nori-site-render-listing-page (meta html archive-html posts poems poem-pages)
-  "Render a listing page."
-  )
-
-  
 (nori-site-render-all-pages)
-      #+end_src
+#+end_src
 
 #+RESULTS: render-all-pages
 ** Generate page
@@ -347,31 +309,29 @@ Stores the result in 'nori-site-post-index'."
   (let* ((layout (alist-get 'layout metadata))
 	 (title (alist-get 'title metadata))
 	 (file-name (alist-get 'file-name metadata))
-	 (url (alist-get 'url metadata))
-	 (section-name (alist-get 'section-name metadata))
+	 (slug (alist-get 'slug metadata))
 	 (f-image (alist-get 'f-image metadata))
 	 (f-alt (alist-get 'f-alt metadata))
 	 (description (alist-get 'description metadata))
-	 (path-chain (alist-get 'path-chain metadata))
-	 (ancestors-names (alist-get 'ancestors-names metadata))
+	 (sections-slugs (alist-get 'sections-slugs metadata))
+	 (sections-names (alist-get 'sections-names metadata))
 	 (template (if layout
 		       (nori-site-load-template layout)
-		     (nori-site-load-template (car path-chain))))
+		     (nori-site-load-template (car sections-slugs))))
 	 (date (alist-get 'date metadata))
 	 (tags (alist-get 'tags metadata))
 	 (wordcount (alist-get 'wordcount metadata))
-	 (menu-name (alist-get 'menu-name metadata))
-	 (menu-html (nori-site-build-menu menu-name))
+	 (menu-html (nori-site-build-menu slug))
 					;(sidebar-html (nori-site-build-sidebar metadata))
 	 (replacements
 	  `(("{{TITLE}}" . ,title)
 	    ("{{CONTENTS}}" . ,html)
 	    ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
-	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url (string-join path-chain "/") "/" (unless file-name "index")))
+	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url slug))
 					;("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
-	    ("{{URL}}" . ,url)
-	    ("{{SECTION_TITLE}}" . ,(car ancestors-names))
-	    ("{{SECTION_URL}}" . ,(concat "/" (string-join path-chain "/")))
+	    ("{{URL}}" . ,slug)
+	    ("{{SECTION_TITLE}}" . ,(car sections-names))
+	    ("{{SECTION_URL}}" . ,(concat "/" (string-join sections-slugs "/")))
 	    ("{{DATE}}" . ,date)
 	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
 	    ("{{WORDCOUNT}}" . ,(int-to-string wordcount))
@@ -383,7 +343,7 @@ Stores the result in 'nori-site-post-index'."
 	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
 	    ("{{FAVICON}}" . ,nori-site-favicon)
 	    ("{{SITE_NAME}}" . ,nori-site-title)
-	    ("{{FEATURED_IMAGE}}" . ,(concat nori-site-base-url f-image))
+	    ("{{FEATURED_IMAGE}}" . ,(concat "/" f-image))
 	    ("{{FEATURED_ALT}}" . ,f-alt)
 	    ("{{HOME_URL}}" . "/")
 	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
@@ -483,7 +443,7 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 ** Create menu
 #+name: make-menu
 #+begin_src elisp :noweb strip-export
-(defun nori-site-build-menu (menu-name)
+(defun nori-site-build-menu (page-slug)
   "Build a flat HTML menu.
 CURRENT-FILE is the EXPORT_FILE_NAME of the page being rendered,
 used to add the active class."
@@ -498,7 +458,7 @@ used to add the active class."
     (dolist (item menu-items)
       (let* ((title (car item))
 	     (menu-url (cdr item))
-	     (is-active (and menu-name (string= menu-name title)))
+	     (is-active (and page-slug (string= page-slug menu-url)))
 	     (attrs (if is-active
                         "aria-current=\"page\" class=\"active\""
                       "")))
@@ -512,28 +472,21 @@ used to add the active class."
 
 #+RESULTS: make-menu
 : nori-site-build-menu
-** Get all itmes of certain type
+** Get all items of certain type
 #+name: get-items
 #+begin_src elisp :noweb strip-export
 <<variables>>
-(defun nori-site-gather-items (parent-section-name)
-  "Gather all items with a given PARENT-SECTION-NAME into an alist of the same form as nori-site-entry-index."
+(defun nori-site-gather-items (parent-section-name index)
+  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site-entry-index."
   ;; Gather items
-  ;; Parse the org-source if not parsed yet
-  (unless nori-site-entry-index
-    (nori-site-build-entry-index nori-site-source-org-filename))
-  (let ((items (copy-alist nori-site-entry-index)))
-    (setq items (cl-remove-if
+  (let ((items (copy-alist index)))
+    (setq items (cl-remove-if-not
 		 (lambda (item)
 		   (let* ((metadata (cdr item))
-			  (path-chain (cdr (assoc 'path-chain metadata)))
-			  (parent (car path-chain))
-			  (todo (cdr (assoc 'todo metadata)))
+			  (parent (car (alist-get 'sections-slugs metadata)))
 			  (date (cdr (assoc 'date metadata)))
-			  (file-name (cdr (assoc 'file-name metadata)))
 			  )
-
-		     (or (not date) (not file-name) (not (equal parent-section-name parent)) (and todo (string= todo "TODO")))))
+		     (and date (equal parent-section-name parent))))
 		 items))
     (message "%s count %d" parent-section-name (length items))
     ;; Sort by date descending
