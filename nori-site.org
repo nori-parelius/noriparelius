@@ -144,7 +144,7 @@ Assumes to only get headlines that have an export_file_name, in order not to inc
 	 (sections-slugs (mapcar (lambda (an-prop)
 				   (alist-get "EXPORT_SECTION" an-prop nil nil #'string=))
 				 ancestors-props))
-	 (slug-interm (concat "/" (string-join (nreverse sections-slugs) "/") "/"))
+	 (slug-interm (concat (string-join (nreverse sections-slugs) "/") "/"))
 	 (slug  (if (or (string= file-name "_index") (string= file-name "index")) slug-interm
 		  (concat slug-interm file-name "/")))
 	 (file-path-dir (concat nori-site-publish-directory slug))
@@ -171,7 +171,6 @@ Assumes to only get headlines that have an export_file_name, in order not to inc
 		 (file-path-dir . ,file-path-dir)
 		 (file-path-file . ,file-path-file)
 		 (list-items . ,nil)
-		 (pages . ,nil)
 		 )))
     meta
     ))
@@ -201,12 +200,9 @@ The INDEX contains only headlines with file-name and no TODO."
 	   when (string= file-name "_index")
 	   do
 	   (let* ((parent-section (car (alist-get 'sections-slugs metadata)))
-		  (page-size (alist-get 'page-size metadata))
-		  (list-items (nori-site-gather-items parent-section index))
-		  (pages (when page-size (nori-site-paginate-list list-items (string-to-number page-size))))
-		  )
-	     (setf (alist-get 'list-items metadata) list-items)
-	     (setf (alist-get 'pages metadata) pages)))
+		  (list-items (nori-site-gather-items parent-section index)))
+	     (setf (alist-get 'list-items metadata) list-items)))
+  
   index)
 
 (defun nori-site-build-entry-index (&optional org-file)
@@ -219,17 +215,128 @@ The INDEX contains only headlines with file-name and no TODO."
       (let* ((ast (org-element-parse-buffer))
 	     (index (nori-site-traverse-ast-for-index ast)))
 	(setq index (nori-site-add-listings-data-to-index index))
+;	(setq index (nori-site-paginate index))
 	(setq nori-site-entry-index index)
 	(message "Indexed %d entries." (length index))
 	index))))
 
 
-;(nori-site-build-entry-index nori-site-source-org-filename)
+					;(nori-site-build-entry-index nori-site-source-org-filename)
 		  #+end_src
 
 #+RESULTS: entry-index
 : nori-site-build-entry-index
+** Paginate list
+#+name: paginate-list
+#+begin_src elisp :noweb strip-export
+<<get-items>>
+(defun nori-site-paginate (index)
+  (let ((all-new-pages `()))
+    (cl-loop for entry in index
+	     for metadata = (cdr entry)
+	     for file-name = (alist-get 'file-name metadata)
+	     for page-size = (alist-get 'page-size metadata)
+	     when (and (string= file-name "_index") page-size)
+	     do
+	     (let* ((page-size (string-to-number page-size))
+		    (sections-slugs (alist-get 'sections-slugs metadata))
+		    (slug (alist-get 'slug metadata))
+		    (file-path-dir (alist-get 'file-path-dir metadata))
+		    (file-path-file (alist-get 'file-path-file metadata))
+		    (list-items (alist-get 'list-items metadata))
+		    (total-pages (ceiling (/ (length list-items) page-size)))
+		    (pages `()))
+	       (dotimes (i total-pages) ;for each page from 0 to total-pages
+		 (let* ((page (if (= 0 i) entry
+				(copy-alist entry)))
+			(page-number (1+ i))
+			(start-index (* i page-size))
+			(end-index (min (+ start-index page-size) (length list-items))))
+		   (unless (= 0 i)
+		     (setf (alist-get 'sections-slugs metadata)
+			   (push page-number sections-slugs))
+		     (message "here")
+		     (setf (alist-get 'slug metadata)
+			   (concat slug (format "page/%d/" (1+ i))))
+		     (setf (alist-get 'file-path-dir metadata)
+			   (concat file-path-dir (format "page/%d/" (1+ i))))
+		     (setf (alist-get 'file-path-file metadata)
+			   (concat (alist-get 'file-path-dir metadata) "index.html")))
+		   (setf (alist-get 'list-items metadata)
+			 (seq-subseq list-items start-index end-index))
+		   (push page pages)))
+	       (setq pages (nreverse pages))
+	       ;; Add prev/next/first/last url
+	       (cl-loop for page in pages
+			for idx from 0
+			do
+			(setf (alist-get 'prev page)
+			      (when (> idx 0)
+				(alist-get 'slug (nth (- idx 1) pages))))
+			(setf (alist-get 'next page)
+			      (when (< idx (1- (length pages)))
+				(alist-get 'slug (nth (+ idx 1) pages))))
+			(setf (alist-get 'first page)
+			      (alist-get 'slug (car pages)))
+			(setf (alist-get 'last page)
+			      (alist-get 'slug (car (last pages)))))
+	       (push pages all-new-pages))
+	     (remove entry index)
+	     )
+    (push all-new-pages index)))
 
+
+(defun nori-site-paginate-items (index-file items page-size)
+  "Split an alist of ITEMS (TITLE . METADATA-ALIST) into pages of PAGE-SIZE and of type INDEX-FILE.
+Return an alist PAGES"
+  (let* ((total-pages (ceiling (/ (length items) page-size)))
+	 (pages `())
+	 start-index
+	 end-index)
+    (dotimes (i total-pages) ;for each page from 0 to total-pages
+      (setq start-index (* i page-size)) ;index of the first item on the page
+      (setq end-index (min (+ start-index page-size) (length items)))
+      (let* ((page (copy-alist index-file))
+	     (metadata (car page))
+	     (sections-slugs (alist-get 'sections-slugs metadata))
+	     (slug (alist-get 'slug metadata))
+	     (file-path-dir (alist-get 'file-path-dir metadata))
+	     (file-path-file (alist-get 'file-path-file metadata))
+	     (list-items (alist-get 'list-items metadata))
+	     (page-number (1+ i)))
+	(setf (alist-get 'sections-slugs metadata)
+	      (concat sections-slugs page-number "/"))
+	(setf (alist-get 'slug metadata)
+	      (concat slug 
+		      (setf (alist-get 'sections-
+				       `((page-number . ,(1+ i))
+					 (total-pages . ,total-pages)
+					 (items-range . ,(seq-subseq items start-index end-index))
+					 (page-url . ,(if (= 0 i) "/"
+							(format "/page/%d/" (1+ i)))))
+				       ))
+		      (push page pages)))
+	(setq pages (nreverse pages))
+	;; Add prev/next/first/last url
+	(cl-loop for page in pages
+		 for idx from 0
+		 do
+		 (setf (alist-get 'prev page)
+		       (when (> idx 0)
+			 (alist-get 'page-url (nth (- idx 1) pages))))
+		 (setf (alist-get 'next page)
+		       (when (< idx (1- (length pages)))
+			 (alist-get 'page-url (nth (+ idx 1) pages))))
+		 (setf (alist-get 'first page)
+		       (alist-get 'page-url (car pages)))
+		 (setf (alist-get 'last page)
+		       (alist-get 'page-url (car (last pages)))))
+	pages
+	))))
+
+					;(nori-site-paginate-list (nori-site-gather-items "poem") 3)
+
+#+end_src
 
 ** Render pages
 #+name: render-all-pages
@@ -270,7 +377,6 @@ The INDEX contains only headlines with file-name and no TODO."
     
     ;; Loop through index to render
     (dolist (entry nori-site-entry-index)
-      
       (let* ((meta (cdr entry))
 	     (file-name (alist-get 'file-name meta))
 	     (begin (alist-get 'begin meta))
@@ -278,11 +384,10 @@ The INDEX contains only headlines with file-name and no TODO."
 	     (file-path-dir (alist-get 'file-path-dir meta))
 	     (html (nori-site-export-subtree-to-html org-buffer begin))
 	     (title (alist-get 'title meta)))
-
+	(message "meta is %s" meta)
 	;; Ensure directory exists
 	(unless (file-exists-p file-path-dir)
 	  (make-directory file-path-dir t))
-
 	;; Render
 	(let ((page (nori-site-generate-page meta html archive-html posts poems)))
 	  (with-temp-file file-path-file
@@ -329,7 +434,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	    ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
 	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url slug))
 					;("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
-	    ("{{URL}}" . ,slug)
+	    ("{{URL}}" . ,(concat "/" slug))
 	    ("{{SECTION_TITLE}}" . ,(car sections-names))
 	    ("{{SECTION_URL}}" . ,(concat "/" (string-join sections-slugs "/")))
 	    ("{{DATE}}" . ,date)
@@ -577,51 +682,6 @@ used to add the active class."
 : <li><a href="/tags/two">two</a></li>
 : <li><a href="/tags/three">three</a></li>
 
-** Paginate list
-#+name: paginate-list
-#+begin_src elisp :noweb strip-export
-<<get-items>>
-(defun nori-site-paginate-list (items page-size)
-  "Split an alist of ITEMS (TITLE . METADATA-ALIST) into pages of PAGE-SIZE.
-Return an alist PAGES"
-  (let* ((total-pages (ceiling (/ (length items) page-size)))
-	 (pages `())
-	 start-index
-	 end-index)
-    (dotimes (i total-pages) ;for each page from 0 to total-pages
-      (setq start-index (* i page-size)) ;index of the first item on the page
-      (setq end-index (min (+ start-index page-size) (length items)))
-      (let ((page `((page-number . ,(1+ i))
-		  (total-pages . ,total-pages)
-		  (items-range . ,(seq-subseq items start-index end-index))
-		  (page-url . ,(if (= 0 i) "/"
-				 (format "/page/%d/" (1+ i)))))
-		  ))
-	(push page pages)))
-    (setq pages (nreverse pages))
-    ;; Add prev/next/first/last url
-    (cl-loop for page in pages
-	     for idx from 0
-	     do
-	     (setf (alist-get 'prev page)
-		   (when (> idx 0)
-		     (alist-get 'page-url (nth (- idx 1) pages))))
-	     (setf (alist-get 'next page)
-		   (when (< idx (1- (length pages)))
-		     (alist-get 'page-url (nth (+ idx 1) pages))))
-	     (setf (alist-get 'first page)
-		   (alist-get 'page-url (car pages)))
-	     (setf (alist-get 'last page)
-		   (alist-get 'page-url (car (last pages)))))
-    pages
-	    ))
-
-;(nori-site-paginate-list (nori-site-gather-items "poem") 3)
-
-#+end_src
-
-#+RESULTS: paginate-list
-: nori-site-paginate-list
 
 * Templates
 ** Head
