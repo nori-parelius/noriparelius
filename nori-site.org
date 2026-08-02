@@ -220,7 +220,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	(message "Indexed %d entries." (length index))
 	index))))
 
-
+;;(nori-site-build-entry-index nori-site-source-org-filename)
 #+end_src
 
 #+RESULTS: entry-index
@@ -257,31 +257,19 @@ The INDEX contains only headlines with file-name and no TODO."
 		   (unless (= 0 i)
 		     (setf (alist-get 'sections-slugs meta)
 			   (push (int-to-string page-number) sections-slugs))
-		     (message "sections-slugs %s" sections-slugs)
 		     (setf (alist-get 'slug meta)
 			   (concat slug (format "page/%d/" (1+ i))))
 		     (setf (alist-get 'file-path-dir meta)
 			   (concat file-path-dir (format "page/%d/" (1+ i))))
 		     (setf (alist-get 'file-path-file meta)
 			   (concat (alist-get 'file-path-dir meta) "index.html")))
+		   (setf (alist-get 'base-slug meta) slug)
+		   (setf (alist-get 'page-number meta) page-number)
+		   (setf (alist-get 'total-pages meta) total-pages)
 		   (setf (alist-get 'list-items meta)
 			 (seq-subseq list-items start-index end-index))
 		   (push (cons title meta) pages)))
 	       (setq pages (nreverse pages))
-	       ;; Add prev/next/first/last url
-	       (cl-loop for page in pages
-			for idx from 0
-			do
-			(setf (alist-get 'prev page)
-			      (when (> idx 0)
-				(alist-get 'slug (nth (- idx 1) pages))))
-			(setf (alist-get 'next page)
-			      (when (< idx (1- (length pages)))
-				(alist-get 'slug (nth (+ idx 1) pages))))
-			(setf (alist-get 'first page)
-			      (alist-get 'slug (car pages)))
-			(setf (alist-get 'last page)
-			      (alist-get 'slug (car (last pages)))))
 	       (dolist (p pages)
 		 (push p new-index)))
 	     else
@@ -316,7 +304,6 @@ The INDEX contains only headlines with file-name and no TODO."
   (let* ((publish-dir (expand-file-name nori-site-publish-directory))
 	 (org-buffer (find-file-noselect nori-site-source-org-filename))
 	 (posts (nori-site-gather-items "post" nori-site-entry-index))
-	 (poems (nori-site-gather-items "poem" nori-site-entry-index))
 	 (archive-html (nori-site-generate-archive-sidebar posts)))
 
     ;; Ensure publish directory exists, remove old one if there was one
@@ -343,7 +330,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	(unless (file-exists-p file-path-dir)
 	  (make-directory file-path-dir t))
 	;; Render
-	(let ((page (nori-site-generate-page meta html archive-html posts poems)))
+	(let ((page (nori-site-generate-page meta html archive-html)))
 	  (with-temp-file file-path-file
 	    (insert page))
 
@@ -362,8 +349,9 @@ The INDEX contains only headlines with file-name and no TODO."
 <<render-template>>
 <<make-menu>>
 <<make-tag-list>>
+<<render-pagination>>
 
-(defun nori-site-generate-page (metadata html archive-html posts poems)
+(defun nori-site-generate-page (metadata html archive-html)
   "Generate a page using the template."
   (let* ((layout (alist-get 'layout metadata))
 	 (title (alist-get 'title metadata))
@@ -380,6 +368,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (date (alist-get 'date metadata))
 	 (tags (alist-get 'tags metadata))
 	 (wordcount (alist-get 'wordcount metadata))
+	 (list-items (alist-get 'list-items metadata))
 	 (menu-html (nori-site-build-menu slug))
 					;(sidebar-html (nori-site-build-sidebar metadata))
 	 (replacements
@@ -413,7 +402,7 @@ The INDEX contains only headlines with file-name and no TODO."
 			     ""))
 	    ("{{POEM_LIST}}" . ,(let ((poem-listing-template (nori-site-load-template "poem-listing-item"))
 				      (poem-list-html ""))
-				  (dolist (poem poems)
+				  (dolist (poem list-items)
 				    (let ((poem-replacements
 					   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr poem))))
 					     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr poem))))))
@@ -424,6 +413,8 @@ The INDEX contains only headlines with file-name and no TODO."
 	    
 	    
 	    )))
+    (when (and (alist-get 'list-items metadata) (alist-get 'page-size metadata)) ;; Only if it's a listing page
+      (setq replacements (append replacements `(("{{PAGINATION}}" . ,(nori-site-render-pagination metadata))))))
     (nori-site-render-template template replacements)))
 #+end_src
 
@@ -635,7 +626,72 @@ used to add the active class."
 : <li><a href="/tags/one-one">one one</a></li>
 : <li><a href="/tags/two">two</a></li>
 : <li><a href="/tags/three">three</a></li>
+** Render pagination
+#+name: render-pagination
+#+begin_src elisp
+(defun nori-site-render-pagination (metadata)
+  (let* ((page-number (alist-get 'page-number metadata))
+         (total-pages (alist-get 'total-pages metadata))
+         ;(prev-slug (concat "/" (alist-get 'prev metadata)))
+         ;(next-slug (concat "/" (alist-get 'next metadata)))
+         ;(first-slug (concat "/" (alist-get 'first metadata)))
+         ;(last-slug (concat "/" (alist-get 'last metadata)))
+	 (base-slug (concat "/" (alist-get 'base-slug metadata)))
+         (slug (concat "/" (alist-get 'slug metadata)))
+	 (prev-slug (if (= page-number 2) base-slug
+		      (concat base-slug "page/" (int-to-string (- page-number 1)) "/")))
+	 (next-slug (concat base-slug "page/" (int-to-string (+ page-number 1)) "/"))
+	 (last-slug (concat base-slug "page/" (int-to-string total-pages) "/"))
+         (slots 5) ;; Number of page numbers to show
+         (start-page (max 1 (- page-number (floor (/ slots 2)))))
+         (end-page (min total-pages (+ start-page slots 1)))
+         html)
+    (message "page-number %s" page-number)
+    ;; Adjust start/end if we don't have enough slots
+    (when (< (- end-page start-page) slots)
+      (setq start-page (max 1 (- end-page slots))))
+    
+    ;; Build pagination HTML
+    (setq html "<ul class=\"pagination pagination-default\">")
+    
+    ;; First button
+    (if (equal page-number 1)
+        (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"First\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">««</span></a></li>"))
+      (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"First\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">««</span></a></li>" base-slug))))
+    
+    ;; Previous button
+    (if (equal page-number 1)
+	(setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Previous\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">«</span></a></li>"))
+      (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Previous\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">«</span></a></li>" prev-slug)))
+      )
+    
+    ;; Page numbers
+    (cl-loop for page from start-page to end-page do
+             (if (= page page-number)
+                 (setq html (concat html (format "<li class=\"page-item active\"><a aria-current=\"page\" aria-label=\"Page %d\" class=\"page-link\" role =\"button\">%d</a></li>" page page)))
+               (let* ((page-slug (if (= page 1) base-slug
+                                   (concat base-slug "page/" (int-to-string page) "/"))))
+                 (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Page %d\" class=\"page-link\" role=\"button\">%d</a></li>" page-slug page page))))))
+    
+    ;; Next button
+    (if (equal page-number total-pages)
+	(setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Next\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">»</span></a></li>"))
+      (setq html (concat html (format  "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Next\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">»</span></a></li>" next-slug)))
+      )
+    
+    ;; Last button
+    (if (equal page-number total-pages)
+        (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Last\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">»»</span></a></li>"))
+      (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Last\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">»»</span></a></li>" last-slug))))
+    
+    (setq html (concat html "</ul>"))
+    html)
+)
 
+#+end_src
+
+#+RESULTS: render-pagination
+: nori-site-render-pagination
 
 * Templates
 ** Head
@@ -1142,6 +1198,78 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 <section id="isso-thread"></section>
 
+#+end_src
+** Pagination
+#+name: pagination
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/pagination.html"
+{{- define "_partials/inline/pagination/default.html" }}
+  {{- with .Paginator }}
+    {{- $currentPageNumber := .PageNumber }}
+
+    {{- with .First }}
+      {{- if ne $currentPageNumber .PageNumber }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      {{- else }}
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      {{- end }}
+    {{- end }}
+
+    {{- with .Prev }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+    {{- else }}
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+    {{- end }}
+
+    {{- $slots := 5 }}
+    {{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+    {{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+    {{- if lt (add (sub $end $start) 1) $slots }}
+      {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+    {{- end }}
+
+    {{- range $k := seq $start $end }}
+      {{- if eq $.Paginator.PageNumber $k }}
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page {{ $k }}" class="page-link" role="button">{{ $k }}</a>
+      </li>
+      {{- else }}
+      <li class="page-item">
+        <a href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="page-link" role="button">{{ $k }}</a>
+      </li>
+      {{- end }}
+    {{- end }}
+
+    {{- with .Next }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+    {{- else }}
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+    {{- end }}
+
+    {{- with .Last }}
+      {{- if ne $currentPageNumber .PageNumber }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+      {{- else }}
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end -}}
 #+end_src
 ** Indivindi poem listing
 #+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/poem-listing-item.html"
