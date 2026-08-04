@@ -1,0 +1,23 @@
+<article class="h-entry preview-recent-posts">
+  <div class="preview-image-div">
+    <a class="featured-image-preview-im-link" href="{{ITEM_URL}}">
+      <img src="{{ITEM_FEATURED_IMAGE}}" alt="{{ITEM_FEATURED_ALT}}" class="featured-image-preview-section">
+    </a>
+  </div>
+
+  <div class="preview-summary-div">
+    <h2 class="p-name"><a class="u-url preview-summary-link-header" href="{{ITEM_URL}}">{{ITEM_TITLE}}</a></h2>
+    
+    <p class="meta">
+      <time class="dt-published" datetime="{{ITEM_DATE}}">{{ITEM_DATE_HUMAN}}</time>
+      <span class="reading-time-words">- {{ITEM_READING_TIME}}-minute read - {{ITEM_WORDCOUNT}} words - by</span>
+      <span class="p-author h-card">
+	<a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+      </span>
+    </p>
+    
+    <a class="preview-summary-link-text" href="{{ITEM_URL}}">
+      <div class="p-summary">{{ITEM_DESCRIPTION}}</div>
+    </a>  
+  </div>
+</article>

@@ -32,13 +32,9 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-- pagination - create pages
-  - for posts/poems/alphabet-superset - done
-  - for microblog by years
-- pagination - buttons
-  - for posts and as
-  - for poems and microblog
-- post-list, as-list, microblog-list
+- pagination - create pages for microblog by years
+- next prev buttons - for poems and microblog
+- microblog-list
 - tag list, tag page
 - tag cloud
 - rss feed
@@ -400,21 +396,42 @@ The INDEX contains only headlines with file-name and no TODO."
 	    ("{{DESCRIPTION}}" . ,description)
 	    ("{{TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
 			     ""))
-	    ("{{POEM_LIST}}" . ,(let ((poem-listing-template (nori-site-load-template "poem-listing-item"))
-				      (poem-list-html ""))
-				  (dolist (poem list-items)
-				    (let ((poem-replacements
-					   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr poem))))
-					     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr poem))))))
-				      (setq poem-list-html (concat poem-list-html "\n" (nori-site-render-template poem-listing-template poem-replacements)))))
-				  poem-list-html))
-	    
-	    
-	    
-	    
 	    )))
-    (when (and (alist-get 'list-items metadata) (alist-get 'page-size metadata)) ;; Only if it's a listing page
-      (setq replacements (append replacements `(("{{PAGINATION}}" . ,(nori-site-render-pagination metadata))))))
+    (when (alist-get 'list-items metadata) ;; Only if it's a listing page
+      (when (string= "Poems" (car sections-names)) ;; Only if it is a poems listing page
+	(let ((poem-listing-template (nori-site-load-template "poem-listing-item"))
+	      (poem-list-html ""))
+	  (dolist (poem list-items)
+	    (let ((poem-replacements
+		   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr poem))))
+		     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr poem))))))
+	      (setq poem-list-html (concat poem-list-html "\n" (nori-site-render-template poem-listing-template poem-replacements)))))
+	  (setq replacements (append replacements `(("{{POEM_LIST}}" . ,poem-list-html))))))
+      (when (or (string= "Posts" (car sections-names)) (string= "Alphabet Superset" (car sections-names))) ;; Only if it is a posts listing page or alphabet superset
+	(let ((post-listing-template (nori-site-load-template "post-listing-item"))
+	      (post-list-html ""))
+	  (dolist (post list-items)
+	    (let* ((date (alist-get 'date (cdr post)))
+		  (wordcount (alist-get 'wordcount (cdr post)))
+		  (post-replacements
+		   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr post))))
+		     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr post)))
+		     ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr post)))
+		     ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr post)))
+		     ("{{ITEM_DATE}}" . ,date)
+		     ("{{ITEM_DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
+		     ("{{ITEM_READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
+		     ("{{ITEM_WORDCOUNT}}" . ,(int-to-string wordcount))
+		     ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr post)))
+		     ("{{SITE_TITLE}}" . ,nori-site-title)
+		     ("{{HOME_URL}}" . "/")
+		     ("{{PAGINATION}}" . "")
+		     )))
+	      (setq post-list-html (concat post-list-html "\n" (nori-site-render-template post-listing-template post-replacements)))))
+	  (setq replacements (append replacements `(("{{POST_LIST}}" . ,post-list-html)))))
+	(when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
+	  (setq replacements (append replacements `(("{{PAGINATION}}" . ,(nori-site-render-pagination metadata)))))))
+      )
     (nori-site-render-template template replacements)))
 #+end_src
 
@@ -1071,7 +1088,38 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
   </div>
 </main>
 #+end_src
-
+** Post list main
+#+name: post-list-main
+#+begin_src html
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="section-article">
+      <h1>{{TITLE}}</h1>
+      {{CONTENTS}}
+      <section class="recent-posts-section">
+	{{POST_LIST}}
+      </section>
+      {{PAGINATION}}
+    </article>
+  </div>
+</main>
+#+end_src
+** AS main
+#+name: as-list-main
+#+begin_src html
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="section-article">
+      <h1>{{TITLE}}</h1>
+      {{CONTENTS}}
+      {{AS_LIST}}
+      {{PAGINATION}}
+    </article>
+  </div>
+</main>
+#+end_src
 ** Sidebar
 #+name: sidebar
 #+begin_src html 
@@ -1157,6 +1205,44 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 
 
+** Poem next-prev
+#+name: poem-next-prev
+#+begin_src html
+{{ $sectionPages := where site.RegularPages "Section" "poem" }}
+{{ $current := . }}
+{{ $next := false }}
+{{ $prev := false }}
+
+{{ range $i, $p := $sectionPages }}
+  {{ if eq $p.RelPermalink $current.RelPermalink }}
+    {{ if gt $i 0 }}
+      {{ $next = index $sectionPages (sub $i 1) }}
+    {{ end }}
+    {{ if lt $i (sub (len $sectionPages) 1) }}
+      {{ $prev = index $sectionPages (add $i 1) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if or $next $prev }}
+<div class="nextprev">
+  <div class="prev">
+    {{- with $prev }}
+    <a class="prev-link" href="{{ .RelPermalink}}">
+      <div>🡠 {{ .Title }}</div>
+    </a>
+    {{ end -}}
+  </div>
+  <div class="next">
+    {{- with $next -}}
+    <a class="next-link" href="{{ .RelPermalink}}">
+      <div>{{ .Title }} 🡢</div>
+    </a>
+    {{ end -}}
+  </div>
+</div>
+{{ end }}
+#+end_src
 ** Newsletter
 #+name: newsletter
 #+begin_src html
@@ -1280,6 +1366,41 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
   </h2>
 </div>
 #+end_src
+** Indivindi AS listing
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/as-listing-item.html"
+<div class="h-entry individual-poem">
+  <h2 class="p-name">
+    <a class="u-url" href="{{ITEM_URL}}">{{ITEM_TITLE}}
+    </a>
+  </h2>
+</div>
+#+end_src
+** Indivindi post listing - summary with image
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post-listing-item.html"
+<article class="h-entry preview-recent-posts">
+  <div class="preview-image-div">
+    <a class="featured-image-preview-im-link" href="{{ITEM_URL}}">
+      <img src="{{ITEM_FEATURED_IMAGE}}" alt="{{ITEM_FEATURED_ALT}}" class="featured-image-preview-section">
+    </a>
+  </div>
+
+  <div class="preview-summary-div">
+    <h2 class="p-name"><a class="u-url preview-summary-link-header" href="{{ITEM_URL}}">{{ITEM_TITLE}}</a></h2>
+    
+    <p class="meta">
+      <time class="dt-published" datetime="{{ITEM_DATE}}">{{ITEM_DATE_HUMAN}}</time>
+      <span class="reading-time-words">- {{ITEM_READING_TIME}}-minute read - {{ITEM_WORDCOUNT}} words - by</span>
+      <span class="p-author h-card">
+	<a class="u-url p-name" href="{{HOME_URL}}"> {{SITE_TITLE}}</a>
+      </span>
+    </p>
+    
+    <a class="preview-summary-link-text" href="{{ITEM_URL}}">
+      <div class="p-summary">{{ITEM_DESCRIPTION}}</div>
+    </a>  
+  </div>
+</article>
+#+end_src
 ** Tangle templates
 *** home
 #+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/home.html"
@@ -1330,7 +1451,22 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       <<sidebar>>
 	<<footer>>
 #+end_src
-
+*** as-section
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/as-section.html"
+<<head>>
+  <<header>>
+    <<post-list-main>>
+      <<sidebar>>
+	<<footer>>
+#+end_src
+*** post-section
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/post-section.html"
+<<head>>
+  <<header>>
+    <<post-list-main>>
+      <<sidebar>>
+	<<footer>>
+#+end_src
 * Old
 ** Make site by processing headlines recursively
 #+name: make-site
