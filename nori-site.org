@@ -54,23 +54,12 @@ Use ~sass input.scss output.css --style=compressed~
   "The language of the site.")
 (defvar nori-site-title "nori parelius"
   "Title of the site.")
-(defvar nori-site-main-directory "~/Documents/Notes/website/"
-  "Directory where all the files needed for the website live")
 (defvar nori-site-publish-directory "~/Documents/Notes/website/public/"
   "Directory where published HTML files are stored.")
 (defvar nori-site-source-org-filename "~/Documents/Notes/website/noriparelius.org"
   "Filepath of the org file that holds the posts")
-(defvar nori-site-literate-file "~/Documents/Notes/website/nori-site.org"
-  "Filepath of this file, the literate config")
-(defvar nori-site-templates-dir "~/Documents/Notes/website/templates/")
-(defvar nori-site-logo "/img/logo.svg"
-  "Name of the file with logo.")
-(defvar nori-site-description "Mess and wonder - Nori's digital notebook"
-  "Description of the site.")
-(defvar nori-site-favicon "/img/favicon.ico"
-  "Favicon.")
-(defvar nori-site-default-featured-image "/img/noriparelius.png"
-  "Default featured image.")
+(defvar nori-site-templates-dir "~/Documents/Notes/website/templates/"
+  "Filepath to the dir with the html templates.")
 (defvar nori-site-img-dir "~/Documents/Notes/website/img-global/"
   "Filepath to global img directiory.")
 (defvar nori-site-content-img-dir "~/Documents/Notes/website/img/"
@@ -346,6 +335,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<make-menu>>
 <<make-tag-list>>
 <<render-pagination>>
+<<get-adjacent-poems>>
 
 (defun nori-site-generate-page (metadata html archive-html)
   "Generate a page using the template."
@@ -366,6 +356,10 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (wordcount (alist-get 'wordcount metadata))
 	 (list-items (alist-get 'list-items metadata))
 	 (menu-html (nori-site-build-menu slug))
+	 (adjacent-poems (and (string= "Poem" (car sections-names)) (nori-site-find-adjacent-poems slug nori-site-page-index)))
+	 (prev-poem (when adjacent-poems (car adjacent-poems)))
+	 (next-poem (when adjacent-poems (cdr adjacent-poems)))
+	 
 					;(sidebar-html (nori-site-build-sidebar metadata))
 	 (replacements
 	  `(("{{TITLE}}" . ,title)
@@ -394,6 +388,15 @@ The INDEX contains only headlines with file-name and no TODO."
 	    ("{{SITE_TITLE}}" . ,nori-site-title)
 	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
 	    ("{{DESCRIPTION}}" . ,description)
+	    ("{{PAGINATION}}" . "")
+	    ("{{PREVIOUS_LINK}}" . ,(if prev-poem (concat "/" (alist-get 'slug (cdr prev-poem)))
+				      ""))
+	    ("{{NEXT_LINK}}" . ,(if next-poem (concat "/" (alist-get 'slug (cdr next-poem)))
+				  ""))
+	    ("{{PREVIOUS_TITLE}}" . ,(if prev-poem (alist-get 'title (cdr prev-poem))
+				       ""))
+	    ("{{NEXT_TITLE}}" . ,(if next-poem (alist-get 'title (cdr next-poem))
+				   ""))
 	    ("{{TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
 			     ""))
 	    )))
@@ -412,28 +415,27 @@ The INDEX contains only headlines with file-name and no TODO."
 	      (post-list-html ""))
 	  (dolist (post list-items)
 	    (let* ((date (alist-get 'date (cdr post)))
-		  (wordcount (alist-get 'wordcount (cdr post)))
-		  (post-replacements
-		   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr post))))
-		     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr post)))
-		     ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr post)))
-		     ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr post)))
-		     ("{{ITEM_DATE}}" . ,date)
-		     ("{{ITEM_DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
-		     ("{{ITEM_READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
-		     ("{{ITEM_WORDCOUNT}}" . ,(int-to-string wordcount))
-		     ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr post)))
-		     ("{{SITE_TITLE}}" . ,nori-site-title)
-		     ("{{HOME_URL}}" . "/")
-		     ("{{PAGINATION}}" . "")
-		     )))
+		   (wordcount (alist-get 'wordcount (cdr post)))
+		   (post-replacements
+		    `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr post))))
+		      ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr post)))
+		      ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr post)))
+		      ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr post)))
+		      ("{{ITEM_DATE}}" . ,date)
+		      ("{{ITEM_DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
+		      ("{{ITEM_READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
+		      ("{{ITEM_WORDCOUNT}}" . ,(int-to-string wordcount))
+		      ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr post)))
+		      ("{{SITE_TITLE}}" . ,nori-site-title)
+		      ("{{HOME_URL}}" . "/")
+		      )))
 	      (setq post-list-html (concat post-list-html "\n" (nori-site-render-template post-listing-template post-replacements)))))
 	  (setq replacements (append replacements `(("{{POST_LIST}}" . ,post-list-html)))))
 	(when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
 	  (setq replacements (append replacements `(("{{PAGINATION}}" . ,(nori-site-render-pagination metadata)))))))
       )
     (nori-site-render-template template replacements)))
-#+end_src
+	    #+end_src
 
 #+RESULTS: generate-page
 : nori-site-generate-page
@@ -507,6 +509,29 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+RESULTS: render-template
 : nori-site-render-template
 
+** Get adjacent poems
+#+name: get-adjacent-poems
+#+begin_src elisp :noweb strip-export
+<<get-items>>
+(defun nori-site-find-adjacent-poems (current-slug index)
+  "Find previous and next poems relative to CURRENT-SLUG in the same section.
+Returns an alist ((PREVIOUS-ENTRY . NEXT-ENTRY))."
+  ;; Gather all poems from the same section
+  (let* ((poems (nori-site-gather-items "Poem" index))
+	 (position (cl-position-if (lambda (entry)
+				     (string= current-slug (alist-get 'slug (cdr entry))))
+				   poems))
+	 (prev-pos (and position (> position 0) (- position 1)))
+	 (next-pos (and position (< position (1- (length poems))) (+ position 1))))
+    (message "prev-pos %s" prev-pos)
+    (cons
+     (when prev-pos (nth prev-pos sorted-poems))
+     (when next-pos (nth next-pos sorted-poems)))))
+#+end_src
+
+#+RESULTS:
+: nori-site-find-adjacent-poems
+
 ** Create menu
 #+name: make-menu
 #+begin_src elisp :noweb strip-export
@@ -517,7 +542,7 @@ used to add the active class."
   (let ((menu-items '(("Home" . "/")
 		      ("Posts" . "/post/")
 		      ("Fiction" . "/alphabet-superset/")
-		      ("Microblog" . "/microblog/")))
+		      ("Microblog" . "/microblog/2026/")))
 	(html "  <nav class=\"site-nav\">\n    <ul>\n")
 	)
 
@@ -950,7 +975,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 ** Poem main
 #+name: poem-main
-#+begin_src html 
+#+begin_src html :noweb strip-export
 <main class="main-content">
   <div class="spiral"></div>
   <div class="main-content-wrapper">
@@ -978,7 +1003,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	{{CONTENTS}}
       </article>
 
-      {{POEM_NEXT_PREV}}
+      <<poem-next-prev>>
       
       <div class="back-to-poems">
 	<a href="/poem/">Back to all poems</a>
@@ -1207,41 +1232,20 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 ** Poem next-prev
 #+name: poem-next-prev
-#+begin_src html
-{{ $sectionPages := where site.RegularPages "Section" "poem" }}
-{{ $current := . }}
-{{ $next := false }}
-{{ $prev := false }}
-
-{{ range $i, $p := $sectionPages }}
-  {{ if eq $p.RelPermalink $current.RelPermalink }}
-    {{ if gt $i 0 }}
-      {{ $next = index $sectionPages (sub $i 1) }}
-    {{ end }}
-    {{ if lt $i (sub (len $sectionPages) 1) }}
-      {{ $prev = index $sectionPages (add $i 1) }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{ if or $next $prev }}
+#+begin_src html 
 <div class="nextprev">
   <div class="prev">
-    {{- with $prev }}
-    <a class="prev-link" href="{{ .RelPermalink}}">
-      <div>🡠 {{ .Title }}</div>
+    <a class="prev-link" href="{{PREVIOUS_LINK}}">
+      <div>🡠  {{PREVIOUS_TITLE}}</div>
     </a>
-    {{ end -}}
   </div>
   <div class="next">
-    {{- with $next -}}
-    <a class="next-link" href="{{ .RelPermalink}}">
-      <div>{{ .Title }} 🡢</div>
+    <a class="next-link" href="{{NEXT_LINK}}">
+      <div>{{NEXT_TITLE}} 🡢</div>
     </a>
-    {{ end -}}
   </div>
 </div>
-{{ end }}
+
 #+end_src
 ** Newsletter
 #+name: newsletter
@@ -1705,16 +1709,16 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
 ** Load template from org
 #+name: load-template-from-org
 #+begin_src elisp
-(defun nori-site-load-template-from-block (name)
+(defun nori-site-load-template-from-block (name filename)
   "Return contents of named org-babel source block NAME."
-  (with-current-buffer (find-file-noselect (expand-file-name nori-site-literate-file))
+  (with-current-buffer (find-file-noselect (expand-file-name filename))
     (let ((ast (org-element-parse-buffer)))
       (org-element-map ast 'src-block
 	(lambda (block)
 	  (when (string= (org-element-property :name block) name)
 	    (org-element-property :value block)))
 	nil t))))
-;(princ (nori-site-load-template-from-block "simple"))
+;(princ (nori-site-load-template-from-block "simple" "~/Documents/Notes/website/nori-site.org"))
 #+end_src
 ** Working it out
 *** What org-element-parse-buffer gives
