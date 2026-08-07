@@ -32,10 +32,12 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-- pagination - create pages for microblog by years
+- pagination for microblog by years
 - tag list, tag page
 - tag cloud
 - rss feed
+- css
+- 404
 
 * CODE
 ** Variables
