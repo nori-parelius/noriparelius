@@ -92,52 +92,15 @@
     <main class="main-content">
       <div class="spiral"></div>
       <div class="main-content-wrapper">
-        
-        <!-- microblog next-prev -->
-        <div class="nextprev">
-          <div class="prev">
-    	<a class="prev-link" href="{{PREVIOUS_LINK}}">
-    	  <div>{{PREVIOUS_TITLE}}</div>
-    	</a>
-          </div>
-          <div class="next">
-    	<a class="next-link" href="{{NEXT_LINK}}">
-    	  <div>{{NEXT_TITLE}}</div>
-    	</a>
-          </div>
-        </div>
-        
-        <article class="micro-article">
-          <header>
-    	
-    	<a href="{{SECTION_URL}}">
-              <h1 class="micro-section-title"> ✶ Microblog ✶ </h1>
-    	</a>	
-    
-    	<h2 class="micro-header">{{TITLE}}</h2>    
-          </header>
-          
-          <article class="micro-content">
-    	{{CONTENTS}}
-          </article>
-        </article>
-        
-        <!-- microblog next-prev -->
-        <div class="nextprev">
-          <div class="prev">
-    	<a class="prev-link" href="{{PREVIOUS_LINK}}">
-    	  <div>{{PREVIOUS_TITLE}}</div>
-    	</a>
-          </div>
-          <div class="next">
-    	<a class="next-link" href="{{NEXT_LINK}}">
-    	  <div>{{NEXT_TITLE}}</div>
-    	</a>
-          </div>
-        </div>
-        
+        <article class="micro-section">
+          <h1 class="micro-section-title"> ✶ Microblog ✶ </h1>
+          {{MICRO_PAGINATION_SUBTLE}}
+          {{CONTENTS}}
+          {{LIST}}
+          {{MICRO_PAGINATION}}
       </div>
     </main>
+    
       <div class="sidebar-extras-section">
         <div class="sidebar-widgets1">
           <div class="sidebar-archive">

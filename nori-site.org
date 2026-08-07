@@ -33,8 +33,6 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
 - pagination - create pages for microblog by years
-- next prev buttons - for poems and microblog
-- microblog-list
 - tag list, tag page
 - tag cloud
 - rss feed
@@ -73,7 +71,7 @@ Use ~sass input.scss output.css --style=compressed~
 (defvar nori-site-post-pagination-page-size 10
   "Number of posts included on each /post list page.")
 (defvar nori-site-entry-index nil
-  "Alist of (TITLE . METADATA-ALIST) for all entries.")
+  "Alist of (SLUG . METADATA-ALIST) for all entries.")
 
 (defun nori-site-concat-to-dir (dir filename)
   "Concat filename to another path interpreted as a directory."
@@ -129,9 +127,9 @@ Assumes to only get headlines that have an export_file_name, in order not to inc
 	 (sections-slugs (mapcar (lambda (an-prop)
 				   (alist-get "EXPORT_SECTION" an-prop nil nil #'string=))
 				 ancestors-props))
-	 (slug-interm (concat (string-join (nreverse sections-slugs) "/") "/"))
-	 (slug  (if (or (string= file-name "_index") (string= file-name "index")) slug-interm
-		  (concat slug-interm file-name "/")))
+	 (section-slug (concat (string-join (reverse sections-slugs) "/") "/"))
+	 (slug  (if (or (string= file-name "_index") (string= file-name "index")) section-slug
+		  (concat section-slug file-name "/")))
 	 (file-path-dir (concat nori-site-publish-directory slug))
 	 (file-path-file (concat file-path-dir "index.html"))
 	 
@@ -152,10 +150,14 @@ Assumes to only get headlines that have an export_file_name, in order not to inc
 		 (wordcount . ,wordcount)
 		 (sections-names . ,sections-names)
 		 (sections-slugs . ,sections-slugs)
+		 (section-slug . ,section-slug)
 		 (slug . ,slug)
 		 (file-path-dir . ,file-path-dir)
 		 (file-path-file . ,file-path-file)
 		 (list-items . ,nil)
+		 (list-all-items . ,nil)
+		 (prev-item . ,nil)
+		 (next-item . ,nil)
 		 )))
     meta
     ))
@@ -172,9 +174,9 @@ The INDEX contains only headlines with file-name and no TODO."
 	  ;; Only process files, not subnodes or sections, and exclude todos
 	  (when (and file-name (not (and todo (string= todo "TODO"))))
 	    (let* ((meta (nori-site-extract-headline-meta headline))
-		   (title (alist-get 'title meta)))
+		   (slug (alist-get 'slug meta)))
 					; Push to index
-	      (push (cons title meta) index))))))
+	      (push (cons slug meta) index))))))
     index))
 
 (defun nori-site-add-listings-data-to-index (index)
@@ -186,8 +188,28 @@ The INDEX contains only headlines with file-name and no TODO."
 	   do
 	   (let* ((parent-section (car (alist-get 'sections-slugs metadata)))
 		  (list-items (nori-site-gather-items parent-section index)))
-	     (setf (alist-get 'list-items metadata) list-items)))
+	     (setf (alist-get 'list-items metadata) list-items)
+	     (setf (alist-get 'list-all-items metadata) list-items)))
   
+  index)
+
+(defun nori-site-find-adjacent-entries (index)
+  (cl-loop for entry in index
+	   for metadata = (cdr entry)
+	   for file-name = (alist-get 'file-name metadata)
+	   unless (or (string= file-name "_index") (string= file-name "index")) ; only for entries
+	   do
+	   (let* ((current-slug (car entry))
+		  (section-slug (alist-get 'section-slug metadata))
+		  (parent-section-entry (assoc section-slug index))
+		  (list-all-items (alist-get 'list-all-items (cdr parent-section-entry)))
+		  (position (cl-position-if (lambda (item)
+					      (string= current-slug (car item)))
+					    list-all-items))
+		  (prev-pos (when (and position (> position 0)) (- position 1)))
+		  (next-pos (when (and position (< position (1- (length list-all-items)))) (+ position 1))))
+	     (when prev-pos (setf (alist-get 'prev-item metadata) (nth prev-pos list-all-items)))
+	     (when next-pos (setf (alist-get 'next-item metadata) (nth next-pos list-all-items)))))
   index)
 
 (defun nori-site-build-entry-index (&optional org-file)
@@ -201,15 +223,70 @@ The INDEX contains only headlines with file-name and no TODO."
 	     (index (nori-site-traverse-ast-for-index ast)))
 	(setq index (nori-site-add-listings-data-to-index index))
 	(setq index (nori-site-paginate index))
+	(setq index (nori-site-find-adjacent-entries index))
 	(setq nori-site-entry-index index)
 	(message "Indexed %d entries." (length index))
 	index))))
 
-;;(nori-site-build-entry-index nori-site-source-org-filename)
+;(nori-site-build-entry-index nori-site-source-org-filename)
 #+end_src
 
 #+RESULTS: entry-index
-: nori-site-build-entry-index
+
+** Get all items of certain type
+#+name: get-items
+#+begin_src elisp :noweb strip-export
+<<variables>>
+(defun nori-site-gather-items (parent-section-name index)
+  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site-entry-index."
+  ;; Gather items
+  (let ((items (copy-alist index)))
+    (setq items (cl-remove-if-not
+		 (lambda (item)
+		   (let* ((metadata (cdr item))
+			  (parent (car (alist-get 'sections-slugs metadata)))
+			  (date (cdr (assoc 'date metadata)))
+			  )
+		     (and date (equal parent-section-name parent))))
+		 items))
+    ;; Sort by date descending
+
+    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
+    items))
+;(nori-site-gather-items "2026" nori-site-entry-index)
+
+#+end_src
+
+#+RESULTS: get-items
+: nori-site-gather-items
+
+** Get microblog years
+#+name: get-microblog-years
+#+begin_src elisp :noweb strip-export
+<<variables>>
+(defun nori-site-get-microblog-years (index)
+  "Gather all microblog year section pages into an INDEX alist of the same form as nori-site-entry-index."
+  (let ((items (copy-alist index)))
+    (setq items (cl-remove-if-not
+		 (lambda (item)
+		   (let* ((metadata (cdr item))
+			  (parent (car (last (alist-get 'sections-slugs metadata))))
+			  (date (cdr (assoc 'date metadata)))
+			  )
+		     (and (not date) (equal "microblog" parent))))
+		 items))
+    
+    items))
+
+;; (let ((years (nori-site-get-microblog-years nori-site-entry-index)))
+;;   (length years))
+
+#+end_src
+
+#+RESULTS: get-microblog-years
+: 2
+
+
 ** Paginate list
 #+name: paginate-list
 #+begin_src elisp :noweb strip-export
@@ -217,7 +294,7 @@ The INDEX contains only headlines with file-name and no TODO."
 (defun nori-site-paginate (index)
   (let ((new-index nil))
     (cl-loop for entry in index
-	     for title = (car entry)
+	     for slug = (car entry)
 	     for meta-orig = (cdr entry)
 	     for file-name = (alist-get 'file-name meta-orig)
 	     ;; Check if we need to paginate
@@ -227,7 +304,6 @@ The INDEX contains only headlines with file-name and no TODO."
 	     do
 	     (let* ((page-size (string-to-number page-size-entry))
 		    (sections-slugs (alist-get 'sections-slugs meta-orig))
-		    (slug (alist-get 'slug meta-orig))
 		    (file-path-dir (alist-get 'file-path-dir meta-orig))
 		    (file-path-file (alist-get 'file-path-file meta-orig))
 		    (list-items (alist-get 'list-items meta-orig))
@@ -253,7 +329,7 @@ The INDEX contains only headlines with file-name and no TODO."
 		   (setf (alist-get 'total-pages meta) total-pages)
 		   (setf (alist-get 'list-items meta)
 			 (seq-subseq list-items start-index end-index))
-		   (push (cons title meta) pages)))
+		   (push (cons slug meta) pages)))
 	       (setq pages (nreverse pages))
 	       (dolist (p pages)
 		 (push p new-index)))
@@ -347,6 +423,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (f-alt (alist-get 'f-alt metadata))
 	 (description (alist-get 'description metadata))
 	 (sections-slugs (alist-get 'sections-slugs metadata))
+	 (section-slug (alist-get 'section-slug metadata))
 	 (sections-names (alist-get 'sections-names metadata))
 	 (template (if layout
 		       (nori-site-load-template layout)
@@ -356,9 +433,8 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (wordcount (alist-get 'wordcount metadata))
 	 (list-items (alist-get 'list-items metadata))
 	 (menu-html (nori-site-build-menu slug))
-	 (adjacent-poems (and (string= "Poem" (car sections-names)) (nori-site-find-adjacent-poems slug nori-site-page-index)))
-	 (prev-poem (when adjacent-poems (car adjacent-poems)))
-	 (next-poem (when adjacent-poems (cdr adjacent-poems)))
+	 (prev-item (alist-get 'prev-item metadata))
+	 (next-item (alist-get 'next-item metadata))
 	 
 					;(sidebar-html (nori-site-build-sidebar metadata))
 	 (replacements
@@ -369,7 +445,7 @@ The INDEX contains only headlines with file-name and no TODO."
 					;("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
 	    ("{{URL}}" . ,(concat "/" slug))
 	    ("{{SECTION_TITLE}}" . ,(car sections-names))
-	    ("{{SECTION_URL}}" . ,(concat "/" (string-join sections-slugs "/")))
+	    ("{{SECTION_URL}}" . ,(concat "/" section-slug))
 	    ("{{DATE}}" . ,date)
 	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
 	    ("{{WORDCOUNT}}" . ,(int-to-string wordcount))
@@ -389,53 +465,60 @@ The INDEX contains only headlines with file-name and no TODO."
 	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
 	    ("{{DESCRIPTION}}" . ,description)
 	    ("{{PAGINATION}}" . "")
-	    ("{{PREVIOUS_LINK}}" . ,(if prev-poem (concat "/" (alist-get 'slug (cdr prev-poem)))
+	    ("{{PREVIOUS_LINK}}" . ,(if prev-item (concat "/" (alist-get 'slug (cdr prev-item)))
 				      ""))
-	    ("{{NEXT_LINK}}" . ,(if next-poem (concat "/" (alist-get 'slug (cdr next-poem)))
+	    ("{{NEXT_LINK}}" . ,(if next-item (concat "/" (alist-get 'slug (cdr next-item)))
 				  ""))
-	    ("{{PREVIOUS_TITLE}}" . ,(if prev-poem (alist-get 'title (cdr prev-poem))
+	    ("{{PREVIOUS_TITLE}}" . ,(if prev-item (concat "🡠  " (alist-get 'title (cdr prev-item)))
 				       ""))
-	    ("{{NEXT_TITLE}}" . ,(if next-poem (alist-get 'title (cdr next-poem))
+	    ("{{NEXT_TITLE}}" . ,(if next-item (concat (alist-get 'title (cdr next-item)) " 🡢")
 				   ""))
 	    ("{{TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
 			     ""))
 	    )))
+    
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
-      (when (string= "Poems" (car sections-names)) ;; Only if it is a poems listing page
-	(let ((poem-listing-template (nori-site-load-template "poem-listing-item"))
-	      (poem-list-html ""))
-	  (dolist (poem list-items)
-	    (let ((poem-replacements
-		   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr poem))))
-		     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr poem))))))
-	      (setq poem-list-html (concat poem-list-html "\n" (nori-site-render-template poem-listing-template poem-replacements)))))
-	  (setq replacements (append replacements `(("{{POEM_LIST}}" . ,poem-list-html))))))
-      (when (or (string= "Posts" (car sections-names)) (string= "Alphabet Superset" (car sections-names))) ;; Only if it is a posts listing page or alphabet superset
-	(let ((post-listing-template (nori-site-load-template "post-listing-item"))
-	      (post-list-html ""))
-	  (dolist (post list-items)
-	    (let* ((date (alist-get 'date (cdr post)))
-		   (wordcount (alist-get 'wordcount (cdr post)))
-		   (post-replacements
-		    `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr post))))
-		      ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr post)))
-		      ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr post)))
-		      ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr post)))
-		      ("{{ITEM_DATE}}" . ,date)
-		      ("{{ITEM_DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
-		      ("{{ITEM_READING_TIME}}" . ,(int-to-string (/ wordcount 238)))
-		      ("{{ITEM_WORDCOUNT}}" . ,(int-to-string wordcount))
-		      ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr post)))
-		      ("{{SITE_TITLE}}" . ,nori-site-title)
-		      ("{{HOME_URL}}" . "/")
-		      )))
-	      (setq post-list-html (concat post-list-html "\n" (nori-site-render-template post-listing-template post-replacements)))))
-	  (setq replacements (append replacements `(("{{POST_LIST}}" . ,post-list-html)))))
-	(when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
-	  (setq replacements (append replacements `(("{{PAGINATION}}" . ,(nori-site-render-pagination metadata)))))))
-      )
+
+      (let ((listing-template-name "")
+	    (microblogp nil))
+	(cond
+	 ((string= "Poems" (car sections-names))
+	  (setq listing-template-name "poem-listing-item"))
+	 ((string= "Posts" (car sections-names))
+	  (setq listing-template-name "summary-with-image-item"))
+	 ((string= "Alphabet Superset" (car sections-names))
+	  (setq listing-template-name "summary-with-image-item"))
+	 ((string= layout "microblog-section")
+	  (setq listing-template-name "microblog-listing-item")
+	  (setq microblogp t)))
+	(let* ((listing-template (nori-site-load-template listing-template-name))
+	       (list-html ""))
+	  (dolist (item list-items)
+	    (let* ((item-html (if microblogp (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
+				""))
+		   (item-date (alist-get 'date (cdr item)))
+		   (item-wordcount (alist-get 'wordcount (cdr item)))
+		   (item-replacements
+		   `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr item))))
+		     ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr item)))
+		     ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr item)))
+		     ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr item)))
+		     ("{{ITEM_DATE}}" . ,item-date)
+		     ("{{ITEM_DATE_HUMAN}}" . ,(when item-date (format-time-string "%B %d, %Y" (date-to-time item-date))))
+		     ("{{ITEM_READING_TIME}}" . ,(int-to-string (/ item-wordcount 238)))
+		     ("{{ITEM_WORDCOUNT}}" . ,(int-to-string item-wordcount))
+		     ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr item)))
+		     ("{{ITEM_CONTENTS}}" . ,item-html)
+		     ("{{SITE_TITLE}}" . ,nori-site-title)
+		     ("{{HOME_URL}}" . "/"))))
+	      (setq list-html (concat list-html "\n" (nori-site-render-template listing-template item-replacements)))))
+	  (setq replacements (append replacements `(("{{LIST}}" . ,list-html))))))
+
+      (when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
+	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))
+	))
     (nori-site-render-template template replacements)))
-	    #+end_src
+    #+end_src
 
 #+RESULTS: generate-page
 : nori-site-generate-page
@@ -509,29 +592,12 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+RESULTS: render-template
 : nori-site-render-template
 
-** Get adjacent poems
-#+name: get-adjacent-poems
-#+begin_src elisp :noweb strip-export
-<<get-items>>
-(defun nori-site-find-adjacent-poems (current-slug index)
-  "Find previous and next poems relative to CURRENT-SLUG in the same section.
-Returns an alist ((PREVIOUS-ENTRY . NEXT-ENTRY))."
-  ;; Gather all poems from the same section
-  (let* ((poems (nori-site-gather-items "Poem" index))
-	 (position (cl-position-if (lambda (entry)
-				     (string= current-slug (alist-get 'slug (cdr entry))))
-				   poems))
-	 (prev-pos (and position (> position 0) (- position 1)))
-	 (next-pos (and position (< position (1- (length poems))) (+ position 1))))
-    (message "prev-pos %s" prev-pos)
-    (cons
-     (when prev-pos (nth prev-pos sorted-poems))
-     (when next-pos (nth next-pos sorted-poems)))))
+** Gather microblog years
+#+name: gather-microblog-years
+#+begin_src elisp
+(defun nori-site-gather-microblog-years (index)
+  
 #+end_src
-
-#+RESULTS:
-: nori-site-find-adjacent-poems
-
 ** Create menu
 #+name: make-menu
 #+begin_src elisp :noweb strip-export
@@ -564,31 +630,6 @@ used to add the active class."
 
 #+RESULTS: make-menu
 : nori-site-build-menu
-** Get all items of certain type
-#+name: get-items
-#+begin_src elisp :noweb strip-export
-<<variables>>
-(defun nori-site-gather-items (parent-section-name index)
-  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site-entry-index."
-  ;; Gather items
-  (let ((items (copy-alist index)))
-    (setq items (cl-remove-if-not
-		 (lambda (item)
-		   (let* ((metadata (cdr item))
-			  (parent (car (alist-get 'sections-slugs metadata)))
-			  (date (cdr (assoc 'date metadata)))
-			  )
-		     (and date (equal parent-section-name parent))))
-		 items))
-    (message "%s count %d" parent-section-name (length items))
-    ;; Sort by date descending
-    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-    items))
-#+end_src
-
-#+RESULTS: get-items
-: nori-site-gather-items
-
 ** Generate Archive Sidebar HTML
 #+name: generate-archive-sidebar
 #+begin_src elisp :noweb strip-export
@@ -674,10 +715,6 @@ used to add the active class."
 (defun nori-site-render-pagination (metadata)
   (let* ((page-number (alist-get 'page-number metadata))
          (total-pages (alist-get 'total-pages metadata))
-         ;(prev-slug (concat "/" (alist-get 'prev metadata)))
-         ;(next-slug (concat "/" (alist-get 'next metadata)))
-         ;(first-slug (concat "/" (alist-get 'first metadata)))
-         ;(last-slug (concat "/" (alist-get 'last metadata)))
 	 (base-slug (concat "/" (alist-get 'base-slug metadata)))
          (slug (concat "/" (alist-get 'slug metadata)))
 	 (prev-slug (if (= page-number 2) base-slug
@@ -728,13 +765,13 @@ used to add the active class."
     
     (setq html (concat html "</ul>"))
     html)
-)
+  )
 
 #+end_src
 
 #+RESULTS: render-pagination
 : nori-site-render-pagination
-
+** Render microblog pagination
 * Templates
 ** Head
 #+name: head
@@ -1078,12 +1115,26 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 <main class="main-content">
   <div class="spiral"></div>
   <div class="main-content-wrapper">
-    {{MIRCRO_NEXT_PREV}}
+    
+    <!-- microblog next-prev -->
+    <div class="nextprev">
+      <div class="prev">
+	<a class="prev-link" href="{{PREVIOUS_LINK}}">
+	  <div>{{PREVIOUS_TITLE}}</div>
+	</a>
+      </div>
+      <div class="next">
+	<a class="next-link" href="{{NEXT_LINK}}">
+	  <div>{{NEXT_TITLE}}</div>
+	</a>
+      </div>
+    </div>
+    
     <article class="micro-article">
       <header>
 	
 	<a href="{{SECTION_URL}}">
-          <h1 class="micro-section-title"> ✶ {{SECTION_TITLE}} ✶ </h1>
+          <h1 class="micro-section-title"> ✶ Microblog ✶ </h1>
 	</a>	
 
 	<h2 class="micro-header">{{TITLE}}</h2>    
@@ -1093,8 +1144,21 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	{{CONTENTS}}
       </article>
     </article>
-
-    {{MICRO_NEXT_PREV}}
+    
+    <!-- microblog next-prev -->
+    <div class="nextprev">
+      <div class="prev">
+	<a class="prev-link" href="{{PREVIOUS_LINK}}">
+	  <div>{{PREVIOUS_TITLE}}</div>
+	</a>
+      </div>
+      <div class="next">
+	<a class="next-link" href="{{NEXT_LINK}}">
+	  <div>{{NEXT_TITLE}}</div>
+	</a>
+      </div>
+    </div>
+    
   </div>
 </main>
 #+end_src
@@ -1107,7 +1171,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
     <article class="section-poetry">
       <h1>{{TITLE}}</h1>
       {{CONTENTS}}
-      {{POEM_LIST}}
+      {{LIST}}
       {{PAGINATION}}
     </article>
   </div>
@@ -1123,14 +1187,14 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       <h1>{{TITLE}}</h1>
       {{CONTENTS}}
       <section class="recent-posts-section">
-	{{POST_LIST}}
+	{{LIST}}
       </section>
       {{PAGINATION}}
     </article>
   </div>
 </main>
 #+end_src
-** AS main
+** AS list main
 #+name: as-list-main
 #+begin_src html
 <main class="main-content">
@@ -1139,11 +1203,27 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
     <article class="section-article">
       <h1>{{TITLE}}</h1>
       {{CONTENTS}}
-      {{AS_LIST}}
+      {{LIST}}
       {{PAGINATION}}
     </article>
   </div>
 </main>
+#+end_src
+** Mircroblog section main
+#+name: microblog-list-main
+#+begin_src html
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article class="micro-section">
+      <h1 class="micro-section-title"> ✶ Microblog ✶ </h1>
+      {{MICRO_PAGINATION_SUBTLE}}
+      {{CONTENTS}}
+      {{LIST}}
+      {{MICRO_PAGINATION}}
+  </div>
+</main>
+
 #+end_src
 ** Sidebar
 #+name: sidebar
@@ -1236,12 +1316,12 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 <div class="nextprev">
   <div class="prev">
     <a class="prev-link" href="{{PREVIOUS_LINK}}">
-      <div>🡠  {{PREVIOUS_TITLE}}</div>
+      <div>{{PREVIOUS_TITLE}}</div>
     </a>
   </div>
   <div class="next">
     <a class="next-link" href="{{NEXT_LINK}}">
-      <div>{{NEXT_TITLE}} 🡢</div>
+      <div>{{NEXT_TITLE}}</div>
     </a>
   </div>
 </div>
@@ -1370,17 +1450,8 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
   </h2>
 </div>
 #+end_src
-** Indivindi AS listing
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/as-listing-item.html"
-<div class="h-entry individual-poem">
-  <h2 class="p-name">
-    <a class="u-url" href="{{ITEM_URL}}">{{ITEM_TITLE}}
-    </a>
-  </h2>
-</div>
-#+end_src
-** Indivindi post listing - summary with image
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/post-listing-item.html"
+** Indivindi summary with image
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/summary-with-image-item.html"
 <article class="h-entry preview-recent-posts">
   <div class="preview-image-div">
     <a class="featured-image-preview-im-link" href="{{ITEM_URL}}">
@@ -1403,6 +1474,13 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       <div class="p-summary">{{ITEM_DESCRIPTION}}</div>
     </a>  
   </div>
+</article>
+#+end_src
+** Indivindi microblog listing
+#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/microblog-listing-item.html"
+<h2 class="micro-header">{{ITEM_TITLE}}</h2>
+<article class="micro-content">
+  {{ITEM_CONTENTS}}
 </article>
 #+end_src
 ** Tangle templates
@@ -1468,6 +1546,14 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 <<head>>
   <<header>>
     <<post-list-main>>
+      <<sidebar>>
+	<<footer>>
+#+end_src
+*** microblog-section
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/microblog-section.html"
+<<head>>
+  <<header>>
+    <<microblog-list-main>>
       <<sidebar>>
 	<<footer>>
 #+end_src

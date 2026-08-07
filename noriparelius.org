@@ -3499,47 +3499,84 @@ says the orchid in a sidewalk crack.
 :EXPORT_SECTION: microblog
 :END:
 
-** Microblog
+;** Microblog
+;:PROPERTIES:
+;:EXPORT_FILE_NAME: _index
+;:EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
+;:MENU_NAME: Microblog
+;:END:
+
+** 2025
+:PROPERTIES:
+:EXPORT_SECTION: 2025
+:END:
+
+*** 2025
 :PROPERTIES:
 :EXPORT_FILE_NAME: _index
 :EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
-:MENU_NAME: Microblog
+:EXPORT_LAYOUT: microblog-section
 :END:
 
-** October 27, 2025
+*** October 27, 2025
 :PROPERTIES:
 :EXPORT_FILE_NAME: 2025-10-27
 :EXPORT_DATE: 2025-10-27
+:EXPORT_LAYOUT: microblog
 :END:
 Sometimes I feel like it's a bit unfair that we have to fight for something that basically all generations of humans before us could take for granted -- our attention.
 
 I know that we get access to infinite amounts of information instead, something that they couldn't even imagine, but how much is it worth, if we are too overwhelmed to use it? 
 
-** September 16, 2025
+*** September 16, 2025
 :PROPERTIES:
 :EXPORT_FILE_NAME: 2025-09-16
 :EXPORT_DATE: 2025-09-16
+:EXPORT_LAYOUT: microblog
 :END:
 I get so sad when I run into some writing online that is written by a real person, about a real thing that they care about, but so clearly drafted/edited by some large language model. I know it is tempting. It makes your own thoughts and ideas sound so good, so sophisticated. But it also just makes everything sound the same. Half the internet is now written in ChatGPT-ese. The internet, the place where you are allowed to be yourself. Don't choose to be ChatGPT, please. (This is as much a plea to you, dear reader, as to myself.)
 
-** September 4, 2025
+*** September 4, 2025
 :PROPERTIES:
 :EXPORT_FILE_NAME: 2025-09-04
 :EXPORT_DATE: 2025-09-04
+:EXPORT_LAYOUT: microblog
 :END:
 I found some poems I wrote back in 2018. There were just a few, written over a month or so, before the business of life caught up with me. And they inspired me to start writing poetry again. Is it good? Nope! But it makes me feel so incredibly alive. Somehow, I feel like I am more connected to beauty and life when I do it. It helps me see the magic and mystery in the world. 
 
-** September 1, 2025
+*** September 1, 2025
 :PROPERTIES:
 :EXPORT_FILE_NAME: 2025-09-01
 :EXPORT_DATE: 2025-09-01
+:EXPORT_LAYOUT: microblog
 :END:
 I find myself craving paper over screens more and more often. I want to make things I can touch. Whatever I write or draw on paper feels so much more real and sticks in my brain so much better. I think it's time I accepted that no matter how I organize my digital files, they will always feel either like lost in a black hole - when they are not right in my face, or like distracting clutter that I keep shuffling around - when they are right in my face. I think I am jumping on the zine-making bandwagon. 
 
-** July 31, 2025
+*** July 31, 2025
 :PROPERTIES:
 :EXPORT_FILE_NAME: 2025-07-31
 :EXPORT_DATE: 2025-07-31
+:EXPORT_LAYOUT: microblog
 :END:
 I have been trying to embrace more of my messy and "cringe" side. I don't want to let my fear of being unpalatable and too much stop me from being myself. And so I changed my website design from the clean and minimalist look that it had before to something that is a little messier, to reflect my intentions. Plus, it was super fun goofing around with html and css. 
 
+** 2026
+:PROPERTIES:
+:EXPORT_SECTION: 2026
+:END:
+
+*** 2026
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
+:EXPORT_LAYOUT: microblog-section
+:END:
+
+*** July 31, 2026
+:PROPERTIES:
+:EXPORT_FILE_NAME: 2026-07-31
+:EXPORT_DATE: 2026-07-31
+:EXPORT_LAYOUT: microblog
+:END:
+
+Test
