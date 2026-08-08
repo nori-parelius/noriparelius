@@ -3499,13 +3499,6 @@ says the orchid in a sidewalk crack.
 :EXPORT_SECTION: microblog
 :END:
 
-;** Microblog
-;:PROPERTIES:
-;:EXPORT_FILE_NAME: _index
-;:EXPORT_FEATURED_IMAGE: :featured_image /img/noriparelius.png
-;:MENU_NAME: Microblog
-;:END:
-
 ** 2025
 :PROPERTIES:
 :EXPORT_SECTION: 2025

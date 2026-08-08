@@ -68,6 +68,14 @@ Use ~sass input.scss output.css --style=compressed~
   "Filepath to css directory.")
 (defvar nori-site-fonts-dir "~/Documents/Notes/website/fonts/"
   "Filepath to the fonts directory.")
+(defvar nori-site-logo "/img/logo.svg"
+  "Name of the file with logo.")
+(defvar nori-site-description "Mess and wonder - Nori's digital notebook"
+  "Description of the site.")
+(defvar nori-site-favicon "/img/favicon.ico"
+  "Favicon.")
+(defvar nori-site-default-featured-image "/img/noriparelius.png"
+  "Default featured image.")
 (defvar nori-site-featured-post-number 5
   "Number of posts included on the home page.")
 (defvar nori-site-post-pagination-page-size 10
@@ -230,7 +238,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	(message "Indexed %d entries." (length index))
 	index))))
 
-;(nori-site-build-entry-index nori-site-source-org-filename)
+					;(nori-site-build-entry-index nori-site-source-org-filename)
 #+end_src
 
 #+RESULTS: entry-index
@@ -255,7 +263,7 @@ The INDEX contains only headlines with file-name and no TODO."
 
     (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
     items))
-;(nori-site-gather-items "2026" nori-site-entry-index)
+					;(nori-site-gather-items "2026" nori-site-entry-index)
 
 #+end_src
 
@@ -277,17 +285,17 @@ The INDEX contains only headlines with file-name and no TODO."
 			  )
 		     (and (not date) (equal "microblog" parent))))
 		 items))
-    
+    (sort items (lambda (a b) (string< (alist-get 'title (cdr a)) (alist-get 'title (cdr b)))))
     items))
 
 ;; (let ((years (nori-site-get-microblog-years nori-site-entry-index)))
-;;   (length years))
+;;   (length years)
+;;   (dolist (year years)
+;;     (message "title %s" (alist-get 'title (cdr year)))))
 
 #+end_src
 
 #+RESULTS: get-microblog-years
-: 2
-
 
 ** Paginate list
 #+name: paginate-list
@@ -413,6 +421,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<make-menu>>
 <<make-tag-list>>
 <<render-pagination>>
+<<render-microblog-pagination>>
 <<get-adjacent-poems>>
 
 (defun nori-site-generate-page (metadata html archive-html)
@@ -512,9 +521,13 @@ The INDEX contains only headlines with file-name and no TODO."
 		     ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr item)))
 		     ("{{ITEM_CONTENTS}}" . ,item-html)
 		     ("{{SITE_TITLE}}" . ,nori-site-title)
-		     ("{{HOME_URL}}" . "/"))))
+		     ("{{HOME_URL}}" . "/")
+		     )))
 	      (setq list-html (concat list-html "\n" (nori-site-render-template listing-template item-replacements)))))
-	  (setq replacements (append replacements `(("{{LIST}}" . ,list-html))))))
+	  (setq replacements (append replacements `(("{{LIST}}" . ,list-html))))
+	  (when microblogp (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index))))))
+
+	  ))
 
       (when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
 	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))
@@ -594,12 +607,6 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 #+RESULTS: render-template
 : nori-site-render-template
 
-** Gather microblog years
-#+name: gather-microblog-years
-#+begin_src elisp
-(defun nori-site-gather-microblog-years (index)
-  
-#+end_src
 ** Create menu
 #+name: make-menu
 #+begin_src elisp :noweb strip-export
@@ -774,6 +781,63 @@ used to add the active class."
 #+RESULTS: render-pagination
 : nori-site-render-pagination
 ** Render microblog pagination
+#+name: render-microblog-pagination
+#+begin_src elisp
+(defun nori-site-render-microblog-pagination (metadata index)
+  (let* ((micro-years (nori-site-get-microblog-years index))
+	 (slots 5) ;; Number of years to show
+	 (total-years (length micro-years))
+	 (current-title (alist-get 'title metadata))
+	 (current-year-pos (cl-position-if (lambda (item)
+					     (string= current-title (alist-get 'title (cdr item))))
+					   micro-years))
+	 (prev-pos (when (and current-year-pos (> current-year-pos 0)) (- current-year-pos 1)))
+	 (next-pos (when (and current-year-pos (< current-year-pos (1- total-years))) (+ current-year-pos 1)))
+	 (prev-year (when prev-pos (nth prev-pos micro-years)))
+	 (next-year (when next-pos (nth next-pos micro-years)))
+         (slug (concat "/" (alist-get 'slug metadata)))
+	 (prev-slug (concat "/" (alist-get 'slug (cdr prev-year))))
+	 (next-slug (concat "/" (alist-get 'slug (cdr next-year))))
+	 (prev-title (alist-get 'title (cdr prev-year)))
+	 (next-title (alist-get 'title (cdr next-year)))
+         (start-year-number (max 1 (- current-year-pos (floor (/ slots 2)))))
+         (end-year-number (min total-years (+ start-year-number slots 1)))
+         html)
+    ;; Adjust start/end if we don't have enough slots
+    (message "year %s" current-title) 
+    (when (< (- end-year-number start-year-number) slots)
+      (setq start-year-number (max 1 (- end-year-number slots))))
+    
+    ;; Build pagination HTML
+    (setq html "<nav class=\"pagination-subtle\">")
+
+    ;; Previous button
+    (if prev-pos (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Previous\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">«</span></a></li>" prev-slug)))
+      (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Previous\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">«</span></a></li>"))
+      )
+    
+    ;; Years
+    (cl-loop for year-number from start-year-number to end-year-number do
+	     (let ((year-title  (alist-get 'title (nth year-number micro-years)))
+		   (year-slug (concat "/" (alist-get 'slug (nth year-number micro-years)))))
+               (if (= year-number current-year-pos)
+                   (setq html (concat html (format "<li class=\"page-item active\"><a aria-current=\"page\" aria-label=\"%s\" class=\"page-link\" role =\"button\">%s</a></li>" year-title year-title)))
+		 (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"%s\" class=\"page-link\" role=\"button\">%s</a></li>" year-slug year-title year-title))))))
+    
+    ;; Next button
+    (if next-pos (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Next\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">»</span></a></li>" next-slug)))
+      (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Next\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">»</span></a></li>"))
+      )
+    
+    
+    (setq html (concat html "</nav>"))
+    html)
+  )
+#+end_src
+
+#+RESULTS: render-microblog-pagination
+: nori-site-render-microblog-pagination
+
 * Templates
 ** Head
 #+name: head
@@ -1370,78 +1434,6 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 <section id="isso-thread"></section>
 
-#+end_src
-** Pagination
-#+name: pagination
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/pagination.html"
-{{- define "_partials/inline/pagination/default.html" }}
-  {{- with .Paginator }}
-    {{- $currentPageNumber := .PageNumber }}
-
-    {{- with .First }}
-      {{- if ne $currentPageNumber .PageNumber }}
-      <li class="page-item">
-        <a href="{{ .URL }}" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      {{- else }}
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      {{- end }}
-    {{- end }}
-
-    {{- with .Prev }}
-      <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-    {{- else }}
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-    {{- end }}
-
-    {{- $slots := 5 }}
-    {{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
-    {{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
-    {{- if lt (add (sub $end $start) 1) $slots }}
-      {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
-    {{- end }}
-
-    {{- range $k := seq $start $end }}
-      {{- if eq $.Paginator.PageNumber $k }}
-      <li class="page-item active">
-        <a aria-current="page" aria-label="Page {{ $k }}" class="page-link" role="button">{{ $k }}</a>
-      </li>
-      {{- else }}
-      <li class="page-item">
-        <a href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="page-link" role="button">{{ $k }}</a>
-      </li>
-      {{- end }}
-    {{- end }}
-
-    {{- with .Next }}
-      <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-    {{- else }}
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-    {{- end }}
-
-    {{- with .Last }}
-      {{- if ne $currentPageNumber .PageNumber }}
-      <li class="page-item">
-        <a href="{{ .URL }}" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-      {{- else }}
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-      {{- end }}
-    {{- end }}
-  {{- end }}
-{{- end -}}
 #+end_src
 ** Indivindi poem listing
 #+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/poem-listing-item.html"
