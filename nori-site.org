@@ -32,7 +32,6 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-- pagination for microblog by years
 - tag list, tag page
 - tag cloud
 - rss feed
@@ -525,8 +524,9 @@ The INDEX contains only headlines with file-name and no TODO."
 		     )))
 	      (setq list-html (concat list-html "\n" (nori-site-render-template listing-template item-replacements)))))
 	  (setq replacements (append replacements `(("{{LIST}}" . ,list-html))))
-	  (when microblogp (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index))))))
-
+	  (when microblogp
+	    (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
+	     (setq replacements (append replacements `(("{{MICRO_PAGINATION_SUBTLE}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index t))))))
 	  ))
 
       (when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
@@ -783,55 +783,23 @@ used to add the active class."
 ** Render microblog pagination
 #+name: render-microblog-pagination
 #+begin_src elisp
-(defun nori-site-render-microblog-pagination (metadata index)
+(defun nori-site-render-microblog-pagination (metadata index subtlep)
   (let* ((micro-years (nori-site-get-microblog-years index))
-	 (slots 5) ;; Number of years to show
-	 (total-years (length micro-years))
 	 (current-title (alist-get 'title metadata))
-	 (current-year-pos (cl-position-if (lambda (item)
-					     (string= current-title (alist-get 'title (cdr item))))
-					   micro-years))
-	 (prev-pos (when (and current-year-pos (> current-year-pos 0)) (- current-year-pos 1)))
-	 (next-pos (when (and current-year-pos (< current-year-pos (1- total-years))) (+ current-year-pos 1)))
-	 (prev-year (when prev-pos (nth prev-pos micro-years)))
-	 (next-year (when next-pos (nth next-pos micro-years)))
-         (slug (concat "/" (alist-get 'slug metadata)))
-	 (prev-slug (concat "/" (alist-get 'slug (cdr prev-year))))
-	 (next-slug (concat "/" (alist-get 'slug (cdr next-year))))
-	 (prev-title (alist-get 'title (cdr prev-year)))
-	 (next-title (alist-get 'title (cdr next-year)))
-         (start-year-number (max 1 (- current-year-pos (floor (/ slots 2)))))
-         (end-year-number (min total-years (+ start-year-number slots 1)))
+	 (link-class (if subtlep "page-link-subtle"
+		       "page-link"))
          html)
-    ;; Adjust start/end if we don't have enough slots
-    (message "year %s" current-title) 
-    (when (< (- end-year-number start-year-number) slots)
-      (setq start-year-number (max 1 (- end-year-number slots))))
+    (if subtlep (setq html "<nav class=\"pagination-subtle\">")
+      (setq html "<nav class=\"pagination\">"))
     
-    ;; Build pagination HTML
-    (setq html "<nav class=\"pagination-subtle\">")
-
-    ;; Previous button
-    (if prev-pos (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Previous\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">«</span></a></li>" prev-slug)))
-      (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Previous\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">«</span></a></li>"))
-      )
-    
-    ;; Years
-    (cl-loop for year-number from start-year-number to end-year-number do
-	     (let ((year-title  (alist-get 'title (nth year-number micro-years)))
-		   (year-slug (concat "/" (alist-get 'slug (nth year-number micro-years)))))
-               (if (= year-number current-year-pos)
-                   (setq html (concat html (format "<li class=\"page-item active\"><a aria-current=\"page\" aria-label=\"%s\" class=\"page-link\" role =\"button\">%s</a></li>" year-title year-title)))
-		 (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"%s\" class=\"page-link\" role=\"button\">%s</a></li>" year-slug year-title year-title))))))
-    
-    ;; Next button
-    (if next-pos (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Next\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">»</span></a></li>" next-slug)))
-      (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Next\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">»</span></a></li>"))
-      )
-    
-    
-    (setq html (concat html "</nav>"))
-    html)
+    (dolist (year micro-years)
+      (let ((year-title (alist-get 'title (cdr year)))
+	    (year-slug (concat "/" (alist-get 'slug (cdr year)))))
+	(if (string= year-title current-title)
+	    (setq html (concat html (format "<a href=\"%s\" class=\"%s\">%s</a>" year-slug link-class year-title)))
+	   (setq html (concat html (format "<a href=\"%s\" class=\"%s\">%s</a>" year-slug link-class year-title))))))
+     (setq html (concat html "</nav>"))
+     html)
   )
 #+end_src
 
