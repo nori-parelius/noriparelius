@@ -221,6 +221,68 @@ The INDEX contains only headlines with file-name and no TODO."
 	     (when next-pos (setf (alist-get 'next-item metadata) (nth next-pos list-all-items)))))
   index)
 
+(defun nori-site-add-tags-to-index (index)
+  ;; Build the listing/section page for tags
+  (let* ((sections-slugs '("tag"))
+	 (section-slug (concat (string-join (reverse sections-slugs) "/") "/"))
+	 (slug section-slug)
+	 (file-path-dir (concat nori-site-publish-directory slug))
+	 (meta '((file-name . "_index")
+		 (title . "Tags")
+		 (layout . "default-section")
+		 (page-size . "50")
+		 (sections-names . '("Tags"))
+		 (sections-slugs . ,sections-slugs)
+		 (section-slug . ,section-slug)
+		 (slug . ,slug) 
+		 (file-path-dir . ,file-path-dir)
+		 (file-path-file (concat file-path-dir "index.html"))
+		 (list-items . ,nil)
+		 (list-all-items . ,nil))))
+    (message "sections-slugs %s, slug %s" sections-slugs slug)
+    (push (cons slug meta) index))
+
+  ;; Go through index and add tags
+  (cl-loop for entry in index
+	   for metadata = (cdr entry)
+	   for tag-string = (alist-get 'tags metadata)
+	   when tag-string
+	   do
+	   (let* ((tags-interm (split-string tag-string ":" t))
+		  (tags (mapcar (lambda (tag)
+				  (replace-regexp-in-string "__" " " tag))
+				tags-interm)))
+	     (message "tags %s, length %d" tags (length tags))
+	     (dolist (tag tags)
+	       (let* ((sections-slugs `(,tag "tag"))
+		      (section-slug (concat (string-join (reverse sections-slugs) "/") "/"))
+		      (slug section-slug)
+		      (file-path-dir (concat nori-site-publish-directory slug))
+		      )
+		 (message "%s" sections-slugs)
+		 (unless (assoc slug index)
+		   (let ((meta '((file-name . "_index")
+				 (title . ,tag)
+				 (layout . "default-section")
+				 (page-size . "50")
+				 (sections-names . (,tag "Tags"))
+				 (sections-slugs . ,sections-slugs)
+				 (section-slug . ,section-slug)
+				 (slug . ,slug) 
+				 (file-path-dir . ,file-path-dir)
+				 (file-path-file (concat file-path-dir "index.html"))
+				 (list-items . ,nil)
+				 (list-all-items . ,nil))))
+		     (push (cons slug meta) index)))
+		 (let ((tag-entry (assoc slug index)))
+		   (push entry (alist-get 'list-items (cdr tag-entry)))
+		   (push entry (alist-get 'list-all-items (cdr tag-entry)))
+		   (push tag-entry (alist-get 'list-itmes (cdr (assoc "tag/" index))))
+		   (push tag-entry (alist-get 'list-all-itmes (cdr (assoc "tag/" index))))
+		   )))))
+  index)
+
+
 (defun nori-site-build-entry-index (&optional org-file)
   "Scan the ORG-FILE or current buffer and build a global index of metadata."
   (interactive)
@@ -782,7 +844,8 @@ used to add the active class."
 : nori-site-render-pagination
 ** Render microblog pagination
 #+name: render-microblog-pagination
-#+begin_src elisp
+#+begin_src elisp :noweb strip-export
+<<get-microblog-years>>
 (defun nori-site-render-microblog-pagination (metadata index subtlep)
   (let* ((micro-years (nori-site-get-microblog-years index))
 	 (current-title (alist-get 'title metadata))
