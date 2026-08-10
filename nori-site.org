@@ -32,11 +32,11 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-- tag list, tag page
-- tag cloud
+- home
 - rss feed
 - css
 - 404
+- robots.txt, sitemap
 
 * CODE
 ** Variables
@@ -247,8 +247,6 @@ The INDEX contains only headlines with file-name and no TODO."
 		 (wordcount . ,nil)
 		 (prev-item . ,nil)
 		 (next-item . ,nil))))
-    (message "filepath %s" (alist-get 'file-path-file meta))
-    (message "sections-slugs %s, slug %s" sections-slugs slug)
     (push (cons slug meta) index))
 
   ;; Go through index and add tags
@@ -293,13 +291,25 @@ The INDEX contains only headlines with file-name and no TODO."
 				 (prev-item . ,nil)
 				 (next-item . ,nil)
 				 )))
-		     (push (cons slug meta) index)))
+		     (push (cons slug meta) index)
+		     (push slug (alist-get 'list-items (cdr (assoc "tag/" index))))
+		     (push slug (alist-get 'list-all-items (cdr (assoc "tag/" index))))))
 		 (let ((tag-entry (assoc slug index)))
 		   (push entry-slug (alist-get 'list-items (cdr tag-entry)))
 		   (push entry-slug (alist-get 'list-all-items (cdr tag-entry)))
-		   (push slug (alist-get 'list-items (cdr (assoc "tag/" index))))
-		   (push slug (alist-get 'list-all-items (cdr (assoc "tag/" index))))
 		   )))))
+  ;; Arrange alphabetically on tag/ list and date-wise on the tags themselves
+  (let ((tags (alist-get 'list-all-items (cdr (assoc "tag/" index)))))
+    (sort tags (lambda (a b) (string< a b)))
+    (sort (alist-get 'list-items (cdr (assoc "tag/" index))) (lambda (a b) (string< a b)))
+    (dolist (tag tags)
+      (let* ((tag-entry (assoc tag index))
+	    (all-items (alist-get 'list-all-items (cdr tag-entry)))
+	    (items (alist-get 'list-items (cdr tag-entry))))
+	(sort all-items (lambda (a b) (string> (alist-get 'date (cdr (assoc a index))) (alist-get 'date (cdr (assoc b index))))))
+	(sort items (lambda (a b) (string> (alist-get 'date (cdr (assoc a index))) (alist-get 'date (cdr (assoc b index))))))
+	)))
+  
   index)
 
 
@@ -320,7 +330,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	(message "Indexed %d entries." (length index))
 	index))))
 
-;;					(nori-site-build-entry-index nori-site-source-org-filename)
+;					(nori-site-build-entry-index nori-site-source-org-filename)
 #+end_src
 
 #+RESULTS: entry-index
@@ -344,7 +354,6 @@ The INDEX contains only headlines with file-name and no TODO."
 		     (and date (equal parent-section-name parent))))
 		 items))
     ;; Sort by date descending
-
     (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
     ;; Only return slugs in the right order
     (dolist (item items)
@@ -456,6 +465,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<get-items>>
 <<paginate-list>>
 <<generate-archive-sidebar>>
+<<render-tag-cloud>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
   (interactive)
@@ -469,7 +479,8 @@ The INDEX contains only headlines with file-name and no TODO."
   (let* ((publish-dir (expand-file-name nori-site-publish-directory))
 	 (org-buffer (find-file-noselect nori-site-source-org-filename))
 	 (posts (nori-site-gather-items "post" nori-site-entry-index))
-	 (archive-html (nori-site-generate-archive-sidebar nori-site-entry-index posts)))
+	 (archive-html (nori-site-generate-archive-sidebar nori-site-entry-index posts))
+	 (tag-cloud-html (nori-site-render-tag-cloud nori-site-entry-index)))
 
     ;; Ensure publish directory exists, remove old one if there was one
     (if (file-exists-p publish-dir)
@@ -495,7 +506,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	(unless (file-exists-p file-path-dir)
 	  (make-directory file-path-dir t))
 	;; Render
-	(let ((page (nori-site-generate-page nori-site-entry-index meta html archive-html)))
+	(let ((page (nori-site-generate-page nori-site-entry-index meta html archive-html tag-cloud-html)))
 	  (with-temp-file file-path-file
 	    (insert page))
 
@@ -518,7 +529,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<render-microblog-pagination>>
 <<get-adjacent-poems>>
 
-(defun nori-site-generate-page (index metadata html archive-html)
+(defun nori-site-generate-page (index metadata html archive-html tag-cloud-html)
   "Generate a page using the template."
   (let* ((layout (alist-get 'layout metadata))
 	 (title (alist-get 'title metadata))
@@ -557,6 +568,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	    ("{{READING_TIME}}" . ,(when wordcount (int-to-string (/ wordcount 238))))
 	    ("{{MENU_HTML}}" . ,menu-html)
 	    ("{{ARCHIVE}}" . ,archive-html)
+	    ("{{TAGCLOUD}}" . ,tag-cloud-html)
 	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
 	    ("{{FAVICON}}" . ,nori-site-favicon)
 	    ("{{SITE_NAME}}" . ,nori-site-title)
@@ -584,6 +596,8 @@ The INDEX contains only headlines with file-name and no TODO."
       (let ((listing-template-name "")
 	    (microblogp nil))
 	(cond
+	 ((string= layout "default-section")
+	  (setq listing-template-name "default-listing-item"))
 	 ((string= "Poems" (car sections-names))
 	  (setq listing-template-name "poem-listing-item"))
 	 ((string= "Posts" (car sections-names))
@@ -592,10 +606,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	  (setq listing-template-name "summary-with-image-item"))
 	 ((string= layout "microblog-section")
 	  (setq listing-template-name "microblog-listing-item")
-	  (setq microblogp t))
-	 ((string= layout "default-section")
-	  (setq listing-template-name "default-listing-item")
-	  (message "default-seciton %s" title)))
+	  (setq microblogp t)))
 	(let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
 	  (dolist (item-slug list-items)
@@ -902,6 +913,48 @@ used to add the active class."
 
 #+RESULTS: render-microblog-pagination
 : nori-site-render-microblog-pagination
+
+** Render tag cloud
+#+name: render-tag-cloud
+#+begin_src elisp :noweb strip-export
+(defun nori-site-render-tag-cloud (index)
+  (let* ((tag-slug-list (alist-get 'list-all-items (cdr (assoc "tag/" index))))
+	 (largest-font-size 1.5)
+   	 (smallest-font-size 0.7)
+	 (font-spread (- largest-font-size smallest-font-size))
+	 (count-per-tag (mapcar (lambda (tag-slug)
+				  (length (alist-get 'list-all-items (cdr (assoc tag-slug index)))))
+				tag-slug-list))
+	 (max-item-count (apply #'max count-per-tag))
+	 (min-item-count (apply #'min count-per-tag))
+	 (count-spread (- max-item-count min-item-count))
+	 (font-step (/ (float font-spread) count-spread))
+	 (html "<div class=\"tagcloud\">\n"))
+
+    (cl-loop for tag-slug in tag-slug-list
+	     for count in count-per-tag
+	     do
+	     (let* ((slug (concat "/" tag-slug))
+		    (title (alist-get 'title (cdr (assoc tag-slug index))))
+		    ;; pick one
+		    ;; linear scaling
+		    (font-size (+ smallest-font-size (* (- count min-item-count) font-step)))
+		    ;; logarithmic scaling
+		    (weight (/ (- (log count) (log min-item-count)) (- (log max-item-count) (log min-item-count))))
+		    ;(font-size (+ smallest-font-size (* (- largest-font-size smallest-font-size) weight))) 
+		    )
+	       (setq html (concat html
+				  (format "<a href=\"%s\"\n class=\"tagcloud-item\" style=\"font-size: %.2frem;\">%s<sup>%d</sup></a>\n" slug font-size title count)))
+	       )
+	     )
+    (setq html (concat html "</div>"))
+    html
+  ))
+;(nori-site-render-tag-cloud nori-site-entry-index)
+#+end_src
+
+#+RESULTS: render-tag-cloud
+: nori-site-render-tag-cloud
 
 * Templates
 ** Head

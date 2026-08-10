@@ -1951,7 +1951,7 @@ Reproducibility crisis, underpaid researchers, funding issues, paid for research
 ** TODO How to critically read scientific articles
 Statistics is not  intuitive, not common sense
 
-** The case for softness ::personal_growth:mental__health:
+** The case for softness :personal__growth:mental__health:
 :PROPERTIES:
 :EXPORT_FILE_NAME: case_for_softness
 :EXPORT_FEATURED_IMAGE: /img/featured_soft.webp
