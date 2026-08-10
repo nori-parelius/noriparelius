@@ -32,7 +32,6 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-- home
 - rss feed
 - css
 - handle 404 in caddy
@@ -601,7 +600,7 @@ The INDEX contains only headlines with file-name and no TODO."
 							  (last-item (assoc last-item-name index))
 							  (desc (alist-get 'description (cdr last-item))))
 						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/")))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) nil )))
 				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
@@ -620,7 +619,17 @@ The INDEX contains only headlines with file-name and no TODO."
 	 ((string= layout "microblog-section")
 	  (setq listing-template-name "microblog-listing-item")
 	  (setq microblogp t)))
-	(let* ((listing-template (nori-site-load-template listing-template-name))
+	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items microblogp)))))
+	
+	(when microblogp
+	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
+	  (setq replacements (append replacements `(("{{MICRO_PAGINATION_SUBTLE}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index t)))))))
+      (when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
+	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))))
+    (nori-site-render-template template replacements)))
+
+(defun nori-site-render-list (listing-template-name list-items microblogp)
+  (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
 	  (dolist (item-slug list-items)
 	    (let* ((item (assoc item-slug index))
@@ -643,18 +652,13 @@ The INDEX contains only headlines with file-name and no TODO."
 		      ("{{HOME_URL}}" . "/")
 		      )))
 	      (setq list-html (concat list-html "\n" (nori-site-render-template listing-template item-replacements)))))
-	  (setq replacements (append replacements `(("{{LIST}}" . ,list-html)))))
-	
-	(when microblogp
-	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
-	  (setq replacements (append replacements `(("{{MICRO_PAGINATION_SUBTLE}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index t)))))))
-      (when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
-	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))))
-    (nori-site-render-template template replacements)))
+	  list-html))
     #+end_src
 
+
+    
 #+RESULTS: generate-page
-: nori-site-generate-page
+: nori-site-render-list
 ** Generate 404
 #+name: generate-404
 #+begin_src elisp
