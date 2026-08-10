@@ -30,7 +30,33 @@
 }
 
 
+.default-section {
+    display: flex;
+    flex-direction: column;
+}
 
+.default-section h1 {
+    max-width: 80ch;
+    padding: 1rem;
+    margin: 0rem;
+    font-size: 2rem;
+}
+
+.individual-list-item {
+    max-width: 80ch;
+    margin: 0;
+    padding: 0 1rem;
+}
+
+.individual-list-item h2 {
+    margin: 0;
+    padding: 0;
+}
+
+    color: var(--rosewood);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
 
 
 
