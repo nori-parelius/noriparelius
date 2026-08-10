@@ -1,0 +1,13 @@
+<item>
+  <title>{{ITEM_TITLE}}</title>
+  <enclosure url="{{ITEM_FEATURED_IMAGE}}" type="image/jpg"></enclosure>
+  <link>{{ITEM_URL}}</link>
+  <pubDate>{{ITEM_DATE_HUMAN}}</pubDate>
+  <author>nori@noriparelius.com (Nori Parelius)</author>
+  <guid>{{ITEM_URL}}</guid>
+  <description>
+    <![CDATA[
+	     <img src={{ITEM_FEATURED_IMAGE}} width="800" height="150" />
+	     {{ITEM_CONTENTS}}
+    ]]></description>
+</item>

@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on nori parelius</title>
+    <link>https://www.noriparelius.com/post/</link>
+    <description>Recent posts on nori parelius</description>
+    <image>
+      <url>https://www.noriparelius.com/img/noriparelius.png</url>
+      <title>noriparelius.com</title>
+      <link>https://www.noriparelius.com</link>
+    </image>
+    <language>en</language>
+    <managingEditor>nori@noriparelius.com (Nori Parelius)</managingEditor>
+    <webMaster>nori@noriparelius.com (Nori Parelius)</webMaster>
+    <lastBuildDate>{{LAST_BUILD_DATE}}</lastBuildDate>
+    <atom:link href="https://www.noriparelius.com/post/index.xml" rel="self" type="application/rss+xml"/>
+    {{RSS_LIST}}
+  </channel>
+</rss>

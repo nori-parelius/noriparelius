@@ -112,7 +112,9 @@ Assumes to only get headlines that have an export_file_name, in order not to inc
 	 (layout (alist-get "EXPORT_LAYOUT" props nil nil #'string=))
 	 (f-image (alist-get "EXPORT_FEATURED_IMAGE" props nil nil #'string=))
 	 (f-alt (alist-get "EXPORT_FEATURED_ALT" props nil nil #'string=))
-	 (description (alist-get "DESCRIPTION" props nil nil #'string=))
+	 (description-get (alist-get "DESCRIPTION" props nil nil #'string=))
+	 (description (if description-get description-get
+			nori-site-description))
 	 (page-size (alist-get "PAGINATION" props nil nil #'string=))
 	 (todo (org-entry-get begin "TODO" :inherit))
 	 (tags (org-entry-get begin "ALLTAGS" :inherit))
@@ -148,9 +150,11 @@ Assumes to only get headlines that have an export_file_name, in order not to inc
 		 (contents-end . ,contents-end)
 		 (title . ,title)
 		 (date . ,date)
-		 (layout . ,layout)
-		 (f-image . ,f-image)
-		 (f-alt . ,f-alt)
+		 (layout . ,(when layout (concat layout ".html")))
+		 (f-image . ,(if f-image f-image
+			       nori-site-default-featured-image))
+		 (f-alt . ,(if f-alt f-alt
+			     description))
 		 (description . ,description)
 		 (page-size . ,page-size)
 		 (todo . ,todo)
@@ -228,7 +232,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (file-path-dir (concat nori-site-publish-directory slug))
 	 (meta `((file-name . "_index")
 		 (title . "Tags")
-		 (layout . "default-section")
+		 (layout . "default-section.html")
 		 (page-size . "50")
 		 (sections-names . ("Tags"))
 		 (sections-slugs . ,sections-slugs)
@@ -271,7 +275,7 @@ The INDEX contains only headlines with file-name and no TODO."
 		 (unless (assoc slug index)
 		   (let ((meta `((file-name . "_index")
 				 (title . ,title)
-				 (layout . "default-section")
+				 (layout . "default-section.html")
 				 (page-size . "50")
 				 (sections-names . (,title "Tags"))
 				 (sections-slugs . ,sections-slugs)
@@ -303,8 +307,8 @@ The INDEX contains only headlines with file-name and no TODO."
     (sort (alist-get 'list-items (cdr (assoc "tag/" index))) (lambda (a b) (string< a b)))
     (dolist (tag tags)
       (let* ((tag-entry (assoc tag index))
-	    (all-items (alist-get 'list-all-items (cdr tag-entry)))
-	    (items (alist-get 'list-items (cdr tag-entry))))
+	     (all-items (alist-get 'list-all-items (cdr tag-entry)))
+	     (items (alist-get 'list-items (cdr tag-entry))))
 	(sort all-items (lambda (a b) (string> (alist-get 'date (cdr (assoc a index))) (alist-get 'date (cdr (assoc b index))))))
 	(sort items (lambda (a b) (string> (alist-get 'date (cdr (assoc a index))) (alist-get 'date (cdr (assoc b index))))))
 	)))
@@ -329,7 +333,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	(message "Indexed %d entries." (length index))
 	index))))
 
-;					(nori-site-build-entry-index nori-site-source-org-filename)
+;(nori-site-build-entry-index nori-site-source-org-filename)
 #+end_src
 
 #+RESULTS: entry-index
@@ -486,7 +490,6 @@ The INDEX contains only headlines with file-name and no TODO."
     (if (file-exists-p publish-dir)
 	(delete-directory publish-dir t nil))
     (make-directory publish-dir t)
-
     ;; Copy assets to publish-dir
     (copy-directory nori-site-content-img-dir publish-dir t t nil)
     (copy-directory nori-site-img-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
@@ -512,7 +515,7 @@ The INDEX contains only headlines with file-name and no TODO."
 
 	  (message "Published: %s -> %s" title file-name))
 	))
-    (nori-site-generate-404 "404" publish-dir)
+    (nori-site-generate-404 "404.html" publish-dir)
     ))
 
 
@@ -600,7 +603,7 @@ The INDEX contains only headlines with file-name and no TODO."
 							  (last-item (assoc last-item-name index))
 							  (desc (alist-get 'description (cdr last-item))))
 						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) nil )))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) nil )))
 				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
@@ -608,18 +611,18 @@ The INDEX contains only headlines with file-name and no TODO."
       (let ((listing-template-name "")
 	    (microblogp nil))
 	(cond
-	 ((string= layout "default-section")
-	  (setq listing-template-name "default-listing-item"))
+	 ((string= layout "default-section.html")
+	  (setq listing-template-name "default-listing-item.html"))
 	 ((string= "Poems" (car sections-names))
-	  (setq listing-template-name "poem-listing-item"))
+	  (setq listing-template-name "poem-listing-item.html"))
 	 ((string= "Posts" (car sections-names))
-	  (setq listing-template-name "summary-with-image-item"))
+	  (setq listing-template-name "summary-with-image-item.html"))
 	 ((string= "Alphabet Superset" (car sections-names))
-	  (setq listing-template-name "summary-with-image-item"))
-	 ((string= layout "microblog-section")
-	  (setq listing-template-name "microblog-listing-item")
+	  (setq listing-template-name "summary-with-image-item.html"))
+	 ((string= layout "microblog-section.html")
+	  (setq listing-template-name "microblog-listing-item.html")
 	  (setq microblogp t)))
-	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items microblogp)))))
+	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items org-buffer microblogp)))))
 	
 	(when microblogp
 	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
@@ -628,12 +631,12 @@ The INDEX contains only headlines with file-name and no TODO."
 	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))))
     (nori-site-render-template template replacements)))
 
-(defun nori-site-render-list (listing-template-name list-items microblogp)
+(defun nori-site-render-list (listing-template-name list-items org-buffer get-html)
   (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
 	  (dolist (item-slug list-items)
 	    (let* ((item (assoc item-slug index))
-		   (item-html (if microblogp (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
+		   (item-html (if get-html (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
 				""))
 		   (item-date (alist-get 'date (cdr item)))
 		   (item-wordcount (alist-get 'wordcount (cdr item)))
@@ -645,7 +648,7 @@ The INDEX contains only headlines with file-name and no TODO."
 		      ("{{ITEM_DATE}}" . ,item-date)
 		      ("{{ITEM_DATE_HUMAN}}" . ,(when item-date (format-time-string "%B %d, %Y" (date-to-time item-date))))
 		      ("{{ITEM_READING_TIME}}" . ,(when item-wordcount (int-to-string (/ item-wordcount 238))))
-		      ("{{ITEM_WORDCOUNT}}" . ,(when wordcount (int-to-string item-wordcount)))
+		      ("{{ITEM_WORDCOUNT}}" . ,(when item-wordcount (int-to-string item-wordcount)))
 		      ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr item)))
 		      ("{{ITEM_CONTENTS}}" . ,item-html)
 		      ("{{SITE_TITLE}}" . ,nori-site-title)
@@ -694,6 +697,32 @@ The INDEX contains only headlines with file-name and no TODO."
       (insert page)))
   (message "Published 404"))
 #+end_src
+** Generate RSS
+#+name: generate-rss
+#+begin_src elisp :noweb strip-export
+<<load-template>>
+<<generate-page>>
+(defun nori-site-generate-rss (index)
+  (let* ((file-name "index.xml")
+	 (file-path-file (concat nori-site-publish-directory "post/" file-name))
+	 (slug "/post/index.xml")
+	 (layout "rss.xml")
+	 (item-layout "rss-item.xml")
+	 (template (nori-site-load-template layout))
+	 (list-items (reverse (alist-get 'list-all-items (cdr (assoc "post/" index)))))
+	 (replacements
+	  `(("{{LAST_BUILD_DATE}}" . ,nil)
+	    ("{{RSS_LIST}}" . ,(nori-site-render-list item-layout list-items (find-file-noselect nori-site-source-org-filename) t))
+	    ))
+	 (page (nori-site-render-template template replacements)))
+    (with-temp-file file-path-file
+      (insert page))
+    ))
+(nori-site-generate-rss nori-site-entry-index)
+#+end_src
+
+#+RESULTS: generate-rss
+
 ** Export subtree to html
 #+name: subtree-to-html
 #+begin_src elisp
@@ -737,7 +766,7 @@ The INDEX contains only headlines with file-name and no TODO."
   "Load template NAME from the templates directory."
   (with-temp-buffer
     (insert-file-contents
-     (expand-file-name (concat name ".html") nori-site-templates-dir))
+     (expand-file-name (concat name) nori-site-templates-dir))
     (buffer-string)))
 #+end_src
 
@@ -1557,6 +1586,43 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 
 
+** RSS feed
+#+begin_src xml :tangle  "/home/nori/Documents/Notes/website/templates/rss.xml"
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on nori parelius</title>
+    <link>https://www.noriparelius.com/post/</link>
+    <description>Recent posts on nori parelius</description>
+    <image>
+      <url>https://www.noriparelius.com/img/noriparelius.png</url>
+      <title>noriparelius.com</title>
+      <link>https://www.noriparelius.com</link>
+    </image>
+    <language>en</language>
+    <managingEditor>nori@noriparelius.com (Nori Parelius)</managingEditor>
+    <webMaster>nori@noriparelius.com (Nori Parelius)</webMaster>
+    <lastBuildDate>{{LAST_BUILD_DATE}}</lastBuildDate>
+    <atom:link href="https://www.noriparelius.com/post/index.xml" rel="self" type="application/rss+xml"/>
+    {{RSS_LIST}}
+  </channel>
+</rss>
+#+end_src
+** RSS feed item
+#+begin_src xml :tangle  "/home/nori/Documents/Notes/website/templates/rss-item.xml"
+<item>
+  <title>{{ITEM_TITLE}}</title>
+  <enclosure url="{{ITEM_FEATURED_IMAGE}}" type="image/jpg"></enclosure>
+  <link>{{ITEM_URL}}</link>
+  <pubDate>{{ITEM_DATE_HUMAN}}</pubDate>
+  <author>nori@noriparelius.com (Nori Parelius)</author>
+  <guid>{{ITEM_URL}}</guid>
+  <description>
+    <![CDATA[
+	     <img src={{ITEM_FEATURED_IMAGE}} width="800" height="150" />
+	     {{ITEM_CONTENTS}}
+    ]]></description>
+</item>
+#+end_src
 
 ** Poem next-prev
 #+name: poem-next-prev
