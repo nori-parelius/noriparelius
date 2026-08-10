@@ -1,5 +1,170 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}" dir="ltr">
+
+  <!-- ========== HEAD============== -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title -->
+    <title>{{TITLE}}</title>
+
+    <!-- Static links (social, webmentions, etc) -->
+    <!-- Canonical link -->
+    <link rel="canonical" href="{{CANONICAL_URL}}"/>
+    <!-- Social rel="me" links -->
+    <link rel="me" href="https://medium.com/@nori.parelius" />
+    <link rel="me" href="https://substack.com/@noriparelius" />
+    <link rel="me" href="https://github.com/nori-parelius" />
+    <!-- Webmetions -->
+    <link rel="webmention" href="https://webmention.io/www.noriparelius.com/webmention"/>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
+    <!-- Meta description -->
+    <meta name="description" content="{{DESCRIPTION}}"/>
+
+
+    <!-- Robots meta tag -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph metadata to control appearance when shared -->
+    <meta property="og:url" content="{{URL}}">
+    <meta property="og:site_name" content="{{SITE_NAME}}">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:locale" content="en">
+    <meta property="og:image" content="{{FEATURED_IMAGE}}">
+
+
+    <!-- Twitter cards for the same -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{FEATURED_IMAGE}}">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+
+
+    <!-- RSS feed link -->
+    <!-- https://gohugo.io/templates/rss/ -->
+    <!--
+	{{- with .OutputFormats.Get "rss" -}}
+	{{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
+	{{- end -}}
+      -->
+
+    <!-- Load css and js -->
+    <link rel="stylesheet" href="/css/style.css">
+
+
+  </head>
+
+
+<body>
+  <!-- ========== SITE-HEADER============== -->
+  <header class="site-header">
+    <div class="site-header-inner h-card">
+
+      <div class="site-logo-div">
+	<a class="site-logo-link" href="{{HOME_URL}}">
+	  <div class="site-logo-wrapper">
+            <img class="site-logo-img u-photo" src="{{SITE_LOGO_URL}}" alt="{{SITE_TITLE}}" />
+	  </div>
+	</a>
+      </div>
+
+      <div class="site-title-div">
+	<h1 class="site-title">
+	  <a class="site-title-link p-name u-url u-uid" href="{{HOME_URL}}">
+            {{SITE_TITLE}}
+	  </a>
+	</h1>
+      </div>
+    </div>
+
+  </header>
+
+  <div class="site-container">
+
+    <!-- ========== MENU============== -->
+    <div class="menu-section">
+      {{MENU_HTML}}
+    </div>
+    
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
     <article>
       <h1>This is not the page you were looking for...</h1>
     </article>
-{{ end }}
+  </div>
+</main>
+<div class="sidebar-extras-section">
+  <div class="sidebar-widgets1">
+    <div class="sidebar-archive">
+      <h3>Archive</h3>
+      {{ARCHIVE}}
+    </div>
+
+  </div>
+
+  <div class="sidebar-widgets2">
+    <div class="sidebar-rss">
+      <h3>RSS feed</h3>
+      <p>
+	<a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+      </p>
+    </div>
+  </div>
+
+  <div class="sidebar-widgets3">
+    <div class="sidebar-tagcloud">
+      <h3>Tags</h3>
+      {{TAGCLOUD}}
+    </div>
+    <div class="tape"></div>
+  </div>
+
+  <div class="sidebar-widgets4">
+    <a class="flower-link" href="/poem/" >
+      <img src="/img/pressed_flower_2.png" alt="Pressed flower">
+    </a>
+  </div>
+
+
+</div>
+
+<div class="doodle1"></div>
+</div>
+<footer>
+  <div class="top-footer">
+    <p class="privacy-policy">
+      <a href="{{PRIVACY_POLICY_LINK}}">Privacy Policy</a>
+    </p>
+
+
+<p class="footer-rss">
+  <a href="/post/index.xml"><img src="/img/rss1.svg" alt="RSS Feed" title="Subscribe via RSS for updates."></a>
+</p>
+
+<p class="kofi-button">
+  <a href='https://ko-fi.com/U7U4WWKDC' target='_blank' rel="noopener">
+    <img src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' alt='Buy Me a Coffee at ko-fi.com' />
+  </a>
+</p>
+
+
+</div>
+
+<p class="copyright" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  © 2018–{{CURRENT_YEAR}} <a rel="cc:attributionURL" href="{{HOME_URL}}">noriparelius.com</a> — Nori Parelius
+  <br>
+  Essays are shared under
+  <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0
+    <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="CC icon">
+    <img style="height:20px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="BY icon">
+  </a>
+  <br>
+  Fiction & poetry are © Nori Parelius, all rights reserved.
+</p>
+</footer>
+</body>
+</html>

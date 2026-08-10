@@ -35,7 +35,7 @@ Use ~sass input.scss output.css --style=compressed~
 - home
 - rss feed
 - css
-- 404
+- handle 404 in caddy
 - robots.txt, sitemap
 
 * CODE
@@ -466,6 +466,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<paginate-list>>
 <<generate-archive-sidebar>>
 <<render-tag-cloud>>
+<<generate-404>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
   (interactive)
@@ -511,13 +512,16 @@ The INDEX contains only headlines with file-name and no TODO."
 	    (insert page))
 
 	  (message "Published: %s -> %s" title file-name))
-	))))
+	))
+    (nori-site-generate-404 "404" publish-dir)
+    ))
 
 
 (nori-site-render-all-pages)
 #+end_src
 
 #+RESULTS: render-all-pages
+: Published 404
 ** Generate page
 #+name: generate-page
 #+begin_src elisp :noweb strip-export
@@ -557,7 +561,6 @@ The INDEX contains only headlines with file-name and no TODO."
 	    ("{{CONTENTS}}" . ,html)
 	    ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
 	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url slug))
-					;("{{URL}}" . ,(concat "/" (string-join path-chain "/") "/" file-name))
 	    ("{{URL}}" . ,(concat "/" slug))
 	    ("{{SECTION_TITLE}}" . ,(car sections-names))
 	    ("{{SECTION_URL}}" . ,(concat "/" section-slug))
@@ -642,7 +645,41 @@ The INDEX contains only headlines with file-name and no TODO."
 
 #+RESULTS: generate-page
 : nori-site-generate-page
-
+** Generate 404
+#+name: generate-404
+#+begin_src elisp
+(defun nori-site-generate-404 (layout pusblish-dir)
+  (let* ((file-name "404")
+	 (file-path-file (concat publish-dir "404.html"))
+	 (slug "404/")
+	 (template (if layout
+		       (nori-site-load-template layout)
+		     (nori-site-load-template (car sections-slugs))))
+	 (menu-html (nori-site-build-menu slug))
+	 (replacements
+	  `(("{{TITLE}}" . "404 - Page not found")
+	    ("{{FEATURED_IMAGE}}" . ,nori-site-default-featured-image)
+	    ("{{FEATURED_ALT}}" . ,nori-site-description)
+	    ("{{DESCRIPTION}}" . ,nori-site-description)
+	    ("{{LANGUAGE_CODE}}" . ,nori-site-language-code)
+	    ("{{CANONICAL_URL}}" . ,(concat nori-site-base-url slug))
+	    ("{{URL}}" . ,(concat "/" slug))
+	    ("{{MENU_HTML}}" . ,menu-html)
+	    ("{{ARCHIVE}}" . ,archive-html)
+	    ("{{TAGCLOUD}}" . ,tag-cloud-html)
+	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
+	    ("{{FAVICON}}" . ,nori-site-favicon)
+	    ("{{SITE_NAME}}" . ,nori-site-title)
+	    ("{{HOME_URL}}" . "/")
+	    ("{{SITE_LOGO_URL}}" . ,nori-site-logo)
+	    ("{{SITE_TITLE}}" . ,nori-site-title)
+	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
+	    ))
+	 (page (nori-site-render-template template replacements)))
+    (with-temp-file file-path-file
+      (insert page)))
+  (message "Published 404"))
+#+end_src
 ** Export subtree to html
 #+name: subtree-to-html
 #+begin_src elisp
@@ -1660,6 +1697,21 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
     <<microblog-main>>
       <<sidebar>>
 	<<footer>>
+#+end_src
+*** 404
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/404.html"
+<<head>>
+<<header>>
+<main class="main-content">
+  <div class="spiral"></div>
+  <div class="main-content-wrapper">
+    <article>
+      <h1>This is not the page you were looking for...</h1>
+    </article>
+  </div>
+</main>
+<<sidebar>>
+<<footer>>
 #+end_src
 *** poem-section
 #+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/poem-section.html"
