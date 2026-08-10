@@ -122,7 +122,7 @@
     	    </ul>
     	  </p>
     	</div>
-    	<a class="microblog-latest-link" href="/microblog">
+    	<a class="microblog-latest-link" href="/microblog/2026/">
     	  <div class="microblog-latest">
     	    <h4>Latest from the <span style="text-decoration: underline;">microblog</span></h4>
     	    <div class="latest-snippet">
@@ -134,9 +134,7 @@
     
           <section class="recent-posts">
     	<h2 class="recent-posts-header">Recent Posts</h2>
-    	<!-- {{- range first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "post") -}}
-    	     {{- partial "summary-with-image.html" . -}}
-    	     {{- end -}} -->
+    	{{RECENT_POSTS}}
     	<div class="more-posts-button-div">
     	  <a class="more-posts-button" href="/post/">More Posts</a>
     	</div>

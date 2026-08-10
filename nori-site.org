@@ -532,6 +532,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<render-pagination>>
 <<render-microblog-pagination>>
 <<get-adjacent-poems>>
+<<get-microblog-years>>
 
 (defun nori-site-generate-page (index metadata html archive-html tag-cloud-html)
   "Generate a page using the template."
@@ -593,6 +594,15 @@ The INDEX contains only headlines with file-name and no TODO."
 				   ""))
 	    ("{{TAGS}}" . ,(if tags (nori-site-generate-tag-list tags)
 			     ""))
+	    ("{{LAST_MICROBLOG_DESCRIPTION}}" . ,(when (string= slug "/")
+						   (let* ((micro-years (nori-site-get-microblog-years index))
+							  (last-year (assoc (car micro-years) index))
+							  (last-item-name (car (alist-get 'list-all-items (cdr last-year))))
+							  (last-item (assoc last-item-name index))
+							  (desc (alist-get 'description (cdr last-item))))
+						     desc)))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/")))
+				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
 
@@ -1142,7 +1152,7 @@ used to add the active class."
 	    </ul>
 	  </p>
 	</div>
-	<a class="microblog-latest-link" href="/microblog">
+	<a class="microblog-latest-link" href="/microblog/2026/">
 	  <div class="microblog-latest">
 	    <h4>Latest from the <span style="text-decoration: underline;">microblog</span></h4>
 	    <div class="latest-snippet">
@@ -1154,9 +1164,7 @@ used to add the active class."
 
       <section class="recent-posts">
 	<h2 class="recent-posts-header">Recent Posts</h2>
-	<!-- {{- range first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "post") -}}
-	     {{- partial "summary-with-image.html" . -}}
-	     {{- end -}} -->
+	{{RECENT_POSTS}}
 	<div class="more-posts-button-div">
 	  <a class="more-posts-button" href="/post/">More Posts</a>
 	</div>
