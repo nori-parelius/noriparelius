@@ -33,7 +33,6 @@ Use ~sass input.scss output.css --style=compressed~
 ** Todos
 - css
 - handle 404 in caddy
-- robots.txt, sitemap
 
 * CODE
 ** Variables
@@ -468,6 +467,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<generate-archive-sidebar>>
 <<render-tag-cloud>>
 <<generate-404>>
+<<generate-sitemap>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
   (interactive)
@@ -493,6 +493,7 @@ The INDEX contains only headlines with file-name and no TODO."
     (copy-directory nori-site-img-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
     (copy-directory nori-site-css-dir publish-dir t t nil)
     (copy-directory nori-site-fonts-dir publish-dir t t nil)
+    (copy-file (concat nori-site-templates-dir "robots.txt") (concat publish-dir "robots.txt"))
     
     ;; Loop through index to render
     (dolist (entry nori-site-entry-index)
@@ -515,6 +516,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	))
     (nori-site-generate-404 "404.html" publish-dir)
     (nori-site-generate-rss nori-site-entry-index)
+    (nori-site-generate-sitemap nori-site-entry-index)
     ))
 
 
@@ -522,6 +524,7 @@ The INDEX contains only headlines with file-name and no TODO."
 #+end_src
 
 #+RESULTS: render-all-pages
+: Published sitemap
 ** Generate page
 #+name: generate-page
 #+begin_src elisp :noweb strip-export
@@ -711,7 +714,7 @@ The INDEX contains only headlines with file-name and no TODO."
 (defun nori-site-generate-rss (index)
   (let* ((file-name "index.xml")
 	 (file-path-file (concat nori-site-publish-directory "post/" file-name))
-	 (slug "/post/index.xml")
+	 (slug "post/index.xml")
 	 (layout "rss.xml")
 	 (item-layout "rss-item.xml")
 	 (template (nori-site-load-template layout))
@@ -730,6 +733,37 @@ The INDEX contains only headlines with file-name and no TODO."
 #+end_src
 
 #+RESULTS: generate-rss
+** Generate sitemap
+#+name: generate-sitemap
+#+begin_src elisp :noweb strip-export
+(defun nori-site-generate-sitemap (index)
+  (let* ((file-name "sitemap.xml")
+	 (file-path-file (concat nori-site-publish-directory file-name))
+	 (xml (concat
+   "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+   "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">")))
+    (dolist (entry (reverse index))
+      (let* ((slug (alist-get 'slug (cdr entry)))
+	     (url (if (string= (substring slug 0 1) "/") (concat nori-site-base-url (substring slug 1))
+		    (concat nori-site-base-url slug)))
+	     (date (alist-get 'date (cdr entry)))
+	     ;;(date-string (when date (format-time-string "%Y-%m-%d" (date-to-time date))))
+	     )
+	(if date (setq xml (concat xml (format "<url><loc>%s</loc><lastmod>%s</lastmod></url>" url date)))
+	  (setq xml (concat xml (format "<url><loc>%s</loc></url>"
+				  url))))
+	  ))
+    (setq xml (concat xml "</urlset>"))
+    (with-temp-file file-path-file
+      (insert xml))
+    (message "Published sitemap")
+    )
+  )
+;(nori-site-generate-sitemap nori-site-entry-index)
+#+end_src
+
+#+RESULTS: generate-sitemap
+: Published sitemap
 
 ** Export subtree to html
 #+name: subtree-to-html
