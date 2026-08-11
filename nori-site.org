@@ -1,5 +1,4 @@
 #+title: My website
-
 * Intro and notes
 ** Inspiration
 - ox-hugo, org-static-blog, ox-publish
@@ -516,6 +515,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	  (message "Published: %s -> %s" title file-name))
 	))
     (nori-site-generate-404 "404.html" publish-dir)
+    (nori-site-generate-rss nori-site-entry-index)
     ))
 
 
@@ -523,7 +523,6 @@ The INDEX contains only headlines with file-name and no TODO."
 #+end_src
 
 #+RESULTS: render-all-pages
-: Published 404
 ** Generate page
 #+name: generate-page
 #+begin_src elisp :noweb strip-export
@@ -603,7 +602,7 @@ The INDEX contains only headlines with file-name and no TODO."
 							  (last-item (assoc last-item-name index))
 							  (desc (alist-get 'description (cdr last-item))))
 						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) nil )))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil )))
 				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
@@ -640,13 +639,18 @@ The INDEX contains only headlines with file-name and no TODO."
 				""))
 		   (item-date (alist-get 'date (cdr item)))
 		   (item-wordcount (alist-get 'wordcount (cdr item)))
+		   (f-image (alist-get 'f-image (cdr item)))
 		   (item-replacements
 		    `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr item))))
+		      ("{{ITEM_CANONICAL_URL}}" . ,(concat nori-site-base-url (alist-get 'slug (cdr item))))
 		      ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr item)))
 		      ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr item)))
+		      ("{{ITEM_FULL_FEATURED_IMAGE}}" . ,(when f-image (concat nori-site-base-url (substring f-image 1))))
+		      ("{{IMAGE_EXT}}" . ,(when f-image (file-name-extension f-image)))
 		      ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr item)))
 		      ("{{ITEM_DATE}}" . ,item-date)
 		      ("{{ITEM_DATE_HUMAN}}" . ,(when item-date (format-time-string "%B %d, %Y" (date-to-time item-date))))
+		      ("{{ITEM_DATE_RFC822}}" . ,(when item-date (format-time-string "%a, %d %b %Y %H:%M:%S GMT" (date-to-time item-date))))
 		      ("{{ITEM_READING_TIME}}" . ,(when item-wordcount (int-to-string (/ item-wordcount 238))))
 		      ("{{ITEM_WORDCOUNT}}" . ,(when item-wordcount (int-to-string item-wordcount)))
 		      ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr item)))
@@ -711,7 +715,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (template (nori-site-load-template layout))
 	 (list-items (reverse (alist-get 'list-all-items (cdr (assoc "post/" index)))))
 	 (replacements
-	  `(("{{LAST_BUILD_DATE}}" . ,nil)
+	  `(("{{LAST_BUILD_DATE}}" . ,(format-time-string "%a, %d %b %Y %H:%M:%S GMT" (current-time)))
 	    ("{{RSS_LIST}}" . ,(nori-site-render-list item-layout list-items (find-file-noselect nori-site-source-org-filename) t))
 	    ))
 	 (page (nori-site-render-template template replacements)))
@@ -1611,14 +1615,14 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+begin_src xml :tangle  "/home/nori/Documents/Notes/website/templates/rss-item.xml"
 <item>
   <title>{{ITEM_TITLE}}</title>
-  <enclosure url="{{ITEM_FEATURED_IMAGE}}" type="image/jpg"></enclosure>
-  <link>{{ITEM_URL}}</link>
-  <pubDate>{{ITEM_DATE_HUMAN}}</pubDate>
+  <enclosure url="{{ITEM_FULL_FEATURED_IMAGE}}" type="image/{{IMAGE_EXT}}"></enclosure>
+  <link>{{ITEM_CANONICAL_URL}}</link>
+  <pubDate>{{ITEM_DATE_RFC822}}</pubDate>
   <author>nori@noriparelius.com (Nori Parelius)</author>
-  <guid>{{ITEM_URL}}</guid>
+  <guid>{{ITEM_CANONICAL_URL}}</guid>
   <description>
     <![CDATA[
-	     <img src={{ITEM_FEATURED_IMAGE}} width="800" height="150" />
+	     <img src="{{ITEM_FULL_FEATURED_IMAGE}}" width="800" height="150" />
 	     {{ITEM_CONTENTS}}
     ]]></description>
 </item>
