@@ -1,6 +1,6 @@
 <item>
   <title>{{ITEM_TITLE}}</title>
-  <enclosure url="{{ITEM_FULL_FEATURED_IMAGE}}" type="image/{{IMAGE_EXT}}"></enclosure>
+  <enclosure url="{{ITEM_FULL_FEATURED_IMAGE}}" type="image/{{IMAGE_EXT}}" length="{{IM_SIZE}}"></enclosure>
   <link>{{ITEM_CANONICAL_URL}}</link>
   <pubDate>{{ITEM_DATE_RFC822}}</pubDate>
   <author>nori@noriparelius.com (Nori Parelius)</author>

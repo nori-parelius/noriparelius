@@ -31,7 +31,6 @@ Using sass (Dart Sass) which is a Node.js thing, I think. Installed with ~sudo p
 
 Use ~sass input.scss output.css --style=compressed~
 ** Todos
-- rss feed
 - css
 - handle 404 in caddy
 - robots.txt, sitemap
@@ -602,7 +601,7 @@ The INDEX contains only headlines with file-name and no TODO."
 							  (last-item (assoc last-item-name index))
 							  (desc (alist-get 'description (cdr last-item))))
 						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil )))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil nil )))
 				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
@@ -621,7 +620,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	 ((string= layout "microblog-section.html")
 	  (setq listing-template-name "microblog-listing-item.html")
 	  (setq microblogp t)))
-	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items org-buffer microblogp)))))
+	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items org-buffer microblogp nil)))))
 	
 	(when microblogp
 	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
@@ -630,12 +629,12 @@ The INDEX contains only headlines with file-name and no TODO."
 	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))))
     (nori-site-render-template template replacements)))
 
-(defun nori-site-render-list (listing-template-name list-items org-buffer get-html)
+(defun nori-site-render-list (listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
 	  (dolist (item-slug list-items)
 	    (let* ((item (assoc item-slug index))
-		   (item-html (if get-html (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
+		   (item-html (if get-htmlp (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
 				""))
 		   (item-date (alist-get 'date (cdr item)))
 		   (item-wordcount (alist-get 'wordcount (cdr item)))
@@ -650,13 +649,15 @@ The INDEX contains only headlines with file-name and no TODO."
 		      ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr item)))
 		      ("{{ITEM_DATE}}" . ,item-date)
 		      ("{{ITEM_DATE_HUMAN}}" . ,(when item-date (format-time-string "%B %d, %Y" (date-to-time item-date))))
-		      ("{{ITEM_DATE_RFC822}}" . ,(when item-date (format-time-string "%a, %d %b %Y %H:%M:%S GMT" (date-to-time item-date))))
+		      ("{{ITEM_DATE_RFC822}}" . ,(when item-date (format-time-string "%a, %d %b %Y %H:%M:%S %Z" (apply #'encode-time (decode-time (date-to-time item-date))) "GMT")))
 		      ("{{ITEM_READING_TIME}}" . ,(when item-wordcount (int-to-string (/ item-wordcount 238))))
 		      ("{{ITEM_WORDCOUNT}}" . ,(when item-wordcount (int-to-string item-wordcount)))
 		      ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr item)))
 		      ("{{ITEM_CONTENTS}}" . ,item-html)
 		      ("{{SITE_TITLE}}" . ,nori-site-title)
 		      ("{{HOME_URL}}" . "/")
+		      ("{{IM_SIZE}}" . ,(when (and get-im-size-p f-image)
+					  (int-to-string (nth 7 (file-attributes (concat nori-site-publish-directory (substring f-image 1)))))))
 		      )))
 	      (setq list-html (concat list-html "\n" (nori-site-render-template listing-template item-replacements)))))
 	  list-html))
@@ -706,6 +707,7 @@ The INDEX contains only headlines with file-name and no TODO."
 #+begin_src elisp :noweb strip-export
 <<load-template>>
 <<generate-page>>
+<<variables>>
 (defun nori-site-generate-rss (index)
   (let* ((file-name "index.xml")
 	 (file-path-file (concat nori-site-publish-directory "post/" file-name))
@@ -715,12 +717,14 @@ The INDEX contains only headlines with file-name and no TODO."
 	 (template (nori-site-load-template layout))
 	 (list-items (reverse (alist-get 'list-all-items (cdr (assoc "post/" index)))))
 	 (replacements
-	  `(("{{LAST_BUILD_DATE}}" . ,(format-time-string "%a, %d %b %Y %H:%M:%S GMT" (current-time)))
-	    ("{{RSS_LIST}}" . ,(nori-site-render-list item-layout list-items (find-file-noselect nori-site-source-org-filename) t))
+	  `(("{{LAST_BUILD_DATE}}" . ,(format-time-string "%a, %d %b %Y %H:%M:%S %Z" (apply #'encode-time (decode-time (current-time))) "GMT"))
+	    ("{{RSS_LIST}}" . ,(nori-site-render-list item-layout list-items (find-file-noselect nori-site-source-org-filename) t t))
 	    ))
 	 (page (nori-site-render-template template replacements)))
+    (setq page (replace-regexp-in-string "\img" (concat nori-site-base-url "img") page))
     (with-temp-file file-path-file
       (insert page))
+    (message "Published RSS index.xml"))
     ))
 (nori-site-generate-rss nori-site-entry-index)
 #+end_src
@@ -1615,7 +1619,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+begin_src xml :tangle  "/home/nori/Documents/Notes/website/templates/rss-item.xml"
 <item>
   <title>{{ITEM_TITLE}}</title>
-  <enclosure url="{{ITEM_FULL_FEATURED_IMAGE}}" type="image/{{IMAGE_EXT}}"></enclosure>
+  <enclosure url="{{ITEM_FULL_FEATURED_IMAGE}}" type="image/{{IMAGE_EXT}}" length="{{IM_SIZE}}"></enclosure>
   <link>{{ITEM_CANONICAL_URL}}</link>
   <pubDate>{{ITEM_DATE_RFC822}}</pubDate>
   <author>nori@noriparelius.com (Nori Parelius)</author>
