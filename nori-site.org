@@ -467,6 +467,7 @@ The INDEX contains only headlines with file-name and no TODO."
 <<generate-archive-sidebar>>
 <<render-tag-cloud>>
 <<generate-404>>
+<<generate-rss>>
 <<generate-sitemap>>
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
@@ -728,11 +729,12 @@ The INDEX contains only headlines with file-name and no TODO."
     (with-temp-file file-path-file
       (insert page))
     (message "Published RSS index.xml"))
-    ))
-(nori-site-generate-rss nori-site-entry-index)
+    )
+;(nori-site-generate-rss nori-site-entry-index)
 #+end_src
 
 #+RESULTS: generate-rss
+: nori-site-generate-rss
 ** Generate sitemap
 #+name: generate-sitemap
 #+begin_src elisp :noweb strip-export
