@@ -3494,6 +3494,70 @@ What could you possibly lack?
 Don't know. I'm doing my best
 says the orchid in a sidewalk crack.
 #+end_verse
+** Until I change
+:PROPERTIES:
+:EXPORT_FILE_NAME: change
+:EXPORT_DATE: 2026-07-27
+:EXPORT_LAYOUT: poem
+:END:
+#+begin_verse
+resist change
+resis change
+resi change
+res change
+re change
+r change
+/change/
+#+end_verse
+
+** Unmasking
+:PROPERTIES:
+:EXPORT_FILE_NAME: unmasking
+:EXPORT_DATE: 2026-07-28
+:EXPORT_LAYOUT: poem
+:END:
+#+begin_verse
+Slowly -
+At my own pace
+Calmly -
+Not just to get it out of your face
+Fully -
+No holding back
+Uncompromisingly -
+No hiding my lack
+My real self -
+With my monstrous needs
+With my emotional scenes
+With my childish dreams
+I take up space
+#+end_verse
+** Before you finish
+:PROPERTIES:
+:EXPORT_FILE_NAME: before-you-finish
+:EXPORT_DATE: 2026-07-29
+:EXPORT_LAYOUT: poem
+:END:
+#+begin_verse
+Before you finish
+You have to keep going
+
+Before you keep going
+You have to start
+
+Before you start
+You have to decide
+
+Before you decide
+You have to see
+
+You have to see
+The world
+Your way
+The doors
+Your place
+
+So go and take a proper look around for once
+#+end_verse
 * Microblog
 :PROPERTIES:
 :EXPORT_SECTION: microblog
