@@ -48,19 +48,19 @@ Use ~sass input.scss output.css --style=compressed~
   "The language of the site.")
 (defvar nori-site-title "nori parelius"
   "Title of the site.")
-(defvar nori-site-publish-directory "~/Documents/Notes/website/public/"
+(defvar nori-site-publish-directory "~/Documents/noriparelius/public/"
   "Directory where published HTML files are stored.")
-(defvar nori-site-source-org-filename "~/Documents/Notes/website/noriparelius.org"
+(defvar nori-site-source-org-filename "~/Documents/noriparelius/noriparelius.org"
   "Filepath of the org file that holds the posts")
-(defvar nori-site-templates-dir "~/Documents/Notes/website/templates/"
+(defvar nori-site-templates-dir "~/Documents/noriparelius/templates/"
   "Filepath to the dir with the html templates.")
-(defvar nori-site-img-dir "~/Documents/Notes/website/img-global/"
+(defvar nori-site-img-dir "~/Documents/noriparelius/img-global/"
   "Filepath to global img directiory.")
-(defvar nori-site-content-img-dir "~/Documents/Notes/website/img/"
+(defvar nori-site-content-img-dir "~/Documents/noriparelius/img/"
   "Filepath to the img dir which contains all the images referenced straight from the org file.")
-(defvar nori-site-css-dir "~/Documents/Notes/website/css/"
+(defvar nori-site-css-dir "~/Documents/noriparelius/css/"
   "Filepath to css directory.")
-(defvar nori-site-fonts-dir "~/Documents/Notes/website/fonts/"
+(defvar nori-site-fonts-dir "~/Documents/noriparelius/fonts/"
   "Filepath to the fonts directory.")
 (defvar nori-site-logo "/img/logo.svg"
   "Name of the file with logo.")
@@ -476,7 +476,7 @@ The INDEX contains only headlines with file-name and no TODO."
     (nori-site-build-entry-index nori-site-source-org-filename);)
 
   ;; Run the css compilation and minification
-  (shell-command "bash /home/nori/Documents/Notes/website/process-css.sh")
+  (shell-command "bash /home/nori/Documents/noriparelius/process-css.sh")
 
   (let* ((publish-dir (expand-file-name nori-site-publish-directory))
 	 (org-buffer (find-file-noselect nori-site-source-org-filename))
@@ -1183,7 +1183,7 @@ used to add the active class."
 
 ** Main
 #+begin_src html
-;;:tangle "/home/nori/Documents/Notes/website/templates/post.html"
+;;:tangle "/home/nori/Documents/noriparelius/templates/post.html"
 <main class="main-content">
   <div class="spiral"></div>
   <div class="main-content-wrapper">
@@ -1630,7 +1630,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 
 ** RSS feed
-#+begin_src xml :tangle  "/home/nori/Documents/Notes/website/templates/rss.xml"
+#+begin_src xml :tangle  "/home/nori/Documents/noriparelius/templates/rss.xml"
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on nori parelius</title>
@@ -1651,7 +1651,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 </rss>
 #+end_src
 ** RSS feed item
-#+begin_src xml :tangle  "/home/nori/Documents/Notes/website/templates/rss-item.xml"
+#+begin_src xml :tangle  "/home/nori/Documents/noriparelius/templates/rss-item.xml"
 <item>
   <title>{{ITEM_TITLE}}</title>
   <enclosure url="{{ITEM_FULL_FEATURED_IMAGE}}" type="image/{{IMAGE_EXT}}" length="{{IM_SIZE}}"></enclosure>
@@ -1693,7 +1693,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 </section>
 #+end_src
 ** Comments
-:tangle "/home/nori/Documents/Notes/website/templates/comments.html"
+:tangle "/home/nori/Documents/noriparelius/templates/comments.html"
 #+name: comments
 #+begin_src html
 <button id="load-comments" onclick="loadComments()">Show comments (no tracking)</button>
@@ -1727,7 +1727,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 
 #+end_src
 ** Indivindi poem listing
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/poem-listing-item.html"
+#+begin_src html :tangle "/home/nori/Documents/noriparelius/templates/poem-listing-item.html"
 <div class="h-entry individual-poem">
   <h2 class="p-name">
     <a class="u-url" href="{{ITEM_URL}}">{{ITEM_TITLE}}
@@ -1736,7 +1736,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 </div>
 #+end_src
 ** Indivindi summary with image
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/summary-with-image-item.html"
+#+begin_src html :tangle "/home/nori/Documents/noriparelius/templates/summary-with-image-item.html"
 <article class="h-entry preview-recent-posts">
   <div class="preview-image-div">
     <a class="featured-image-preview-im-link" href="{{ITEM_URL}}">
@@ -1762,14 +1762,14 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 </article>
 #+end_src
 ** Indivindi microblog listing
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/microblog-listing-item.html"
+#+begin_src html :tangle "/home/nori/Documents/noriparelius/templates/microblog-listing-item.html"
 <h2 class="micro-header">{{ITEM_TITLE}}</h2>
 <article class="micro-content">
   {{ITEM_CONTENTS}}
 </article>
 #+end_src
 ** Indivindi default listing
-#+begin_src html :tangle "/home/nori/Documents/Notes/website/templates/default-listing-item.html"
+#+begin_src html :tangle "/home/nori/Documents/noriparelius/templates/default-listing-item.html"
 <div class="h-entry individual-list-item">
   <h2 class="p-name">
     <a class="u-url" href="{{ITEM_URL}}">{{ITEM_TITLE}}
@@ -1779,7 +1779,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+end_src
 ** Tangle templates
 *** home
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/home.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/home.html"
 <<head>>
   <<header>>
     <<home-main>>
@@ -1787,7 +1787,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>  
 #+end_src
 *** post
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/post.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/post.html"
 <<head>>
   <<header>>
     <<post-main>>
@@ -1796,7 +1796,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+end_src
 
 *** poem
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/poem.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/poem.html"
 <<head>>
   <<header>>
     <<poem-main>>
@@ -1804,7 +1804,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>  
 #+end_src
 *** alphabet-superset
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/alphabet-superset.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/alphabet-superset.html"
 <<head>>
   <<header>>
     <<as-main>>
@@ -1812,7 +1812,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>
 #+end_src
 *** microblog
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/microblog.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/microblog.html"
 <<head>>
   <<header>>
     <<microblog-main>>
@@ -1820,7 +1820,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>
 #+end_src
 *** 404
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/404.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/404.html"
 <<head>>
 <<header>>
 <main class="main-content">
@@ -1835,7 +1835,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 <<footer>>
 #+end_src
 *** poem-section
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/poem-section.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/poem-section.html"
 <<head>>
   <<header>>
     <<poem-list-main>>
@@ -1843,7 +1843,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>
 #+end_src
 *** as-section
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/as-section.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/as-section.html"
 <<head>>
   <<header>>
     <<post-list-main>>
@@ -1851,7 +1851,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>
 #+end_src
 *** post-section
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/post-section.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/post-section.html"
 <<head>>
   <<header>>
     <<post-list-main>>
@@ -1859,7 +1859,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>
 #+end_src
 *** microblog-section
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/microblog-section.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/microblog-section.html"
 <<head>>
   <<header>>
     <<microblog-list-main>>
@@ -1867,7 +1867,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 	<<footer>>
 #+end_src
 *** poem-section
-#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/Notes/website/templates/default-section.html"
+#+begin_src html :noweb strip-export :tangle "/home/nori/Documents/noriparelius/templates/default-section.html"
 <<head>>
   <<header>>
     <<default-list-main>>
@@ -1876,7 +1876,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+end_src
 * CSS
 ** Base
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* Pressed flower flourish (optional) 
 .flower-corner {
   position: absolute;
@@ -1913,7 +1913,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+end_src
 
 ** Variables
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 // === FONTS ===
 //@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Caveat&family=Crimson+Pro&display=swap');
 
@@ -2000,7 +2000,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
 #+end_src
 
 ** Global
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* === Base styles === */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -2089,7 +2089,7 @@ figcaption {
 #+end_src
 
 ** Header
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~ Header layout ~~~~~~ */
 .site-header {
     width: 100%;
@@ -2221,7 +2221,7 @@ figcaption {
 
 #+end_src
 ** Site container
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 .site-container {
     max-width: 150ch;
     margin: 0 auto;
@@ -2343,7 +2343,7 @@ figcaption {
 #+end_src
 
 ** Sidebar
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 .sidebar-extras-section {
     
 }
@@ -2560,7 +2560,7 @@ figcaption {
 #+end_src
 
 ** Main
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 .main-content-wrapper {
     position: relative;
     flex-grow: 1;
@@ -2649,7 +2649,7 @@ figcaption {
 
 #+end_src
 ** Footer
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~ Footer ~~~~~~ */
 footer {
   border-top: 2px solid var(--frame);
@@ -2732,7 +2732,7 @@ footer {
 
 #+end_src
 ** Main menu
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* Navigation styles */
 .site-nav ul {
     position: relative;
@@ -2774,7 +2774,7 @@ footer {
 
 #+end_src
 ** Single article
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* === Article: main content of a single === */
 .single-article {
     display: flex;
@@ -2870,7 +2870,7 @@ footer {
 #+end_src
 
 ** Archive
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~~ Year archive ~~~~~~ */
 .year-archive {
 }
@@ -2914,7 +2914,7 @@ footer {
 }
 #+end_src
 ** Pagination
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~ Pagination ~~~~~~ */
 .pagination {
   display: flex;
@@ -2990,7 +2990,7 @@ footer {
 
 #+end_src
 ** Next-prev
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 
 .nextprev {
   display: flex;
@@ -3017,7 +3017,7 @@ footer {
 
 #+end_src
 ** Microblog
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 
 /* ~~~~~~ Microblog ~~~~~~ */
 
@@ -3108,7 +3108,7 @@ footer {
 
 #+end_src
 ** Poem
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~ poems/section.html and poems/single.html ~~~~~~ */
 
 .section-poetry {
@@ -3268,7 +3268,7 @@ footer {
 
 #+end_src
 ** Home
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~ Homepage layout ~~~~~~ */
 
 /* === Container for the homepage === */
@@ -3434,7 +3434,7 @@ footer {
 
 #+end_src
 ** Section
-#+begin_src scss :tangle ~/Documents/Notes/website/css-raw/style.scss
+#+begin_src scss :tangle ~/Documents/noriparelius/css-raw/style.scss
 /* ~~~~~~ section.html ~~~~~~ */
 
 .section-article {
@@ -3803,15 +3803,15 @@ Returns: ((DATE . TITLE) ...) sorted by DATE descending."
 	  (when (string= (org-element-property :name block) name)
 	    (org-element-property :value block)))
 	nil t))))
-;(princ (nori-site-load-template-from-block "simple" "~/Documents/Notes/website/nori-site.org"))
+;(princ (nori-site-load-template-from-block "simple" "~/Documents/noriparelius/nori-site.org"))
 #+end_src
 ** Working it out
 *** What org-element-parse-buffer gives
 #+begin_src elisp
-(with-current-buffer (find-file-noselect "~/Documents/Notes/website/content-org/noriparelius-test.org") (org-element-parse-buffer))
+(with-current-buffer (find-file-noselect "~/Documents/noriparelius/content-org/noriparelius-test.org") (org-element-parse-buffer))
 #+end_src
 #+RESULTS:
-| org-data | (:standard-properties [1 1 1 2460 2460 0 nil org-data nil nil nil 3 2460 nil noriparelius-test.org nil nil nil] :path /home/nori/Documents/Notes/website/content-org/noriparelius-test.org :CATEGORY noriparelius-test) | (headline (:standard-properties [1 1 17 248 248 0 (:title) first-section nil nil nil 106 246 1 noriparelius-test.org nil nil (org-data (:standard-properties [1 1 1 2460 2460 0 nil org-data nil nil nil 3 2460 nil noriparelius-test.org nil nil nil] :path /home/nori/Documents/Notes/website/content-org/noriparelius-test.org :CATEGORY noriparelius-test) #0 (headline (:standard-properties [248 248 266 1786 1786 0 (:title) nil nil nil nil 306 1784 1 noriparelius-test.org nil nil #3] :pre-blank 0 :raw-value Poem :title (Poem) :level 1 :priority nil :tags (allpoems) :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_SECTION poem) (section (:standard-properties [266 266 266 308 308 0 nil section nil nil nil 266 308 nil noriparelius-test.org nil nil #4]) (property-drawer (:standard-properties [266 266 279 301 308 1 nil planning nil nil nil nil nil nil noriparelius-test.org nil nil #5]) (node-property (:standard-properties [279 279 nil nil 301 0 nil node-property nil nil nil nil nil nil noriparelius-test.org nil nil #6] :key EXPORT_SECTION :value poem)))) (headline (:standard-properties [308 308 316 476 476 0 (:title) nil nil nil nil 405 474 2 noriparelius-test.org nil nil #4] :pre-blank 0 :raw-value Poem :title (Poem) :level 2 :priority nil :tags nil :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_FILE_NAME index :EXPORT_FEATURED_IMAGE /img/noriparelius.png) (section (:standard-properties [316 316 316 429 429 0 nil section nil nil nil 316 429 nil noriparelius-test.org nil nil #5]) (property-drawer (:standard-properties [316 316 329 400 406 0 nil planning nil nil nil nil nil nil noriparelius-test.org nil nil #6]) (node-property (:standard-properties [329 329 nil nil 354 0 nil node-property nil nil nil nil nil nil noriparelius-test.org nil nil #7] :key EXPORT_FILE_NAME :value index)) (node-property (:standard-properties [354 354 nil nil 400 0 nil node-property nil nil nil nil nil nil noriparelius-test.org nil nil #7] :key EXPORT_FEATURED_IMAGE :value /img/noriparelius.png))) (paragraph (:standard-properties [406 406 406 429 429 0 nil nil nil nil nil nil nil nil noriparelius-test.org nil nil #6]) Poems intro goes here. |
+| org-data | (:standard-properties [1 1 1 2460 2460 0 nil org-data nil nil nil 3 2460 nil noriparelius-test.org nil nil nil] :path /home/nori/Documents/noriparelius/content-org/noriparelius-test.org :CATEGORY noriparelius-test) | (headline (:standard-properties [1 1 17 248 248 0 (:title) first-section nil nil nil 106 246 1 noriparelius-test.org nil nil (org-data (:standard-properties [1 1 1 2460 2460 0 nil org-data nil nil nil 3 2460 nil noriparelius-test.org nil nil nil] :path /home/nori/Documents/noriparelius/content-org/noriparelius-test.org :CATEGORY noriparelius-test) #0 (headline (:standard-properties [248 248 266 1786 1786 0 (:title) nil nil nil nil 306 1784 1 noriparelius-test.org nil nil #3] :pre-blank 0 :raw-value Poem :title (Poem) :level 1 :priority nil :tags (allpoems) :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_SECTION poem) (section (:standard-properties [266 266 266 308 308 0 nil section nil nil nil 266 308 nil noriparelius-test.org nil nil #4]) (property-drawer (:standard-properties [266 266 279 301 308 1 nil planning nil nil nil nil nil nil noriparelius-test.org nil nil #5]) (node-property (:standard-properties [279 279 nil nil 301 0 nil node-property nil nil nil nil nil nil noriparelius-test.org nil nil #6] :key EXPORT_SECTION :value poem)))) (headline (:standard-properties [308 308 316 476 476 0 (:title) nil nil nil nil 405 474 2 noriparelius-test.org nil nil #4] :pre-blank 0 :raw-value Poem :title (Poem) :level 2 :priority nil :tags nil :todo-keyword nil :todo-type nil :footnote-section-p nil :archivedp nil :commentedp nil :EXPORT_FILE_NAME index :EXPORT_FEATURED_IMAGE /img/noriparelius.png) (section (:standard-properties [316 316 316 429 429 0 nil section nil nil nil 316 429 nil noriparelius-test.org nil nil #5]) (property-drawer (:standard-properties [316 316 329 400 406 0 nil planning nil nil nil nil nil nil noriparelius-test.org nil nil #6]) (node-property (:standard-properties [329 329 nil nil 354 0 nil node-property nil nil nil nil nil nil noriparelius-test.org nil nil #7] :key EXPORT_FILE_NAME :value index)) (node-property (:standard-properties [354 354 nil nil 400 0 nil node-property nil nil nil nil nil nil noriparelius-test.org nil nil #7] :key EXPORT_FEATURED_IMAGE :value /img/noriparelius.png))) (paragraph (:standard-properties [406 406 406 429 429 0 nil nil nil nil nil nil nil nil noriparelius-test.org nil nil #6]) Poems intro goes here. |
 
 *** A headline in the AST looks like this according to a clanker
 #+begin_src elisp

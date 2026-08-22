@@ -1,10 +1,4 @@
 /public
-/img
-/img-global
-*.jpg
-*.png
-*.webp
-*.jpeg
 *_archive
 .#*
-/fonts
+
