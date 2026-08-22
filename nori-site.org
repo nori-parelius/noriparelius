@@ -195,7 +195,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	   when (string= file-name "_index")
 	   do
 	   (let* ((parent-section (car (alist-get 'sections-slugs metadata)))
-		  (list-items (nori-site-gather-items parent-section index)))
+		  (list-items (reverse (nori-site-gather-items parent-section index))))
 	     (setf (alist-get 'list-items metadata) list-items)
 	     (setf (alist-get 'list-all-items metadata) list-items)))
   
@@ -635,7 +635,7 @@ The INDEX contains only headlines with file-name and no TODO."
 (defun nori-site-render-list (listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
-	  (dolist (item-slug (reverse list-items))
+	  (dolist (item-slug list-items)
 	    (let* ((item (assoc item-slug index))
 		   (item-html (if get-htmlp (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
 				""))
