@@ -1,5 +1,6 @@
 /public
 /img
+/img-global
 *.jpg
 *.png
 *.webp
