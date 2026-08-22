@@ -468,6 +468,14 @@ The INDEX contains only headlines with file-name and no TODO."
 <<generate-404>>
 <<generate-rss>>
 <<generate-sitemap>>
+(defun nori-site-delete-contents-of-dir (dir)
+  "Delete all files and subdirs in DIR."
+  (when (file-directory-p dir)
+    (dolist (file (directory-files dir t "\\`[^.]")) ;; Exclude . and ..
+      (if (file-directory-p file)
+	  (delete-directory file t) ;; Delete subdir
+	(delete-file file)))))
+
 (defun nori-site-render-all-pages ()
   "Iterate over 'nori-site-entry-index', which contains all the entries parsed from org-file, and render each page."
   (interactive)
@@ -486,8 +494,10 @@ The INDEX contains only headlines with file-name and no TODO."
 
     ;; Ensure publish directory exists, remove old one if there was one
     (if (file-exists-p publish-dir)
-	(delete-directory publish-dir t nil))
-    (make-directory publish-dir t)
+	;(delete-directory publish-dir t nil)
+	(nori-site-delete-contents-of-dir publish-dir)
+      (make-directory publish-dir t))
+	
     ;; Copy assets to publish-dir
     (copy-directory nori-site-content-img-dir publish-dir t t nil)
     (copy-directory nori-site-img-dir (concat publish-dir "img/") t t t) ; args are keep-time parents and copy-contents
