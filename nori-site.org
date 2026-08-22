@@ -635,7 +635,7 @@ The INDEX contains only headlines with file-name and no TODO."
 (defun nori-site-render-list (listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
-	  (dolist (item-slug (nreverse list-items))
+	  (dolist (item-slug (reverse list-items))
 	    (let* ((item (assoc item-slug index))
 		   (item-html (if get-htmlp (nori-site-export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
 				""))
