@@ -2887,6 +2887,40 @@ Hannah felt sudden warmth in her stomach, like acid reflux on steroids. She felt
 
 /(The image is Georges Seurat, The Lighthouse at Honfleur, 1886 , with small modifications)/
 
+** E is for Echo
+:PROPERTIES:
+:EXPORT_FILE_NAME: e_for_echo
+:EXPORT_FEATURED_IMAGE: /img/featured_E.webp
+:EXPORT_FEATURED_ALT:  Eugène Cuvelier's Fontainebleau Forest, early 1860s, salted paper print from paper negative. Depicts a dark forest with a little path through it. A simple drawing of two silhouettes is added -- one distinct on the path and one identical in shape, but shadowy off the path. 
+:DESCRIPTION: This is a story I haven't told you yet. I only told it once -- the day it happened, some seventy-odd years ago -- and never since. But now I can tell it again, and this time I don't care who believes me.
+:EXPORT_LAYOUT: alphabet-superset
+:EXPORT_DATE: 2026-08-24
+:END:
+This is a story I haven't told you yet. I only told it once -- the day it happened, some seventy-odd years ago -- and never since. But now I can tell it again, and this time I don't care who believes me.
+
+I ran away that day. My older sister said I took her dolly, which I didn't, but I did get a thrashing anyway. She did that all the time -- -- Mary did this, Mary did that -- when I didn't do anything. And they always believed her. I decided I had enough -- snotty, little kid that I was, I didn't know anything about anything, but I packed some bread and cheese into a cloth, put it into a sack together with my wooden horse, put on shoes -- although it was the middle of summer -- and off I went.
+
+I sneaked out through the back of the house, across the field, the meadow and then into the wood. We would often go there with Betty -- your aunt Betty, my sister -- and cousin Paul -- who you haven't met much, he moved away -- well, we would go there to pick mushrooms and blueberries and cranberries, or to get branches for making whistles, but I have never gone in on my own before. I knew I couldn't go down to the village; people would have seen me, wondered, sent me home, or told my ma and pa. So I went into the wood.
+
+It was dark in there. The wood was cold and quiet in the coming dusk, but I was too stubborn and too hurt to turn back. I don't think I walked far before I sat down on a fallen tree and ate my supper. The wood was creaking and cracking and rustling. The light was draining from the world and colour with it. I didn't want to admit it, but I was getting scared. The shoes -- too big for me -- were chafing at my heels. I was tired, cold and thirsty. The moon was almost full, and the night was clear, but the wood was dark and full of shadows that were grabbing at me and tripping me up. I turned homewards -- at least, what I thought was homewards.
+
+I walked for what felt like an eternity; I ran, sometimes, as fast as I could in the darkness and in the big shoes -- ran from the sounds and the shadows. I was lost. I sat down and cried. That's when I heard her for the first time. A quiet sound of crying -- not far but not close. I asked who was there, and she asked me the same. I told her my name and that I couldn't find the way home, and she said she could. 
+
+I couldn't see her. Not then, not later that night, not today, not ever again. She was close; I could sometimes see her like a shadow amongst the trees, swift and quiet. I followed her voice through the wood, asking which way to go whenever I thought I lost her. But she was always there, just a little ahead, guiding me. Her voice was beautiful. I asked her if she lived there, in the wood, and she said she did. All alone. She said nobody really listened to her. I thought that was sad. I said she could come with me home. But she spoke of home with such sadness; I think she was missing hers. She said she couldn't come with me.
+
+Then her voice disappeared, just as I heard people calling my name. Lights were blinking amongst the trees ahead like the eyes of cats glistening in the dark. I thought at first they were maybe will-o'-wisps like in the tales, but it was people. My family and half of the village were looking for me. I forgot all about the unfairness of the accusation that made me run away, I didn't think about how much trouble I was in, I even forgot about the girl. I ran to the lights and to the voices and was soon wrapped in a scratchy but warm blanket, carried home.
+
+As we came out of the wood, I remembered the girl. Told them we had to go back, but they said there wasn't anyone else there when they found me. They said I must have dreamed her. I knew I didn't, but I didn't want them to get mad again.
+
+I thought about her many times afterwards, although less and less for every year. I would go back to that night in my thoughts -- to what I said, to what she said. My mother said it was just an echo that night. The girl was just an echo. And she had to be. /It/ had to be. That's what I understood when I got old enough. No girl, just my own voice in the darkness and shadows. Nothing more. But I don't know why, my whole life, when I would get upset, or very happy, I would go to that rock at the edge of the wood, where you can stand and see the tree line below like a green wall. I would go there and talk to the echo and try to listen to her answer.
+
+I went there this morning, before you moved me here, to this place. You say I can't take care of myself anymore. My own children. My eyes and ears are not what they used to be, I know that, but I can still do my work. But let it be your way. I am here, then, and I will die here. But I went out this morning, early, as the sun was coming up, out to the rocks. I couldn't climb up, but I stood below, and I told the wood and I told echo that I was leaving, and that I wouldn't be coming back. That I have come to say goodbye.
+
+"Goodbye, Mary," said the wood. 
+
+
+/(The image is Eugène Cuvelier's [Fontainebleau Forest], early 1860s, with small modifications)/
+
 * Poems 
 :PROPERTIES:
 :EXPORT_SECTION: poem
@@ -3629,12 +3663,12 @@ I have been trying to embrace more of my messy and "cringe" side. I don't want t
 :EXPORT_LAYOUT: microblog-section
 :END:
 
-*** July 31, 2026
+*** August 24, 2026
 :PROPERTIES:
-:EXPORT_FILE_NAME: 2026-07-31
-:EXPORT_DATE: 2026-07-31
+:EXPORT_FILE_NAME: 2026-08-24
+:EXPORT_DATE: 2026-08-24
 :EXPORT_LAYOUT: microblog
-:DESCRIPTION: Test
+:DESCRIPTION: For a while now, I have been feeling that there is just too much noise in the world. The internet is a waterfall of impressions that never stops and most of it isn't even that good/useful/beautiful. I have been craving something slower and more deliberate. I think maybe that is why I haven't written here since late last year. I feel bad about it and apologise to everyone who would have liked me to. I just didn't...
 :END:
 
-Test
+For a while now, I have been feeling that there is just too much noise in the world. The internet is a waterfall of impressions that never stops and most of it isn't even that good/useful/beautiful. I have been craving something slower and more deliberate. I think maybe that is why I haven't written here since late last year. I feel bad about it and apologise to everyone who would have liked me to. I just didn't feel like adding to the noise. I didn't think I had so much to say. Nothing of essence, anyway. But I don't know, maybe I am back? On an internet where half of the content is now AI-generated, maybe it makes sense to add some human-made stuff. And anyway, I /do/ still like reading people's writing online -- I was applying this crazy bar of having to say something *exceptional* only to myself. Who am I to decide what others want to read? Maybe just how I look forward to some newsletters, maybe (maybe) some people look forward to mine. Not everything is about efficiency, novelty and whatever, sometimes it's about self-expression and connection. And there is nothing wrong with that. 

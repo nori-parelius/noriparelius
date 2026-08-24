@@ -456,7 +456,7 @@ The INDEX contains only headlines with file-name and no TODO."
 
 ** Render pages
 #+name: render-all-pages
-#+begin_src elisp :noweb strip-export
+#+begin_src elisp :noweb strip-export :tangle ~/Documents/noriparelius/render-site.el
 <<variables>>
 <<entry-index>>
 <<subtree-to-html>>
