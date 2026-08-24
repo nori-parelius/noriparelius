@@ -787,7 +787,7 @@ used to add the active class."
 ;;     (message "title %s" (alist-get 'title (cdr year)))))
 
 
-(defun nori-site-generate-page (index metadata html archive-html tag-cloud-html)
+(defun nori-site-generate-page (index metadata html archive-html tag-cloud-html org-buffer)
   "Generate a page using the template."
   (let* ((layout (alist-get 'layout metadata))
 	 (title (alist-get 'title metadata))
@@ -854,7 +854,7 @@ used to add the active class."
 							  (last-item (assoc last-item-name index))
 							  (desc (alist-get 'description (cdr last-item))))
 						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil nil )))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list index "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil nil )))
 				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
@@ -873,7 +873,7 @@ used to add the active class."
 	 ((string= layout "microblog-section.html")
 	  (setq listing-template-name "microblog-listing-item.html")
 	  (setq microblogp t)))
-	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items org-buffer microblogp nil)))))
+	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list index listing-template-name list-items org-buffer microblogp nil)))))
 	
 	(when microblogp
 	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
@@ -882,7 +882,7 @@ used to add the active class."
 	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))))
     (nori-site-render-template template replacements)))
 
-(defun nori-site-render-list (listing-template-name list-items org-buffer get-htmlp get-im-size-p)
+(defun nori-site-render-list (index listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
 	  (dolist (item-slug list-items)
@@ -1173,7 +1173,7 @@ used to add the active class."
     html
   ))
 ;(nori-site-render-tag-cloud nori-site-entry-index)
-(defun nori-site-generate-404 (layout pusblish-dir)
+(defun nori-site-generate-404 (layout publish-dir archive-html tag-cloud-html)
   (let* ((file-name "404")
 	 (file-path-file (concat publish-dir "404.html"))
 	 (slug "404/")
@@ -1472,7 +1472,7 @@ used to add the active class."
 ;;     (message "title %s" (alist-get 'title (cdr year)))))
 
 
-(defun nori-site-generate-page (index metadata html archive-html tag-cloud-html)
+(defun nori-site-generate-page (index metadata html archive-html tag-cloud-html org-buffer)
   "Generate a page using the template."
   (let* ((layout (alist-get 'layout metadata))
 	 (title (alist-get 'title metadata))
@@ -1539,7 +1539,7 @@ used to add the active class."
 							  (last-item (assoc last-item-name index))
 							  (desc (alist-get 'description (cdr last-item))))
 						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil nil )))
+	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site-render-list index "summary-with-image-item.html" (take nori-site-featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil nil )))
 				     
 	    )))
     (when (alist-get 'list-items metadata) ;; Only if it's a listing page
@@ -1558,7 +1558,7 @@ used to add the active class."
 	 ((string= layout "microblog-section.html")
 	  (setq listing-template-name "microblog-listing-item.html")
 	  (setq microblogp t)))
-	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list listing-template-name list-items org-buffer microblogp nil)))))
+	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list index listing-template-name list-items org-buffer microblogp nil)))))
 	
 	(when microblogp
 	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
@@ -1567,7 +1567,7 @@ used to add the active class."
 	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site-render-pagination metadata))))
     (nori-site-render-template template replacements)))
 
-(defun nori-site-render-list (listing-template-name list-items org-buffer get-htmlp get-im-size-p)
+(defun nori-site-render-list (index listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site-load-template listing-template-name))
 	       (list-html ""))
 	  (dolist (item-slug list-items)
@@ -1651,7 +1651,7 @@ used to add the active class."
 	 (list-items (reverse (alist-get 'list-all-items (cdr (assoc "post/" index)))))
 	 (replacements
 	  `(("{{LAST_BUILD_DATE}}" . ,(format-time-string "%a, %d %b %Y %H:%M:%S %Z" (apply #'encode-time (decode-time (current-time))) "GMT"))
-	    ("{{RSS_LIST}}" . ,(nori-site-render-list item-layout list-items (find-file-noselect nori-site-source-org-filename) t t))
+	    ("{{RSS_LIST}}" . ,(nori-site-render-list index item-layout list-items (find-file-noselect nori-site-source-org-filename) t t))
 	    ))
 	 (page (nori-site-render-template template replacements)))
     (setq page (replace-regexp-in-string "\img" (concat nori-site-base-url "img") page))
@@ -1734,16 +1734,16 @@ used to add the active class."
 	(unless (file-exists-p file-path-dir)
 	  (make-directory file-path-dir t))
 	;; Render
-	(let ((page (nori-site-generate-page nori-site-entry-index meta html archive-html tag-cloud-html)))
+	(let ((page (nori-site-generate-page nori-site-entry-index meta html archive-html tag-cloud-html org-buffer)))
 	  (with-temp-file file-path-file
 	    (insert page))
 
 	  (message "Published: %s -> %s" title file-name))
 	))
-    (nori-site-generate-404 "404.html" publish-dir)
+    (nori-site-generate-404 "404.html" publish-dir archive-html tag-cloud-html)
     (nori-site-generate-rss nori-site-entry-index)
     (nori-site-generate-sitemap nori-site-entry-index)
     ))
 
 
-(nori-site-render-all-pages)
+;;(nori-site-render-all-pages)
