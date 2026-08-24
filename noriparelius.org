@@ -2737,6 +2737,7 @@ So here it comes! And my topic is:
 :EXPORT_FILE_NAME: a_for_aurora
 :EXPORT_FEATURED_IMAGE: /img/featured_A.webp
 :EXPORT_FEATURED_ALT: Sleeping Beauty by Edward Frederick Brewtnall. A romantic painting of a woman with long light hair in a white dress sleeping surrounded by flowers. A man is looking at her from a little distance. The woman has cartoonish pink headphones added, while the man has a green baseball cap and a scooter standing next to him.
+:DESCRIPTION: Aurora was the prettiest girl at school. Like, for real. Cute face, long blond hair, really cheeky smile. And a really nice body too. Although, you really had to see her in gym class in shorts, 'cause normally she would wear these weird-looking baggy clothes. Cool, don't get me wrong, but yeah, thank god for old Sullivan who made everyone wear shorts to gym. Those legs, man! Anyway. She was, like, really cute, and I had a crush. Well, duh! 
 :EXPORT_LAYOUT: alphabet-superset
 :EXPORT_DATE: 2024-09-02
 :END:
