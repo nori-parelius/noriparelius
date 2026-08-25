@@ -23,11 +23,11 @@
 
 /* Gentle highlight (e.g. like ink or smudge) */
 .highlight-block {
-  background: rgba(255, 248, 220, 0.4);
-  border-left: 3px solid #a08060;
-  padding: 0.5rem 1rem;
-  font-style: italic;
-  margin: 1.5rem 0;
+    background: rgba(255, 248, 220, 0.4);
+    border-left: 3px solid #a08060;
+    padding: 0.5rem 1rem;
+    font-style: italic;
+    margin: 1.5rem 0;
 }
 /* End of stuff from ChatGPT */
 
@@ -37,7 +37,7 @@
 @font-face {
     font-family: 'Caveat';
     src: url('/fonts/caveat-regular.woff2') format('woff2'),
-        url('/fonts/caveat-regular.woff') format('woff');
+         url('/fonts/caveat-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -46,7 +46,7 @@
 @font-face {
     font-family: 'Crimson Pro';
     src: url('/fonts/crimsonpro-italic.woff2') format('woff2'),
-        url('/fonts/crimsonpro-italic.woff') format('woff');
+         url('/fonts/crimsonpro-italic.woff') format('woff');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -55,7 +55,7 @@
 @font-face {
     font-family: 'Crimson Pro';
     src: url('/fonts/crimsonpro-regular.woff2') format('woff2'),
-        url('/fonts/crimsonpro-regular.woff') format('woff');
+         url('/fonts/crimsonpro-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -64,21 +64,21 @@
 @font-face {
     font-family: 'Special Elite';
     src: url('/fonts/specialelite-regular.woff2') format('woff2'),
-        url('/fonts/specialelite-regular.woff') format('woff');
+         url('/fonts/specialelite-regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 :root {
-//=== COLORS ===
+    //=== COLORS ===
     --bg-paper: #fdfaf6; /* linen white */
     --text-main: #2e2e2e;
     --text-subtle: #7c6f60; /* dusty sepia */
     --ink-brown: #5c4a3d; /* primary accent */
     --rosewood: #a37c6c; /* secondary accent */
     --frame: #d1c7b7; /* weathered parchment, for boxes */
-		      
+    
     --sidebar-bg: #fcf3e8; /* faded apricot */
     --highlight: #7e8c87; /* muted sage green for hovers */
     /* optional ink/pencil for headers, washi, annotation*/
@@ -143,8 +143,8 @@ a, p, h1, h2, h3 {
 }
 
 a {
-  color: var(--rosewood);
-  text-decoration: underline;
+    color: var(--rosewood);
+    text-decoration: underline;
 }
 
 a:hover {
@@ -240,9 +240,9 @@ figcaption {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .site-logo-link:hover .site-logo-wrapper {
-    transform: rotate(-360deg) scale(1.5);
-  }
+    .site-logo-link:hover .site-logo-wrapper {
+	transform: rotate(-360deg) scale(1.5);
+    }
 }
 
 
@@ -284,47 +284,47 @@ figcaption {
 }
 
 .site-title-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px; /* adjust spacing */
-  width: 100%;
-  height: 20px;  /* match your underline height */
-  background: url('/img/title-underline.png') no-repeat center;
-  background-size: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* adjust spacing */
+    width: 100%;
+    height: 20px;  /* match your underline height */
+    background: url('/img/title-underline.png') no-repeat center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .site-title-link:hover::after {
-  opacity: 1;
+    opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
-  .site-header-inner {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-  }
+    .site-header-inner {
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+    }
 
-  .site-logo-div {
-      margin-bottom: 0.5rem;
-      justify-content: center;
-      width: 100%;
-      display: flex;
-  }
+    .site-logo-div {
+	margin-bottom: 0.5rem;
+	justify-content: center;
+	width: 100%;
+	display: flex;
+    }
 
-  .site-title-div {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-  }
-  
-  .site-title {
-      font-size: 3rem;
-      text-align: center;
-  }
+    .site-title-div {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+    }
+    
+    .site-title {
+	font-size: 3rem;
+	text-align: center;
+    }
 }
 
 .site-container {
@@ -400,25 +400,10 @@ figcaption {
 
 // Flower
 .site-container::after {
-  content: "";
-  position: absolute;
-  top: -3rem;
-  right: 2rem;
-  width: 70px;
-  height: 70px;
-  background-image: url('/img/pressed_flower_3.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.85;
-  pointer-events: none;
-}
-
-@media (max-width: 849px) {
-  .site-container::after {
     content: "";
     position: absolute;
     top: -3rem;
-    right: 0rem;
+    right: 2rem;
     width: 70px;
     height: 70px;
     background-image: url('/img/pressed_flower_3.png');
@@ -426,7 +411,22 @@ figcaption {
     background-repeat: no-repeat;
     opacity: 0.85;
     pointer-events: none;
-  }
+}
+
+@media (max-width: 849px) {
+    .site-container::after {
+	content: "";
+	position: absolute;
+	top: -3rem;
+	right: 0rem;
+	width: 70px;
+	height: 70px;
+	background-image: url('/img/pressed_flower_3.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	opacity: 0.85;
+	pointer-events: none;
+    }
 }
 
 @media (min-width: 849px) {
@@ -472,7 +472,7 @@ figcaption {
       border-top-right-radius: 15px 225px;
       border-bottom-right-radius: 225px 15px;
       border-bottom-left-radius:15px 255px;
-      */
+   */
     border: solid 1px var(--pencil-grey);
 
 }
@@ -493,23 +493,23 @@ figcaption {
 }
 
 .sidebar-widgets2::after {
-  content: "";
-  position: absolute;
-  top: 2rem;
-  left: -5.5rem;
-  width: 80px;
-  height:80px;
-  background-image: url('/img/pressed_flower_1.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 2rem;
+    left: -5.5rem;
+    width: 80px;
+    height:80px;
+    background-image: url('/img/pressed_flower_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+    pointer-events: none;
 }
 
 .sidebar-rss {
     padding: 0 0.8rem 0 0.8rem;
     margin: 1rem 0.5rem 0 0.5rem;
-   
+    
 }
 
 .sidebar-rss h3,
@@ -573,24 +573,24 @@ figcaption {
 // placed slightly outside with left:
 .tape:after,
 .tape:before {
-  background-size: .4em .4em;
-  bottom: 0;
-  content: '';
-  position: absolute;
-  top: 0;
-  width: .2em;
+    background-size: .4em .4em;
+    bottom: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: .2em;
 }
 .tape:after {
-  background-image: linear-gradient(45deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%),
-                    linear-gradient(-45deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%);
-  background-position: 0 100%;
-  left: -.2em;
+    background-image: linear-gradient(45deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%),
+                      linear-gradient(-45deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%);
+    background-position: 0 100%;
+    left: -.2em;
 }
 .tape:before {
-  background-image: linear-gradient(135deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%),
-                    linear-gradient(-135deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%);
-  background-position: 100% 100%;
-  right: -.2em;
+    background-image: linear-gradient(135deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%),
+                      linear-gradient(-135deg, transparent 50%, hsla(14.4,30%,50%,.3) 50%);
+    background-position: 100% 100%;
+    right: -.2em;
 }
 
 
@@ -698,14 +698,14 @@ figcaption {
 }
 
 .main-content-wrapper::before {
-  top: -6px;
-  left: -4px;
-  transform: rotate(-0.05deg);
+    top: -6px;
+    left: -4px;
+    transform: rotate(-0.05deg);
 }
 
 .main-content-wrapper::after {
-  top: 8px;
-  left: 10px;
+    top: 8px;
+    left: 10px;
 }
 
 @media (min-width: 850px) {
@@ -743,8 +743,8 @@ figcaption {
 
 /* ~~~~~~ Footer ~~~~~~ */
 footer {
-  border-top: 2px solid var(--frame);
-  margin-top: 0.5rem;
+    border-top: 2px solid var(--frame);
+    margin-top: 0.5rem;
 
 }
 
@@ -763,8 +763,8 @@ footer {
 }
 
 .footer-rss {
-  position: relative;
-  transition: transform 0.2s ease;
+    position: relative;
+    transition: transform 0.2s ease;
 }
 
 .footer-rss img:hover  {
@@ -780,8 +780,8 @@ footer {
 }
 
 .kofi-button {
-  position: relative;
-  transition: transform 0.2s ease;
+    position: relative;
+    transition: transform 0.2s ease;
 }
 
 
@@ -800,17 +800,17 @@ footer {
 
 
 .top-footer::after {
-  content: "";
-  position: absolute;
-  top: 0rem;
-  left: -10rem;
-  width: 120px;
-  height:120px;
-  background-image: url('/img/stamp-nobg.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 1;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0rem;
+    left: -10rem;
+    width: 120px;
+    height:120px;
+    background-image: url('/img/stamp-nobg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 1;
+    pointer-events: none;
 }
 
 
@@ -835,7 +835,7 @@ footer {
     transform: rotate(-1.5deg);
     border: 1px solid var(--frame);
     border-radius: 2px;
-	      
+    
 }
 
 .site-nav ul:hover {
@@ -881,13 +881,13 @@ footer {
 }
 
 .single-article img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  padding: 0;
-  margin: 2rem auto;
-  border-radius: 0.5rem;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .single-article figure {
@@ -902,10 +902,10 @@ footer {
 }
 
 .single-article .section-title a {
-  text-transform: uppercase;
-  color: var(--text-subtle);
-  margin-bottom: 1rem;
-  text-decoration: none;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 .single-article .section-title a:hover {
@@ -957,18 +957,18 @@ footer {
 }
 
 .year-panel {
-  margin-bottom: 0.5rem;
-  border: 2px solid var(--frame);
-  border-radius: 5px;
-  border-left: 12px solid var(--dusty-rose);
-  background: var(--sidebar-bg);
+    margin-bottom: 0.5rem;
+    border: 2px solid var(--frame);
+    border-radius: 5px;
+    border-left: 12px solid var(--dusty-rose);
+    background: var(--sidebar-bg);
 }
 
 .year-header {
-  padding: 0.75rem 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: var(--ink-brown);
+    padding: 0.75rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--ink-brown);
 }
 
 .year-header:hover {
@@ -976,9 +976,9 @@ footer {
 }
 
 .post-list {
-  list-style: circle;
-  margin: 0;
-  padding: 0 1rem 1rem 1.5rem;
+    list-style: circle;
+    margin: 0;
+    padding: 0 1rem 1rem 1.5rem;
 }
 
 .post-item {
@@ -996,14 +996,14 @@ footer {
 
 /* ~~~~~~ Pagination ~~~~~~ */
 .pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  list-style: none;
-  flex-wrap: wrap;
-  margin: 2rem auto;
-  max-width: 100%;
-  overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 
@@ -1024,7 +1024,7 @@ footer {
     transition: box-shadow 0.2s ease;
     white-space: nowrap;
 }
-    
+
 
 .pagination .page-link:hover {
     background-color: var(--ink-brown);
@@ -1032,35 +1032,35 @@ footer {
 }
 
 .pagination .page-item.active .page-link {
-  background-color: var(--faded-cornflower);
-  font-weight: bold;
-  pointer-events: none;
+    background-color: var(--faded-cornflower);
+    font-weight: bold;
+    pointer-events: none;
 }
 
 .pagination .page-item.disabled .page-link {
-  color: var(--text-subtle);
-  border-style: dotted;
-  cursor: not-allowed;
-  background: var(--bg-paper);
+    color: var(--text-subtle);
+    border-style: dotted;
+    cursor: not-allowed;
+    background: var(--bg-paper);
 }
 
 // Subtler links
 .pagination-subtle {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  list-style: none;
-  flex-wrap: wrap;
-  margin: 0rem auto 1rem auto;
-  max-width: 100%;
-  overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0rem auto 1rem auto;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 .pagination-subtle .page-link-subtle {
     color: var(--rosewood);
     text-decoration: none;
 }
-    
+
 
 .pagination-subtle .page-link-subtle:hover {
     color: var(--inkbrown);
@@ -1068,10 +1068,10 @@ footer {
 }
 
 .nextprev {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 3rem;
-  text-decoration: bold;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3rem;
+    text-decoration: bold;
 }
 
 .prev,
@@ -1081,13 +1081,13 @@ footer {
 
 .prev-link,
 .next-link {
-  text-decoration: none;
-  color: var(--rosewood);
+    text-decoration: none;
+    color: var(--rosewood);
 }
 
 .prev-link:hover,
 .next-link:hover {
-  color: var(--highlight);
+    color: var(--highlight);
 }
 
 /* ~~~~~~ Microblog ~~~~~~ */
@@ -1107,17 +1107,17 @@ footer {
     
 }
 .micro-section::after {
-  content: "";
-  position: absolute;
-  top: 0.3rem;
-  right: 1rem;
-  width: 120px;
-  height: 120px;
-  background-image: url('/img/inkstain.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 0.3rem;
+    right: 1rem;
+    width: 120px;
+    height: 120px;
+    background-image: url('/img/inkstain.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 
@@ -1129,11 +1129,11 @@ footer {
 }
 
 .micro-header {
-  text-align: left;
-  color: var(--text-subtle);
-  margin: 0;
-  padding: 0;
-  padding-top: 1.5rem;
+    text-align: left;
+    color: var(--text-subtle);
+    margin: 0;
+    padding: 0;
+    padding-top: 1.5rem;
 }
 
 .micro-content {
@@ -1155,17 +1155,17 @@ footer {
 }
 
 .micro-article::after {
-  content: "";
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 120px;
-  height: 120px;
-  background-image: url('/img/inkstain.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 120px;
+    height: 120px;
+    background-image: url('/img/inkstain.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 /* ~~~~~~ poems/section.html and poems/single.html ~~~~~~ */
@@ -1199,6 +1199,9 @@ footer {
     text-decoration: none;
 }
 
+.individual-poem a:hover {
+    text-decoration: underline;
+}
 
 .default-section {
     display: flex;
@@ -1229,6 +1232,10 @@ footer {
     text-decoration: none;
 }
 
+.individual-list-item a:hover {
+    text-decoration: underline;
+}
+
 
 /* single.html */
 .single-poem {
@@ -1252,13 +1259,13 @@ footer {
 }
 
 .single-poem img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  padding: 0;
-  margin: 2rem auto;
-  border-radius: 0.5rem;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .single-poem figure {
@@ -1269,13 +1276,26 @@ footer {
 }
 
 .single-poem .section-title a {
-  text-transform: uppercase;
-  color: var(--text-subtle);
-  margin-bottom: 1rem;
-  text-decoration: none;
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 .single-poem .section-title a:hover {
+    text-decoration: underline;
+    color: var(--highlight);
+}
+
+.default-section .section-title a {
+    text-transform: uppercase;
+    color: var(--text-subtle);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.default-section .section-title a:hover {
     text-decoration: underline;
     color: var(--highlight);
 }

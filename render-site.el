@@ -877,6 +877,8 @@ used to add the active class."
 	  (setq listing-template-name "microblog-listing-item.html")
 	  (setq microblogp t)))
 	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list index listing-template-name list-items org-buffer microblogp nil)))))
+	(setf (alist-get '"{{SECTION_TITLE}}" replacements) (nth 1 (alist-get 'sections-names metadata)))
+	(setf (alist-get '"{{SECTION_URL}}" replacements) (concat "/" (string-join (reverse (cdr (alist-get 'sections-slugs metadata))) "/") "/"))
 	
 	(when microblogp
 	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
@@ -1562,6 +1564,8 @@ used to add the active class."
 	  (setq listing-template-name "microblog-listing-item.html")
 	  (setq microblogp t)))
 	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site-render-list index listing-template-name list-items org-buffer microblogp nil)))))
+	(setf (alist-get '"{{SECTION_TITLE}}" replacements) (nth 1 (alist-get 'sections-names metadata)))
+	(setf (alist-get '"{{SECTION_URL}}" replacements) (concat "/" (string-join (reverse (cdr (alist-get 'sections-slugs metadata))) "/") "/"))
 	
 	(when microblogp
 	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site-render-microblog-pagination metadata nori-site-entry-index nil)))))
