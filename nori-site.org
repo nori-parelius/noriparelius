@@ -1137,7 +1137,13 @@ used to add the active class."
 #+RESULTS: generate-sitemap
 : Published sitemap
 
-* Templates
+* TODO Templates 
+Figure out where to put the badge!
+  <div>
+    <a href="https://www.noriparelius.com" target="_blank">
+      <img src="/img/badge.png" alt="Mess & wonder button for noriparelius.com" width="88" height="31">
+    </a>
+  </div>
 ** Head
 #+name: head
 #+begin_src html
@@ -1250,9 +1256,9 @@ used to add the active class."
 </main>
 #+end_src
 
-** Home main
+** Home main 
 #+name: home-main
-#+begin_src html html 
+#+begin_src html html :noweb strip-export 
 <main class="main-content">
   <div class="spiral"></div>
   <div class="main-content-wrapper">
@@ -1303,11 +1309,7 @@ used to add the active class."
 	  <a class="more-posts-button" href="/post/">More Posts</a>
 	</div>
       </section>
-
-      <section class="newsletter-signup">
-	<<newsletter>>
-      </section>
-      
+      <<newsletter>>
     </article>
   </div>
 </main>
@@ -1404,10 +1406,10 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
       </article>
 
       <<poem-next-prev>>
-      
-      <div class="back-to-poems">
-	<a href="/poem/">Back to all poems</a>
-      </div>
+	
+	<div class="back-to-poems">
+	  <a href="/poem/">Back to all poems</a>
+	</div>
     </article>
 
     <p class="copyright">
@@ -1605,7 +1607,7 @@ This means you can distribute, remix, adapt, and build upon it, even for commerc
     </article>
   </div>
 </main>
-      #+end_src
+#+end_src
 ** Sidebar
 #+name: sidebar
 #+begin_src html 
