@@ -39,9 +39,10 @@ Use ~sass input.scss output.css --style=compressed~
 (require 'ox-html)
 
 <<variables>>
-
+<<gather-items>>
 <<build-entry-index>>
-;;<<gather-items>>
+<<generate-archive-sidebar>>
+<<render-tag-cloud>>
 <<render-all-pages>>
 <<generate-404>>
 <<generate-rss>>
@@ -88,7 +89,7 @@ Use ~sass input.scss output.css --style=compressed~
     (nori-site--generate-rss nori-site--entry-index)
     (nori-site--generate-sitemap nori-site--entry-index)
     ))
-;;(nori-site--make-site)
+(nori-site--make-site)
 
 #+end_src
 
@@ -101,14 +102,23 @@ Use ~sass input.scss output.css --style=compressed~
 <<variables>>
 
 (defun test-entry-index ()
+  <<gather-items>>
   <<build-entry-index>>
   (nori-site--build-entry-index nori-site--contents-org-filename)
   )
+(defun test-rss ()
+  <<load-template>>
+  <<render-list>>
+  <<generate-rss>>
+  (nori-site--generate-rss nori-site--entry-index)
+  )
+
 ;;(test-entry-index)
+;;(test-rss)
 #+end_src
 
 #+RESULTS:
-: test-entry-index
+: Published RSS index.xml
 
 
 ** Variables
@@ -157,12 +167,39 @@ Set up variables
 #+RESULTS: variables
 : nori-site--entry-index
 
-** Build the entry index - all the metadata from the source org file (not the html or contents) + anything else needed to render pages
+** Gather items
+#+name: gather-items
+#+begin_src elisp 
+(defun nori-site--gather-items (parent-section-name index)
+  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site--entry-index."
+  ;; Gather items
+  (let ((items (copy-alist index))
+	(items-slugs nil))
+    (setq items (cl-remove-if-not
+		 (lambda (item)
+		   (let* ((metadata (cdr item))
+			  (parent (car (alist-get 'sections-slugs metadata)))
+			  (date (cdr (assoc 'date metadata)))
+			  )
+		     (and date (equal parent-section-name parent))))
+		 items))
+    ;; Sort by date descending
+    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
+    ;; Only return slugs in the right order
+    (dolist (item items)
+      (push (car item) items-slugs))
+    items-slugs))
+#+end_src
+
+#+RESULTS: get-items
+: nori-site--gather-items
+
+** Build the ENTRY INDEX- all the metadata from the source org file (not the html or contents) + anything else needed to render pages
 *** Build the index
 #+name: build-entry-index
 #+begin_src elisp :noweb strip-export
 <<traverse-ast-for-index>>
-<<add-listings-data-to-index>>
+<<add-listings-data-to-index>> ;; needs gather items
 <<find-adjacent-entries>>
 <<paginate>>
 <<add-tags-to-index>>
@@ -291,8 +328,8 @@ The INDEX contains only headlines with file-name and no TODO."
 
 *** Add listings data to index
 #+name: add-listings-data-to-index
-#+begin_src elisp :noweb strip-export
-<<gather-items>>
+#+begin_src elisp
+;; needs gather-items
 (defun nori-site--add-listings-data-to-index (index)
   "Add data about which entries are on a listing entry and how pages are."
   (cl-loop for entry in index
@@ -486,33 +523,6 @@ The INDEX contains only headlines with file-name and no TODO."
 
 #+RESULTS: paginate-list
 : nori-site--paginate-items
-** Gather items
-#+name: gather-items
-#+begin_src elisp 
-(defun nori-site--gather-items (parent-section-name index)
-  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site--entry-index."
-  ;; Gather items
-  (let ((items (copy-alist index))
-	(items-slugs nil))
-    (setq items (cl-remove-if-not
-		 (lambda (item)
-		   (let* ((metadata (cdr item))
-			  (parent (car (alist-get 'sections-slugs metadata)))
-			  (date (cdr (assoc 'date metadata)))
-			  )
-		     (and date (equal parent-section-name parent))))
-		 items))
-    ;; Sort by date descending
-    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-    ;; Only return slugs in the right order
-    (dolist (item items)
-      (push (car item) items-slugs))
-    items-slugs))
-#+end_src
-
-#+RESULTS: get-items
-: nori-site--gather-items
-
 ** Export subtree to html
 #+name: export-subtree-to-html
 #+begin_src elisp
@@ -545,13 +555,43 @@ The INDEX contains only headlines with file-name and no TODO."
 	  exported-html
 	  )))))
 #+end_src
+** Load template
+#+name: load-template
+#+begin_src elisp
+(defun nori-site--load-template (name)
+  "Load template NAME from the templates directory."
+  (with-temp-buffer
+    (insert-file-contents
+     (expand-file-name (concat name) nori-site--templates-dir))
+    (buffer-string)))
+#+end_src
+
+#+RESULTS: load-template
+: nori-site--load-template-from-block
+
+** Render template
+#+name: render-template
+#+begin_src elisp
+(defun nori-site--render-template (template-string replacements)
+  "Replace PLACEHOLDERS in TEMPLATE_STRING using REPLACEMENTS alist.
+REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
+  (let ((result template-string))
+    (dolist (pair replacements)
+      (setq result (replace-regexp-in-string
+		    (car pair)
+		    (or (cdr pair) "")
+		    result
+		    t t))) ; case-sensitive, literal match
+    result)) 
+#+end_src
+
+#+RESULTS: render-template
+: nori-site--render-template
 
 ** Render all pages
 #+name: render-all-pages
 #+begin_src elisp :noweb strip-export
 <<export-subtree-to-html>>
-<<generate-archive-sidebar>>
-<<render-tag-cloud>>
 <<generate-page>>
 (defun nori-site--render-all-pages (org-buffer archive-html tag-cloud-html)
   "Iterate over 'nori-site--entry-index', which contains all the entries parsed from org-file, and render each page."
@@ -677,7 +717,8 @@ The INDEX contains only headlines with file-name and no TODO."
 #+RESULTS: generate-archive-sidebar
 : nori-site--generate-archive-sidebar
 
-** Generate page
+** Generate page and related 
+*** Generate page
 #+name: generate-page
 #+begin_src elisp :noweb strip-export
 <<load-template>>
@@ -787,20 +828,6 @@ The INDEX contains only headlines with file-name and no TODO."
 	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site--render-pagination metadata))))
     (nori-site--render-template template replacements)))
 #+end_src
-*** Load template
-#+name: load-template
-#+begin_src elisp
-(defun nori-site--load-template (name)
-  "Load template NAME from the templates directory."
-  (with-temp-buffer
-    (insert-file-contents
-     (expand-file-name (concat name) nori-site--templates-dir))
-    (buffer-string)))
-#+end_src
-
-#+RESULTS: load-template
-: nori-site--load-template-from-block
-
 *** Build menu
 #+name: build-menu
 #+begin_src elisp 
@@ -890,7 +917,6 @@ used to add the active class."
 *** Render list
 #+name: render-list
 #+begin_src elisp 
-
 (defun nori-site--render-list (index listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site--load-template listing-template-name))
 	       (list-html ""))
@@ -1019,25 +1045,6 @@ used to add the active class."
 
 #+RESULTS: render-pagination
 : nori-site--render-pagination
-*** Render template
-#+name: render-template
-#+begin_src elisp
-(defun nori-site--render-template (template-string replacements)
-  "Replace PLACEHOLDERS in TEMPLATE_STRING using REPLACEMENTS alist.
-REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
-  (let ((result template-string))
-    (dolist (pair replacements)
-      (setq result (replace-regexp-in-string
-		    (car pair)
-		    (or (cdr pair) "")
-		    result
-		    t t))) ; case-sensitive, literal match
-    result)) 
-#+end_src
-
-#+RESULTS: render-template
-: nori-site--render-template
-
 ** Generate 404
 #+name: generate-404
 #+begin_src elisp
@@ -1076,9 +1083,6 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
 ** Generate RSS
 #+name: generate-rss
 #+begin_src elisp :noweb strip-export
-<<load-template>>
-<<generate-page>>
-<<variables>>
 (defun nori-site--generate-rss (index)
   (let* ((file-name "index.xml")
 	 (file-path-file (concat nori-site--publish-directory "post/" file-name))
@@ -1097,7 +1101,6 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
       (insert page))
     (message "Published RSS index.xml"))
     )
-;(nori-site--generate-rss nori-site--entry-index)
 #+end_src
 
 #+RESULTS: generate-rss

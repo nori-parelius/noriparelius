@@ -39,7 +39,25 @@
 
 (defvar nori-site--entry-index nil
   "Alist of (SLUG . METADATA-ALIST) for all entries.")
-
+(defun nori-site--gather-items (parent-section-name index)
+  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site--entry-index."
+  ;; Gather items
+  (let ((items (copy-alist index))
+	(items-slugs nil))
+    (setq items (cl-remove-if-not
+		 (lambda (item)
+		   (let* ((metadata (cdr item))
+			  (parent (car (alist-get 'sections-slugs metadata)))
+			  (date (cdr (assoc 'date metadata)))
+			  )
+		     (and date (equal parent-section-name parent))))
+		 items))
+    ;; Sort by date descending
+    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
+    ;; Only return slugs in the right order
+    (dolist (item items)
+      (push (car item) items-slugs))
+    items-slugs))
 (defun nori-site--extract-headline-meta (headline)
   "Extract metadata alist from one HEADLINE node.
 Assumes to only get headlines that have an export_file_name, in order not to include subheadings and not even sections, those will be handled through files." 
@@ -134,25 +152,7 @@ The INDEX contains only headlines with file-name and no TODO."
 					; Push to index
 	      (push (cons slug meta) index))))))
     index))
-(defun nori-site--gather-items (parent-section-name index)
-  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site--entry-index."
-  ;; Gather items
-  (let ((items (copy-alist index))
-	(items-slugs nil))
-    (setq items (cl-remove-if-not
-		 (lambda (item)
-		   (let* ((metadata (cdr item))
-			  (parent (car (alist-get 'sections-slugs metadata)))
-			  (date (cdr (assoc 'date metadata)))
-			  )
-		     (and date (equal parent-section-name parent))))
-		 items))
-    ;; Sort by date descending
-    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-    ;; Only return slugs in the right order
-    (dolist (item items)
-      (push (car item) items-slugs))
-    items-slugs))
+;; needs gather-items
 (defun nori-site--add-listings-data-to-index (index)
   "Add data about which entries are on a listing entry and how pages are."
   (cl-loop for entry in index
@@ -165,7 +165,7 @@ The INDEX contains only headlines with file-name and no TODO."
 	     (setf (alist-get 'list-items metadata) list-items)
 	     (setf (alist-get 'list-all-items metadata) list-items)))
   
-  index)
+  index) ;; needs gather items
 (defun nori-site--find-adjacent-entries (index)
   (cl-loop for entry in index
 	   for metadata = (cdr entry)
@@ -340,53 +340,6 @@ The INDEX contains only headlines with file-name and no TODO."
 	(setq nori-site--entry-index index)
 	(message "Indexed %d entries." (length index))
 	index))))
-;;(defun nori-site--gather-items (parent-section-name index)
-;;  "Gather all items with a given PARENT-SECTION-NAME into an INDEX alist of the same form as nori-site--entry-index."
-;;  ;; Gather items
-;;  (let ((items (copy-alist index))
-;;	(items-slugs nil))
-;;    (setq items (cl-remove-if-not
-;;		 (lambda (item)
-;;		   (let* ((metadata (cdr item))
-;;			  (parent (car (alist-get 'sections-slugs metadata)))
-;;			  (date (cdr (assoc 'date metadata)))
-;;			  )
-;;		     (and date (equal parent-section-name parent))))
-;;		 items))
-;;    ;; Sort by date descending
-;;    (sort items (lambda (a b) (string> (alist-get 'date (cdr a)) (alist-get 'date (cdr b)))))
-;;    ;; Only return slugs in the right order
-;;    (dolist (item items)
-;;      (push (car item) items-slugs))
-;;    items-slugs))
-(defun nori-site--export-subtree-to-html (buffer begin)
-  "Export a subtree contents to HTML with debugging."
-  (with-current-buffer buffer
-    (save-excursion ;saves buffer selection and point
-      (save-restriction ;saves narrowing state
-	(goto-char begin)
-					;(message "DEBUG: At point: %s" (buffer-substring (line-beginning-position) (line-end-position)))
-	(let ((exported-html nil)
-	      (export-buffer
-	       (org-html-export-as-html
-		nil       ; async
-		t         ; subtreep
-		nil       ; visible-only
-		t         ; body-only
-		'(:with-toc nil
-			    :section-numbers nil)       ; ext-plist default nil
-		)))
-	  (unwind-protect
-              (setq exported-html
-		    (with-current-buffer export-buffer
-		      (buffer-string)))
-	    (kill-buffer export-buffer))
-					;(message "DEBUG: Exported html length: %d" (length exported-html))
-	  ;; Fix image links, they need and extra / src="img -> src="\img
-	  (setq exported-html (replace-regexp-in-string "src=\"img" "src=\"\\\\img" exported-html))
-	  
-	  exported-html
-	  )))))
 
 (defun nori-site--generate-archive-sidebar (index posts)
   "Generate the HTML for the year archive sidebar using an alist of sorted POSTS"
@@ -470,6 +423,34 @@ The INDEX contains only headlines with file-name and no TODO."
     html
   ))
 ;(nori-site--render-tag-cloud nori-site--entry-index)
+(defun nori-site--export-subtree-to-html (buffer begin)
+  "Export a subtree contents to HTML with debugging."
+  (with-current-buffer buffer
+    (save-excursion ;saves buffer selection and point
+      (save-restriction ;saves narrowing state
+	(goto-char begin)
+					;(message "DEBUG: At point: %s" (buffer-substring (line-beginning-position) (line-end-position)))
+	(let ((exported-html nil)
+	      (export-buffer
+	       (org-html-export-as-html
+		nil       ; async
+		t         ; subtreep
+		nil       ; visible-only
+		t         ; body-only
+		'(:with-toc nil
+			    :section-numbers nil)       ; ext-plist default nil
+		)))
+	  (unwind-protect
+              (setq exported-html
+		    (with-current-buffer export-buffer
+		      (buffer-string)))
+	    (kill-buffer export-buffer))
+					;(message "DEBUG: Exported html length: %d" (length exported-html))
+	  ;; Fix image links, they need and extra / src="img -> src="\img
+	  (setq exported-html (replace-regexp-in-string "src=\"img" "src=\"\\\\img" exported-html))
+	  
+	  exported-html
+	  )))))
 (defun nori-site--load-template (name)
   "Load template NAME from the templates directory."
   (with-temp-buffer
@@ -536,7 +517,6 @@ used to add the active class."
 ;;   (length years)
 ;;   (dolist (year years)
 ;;     (message "title %s" (alist-get 'title (cdr year)))))
-
 
 (defun nori-site--render-list (index listing-template-name list-items org-buffer get-htmlp get-im-size-p)
   (let* ((listing-template (nori-site--load-template listing-template-name))
@@ -827,354 +807,6 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
     (with-temp-file file-path-file
       (insert page)))
   (message "Published 404"))
-(defun nori-site--load-template (name)
-  "Load template NAME from the templates directory."
-  (with-temp-buffer
-    (insert-file-contents
-     (expand-file-name (concat name) nori-site--templates-dir))
-    (buffer-string)))
-(defun nori-site--load-template (name)
-  "Load template NAME from the templates directory."
-  (with-temp-buffer
-    (insert-file-contents
-     (expand-file-name (concat name) nori-site--templates-dir))
-    (buffer-string)))
-(defun nori-site--build-menu (page-slug)
-  "Build a flat HTML menu.
-CURRENT-FILE is the EXPORT_FILE_NAME of the page being rendered,
-used to add the active class."
-  (let ((menu-items '(("Home" . "/")
-		      ("Posts" . "/post/")
-		      ("Fiction" . "/alphabet-superset/")
-		      ("Microblog" . "/microblog/2026/")))
-	(html "  <nav class=\"site-nav\">\n    <ul>\n")
-	)
-
-    ;; Build the HTML string
-    (dolist (item menu-items)
-      (let* ((title (car item))
-	     (menu-url (cdr item))
-	     (is-active (and page-slug (string= page-slug menu-url)))
-	     (attrs (if is-active
-                        "aria-current=\"page\" class=\"active\""
-                      "")))
-        (setq html
-              (concat html
-                      (format "    <li>\n      <a %s href=\"%s\">%s</a>\n    </li>\n"
-                              attrs menu-url title)))))
-    (setq html (concat html "    </ul>\n  </nav>"))
-    html))
-(defun nori-site--generate-tag-list (tags)
-  "Generate the html for the tag list from a TAGS list for a given item."
-  (let* ((html "")
-	 (tag-list (split-string tags ":" t))
-	 (formatted-tag-list (mapcar (lambda (tag)
-				       (replace-regexp-in-string "__" " " tag))
-				     tag-list)))
-    (dolist (tag formatted-tag-list)
-      (let* ((url-tag (replace-regexp-in-string " " "-" tag))
-	     (url (concat "/" "tag" "/" url-tag)))
-					;(message "tag is %s and url is %s" tag url)
-	(setq html (concat html "<li><a href=\"" url "\">" tag "</a></li>\n"))))
-    html))
-(nori-site--generate-tag-list ":one__one:two:three:")
-(defun nori-site--get-microblog-years (index)
-  "Gather all microblog year section pages into an INDEX alist of the same form as nori-site--entry-index."
-  (let ((items (copy-alist index))
-	(items-slugs nil))
-    (setq items (cl-remove-if-not
-		 (lambda (item)
-		   (let* ((metadata (cdr item))
-			  (parent (car (last (alist-get 'sections-slugs metadata))))
-			  (date (cdr (assoc 'date metadata)))
-			  )
-		     (and (not date) (equal "microblog" parent))))
-		 items))
-    (sort items (lambda (a b) (string< (alist-get 'title (cdr a)) (alist-get 'title (cdr b)))))
-    (dolist (item items)
-      (push (car item) items-slugs))
-    items-slugs))
-
-;; (let ((years (nori-site--get-microblog-years nori-site--entry-index)))
-;;   (length years)
-;;   (dolist (year years)
-;;     (message "title %s" (alist-get 'title (cdr year)))))
-
-
-(defun nori-site--render-list (index listing-template-name list-items org-buffer get-htmlp get-im-size-p)
-  (let* ((listing-template (nori-site--load-template listing-template-name))
-	       (list-html ""))
-	  (dolist (item-slug list-items)
-	    (let* ((item (assoc item-slug index))
-		   (item-html (if get-htmlp (nori-site--export-subtree-to-html org-buffer (alist-get 'begin (cdr item)))
-				""))
-		   (item-date (alist-get 'date (cdr item)))
-		   (item-wordcount (alist-get 'wordcount (cdr item)))
-		   (f-image (alist-get 'f-image (cdr item)))
-		   (item-replacements
-		    `(("{{ITEM_URL}}" . ,(concat "/" (alist-get 'slug (cdr item))))
-		      ("{{ITEM_CANONICAL_URL}}" . ,(concat nori-site--base-url (alist-get 'slug (cdr item))))
-		      ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr item)))
-		      ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr item)))
-		      ("{{ITEM_FULL_FEATURED_IMAGE}}" . ,(when f-image (concat nori-site--base-url (substring f-image 1))))
-		      ("{{IMAGE_EXT}}" . ,(when f-image (file-name-extension f-image)))
-		      ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr item)))
-		      ("{{ITEM_DATE}}" . ,item-date)
-		      ("{{ITEM_DATE_HUMAN}}" . ,(when item-date (format-time-string "%B %d, %Y" (date-to-time item-date))))
-		      ("{{ITEM_DATE_RFC822}}" . ,(when item-date (format-time-string "%a, %d %b %Y %H:%M:%S %Z" (apply #'encode-time (decode-time (date-to-time item-date))) "GMT")))
-		      ("{{ITEM_READING_TIME}}" . ,(when item-wordcount (int-to-string (/ item-wordcount 238))))
-		      ("{{ITEM_WORDCOUNT}}" . ,(when item-wordcount (int-to-string item-wordcount)))
-		      ("{{ITEM_DESCRIPTION}}" . ,(alist-get 'description (cdr item)))
-		      ("{{ITEM_CONTENTS}}" . ,item-html)
-		      ("{{SITE_TITLE}}" . ,nori-site--title)
-		      ("{{HOME_URL}}" . "/")
-		      ("{{IM_SIZE}}" . ,(when (and get-im-size-p f-image)
-					  (int-to-string (nth 7 (file-attributes (concat nori-site--publish-directory (substring f-image 1)))))))
-		      )))
-	      (setq list-html (concat list-html "\n" (nori-site--render-template listing-template item-replacements)))))
-	  list-html))
-(defun nori-site--get-microblog-years (index)
-  "Gather all microblog year section pages into an INDEX alist of the same form as nori-site--entry-index."
-  (let ((items (copy-alist index))
-	(items-slugs nil))
-    (setq items (cl-remove-if-not
-		 (lambda (item)
-		   (let* ((metadata (cdr item))
-			  (parent (car (last (alist-get 'sections-slugs metadata))))
-			  (date (cdr (assoc 'date metadata)))
-			  )
-		     (and (not date) (equal "microblog" parent))))
-		 items))
-    (sort items (lambda (a b) (string< (alist-get 'title (cdr a)) (alist-get 'title (cdr b)))))
-    (dolist (item items)
-      (push (car item) items-slugs))
-    items-slugs))
-
-;; (let ((years (nori-site--get-microblog-years nori-site--entry-index)))
-;;   (length years)
-;;   (dolist (year years)
-;;     (message "title %s" (alist-get 'title (cdr year)))))
-
-(defun nori-site--render-microblog-pagination (metadata index subtlep)
-  (let* ((micro-years (nori-site--get-microblog-years index))
-	 (current-title (alist-get 'title metadata))
-	 (link-class (if subtlep "page-link-subtle"
-		       "page-link"))
-         html)
-    (if subtlep (setq html "<nav class=\"pagination-subtle\">")
-      (setq html "<nav class=\"pagination\">"))
-    
-    (dolist (year-slug micro-years)
-      (let* ((year (assoc year-slug index))
-	     (year-title (alist-get 'title (cdr year)))
-	     (year-slug (concat "/" (alist-get 'slug (cdr year)))))
-	(if (string= year-title current-title)
-	    (setq html (concat html (format "<a href=\"%s\" class=\"%s\">%s</a>" year-slug link-class year-title)))
-	  (setq html (concat html (format "<a href=\"%s\" class=\"%s\">%s</a>" year-slug link-class year-title))))))
-    (setq html (concat html "</nav>"))
-    html)
-  )
-(defun nori-site--render-pagination (metadata)
-  (let* ((page-number (alist-get 'page-number metadata))
-         (total-pages (alist-get 'total-pages metadata))
-	 (base-slug (concat "/" (alist-get 'base-slug metadata)))
-         (slug (concat "/" (alist-get 'slug metadata)))
-	 (prev-slug (if (= page-number 2) base-slug
-		      (concat base-slug "page/" (int-to-string (- page-number 1)) "/")))
-	 (next-slug (concat base-slug "page/" (int-to-string (+ page-number 1)) "/"))
-	 (last-slug (concat base-slug "page/" (int-to-string total-pages) "/"))
-         (slots 5) ;; Number of page numbers to show
-         (start-page (max 1 (- page-number (floor (/ slots 2)))))
-         (end-page (min total-pages (+ start-page slots 1)))
-         html)
-    (message "page-number %s" page-number)
-    ;; Adjust start/end if we don't have enough slots
-    (when (< (- end-page start-page) slots)
-      (setq start-page (max 1 (- end-page slots))))
-    
-    ;; Build pagination HTML
-    (setq html "<ul class=\"pagination pagination-default\">")
-    
-    ;; First button
-    (if (equal page-number 1)
-        (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"First\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">««</span></a></li>"))
-      (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"First\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">««</span></a></li>" base-slug))))
-    
-    ;; Previous button
-    (if (equal page-number 1)
-	(setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Previous\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">«</span></a></li>"))
-      (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Previous\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">«</span></a></li>" prev-slug)))
-      )
-    
-    ;; Page numbers
-    (cl-loop for page from start-page to end-page do
-             (if (= page page-number)
-                 (setq html (concat html (format "<li class=\"page-item active\"><a aria-current=\"page\" aria-label=\"Page %d\" class=\"page-link\" role =\"button\">%d</a></li>" page page)))
-               (let* ((page-slug (if (= page 1) base-slug
-                                   (concat base-slug "page/" (int-to-string page) "/"))))
-                 (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Page %d\" class=\"page-link\" role=\"button\">%d</a></li>" page-slug page page))))))
-    
-    ;; Next button
-    (if (equal page-number total-pages)
-	(setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Next\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">»</span></a></li>"))
-      (setq html (concat html (format  "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Next\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">»</span></a></li>" next-slug)))
-      )
-    
-    ;; Last button
-    (if (equal page-number total-pages)
-        (setq html (concat html "<li class=\"page-item disabled\"><a aria-disabled=\"true\" aria-label=\"Last\" class=\"page-link\" role=\"button\" tabindex=\"-1\"><span aria-hidden=\"true\">»»</span></a></li>"))
-      (setq html (concat html (format "<li class=\"page-item\"><a href=\"%s\" aria-label=\"Last\" class=\"page-link\" role=\"button\"><span aria-hidden=\"true\">»»</span></a></li>" last-slug))))
-    
-    (setq html (concat html "</ul>"))
-    html)
-  )
-
-(defun nori-site--render-template (template-string replacements)
-  "Replace PLACEHOLDERS in TEMPLATE_STRING using REPLACEMENTS alist.
-REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
-  (let ((result template-string))
-    (dolist (pair replacements)
-      (setq result (replace-regexp-in-string
-		    (car pair)
-		    (or (cdr pair) "")
-		    result
-		    t t))) ; case-sensitive, literal match
-    result)) 
-
-
-(defun nori-site--generate-page (index metadata html archive-html tag-cloud-html org-buffer)
-  "Generate a page using the template."
-  (let* ((layout (alist-get 'layout metadata))
-	 (title (alist-get 'title metadata))
-	 (file-name (alist-get 'file-name metadata))
-	 (slug (alist-get 'slug metadata))
-	 (f-image (alist-get 'f-image metadata))
-	 (f-alt (alist-get 'f-alt metadata))
-	 (description (alist-get 'description metadata))
-	 (sections-slugs (alist-get 'sections-slugs metadata))
-	 (section-slug (alist-get 'section-slug metadata))
-	 (sections-names (alist-get 'sections-names metadata))
-	 (template (if layout
-		       (nori-site--load-template layout)
-		     (nori-site--load-template (car sections-slugs))))
-	 (date (alist-get 'date metadata))
-	 (tags (alist-get 'tags metadata))
-	 (wordcount (alist-get 'wordcount metadata))
-	 (list-items (alist-get 'list-items metadata))
-	 (menu-html (nori-site--build-menu slug))
-	 (prev-item (alist-get 'prev-item metadata))
-	 (next-item (alist-get 'next-item metadata))
-	 
-	 (replacements
-	  `(("{{TITLE}}" . ,title)
-	    ("{{CONTENTS}}" . ,html)
-	    ("{{LANGUAGE_CODE}}" . ,nori-site--language-code)
-	    ("{{CANONICAL_URL}}" . ,(concat nori-site--base-url slug))
-	    ("{{URL}}" . ,(concat "/" slug))
-	    ("{{SECTION_TITLE}}" . ,(car sections-names))
-	    ("{{SECTION_URL}}" . ,(concat "/" section-slug))
-	    ("{{DATE}}" . ,date)
-	    ("{{DATE_HUMAN}}" . ,(when date (format-time-string "%B %d, %Y" (date-to-time date))))
-	    ("{{WORDCOUNT}}" . ,(when wordcount (int-to-string wordcount)))
-	    ;; Average reading speed is about 238 words/min
-	    ("{{READING_TIME}}" . ,(when wordcount (int-to-string (/ wordcount 238))))
-	    ("{{MENU_HTML}}" . ,menu-html)
-	    ("{{ARCHIVE}}" . ,archive-html)
-	    ("{{TAGCLOUD}}" . ,tag-cloud-html)
-	    ("{{CURRENT_YEAR}}" . ,(format-time-string "%Y"))
-	    ("{{FAVICON}}" . ,nori-site--favicon)
-	    ("{{SITE_NAME}}" . ,nori-site--title)
-	    ("{{FEATURED_IMAGE}}" . ,f-image)
-	    ("{{FEATURED_ALT}}" . ,f-alt)
-	    ("{{HOME_URL}}" . "/")
-	    ("{{SITE_LOGO_URL}}" . ,nori-site--logo)
-	    ("{{SITE_TITLE}}" . ,nori-site--title)
-	    ("{{PRIVACY_POLICY_LINK}}" . ,(concat "/" "privacy-policy"))
-	    ("{{DESCRIPTION}}" . ,description)
-	    ("{{PAGINATION}}" . "")
-	    ("{{PREVIOUS_LINK}}" . ,(if prev-item (concat "/" (alist-get 'slug (cdr (assoc prev-item index))))
-				      ""))
-	    ("{{NEXT_LINK}}" . ,(if next-item (concat "/" (alist-get 'slug (cdr (assoc next-item index))))
-				  ""))
-	    ("{{PREVIOUS_TITLE}}" . ,(if prev-item (concat "🡠  " (alist-get 'title (cdr (assoc prev-item index))))
-				       ""))
-	    ("{{NEXT_TITLE}}" . ,(if next-item (concat (alist-get 'title (cdr (assoc next-item index))) " 🡢")
-				   ""))
-	    ("{{TAGS}}" . ,(if tags (nori-site--generate-tag-list tags)
-			     ""))
-	    ("{{LAST_MICROBLOG_DESCRIPTION}}" . ,(when (string= slug "/")
-						   (let* ((micro-years (nori-site--get-microblog-years index))
-							  (last-year (assoc (car micro-years) index))
-							  (last-item-name (car (alist-get 'list-all-items (cdr last-year))))
-							  (last-item (assoc last-item-name index))
-							  (desc (alist-get 'description (cdr last-item))))
-						     desc)))
-	    ("{{RECENT_POSTS}}" . ,(when (string= slug "/") (nori-site--render-list index "summary-with-image-item.html" (take nori-site--featured-post-number (alist-get 'list-items (cdr (assoc "post/" index)))) org-buffer nil nil )))
-				     
-	    )))
-    (when (alist-get 'list-items metadata) ;; Only if it's a listing page
-
-      (let ((listing-template-name "")
-	    (microblogp nil))
-	(cond
-	 ((string= layout "default-section.html")
-	  (setq listing-template-name "default-listing-item.html"))
-	 ((string= "Poems" (car sections-names))
-	  (setq listing-template-name "poem-listing-item.html"))
-	 ((string= "Posts" (car sections-names))
-	  (setq listing-template-name "summary-with-image-item.html"))
-	 ((string= "Alphabet Superset" (car sections-names))
-	  (setq listing-template-name "summary-with-image-item.html"))
-	 ((string= layout "microblog-section.html")
-	  (setq listing-template-name "microblog-listing-item.html")
-	  (setq microblogp t)))
-	(setq replacements (append replacements `(("{{LIST}}" . ,(nori-site--render-list index listing-template-name list-items org-buffer microblogp nil)))))
-	(setf (alist-get '"{{SECTION_TITLE}}" replacements) (nth 1 (alist-get 'sections-names metadata)))
-	(setf (alist-get '"{{SECTION_URL}}" replacements) (concat "/" (string-join (reverse (cdr (alist-get 'sections-slugs metadata))) "/") "/"))
-	
-	(when microblogp
-	  (setq replacements (append replacements `(("{{MICRO_PAGINATION}}" . ,(nori-site--render-microblog-pagination metadata nori-site--entry-index nil)))))
-	  (setq replacements (append replacements `(("{{MICRO_PAGINATION_SUBTLE}}" . ,(nori-site--render-microblog-pagination metadata nori-site--entry-index t)))))))
-      (when (and (alist-get 'total-pages metadata) (> (alist-get 'total-pages metadata) 1)) ;; Only if it has pagination
-	(setf (alist-get '"{{PAGINATION}}" replacements) (nori-site--render-pagination metadata))))
-    (nori-site--render-template template replacements)))
-(defvar nori-site--base-url "https://www.noriparelius.com/"
-  "URL of the site.")
-(defvar nori-site--language-code "en"
-  "The language of the site.")
-(defvar nori-site--title "nori parelius"
-  "Title of the site.")
-(defvar nori-site--site-directory "~/Documents/noriparelius/"
-  "The directory that contains this file and is assumed to contain the site")
-(defvar nori-site--logo "/img/logo.svg"
-  "Name of the file with logo.")
-(defvar nori-site--description "Mess and wonder - Nori's digital notebook"
-  "Description of the site.")
-(defvar nori-site--favicon "/img/favicon.ico"
-  "Favicon.")
-(defvar nori-site--default-featured-image "/img/noriparelius.png"
-  "Default featured image.")
-(defvar nori-site--featured-post-number 5
-  "Number of posts included on the home page.")
-(defvar nori-site--post-pagination-page-size 10
-  "Number of posts included on each /post list page.")
-(defvar nori-site--literate-org-filename (concat nori-site--site-directory "nori-site.org")
-  "Filepath of the literate org-file that contains the code for the site.")
-(defvar nori-site--publish-directory (concat nori-site--site-directory "public/")
-  "Directory where published HTML files are stored.")
-(defvar nori-site--contents-org-filename (concat nori-site--site-directory "noriparelius.org")
-  "Filepath of the org file that holds the posts")
-(defvar nori-site--templates-dir (concat nori-site--site-directory "templates/")
-  "Filepath to the dir with the html templates.")
-(defvar nori-site--img-dir (concat nori-site--site-directory "img/")
-  "Filepath to img directiory.")
-(defvar nori-site--css-dir (concat nori-site--site-directory "css/")
-  "Filepath to css directory.")
-(defvar nori-site--fonts-dir (concat nori-site--site-directory "fonts/")
-  "Filepath to the fonts directory.")
-
-(defvar nori-site--entry-index nil
-  "Alist of (SLUG . METADATA-ALIST) for all entries.")
 (defun nori-site--generate-rss (index)
   (let* ((file-name "index.xml")
 	 (file-path-file (concat nori-site--publish-directory "post/" file-name))
@@ -1193,7 +825,6 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
       (insert page))
     (message "Published RSS index.xml"))
     )
-;(nori-site--generate-rss nori-site--entry-index)
 (defun nori-site--generate-sitemap (index)
   (let* ((file-name "sitemap.xml")
 	 (file-path-file (concat nori-site--publish-directory file-name))
@@ -1260,4 +891,4 @@ REPLACEMENTS is a list of (PLACEHOLDER . VALUE) pairs."
     (nori-site--generate-rss nori-site--entry-index)
     (nori-site--generate-sitemap nori-site--entry-index)
     ))
-;;(nori-site--make-site)
+(nori-site--make-site)
