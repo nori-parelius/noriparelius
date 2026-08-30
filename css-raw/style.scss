@@ -742,6 +742,24 @@ figcaption {
 }
 
 /* ~~~~~~ Footer ~~~~~~ */
+
+.badges-row {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-image: url('/img/flower-border.png');
+    background-size: contain;
+    background-repeat: repeat-x; 
+    justify-content: center;//space-around;
+    align-items: center;
+    margin: 0 1rem 1rem 1rem;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.15);
+}
+
+.badges-row div {
+    margin: 0.5rem;
+}
+
 footer {
     border-top: 2px solid var(--frame);
     margin-top: 0.5rem;
