@@ -2699,7 +2699,7 @@ Agency is attention. And trust.
 :END:
 Susanna Clarke's (debut!) novel Jonathan Strange and Mr Norrell is delightful, magical, and very difficult to describe.
 
-It's a book about a pair of magicians trying to return magic to an early 1800s alternative-universe England. It's half historical fantasy, half Gothic novel with Jane Austen vibes, half magical realism (I know it's too many halves, but that book is more than a sum of it's parts). It's meandering, wide and sprawling, but it satisfyingly meets itself in a single point at the end. It's full of magic that feels at the same time extraordinary and normal. It's slow and gripping. It's witty and detached and deeply involved and emotional. It's so well written. It's a real masterpiece.
+It's a book about a pair of magicians trying to return magic to an early 1800s alternative-universe England. It's half historical fantasy, half Gothic novel with Jane Austen vibes, half magical realism (I know it's too many halves, but that book is more than a sum of its parts). It's meandering, wide and sprawling, but it satisfyingly meets itself in a single point at the end. It's full of magic that feels at the same time extraordinary and normal. It's slow and gripping. It's witty and detached and deeply involved and emotional. It's so well written. It's a real masterpiece.
 
 When I first tried to read this book some 20 years ago (not long after it came out in 2004), I didn't get past page 200. Out of its almost 800 pages. It's a real chunk. It wasn't the book's fault though. What stopped me back then was that the character of Mr Norrell, who is the only protagonist for the first quarter of the book, is -- how to put it... -- not very inspiring. The book takes place in this incredible world of 19th century England where magic, fairies, and all that jazz is real, but nobody has been doing /practical/ magic for 300 years; the study of magic now limits itself to magical history. Until Norrell comes around, that is, and /does/ actual magic. Except he's a disagreeable grumpy old fart that makes everything sound super boring. And since my younger self had no patience for boring magic, nor disagreeable main characters, I gave up.
 
@@ -2710,6 +2710,39 @@ One thing I was incredibly curious about, was how the book would end. How could 
 I'm not going to spoil the ending of this 20-year old book for you. It wasn't one I expected, but it was /so/ beautiful. The ending was satisfying, and it had a slight taste of eucatastrophe (it's like the opposite of catastrophe -- a sudden turn of events, but a good one). I feel like a good eucatastrophe is hard to pull off, because it can feel like deus ex machina. But this one was so very earned. I closed the book and found myself in the real world that was suddenly much more magical than I have left it before I dove into this enchanting story. In that, it reminded me of Piranesi -- her second novel -- much, much shorter, very different, but just as perfect and magical. 
 
 Susanna Clarke is a master storyteller, and Jonathan Strange & Mr Norrell is well worth the read. 
+** You can't be transformed by a summary :reading:personal__growth:note__taking:zettelkasten:mental_health:
+:PROPERTIES:
+:EXPORT_FILE_NAME: transformed-summary
+:EXPORT_FEATURED_IMAGE: /img/featured_transformation.webp
+:EXPORT_FEATURED_ALT: A drawing of a winding path up a sharp mountain that seems to end at the moon.
+:EXPORT_DATE: 2026-09-06
+:EXPORT_LAYOUT: post
+:DESCRIPTION: Information was not the bottleneck. For information to have any effect on me, it has to live in me, merge with me, become mine. What I was looking for was an internal shift, a realisation, a change. But I was looking in all the wrong places. 
+:END:
+I used to be a typical bookworm kid, with my nose stuck in a book whenever I could. I lived for reading. As I got older and the demands kept piling up, I read less and less. The "good girl" that I was, I kept waiting for everything else to be done before I could sit down with a book. But as someone very smart once said, you have to steal the time for reading.
+
+A few years ago, I had a period when I got back into reading a lot of books again; I had joined a book club and we were reading a book a month, non-fiction, often about health with some other topics and self-help occasionally thrown in. I was keeping up with it and enjoying it. Until one day I didn't.
+
+At some point, I started feeling like my head was a balloon filled to the brink of bursting. There was /so much/ information. So many books I wanted to -- no, needed to -- read. I was [[https://www.noriparelius.com/post/way-out-of-burnout][struggling with long Covid at the time]], struggling with motivation, with energy, with health, with everything, and I kept finding all these books that seemed to contain answers to my problems. But there were too many, and I needed to fix myself faster, and I could never get around reading them all. And not only that, I had to try to keep up with all that information -- remember it all and act on it. Of course, I did at this point think to myself: This can be solved by an elaborate note-taking system that will remember everything for me! And so I entered my [[https://www.noriparelius.com/post/thiniking-in-an-overstimulating-world][Zettelkasten era]]. That didn't quite solve the problem though.
+
+The problem was that information was not the bottleneck in the first place. Not anymore, not these days. I don't know, maybe it never had been. How often do we know exactly what to do, we just can't seem to be able to do it? For information to have any effect on me, it has to live in me, merge with me, become mine. What I was looking for was an internal shift, a realisation, a change. It was more a feeling than a fact. But I was looking in all the wrong places.
+
+I finally snapped out of it when I got a trial subscription for one of those websites that provide curated summaries of various popular, mostly non-fiction, books. I needed the insights and I needed them now! I read half of a single summary, and felt like a complete idiot. Did I really not even have the time to read the book itself? What was I hoping to get from it? The advice, distilled to a few sentences, sounded so painfully obvious. So what now? What do I do with it? How do I act on it? That's when I stopped.
+
+The truth is, most solutions to problems are not about information or technique or the magical routine or the practical steps, but about the perspective shift that happens inside and changes the nature of the game itself. And you can't be transformed by a summary.
+
+Did you notice how the most profound truths in life, when summed up in a single sentence, invariably sound like horrible clichés? But wrap them in a story and they hit you right in the feels. Tolkien didn't use words to directly say that "everybody can make a difference", The Odyssey or The Wizard of Oz that "the journey matters more than the destination", Pride and Prejudice that "first impressions can be deceiving". Truth seems to live in the depths, in the context, in the particulars. Sum it up and you are left with an empty corpse.
+
+Sure, sometimes I just want information -- the pure, undisputed facts -- and those are often simple to come by. But more often than not, I am looking for a transformation, and that needs time, the right timing, attention, and depth. It has to take root in me, not just live as a scribble in my notebook.
+
+And while I have been prioritising fiction, good non-fiction works too. (I just read George Saunders's A Swim in a Pond in the Rain, and while it contains a bunch of fiction short stories that he analyses, the bulk is his thoughts on the art of writing and reading, and, frankly, living. And it's absolutely a gorgeous journey that can't be summed up.)
+
+And that's how I got back to slow reading -- fiction and non-fiction. Because a good book is all about the journey and it brings you along. Because it says more than what's on the page. Because it makes space for you to change, even if just a tiny bit. Because you can get lost in it. And found in it.
+
+PS: [[https://naomialderman.substack.com/p/couch-to-5k-for-reading-week-2][Naomi Alderman just ran an 8-week long 'Couch to 5K for reading programme]], which I am telling you about way too late, but it is never too late, so feel free to check it out, if you would like to get (back) into reading. It's lovely and motivating.
+
+/The image is The Path to the Moon by William T. Horton. Public domain./
+
 * Alphabet Superset :fiction:alphabet__superset:
 :PROPERTIES:
 :EXPORT_SECTION: alphabet-superset
