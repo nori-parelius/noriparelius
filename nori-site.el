@@ -533,7 +533,7 @@ used to add the active class."
 		      ("{{ITEM_CANONICAL_URL}}" . ,(concat nori-site--base-url (alist-get 'slug (cdr item))))
 		      ("{{ITEM_TITLE}}" . ,(alist-get 'title (cdr item)))
 		      ("{{ITEM_FEATURED_IMAGE}}" . ,(alist-get 'f-image (cdr item)))
-		      ("{{ITEM_FULL_FEATURED_IMAGE}}" . ,(when f-image (concat nori-site--base-url (substring f-image 1))))
+		      ;;("{{ITEM_FULL_FEATURED_IMAGE}}" . ,(when f-image (concat nori-site--base-url (substring f-image 1))))
 		      ("{{IMAGE_EXT}}" . ,(when f-image (file-name-extension f-image)))
 		      ("{{ITEM_FEATURED_ALT}}" . ,(alist-get 'f-alt (cdr item)))
 		      ("{{ITEM_DATE}}" . ,item-date)
