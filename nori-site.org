@@ -1152,23 +1152,14 @@ used to add the active class."
     <!-- Title -->
     <title>{{TITLE}}</title>
 
-    <!-- Static links (social, webmentions, etc) -->
-    <!-- Canonical link -->
-    <link rel="canonical" href="{{CANONICAL_URL}}"/>
-    <!-- Social rel="me" links -->
-    <link rel="me" href="https://medium.com/@nori.parelius" />
-    <link rel="me" href="https://substack.com/@noriparelius" />
-    <link rel="me" href="https://github.com/nori-parelius" />
-    <!-- Webmetions -->
-    <link rel="webmention" href="https://webmention.io/www.noriparelius.com/webmention"/>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
     <!-- Meta description -->
     <meta name="description" content="{{DESCRIPTION}}"/>
-
-
+    <!-- Canonical link -->
+    <link rel="canonical" href="{{CANONICAL_URL}}"/>
     <!-- Robots meta tag -->
     <meta name="robots" content="index, follow">
+
+    <!-- Static links (social, webmentions, etc) -->
 
     <!-- Open Graph metadata to control appearance when shared -->
     <meta property="og:url" content="{{URL}}">
@@ -1178,24 +1169,32 @@ used to add the active class."
     <meta property="og:locale" content="en">
     <meta property="og:image" content="{{FEATURED_IMAGE}}">
 
-
     <!-- Twitter cards for the same -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{FEATURED_IMAGE}}">
     <meta name="twitter:title" content="{{TITLE}}">
     <meta name="twitter:description" content="{{DESCRIPTION}}">
 
+    <!-- Social rel="me" links -->
+    <link rel="me" href="https://medium.com/@nori.parelius" />
+    <link rel="me" href="https://substack.com/@noriparelius" />
+    <link rel="me" href="https://github.com/nori-parelius" />
 
+    <!-- Webmetions -->
+    <link rel="webmention" href="https://webmention.io/www.noriparelius.com/webmention"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{FAVICON}}" />
+    
     <!-- RSS feed link -->
-    <!-- https://gohugo.io/templates/rss/ -->
-    <!--
-	{{- with .OutputFormats.Get "rss" -}}
-	{{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML -}}
-	{{- end -}}
-      -->
-
+    <link rel="alternate" type="application/rss+xml" title="Posts on noriparelius" href="https://www.noriparelius.com/post/index.xml">
+	
     <!-- Load css and js -->
     <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Alceris-->
+    <script src="https://alceris.com/script.js" data-id="8af49cc181625f3e" async defer></script>
 
 
   </head>
