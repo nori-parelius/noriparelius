@@ -1193,9 +1193,6 @@ used to add the active class."
     <!-- Load css and js -->
     <link rel="stylesheet" href="/css/style.css">
     
-    <!-- Alceris-->
-    <script src="https://alceris.com/script.js" data-id="8af49cc181625f3e" async defer></script>
-
 
   </head>
 
