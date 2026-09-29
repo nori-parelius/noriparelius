@@ -3699,6 +3699,17 @@ I have been trying to embrace more of my messy and "cringe" side. I don't want t
 :EXPORT_LAYOUT: microblog-section
 :END:
 
+
+*** September 29, 2026
+:PROPERTIES:
+:EXPORT_FILE_NAME: 2026-09-29
+:EXPORT_DATE: 2026-09-29
+:EXPORT_LAYOUT: microblog
+:DESCRIPTION: My favouritest band of all time -- Stornoway -- just came out with a new album and I finally got to listen to the whole thing. After the first listen-through, these two songs are my favourites: ...
+:END:
+
+My favouritest band of all time -- Stornoway -- just came out with a new album and I finally got to listen to the whole thing. After the first listen-through, these two songs are my favourites: [[https://www.youtube.com/watch?v=AZY_0tICFdg&pp=ygUZc3Rvcm5vd2F5IHJpdmVyIG9mIHZvaWNlcw%3D%3D][River of Voices (YouTube link)]] and [[https://www.youtube.com/watch?v=Ju7lNd2fVN0&list=PLaSYh4D3wVWw&index=7][The Honeyeater's Song (YouTube link)]]. But of course, that will probably change as I get to listen to the album more. 
+
 *** August 24, 2026
 :PROPERTIES:
 :EXPORT_FILE_NAME: 2026-08-24
@@ -3708,3 +3719,5 @@ I have been trying to embrace more of my messy and "cringe" side. I don't want t
 :END:
 
 For a while now, I have been feeling that there is just too much noise in the world. The internet is a waterfall of impressions that never stops and most of it isn't even that good/useful/beautiful. I have been craving something slower and more deliberate. I think maybe that is why I haven't written here since late last year. I feel bad about it and apologise to everyone who would have liked me to. I just didn't feel like adding to the noise. I didn't think I had so much to say. Nothing of essence, anyway. But I don't know, maybe I am back? On an internet where half of the content is now AI-generated, maybe it makes sense to add some human-made stuff. And anyway, I /do/ still like reading people's writing online -- I was applying this crazy bar of having to say something *exceptional* only to myself. Who am I to decide what others want to read? Maybe just how I look forward to some newsletters, maybe (maybe) some people look forward to mine. Not everything is about efficiency, novelty and whatever, sometimes it's about self-expression and connection. And there is nothing wrong with that. 
+
+
