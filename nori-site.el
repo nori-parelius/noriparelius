@@ -346,8 +346,8 @@ The INDEX contains only headlines with file-name and no TODO."
   ;; Create the archive html
   (let* ((html "<div class=\"year-archive\">")
          (prev-year nil)
-         (first-group t))
-    
+         (first-group t)
+	 (posts (reverse posts)))
     (dolist (post-slug posts)
       (let* ((post (assoc post-slug index))
 	     (meta (cdr post))
